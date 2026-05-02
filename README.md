@@ -24,15 +24,26 @@ project-root/
     ├── README.md             # Agent entry point + file manifest
     ├── settings.json         # Permissions & runtime config
     ├── rules/                # Modular instruction files
+    │   └── <rule-name>/
+    │       └── RULE.md
     ├── skills/               # Auto-invoking workflows
+    │   └── <skill-name>/
+    │       └── SKILL.md
     ├── commands/             # Custom slash commands
+    │   └── <command-name>/
+    │       └── COMMAND.md
     ├── agents/               # Subagent personas
+    │   └── <agent-persona>/
+    │       └── AGENT.md
     └── memory/               # Persistent agent memory
+        ├── decisions.md
+        ├── entities.md
+        └── index.md
 ```
 
 ## Examples
 
-This repo practices what it preaches — the [`.agents/`](./.agents) folder is the reference implementation. Every file inside is a working example of the standard applied to a real project. Browse it directly to see how rules, skills, commands, and memory files look in practice.
+This repo practices what it preaches — the [`.agents/`](./.agents) folder is the reference implementation. Every folder inside is a working example of the standard applied to a real project. Browse it directly to see how rules, skills, commands, and memory files look in practice.
 
 ## Core Principles
 
@@ -62,16 +73,16 @@ Write your agent instructions there. Add folders only when you have a reason to.
 
 ## Folder Reference
 
-| Path                    | Purpose                                          |
-| ----------------------- | ------------------------------------------------ |
-| `.agents/README.md`     | Entry point — system prompt + file manifest      |
-| `.agents/settings.json` | Permissions, tool access, runtime config         |
-| `.agents/rules/`        | Granular, composable instruction files           |
-| `.agents/skills/`       | Trigger-based auto-invoking workflows            |
-| `.agents/commands/`     | Explicit slash commands (`/review`, `/scaffold`) |
-| `.agents/agents/`       | Subagent personas (`@architect`, `@reviewer`)    |
-| `.agents/memory/`       | Persistent facts, decisions, and entities        |
-| `docs/<task>/`          | Per-task PRD, SPEC, ARCHITECTURE, TASKS          |
+| Path                    | Purpose                                          | File pattern                 |
+| ----------------------- | ------------------------------------------------ | ---------------------------- |
+| `.agents/README.md`     | Entry point — system prompt + file manifest      | `README.md`                  |
+| `.agents/settings.json` | Permissions, tool access, runtime config         | `settings.json`              |
+| `.agents/rules/`        | Granular, composable instruction files           | `rules/<name>/RULE.md`       |
+| `.agents/skills/`       | Trigger-based auto-invoking workflows            | `skills/<name>/SKILL.md`     |
+| `.agents/commands/`     | Explicit slash commands (`/review`, `/scaffold`) | `commands/<name>/COMMAND.md` |
+| `.agents/agents/`       | Subagent personas (`@architect`, `@reviewer`)    | `agents/<name>/AGENT.md`     |
+| `.agents/memory/`       | Persistent facts, decisions, and entities        | `memory/*.md`                |
+| `docs/<task>/`          | Per-task PRD, SPEC, ARCHITECTURE, TASKS          | `docs/<task>/*.md`           |
 
 ---
 

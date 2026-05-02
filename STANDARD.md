@@ -40,24 +40,20 @@ project-root/
     ├── settings.json          # Permissions, preferences, and runtime config
     │
     ├── rules/                 # Modular instruction files
-    │   ├── general.md
-    │   ├── code-style.md
-    │   └── security.md
+    │   └── <rule-name>/
+    │       └── RULE.md
     │
     ├── skills/                # Auto-invoking workflows (trigger → action)
-    │   ├── on-new-file.md
-    │   ├── on-commit.md
-    │   └── test-runner.md
+    │   └── <skill-name>/
+    │       └── SKILL.md
     │
     ├── commands/              # Custom slash commands
-    │   ├── review.md
-    │   ├── scaffold.md
-    │   └── deploy-check.md
+    │   └── <command-name>/
+    │       └── COMMAND.md
     │
     ├── agents/                # Subagent personas
-    │   ├── reviewer.md
-    │   ├── architect.md
-    │   └── debugger.md
+    │   └── <agent-persona>/
+    │       └── AGENT.md
     │
     └── memory/                # Persistent agent memory
         ├── decisions.md
@@ -97,9 +93,9 @@ The agent's entry point. Every runtime MUST load this file first. It serves two 
 
 | File                                  | Purpose              | Auto-load |
 | ------------------------------------- | -------------------- | --------- |
-| rules/code-style.md                   | Coding conventions   | yes       |
-| rules/security.md                     | Security constraints | yes       |
-| commands/review.md                    | /review command      | on-demand |
+| rules/code-style/RULE.md             | Coding conventions   | yes       |
+| rules/security/RULE.md               | Security constraints | yes       |
+| commands/review/COMMAND.md          | /review command      | on-demand |
 | memory/decisions.md                   | Past decisions log   | yes       |
 | ../docs/auth-redesign/ARCHITECTURE.md | Task architecture    | on-demand |
 ```
@@ -168,10 +164,10 @@ Granular, composable instruction files. Each file governs a single concern. Rule
 #### Naming Convention
 
 ```
-rules/<concern>.md
+rules/<name>/RULE.md
 ```
 
-Examples: `code-style.md`, `security.md`, `testing.md`, `git-workflow.md`, `api-conventions.md`
+Examples: `rules/code-style/RULE.md`, `rules/security/RULE.md`, `rules/testing/RULE.md`, `rules/git-workflow/RULE.md`, `rules/api-conventions/RULE.md`
 
 #### File Schema
 
@@ -207,10 +203,10 @@ Skills are pre-defined workflows that trigger automatically based on context sig
 #### Naming Convention
 
 ```
-skills/<trigger-event>.md
+skills/<name>/SKILL.md
 ```
 
-Examples: `on-new-file.md`, `on-test-fail.md`, `on-pr-open.md`, `on-commit.md`
+Examples: `skills/on-new-file/SKILL.md`, `skills/on-test-fail/SKILL.md`, `skills/on-pr-open/SKILL.md`, `skills/on-commit/SKILL.md`
 
 #### File Schema
 
@@ -233,7 +229,7 @@ Whenever a new `.ts` file is created in `src/`.
 
 1. Inspect the new file and identify exported functions/classes.
 2. Check if a corresponding `.test.ts` file exists in `src/__tests__/`.
-3. If not, generate a scaffold test file using the project's test conventions (see `rules/testing.md`).
+3. If not, generate a scaffold test file using the project's test conventions (see `rules/testing/RULE.md`).
 4. Notify the user: "Created test scaffold at `[path]`."
 
 ## Output
@@ -258,10 +254,10 @@ Explicit, user-invoked operations exposed as slash commands (e.g., `/review`, `/
 #### Naming Convention
 
 ```
-commands/<command-name>.md
+commands/<name>/COMMAND.md
 ```
 
-Examples: `review.md`, `scaffold.md`, `deploy-check.md`, `summarize.md`
+Examples: `commands/review/COMMAND.md`, `commands/scaffold/COMMAND.md`, `commands/deploy-check/COMMAND.md`, `commands/summarize/COMMAND.md`
 
 #### File Schema
 
@@ -290,7 +286,7 @@ args:
 ```
 
 ## Behavior
-1. Load `rules/code-style.md` and `rules/security.md`.
+1. Load `rules/code-style/RULE.md` and `rules/security/RULE.md`.
 2. Diff the target against `main` (or review the full file if untracked).
 3. Produce a structured review in the following format:
 
@@ -323,10 +319,10 @@ Specialized agent personas that can be invoked for specific tasks. Each subagent
 #### Naming Convention
 
 ```
-agents/<role>.md
+agents/<name>/AGENT.md
 ```
 
-Examples: `reviewer.md`, `architect.md`, `debugger.md`, `writer.md`, `security-auditor.md`
+Examples: `agents/reviewer/AGENT.md`, `agents/architect/AGENT.md`, `agents/debugger/AGENT.md`, `agents/writer/AGENT.md`, `agents/security-auditor/AGENT.md`
 
 #### File Schema
 
@@ -335,7 +331,7 @@ Examples: `reviewer.md`, `architect.md`, `debugger.md`, `writer.md`, `security-a
 name: Architect
 invoke: "@architect"
 description: Senior software architect focused on system design and technical decisions
-inherits: ["rules/general.md"]
+inherits: ["rules/general/RULE.md"]
 overrides:
   temperature: 0.2
   tools: ["file_read", "web_search"]
