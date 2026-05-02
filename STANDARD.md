@@ -8,7 +8,7 @@
 
 ## Philosophy
 
-Agent behavior is code. It should be versioned, reviewed, modular, and readable by both humans and machines. The `.agents/` folder is the single source of truth for everything an LLM agent needs to operate within a project — permissions, instructions, skills, memory, commands, and documentation artifacts.
+Agent behavior is code. It should be versioned, reviewed, modular, and readable by both humans and machines. The `.agent/` folder is the single source of truth for everything an LLM agent needs to operate within a project — permissions, instructions, skills, memory, commands, and documentation artifacts.
 
 ### Core Principles
 
@@ -35,7 +35,7 @@ project-root/
 │   └── <another-task>/
 │       └── ...
 │
-└── .agents/
+└── .agent/
     ├── README.md              # Primary instruction file + table of contents
     ├── settings.json          # Permissions, preferences, and runtime config
     │
@@ -102,7 +102,7 @@ The agent's entry point. Every runtime MUST load this file first. It serves two 
 
 #### Rules
 
-- Must always be present in `.agents/`.
+- Must always be present in `.agent/`.
 - Must contain a `## Loaded Context` table listing all active files.
 - `Auto-load: yes` files are injected into every session. `on-demand` files are loaded only when relevant or explicitly invoked.
 - Keep it concise — this is a prompt, not a novel.
@@ -124,8 +124,8 @@ Machine-readable configuration controlling runtime behavior, permissions, and to
     "temperature": 0.3
   },
   "permissions": {
-    "read": ["src/**", "docs/**", ".agents/**"],
-    "write": ["src/**", "docs/**", ".agents/memory/**"],
+    "read": ["src/**", "docs/**", ".agent/**"],
+    "write": ["src/**", "docs/**", ".agent/memory/**"],
     "deny": ["**/.env", "**/secrets/**", "**/*.key"],
     "shell": {
       "allow": ["npm test", "npm run lint", "git status", "git diff"],
@@ -431,7 +431,7 @@ Persistent storage of facts, decisions, entities, and context that should surviv
 
 ### `docs/` — Project Documentation Artifacts
 
-Lives at the **project root**, not inside `.agents/`. Documentation is organized by task, feature, or epic — each gets its own subfolder. All files within a task folder are optional and created only when needed.
+Lives at the **project root**, not inside `.agent/`. Documentation is organized by task, feature, or epic — each gets its own subfolder. All files within a task folder are optional and created only when needed.
 
 #### Structure
 
@@ -537,7 +537,7 @@ graph TD
 
 #### Rules
 
-- `docs/` is **not** inside `.agents/`. It is a first-class project folder at the root.
+- `docs/` is **not** inside `.agent/`. It is a first-class project folder at the root.
 - Every task folder must have at least one document to justify its existence.
 - The agent references task docs using root-relative paths: `docs/user-auth/SPEC.md`.
 - Cross-task references are allowed but should be explicit: `See docs/api-v2-migration/ARCHITECTURE.md`.
@@ -551,7 +551,7 @@ graph TD
 
 ```
 
-.agents/
+.agent/
 └── README.md
 
 ```
@@ -564,7 +564,7 @@ Start with just a `README.md`. Write your agent instructions. Add folders as nee
 
 ```
 
-.agents/
+.agent/
 ├── README.md
 ├── settings.json
 ├── rules/
@@ -587,7 +587,7 @@ Add `skills/`, `commands/`, `agents/`, and `docs/<task>/` as the project matures
 
 A compliant runtime MUST:
 
-1. **Always load** `.agents/README.md` at session start.
+1. **Always load** `.agent/README.md` at session start.
 2. **Load `settings.json`** and enforce `permissions.deny` rules before any file operation.
 3. **Auto-inject** all files marked `Auto-load: yes` in `README.md`.
 4. **Trigger skills** whose `trigger.event` or `trigger.pattern` matches the current context.
@@ -613,8 +613,8 @@ A compliant runtime SHOULD:
 
 ## Security Considerations
 
-- `.agents/` should be committed to version control — it is project configuration, not secrets.
-- **Never** store API keys, tokens, or credentials in any `.agents/` file.
+- `.agent/` should be committed to version control — it is project configuration, not secrets.
+- **Never** store API keys, tokens, or credentials in any `.agent/` file.
 - `settings.json` `permissions.deny` should always include `**/.env` and `**/secrets/**`.
 - Memory files must be reviewed periodically to ensure no sensitive data has been inadvertently captured.
 - Subagent personas should have the minimum permissions necessary for their role.
@@ -623,7 +623,7 @@ A compliant runtime SHOULD:
 
 ## Reference Implementation
 
-This repository uses itself as the reference implementation. The `.agents/` folder at the root of this repo is a real, working example of the standard applied to its own development — governing how agents should assist with writing, reviewing, and evolving the spec itself.
+This repository uses itself as the reference implementation. The `.agent/` folder at the root of this repo is a real, working example of the standard applied to its own development — governing how agents should assist with writing, reviewing, and evolving the spec itself.
 
 ```
 
@@ -638,7 +638,7 @@ ai-agents-standard/ ← this repo
 │ └── <task>/
 │ └── \*.md
 │
-└── .agents/ ← reference implementation
+└── .agent/ ← reference implementation
 ├── README.md
 ├── settings.json
 ├── rules/
@@ -656,7 +656,7 @@ ai-agents-standard/ ← this repo
 
 ```
 
-Browse the [`.agents/`](./.agents) folder directly to see each file type as a working example.
+Browse the [`.agent/`](./.agent) folder directly to see each file type as a working example.
 
 ---
 
@@ -678,7 +678,7 @@ my-saas-app/
 │ ├── PRD.md
 │ └── TASKS.md
 │
-└── .agents/
+└── .agent/
 ├── README.md
 ├── settings.json
 ├── rules/

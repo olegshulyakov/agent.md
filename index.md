@@ -2,7 +2,7 @@
 
 **A portable, tool-agnostic file structure standard for LLM agents in software projects.**
 
-Agent behavior is code. It should be versioned, reviewed, modular, and readable by both humans and machines. The `.agents/` folder is the single source of truth for everything an LLM agent needs to operate within a project — permissions, instructions, skills, memory, commands, and documentation artifacts.
+Agent behavior is code. It should be versioned, reviewed, modular, and readable by both humans and machines. The `.agent/` folder is the single source of truth for everything an LLM agent needs to operate within a project — permissions, instructions, skills, memory, commands, and documentation artifacts.
 
 ---
 
@@ -29,7 +29,7 @@ project-root/
 │   └── <another-task>/
 │       └── ...
 │
-└── .agents/
+└── .agent/
     ├── README.md              # Agent entry point + file manifest
     ├── settings.json          # Permissions, preferences, runtime config
     │
@@ -74,25 +74,25 @@ project-root/
 
 ## Quick Reference
 
-### `.agents/README.md` — Entry Point
+### `.agent/README.md` — Entry Point
 
 The agent's system prompt and manifest. Every runtime loads this first. Contains a `## Loaded Context` table that tells the runtime what else to load and when.
 
-### `.agents/settings.json` — Permissions & Config
+### `.agent/settings.json` — Permissions & Config
 
 Declares what the agent can read, write, and execute. `permissions.deny` always wins.
 
 ```json
 {
   "permissions": {
-    "read": ["src/**", "docs/**", ".agents/**"],
-    "write": ["src/**", "docs/**", ".agents/memory/**"],
+    "read": ["src/**", "docs/**", ".agent/**"],
+    "write": ["src/**", "docs/**", ".agent/memory/**"],
     "deny": ["**/.env", "**/secrets/**"]
   }
 }
 ```
 
-### `.agents/rules/` — Instructions
+### `.agent/rules/` — Instructions
 
 Composable, single-concern instruction files. Each rule file targets a specific area: code style, testing conventions, security policy, git workflow.
 
@@ -111,7 +111,7 @@ priority: high
 ---
 ```
 
-### `.agents/skills/` — Auto-Invoking Workflows
+### `.agent/skills/` — Auto-Invoking Workflows
 
 Skills are the agent's reflexes — they trigger automatically based on events or file patterns, without the user asking.
 
@@ -121,7 +121,7 @@ skills/on-test-fail.md     → triggers when CI fails
 skills/on-commit.md        → triggers before/after a commit
 ```
 
-### `.agents/commands/` — Slash Commands
+### `.agent/commands/` — Slash Commands
 
 Explicit, user-invoked operations. Registered by the runtime and exposed via its invocation interface.
 
@@ -131,7 +131,7 @@ Explicit, user-invoked operations. Registered by the runtime and exposed via its
 /deploy-check        → pre-deployment checklist
 ```
 
-### `.agents/agents/` — Subagent Personas
+### `.agent/agents/` — Subagent Personas
 
 Specialized agents for specific roles. Invoked by `@mention`. Each carries its own identity, constraints, and optional permission overrides.
 
@@ -141,7 +141,7 @@ Specialized agents for specific roles. Invoked by `@mention`. Each carries its o
 @security     → OWASP-focused audit
 ```
 
-### `.agents/memory/` — Persistent Memory
+### `.agent/memory/` — Persistent Memory
 
 Structured, append-only files that persist facts across sessions. Treated as low-confidence context — informative, not authoritative.
 
@@ -170,7 +170,7 @@ docs/payment-integration/
 
 ## Examples
 
-This repo practices what it preaches. The [`.agents/`](./.agents) folder is the reference implementation — every file is a working example of the standard applied to a real project. Use it as a starting point: copy any file, drop it into your project, and adapt it.
+This repo practices what it preaches. The [`.agent/`](./.agent) folder is the reference implementation — every file is a working example of the standard applied to a real project. Use it as a starting point: copy any file, drop it into your project, and adapt it.
 
 ---
 
@@ -179,7 +179,7 @@ This repo practices what it preaches. The [`.agents/`](./.agents) folder is the 
 ### Start here (< 5 minutes)
 
 ```
-.agents/
+.agent/
 └── README.md
 ```
 
@@ -188,7 +188,7 @@ Write your agent instructions. That's it.
 ### Standard setup
 
 ```
-.agents/
+.agent/
 ├── README.md
 ├── settings.json
 ├── rules/
@@ -204,7 +204,7 @@ project-root/
 ├── docs/
 │   └── <task>/
 │       └── *.md
-└── .agents/
+└── .agent/
     ├── README.md
     ├── settings.json
     ├── rules/
@@ -220,11 +220,11 @@ project-root/
 
 A compliant runtime **MUST**:
 
-1. Load `.agents/README.md` at session start.
+1. Load `.agent/README.md` at session start.
 2. Enforce `permissions.deny` before any file operation.
 3. Auto-inject files marked `Auto-load: yes` in the manifest.
 4. Trigger skills matching the current event or file pattern.
-5. Register and expose commands from `.agents/commands/`.
+5. Register and expose commands from `.agent/commands/`.
 6. Prevent subagents from exceeding parent agent permissions.
 
 A compliant runtime **SHOULD**:
@@ -238,8 +238,8 @@ A compliant runtime **SHOULD**:
 
 ## Security
 
-- Commit `.agents/` to version control — it's configuration, not secrets.
-- **Never** store API keys, tokens, or credentials in `.agents/`.
+- Commit `.agent/` to version control — it's configuration, not secrets.
+- **Never** store API keys, tokens, or credentials in `.agent/`.
 - Always include `**/.env` and `**/secrets/**` in `permissions.deny`.
 - Review memory files periodically for inadvertent sensitive data.
 
