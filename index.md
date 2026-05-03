@@ -1,6 +1,6 @@
-# Agent Context Standard
+# Agent Context Constitution
 
-**A portable, tool-agnostic file structure standard for LLM agents in software projects.**
+**A portable, tool-agnostic file structure constitution for LLM agents in software projects.**
 
 Agent behavior is code. It should be versioned, reviewed, modular, and readable by both humans and machines. The `.agent/` folder is the single source of truth for everything an LLM agent needs to operate within a project — permissions, instructions, skills, memory, commands, and documentation artifacts.
 
@@ -10,7 +10,7 @@ Agent behavior is code. It should be versioned, reviewed, modular, and readable 
 
 Every team using LLM agents invents their own folder structure. Instructions live in random `.md` files, prompts are buried in config, and memory is nowhere. When the runtime changes or someone new joins the project, nothing is discoverable.
 
-This standard gives agents — and the humans working alongside them — a consistent, predictable home.
+This constitution gives agents — and the humans working alongside them — a consistent, predictable home.
 
 ---
 
@@ -170,7 +170,7 @@ docs/payment-integration/
 
 ## Examples
 
-This repo practices what it preaches. The [`.agent/`](./.agent) folder is the reference implementation — every file is a working example of the standard applied to a real project. Use it as a starting point: copy any file, drop it into your project, and adapt it.
+This repo practices what it preaches. The [`.agent/`](./.agent) folder is the reference implementation — every file is a working example of the constitution applied to a real project. Use it as a starting point: copy any file, drop it into your project, and adapt it.
 
 ---
 
@@ -185,7 +185,7 @@ This repo practices what it preaches. The [`.agent/`](./.agent) folder is the re
 
 Write your agent instructions. That's it.
 
-### Standard setup
+### Constitution setup
 
 ```
 .agent/
@@ -245,11 +245,11 @@ A compliant runtime **SHOULD**:
 
 ---
 
-## Full Specification
+## Full Constitution
 
-→ **[STANDARD.md](./STANDARD.md)**
+→ **[CONSTITUTION.md](./CONSTITUTION.md)**
 
 ---
 
 **Version 0.0.1 — Draft**
-_This standard is intentionally tool-agnostic. Runtimes may extend it provided they do not break compatibility with the core specification._
+_This constitution is intentionally tool-agnostic. Runtimes may extend it provided they do not break compatibility with the core specification._

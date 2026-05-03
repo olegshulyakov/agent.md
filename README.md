@@ -1,10 +1,10 @@
-# Agent Context Standard
+# Agent Context Constitution
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
-> A portable, tool-agnostic file structure standard for LLM agents in software projects.
+> A portable, tool-agnostic file structure constitution for LLM agents in software projects.
 
-Agent behavior is code. It should be versioned, reviewed, and readable by both humans and machines. This standard defines where agent instructions, rules, skills, memory, commands, and documentation live — consistently, across any project and any runtime.
+Agent behavior is code. It should be versioned, reviewed, and readable by both humans and machines. This constitution defines where agent instructions, rules, skills, memory, commands, and documentation live — consistently, across any project and any runtime.
 
 ---
 
@@ -43,7 +43,7 @@ project-root/
 
 ## Examples
 
-This repo practices what it preaches — the [`.agent/`](./.agent) folder is the reference implementation. Every folder inside is a working example of the standard applied to a real project. Browse it directly to see how rules, skills, commands, and memory files look in practice.
+This repo practices what it preaches — the [`.agent/`](./.agent) folder is the reference implementation. Every folder inside is a working example of the constitution applied to a real project. Browse it directly to see how rules, skills, commands, and memory files look in practice.
 
 ## Core Principles
 
@@ -66,8 +66,8 @@ The minimum viable setup is a single file:
 
 Write your agent instructions there. Add folders only when you have a reason to.
 
-→ **[Read the full specification](./STANDARD.md)**
-→ **[Browse the docs site](https://your-username.github.io/agents-standard)**
+→ **[Read the full constitution](./CONSTITUTION.md)**
+→ **[Browse the docs site](https://your-username.github.io/agents-constitution)**
 
 ---
 
@@ -93,4 +93,4 @@ Feedback, issues, and PRs welcome.
 
 ---
 
-_This standard is intentionally tool-agnostic. Runtimes may extend it provided they do not break compatibility with the core specification._
+_This constitution is intentionally tool-agnostic. Runtimes may extend it provided they do not break compatibility with the core specification._

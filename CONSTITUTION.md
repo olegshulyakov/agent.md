@@ -1,8 +1,8 @@
-# Agent Context Standard
+# Agent Context Constitution
 
 > **Version:** 0.0.1
 > **Status:** Draft
-> **Purpose:** A portable, tool-agnostic standard for structuring LLM agent context, memory, rules, and documentation inside any software project.
+> **Purpose:** A portable, tool-agnostic constitution for structuring LLM agent context, memory, rules, and documentation inside any software project.
 
 ---
 
@@ -15,7 +15,7 @@ Agent behavior is code. It should be versioned, reviewed, modular, and readable 
 - **Co-location** — Agent files live alongside the code they govern. No external dashboards required.
 - **Modularity** — Each concern (rules, skills, memory, docs) lives in its own folder and can be adopted incrementally.
 - **Composability** — Subagents, rules, and skills can be mixed and matched across projects.
-- **Portability** — The standard is tool-agnostic. It should work with any LLM agent runtime (Claude, Cursor, GPT, custom).
+- **Portability** — The constitution is tool-agnostic. It should work with any LLM agent runtime (Claude, Cursor, GPT, custom).
 - **Progressive disclosure** — Start with just a `README.md`. Add folders only when needed.
 
 ---
@@ -556,7 +556,7 @@ Start with just a `README.md`. Write your agent instructions. Add folders as nee
 
 ---
 
-### Standard Setup
+### Constitution Setup
 
 ```
 .agent/
@@ -599,9 +599,9 @@ A compliant runtime SHOULD:
 
 ## Versioning & Compatibility
 
-- This standard follows [Semantic Versioning](https://semver.org/).
-- The `settings.json` `version` field must match the major version of the standard in use.
-- Breaking changes to the standard require a major version bump.
+- This constitution follows [Semantic Versioning](https://semver.org/).
+- The `settings.json` `version` field must match the major version of the constitution in use.
+- Breaking changes to the constitution require a major version bump.
 
 ---
 
@@ -617,14 +617,14 @@ A compliant runtime SHOULD:
 
 ## Reference Implementation
 
-This repository uses itself as the reference implementation. The `.agent/` folder at the root of this repo is a real, working example of the standard applied to its own development — governing how agents should assist with writing, reviewing, and evolving the spec itself.
+This repository uses itself as the reference implementation. The `.agent/` folder at the root of this repo is a real, working example of the constitution applied to its own development — governing how agents should assist with writing, reviewing, and evolving the spec itself.
 
 ```
-ai-agents-standard/ ← this repo
+ai-agents-constitution/ ← this repo
 │
 ├── README.md
 ├── index.md
-├── STANDARD.md
+├── CONSTITUTION.md
 ├── LICENSE
 │
 ├── docs/
@@ -693,4 +693,4 @@ my-saas-app/
 
 ---
 
-*This standard is intentionally tool-agnostic. Implementations may extend it with runtime-specific features provided they do not break compatibility with this core specification.*
+*This constitution is intentionally tool-agnostic. Implementations may extend it with runtime-specific features provided they do not break compatibility with this core specification.*
