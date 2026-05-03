@@ -620,7 +620,7 @@ A compliant runtime SHOULD:
 This repository uses itself as the reference implementation. The `.agent/` folder at the root of this repo is a real, working example of the constitution applied to its own development — governing how agents should assist with writing, reviewing, and evolving the spec itself.
 
 ```
-ai-agents-constitution/ ← this repo
+agent.md/ ← this repo
 │
 ├── README.md
 ├── index.md
