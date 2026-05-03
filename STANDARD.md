@@ -533,8 +533,6 @@ graph TD
 **Decision:** Use short-lived JWTs (15min) with refresh token rotation.
 **Consequences:** Must implement token blacklist for revocation.
 
-```
-
 #### Rules
 
 - `docs/` is **not** inside `.agent/`. It is a first-class project folder at the root.
@@ -550,10 +548,8 @@ graph TD
 ### Minimal Setup (< 5 min)
 
 ```
-
 .agent/
 └── README.md
-
 ```
 
 Start with just a `README.md`. Write your agent instructions. Add folders as needs emerge.
@@ -563,7 +559,6 @@ Start with just a `README.md`. Write your agent instructions. Add folders as nee
 ### Standard Setup
 
 ```
-
 .agent/
 ├── README.md
 ├── settings.json
@@ -572,7 +567,6 @@ Start with just a `README.md`. Write your agent instructions. Add folders as nee
 │ └── code-style.md
 └── memory/
 └── decisions.md
-
 ```
 
 ---
@@ -626,7 +620,6 @@ A compliant runtime SHOULD:
 This repository uses itself as the reference implementation. The `.agent/` folder at the root of this repo is a real, working example of the standard applied to its own development — governing how agents should assist with writing, reviewing, and evolving the spec itself.
 
 ```
-
 ai-agents-standard/ ← this repo
 │
 ├── README.md
@@ -653,7 +646,6 @@ ai-agents-standard/ ← this repo
 └── memory/
 ├── index.md
 └── decisions.md
-
 ```
 
 Browse the [`.agent/`](./.agent) folder directly to see each file type as a working example.
@@ -663,7 +655,6 @@ Browse the [`.agent/`](./.agent) folder directly to see each file type as a work
 ## Example: Real Project Layout
 
 ```
-
 my-saas-app/
 ├── src/
 ├── tests/
@@ -698,10 +689,8 @@ my-saas-app/
 ├── index.md
 ├── decisions.md
 └── entities.md
-
 ```
 
 ---
 
 *This standard is intentionally tool-agnostic. Implementations may extend it with runtime-specific features provided they do not break compatibility with this core specification.*
-```
