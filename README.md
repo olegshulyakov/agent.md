@@ -88,7 +88,7 @@ Write your agent instructions there. Add folders only when you have a reason to.
 
 ## Status
 
-**Version:** 1.0.0 — Draft · [MIT License](./LICENSE)
+**Version:** 0.0.1 — Draft · [MIT License](./LICENSE)
 Feedback, issues, and PRs welcome.
 
 ---

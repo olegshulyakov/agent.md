@@ -251,5 +251,5 @@ A compliant runtime **SHOULD**:
 
 ---
 
-**Version 1.0.0 — Draft**
+**Version 0.0.1 — Draft**
 _This standard is intentionally tool-agnostic. Runtimes may extend it provided they do not break compatibility with the core specification._

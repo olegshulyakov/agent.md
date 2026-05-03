@@ -1,6 +1,6 @@
 # Agent Context Standard
 
-> **Version:** 1.0.0
+> **Version:** 0.0.1
 > **Status:** Draft
 > **Purpose:** A portable, tool-agnostic standard for structuring LLM agent context, memory, rules, and documentation inside any software project.
 
