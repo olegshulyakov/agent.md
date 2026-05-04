@@ -482,11 +482,11 @@ docs/
 #### Naming Convention
 
 ```
-docs/<task-name>/<DOCUMENT>.md
+docs/<task-name>/<document>.md
 ```
 
 - `<task-name>` — lowercase, hyphenated. Examples: `user-auth`, `payment-v2`, `PROJ-142`, `onboarding-flow`
-- `<DOCUMENT>` — UPPERCASE filename from the inventory above
+- `<document>` — uppercase, hyphenated. Examples: `PRD`, `SPEC`, `ARCHITECTURE`, `DESIGN`, `TASKS`, `CHANGELOG`, `GLOSSARY`
 
 #### `TASKS.md` Schema
 
@@ -542,8 +542,8 @@ graph TD
 
 - `docs/` is **not** inside `.agent/`. It is a first-class project folder at the root.
 - Every task folder must have at least one document to justify its existence.
-- The agent references task docs using root-relative paths: `docs/user-auth/SPEC.md`.
-- Cross-task references are allowed but should be explicit: `See docs/api-v2-migration/ARCHITECTURE.md`.
+- The agent references task docs using root-relative paths: `docs/user-auth/spec.md`.
+- Cross-task references are allowed but should be explicit: `See docs/api-v2-migration/architecture.md`.
 - Task folders should not be deleted when work completes — they serve as a historical record.
 
 ---
