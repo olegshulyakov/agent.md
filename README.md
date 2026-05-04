@@ -66,7 +66,7 @@ The minimum viable setup is a single file:
 Write your agent instructions there. Add folders only when you have a reason to.
 
 → **[Read the full playbook](./PLAYBOOK.md)**
-→ **[Browse the docs site](https://your-username.github.io/agent-playbook)**
+→ **[Browse the docs site](https://olegshulyakov.github.io/agent.md)**
 
 ---
 
