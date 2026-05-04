@@ -51,9 +51,8 @@ project-root/
     │   └── reviewer.md
     │
     └── memory/                # Persistent agent memory
-        ├── index.md
-        ├── decisions.md
-        └── entities.md
+        ├── MEMORY.md          # Long-term memory. Durable facts, preferences, and decisions
+        └── YYYY-MM-DD.md      # Daily notes. Running context and observations
 ```
 
 ---
@@ -146,9 +145,8 @@ Specialized agents for specific roles. Invoked by `@mention`. Each carries its o
 Structured, append-only files that persist facts across sessions. Treated as low-confidence context — informative, not authoritative.
 
 ```text
-memory/decisions.md   → architectural and technical decisions log
-memory/entities.md    → key people, services, and systems
-memory/index.md       → table of contents for all memory
+memory/MEMORY.md       → Long-term memory. Durable facts, preferences, and decisions
+memory/YYYY-MM-DD.md   → Daily notes. Running context and observations
 ```
 
 ### `docs/<task>/` — Task Documentation
@@ -194,7 +192,7 @@ Write your agent instructions. That's it.
 ├── rules/
 │   └── general.md
 └── memory/
-    └── decisions.md
+    └── MEMORY.md
 ```
 
 ### Full setup

@@ -56,9 +56,8 @@ project-root/
     │       └── AGENT.md
     │
     └── memory/                # Persistent agent memory
-        ├── decisions.md       # architectural and technical decisions log
-        ├── entities.md        # key people, services, and systems
-        └── index.md           # table of contents for all memory
+        ├── MEMORY.md          # Long-term memory. Durable facts, preferences, and decisions
+        └── YYYY-MM-DD.md      # Daily notes. Running context and observations
 ```
 
 ---
@@ -93,10 +92,10 @@ The agent's entry point. Every runtime MUST load this file first. It serves two 
 
 | File                                  | Purpose              | Auto-load |
 | ------------------------------------- | -------------------- | --------- |
-| rules/code-style/RULE.md             | Coding conventions   | yes       |
-| rules/security/RULE.md               | Security constraints | yes       |
-| commands/review/COMMAND.md          | /review command      | on-demand |
-| memory/decisions.md                   | Past decisions log   | yes       |
+| rules/code-style/RULE.md              | Coding conventions   | yes       |
+| rules/security/RULE.md                | Security constraints | yes       |
+| commands/review/COMMAND.md            | /review command      | on-demand |
+| memory/MEMORY.md                      | Long-term memory     | yes       |
 | ../docs/auth-redesign/ARCHITECTURE.md | Task architecture    | on-demand |
 ```
 
@@ -376,53 +375,60 @@ Persistent storage of facts, decisions, entities, and context that should surviv
 
 #### Recommended Files
 
-| File             | Purpose                                                |
-| ---------------- | ------------------------------------------------------ |
-| `index.md`       | Table of contents for memory — what is stored and when |
-| `decisions.md`   | Log of significant decisions made during the project   |
-| `entities.md`    | Key entities: people, systems, services, concepts      |
-| `errors.md`      | Recurring errors or gotchas the agent has encountered  |
-| `preferences.md` | User-specific preferences learned over time            |
+| File             | Purpose                                                     |
+| ---------------- | ----------------------------------------------------------- |
+| `MEMORY.md`      | Long-term memory. Durable facts, preferences, and decisions |
+| `YYYY-MM-DD.md`  | Daily notes. Running context and observations               |
 
-#### `decisions.md` Schema
+#### `MEMORY.md` Schema
 
 ```markdown
-# Decision Log
+# Memory
 
-## [2025-05-01] Use Postgres over MongoDB
+## Facts
+
+- **Project uses Postgres** — Primary database since 2025-01
+- **@alex is lead engineer** — Owns payment module
+
+## Preferences
+
+- **Code review** — Prefers concise PR reviews with clear action items
+- **Testing** — Requires 80% coverage minimum
+
+## Decisions
+
+### [2025-05-01] Use Postgres over MongoDB
 
 **Context:** Evaluating database for user profile storage.
-**Decision:** Chose Postgres for its relational integrity and better support for complex queries.
-**Alternatives considered:** MongoDB, DynamoDB
-**Rationale:** Schema is well-defined and relational; no need for document flexibility.
-**Revisit if:** We need to store unstructured event data at scale.
-
----
+**Decision:** Chose Postgres for its relational integrity.
+**Revisit if:** Need to store unstructured event data at scale.
 ```
 
-#### `entities.md` Schema
+#### `YYYY-MM-DD.md` Schema
 
 ```markdown
-# Entities
+# 2025-05-01
 
-## Services
+## Context
 
-- **AuthService** — Handles JWT issuance and validation. Lives in `src/auth/`.
-- **UserService** — CRUD for user profiles. Calls AuthService for session validation.
+Working on user authentication feature.
 
-## People
+## Observations
 
-- **@alex** — Lead engineer. Prefers concise PR reviews. Owns the payment module.
+- Found that JWT refresh token rotation is not implemented
+- AuthService currently lacks token blacklist
 
-## External Systems
+## Next Steps
 
-- **Stripe** — Payment processing. Webhook endpoint: `/api/webhooks/stripe`.
+- [ ] Implement JWT refresh token rotation
+- [ ] Add rate limiting to login endpoint
 ```
 
 #### Rules
 
 - Memory files are append-only by convention. Old entries should not be deleted, only superseded.
-- `index.md` must be updated whenever a new memory entry is added.
+- Use `MEMORY.md` for durable facts, preferences, and decisions that should persist long-term.
+- Create `YYYY-MM-DD.md` files for daily notes with running context and observations.
 - Memory should be treated as low-confidence context — the agent must not treat it as ground truth without verification.
 - Sensitive data (tokens, passwords, PII) must never be written to memory files.
 
@@ -565,7 +571,7 @@ Start with just a `README.md`. Write your agent instructions. Add folders as nee
 │ ├── general.md
 │ └── code-style.md
 └── memory/
-└── decisions.md
+    └── MEMORY.md
 ```
 
 ---
@@ -643,8 +649,7 @@ agent.md/ ← this repo
 ├── agents/
 │ └── spec-reviewer.md
 └── memory/
-├── index.md
-└── decisions.md
+    └── MEMORY.md
 ```
 
 Browse the [`.agent/`](./.agent) folder directly to see each file type as a working example.
@@ -685,9 +690,7 @@ my-saas-app/
 │ ├── architect.md # @architect — system design advisor
 │ └── security-auditor.md # @security — OWASP-focused review
 └── memory/
-├── index.md
-├── decisions.md
-└── entities.md
+    └── MEMORY.md
 ```
 
 ---
