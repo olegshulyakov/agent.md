@@ -30,29 +30,27 @@ project-root/
 │       └── ...
 │
 └── .agent/
-    ├── README.md              # Agent entry point + file manifest
-    ├── settings.json          # Permissions, preferences, runtime config
+    ├── README.md              # Primary instruction file + table of contents
     │
     ├── rules/                 # Modular instruction files
-    │   ├── general.md
-    │   ├── code-style.md
-    │   └── security.md
+    │   └── <rule-name>/
+    │       └── RULE.md
     │
     ├── skills/                # Auto-invoking workflows (trigger → action)
-    │   ├── on-new-file.md
-    │   └── on-commit.md
+    │   └── <skill-name>/
+    │       └── SKILL.md
     │
     ├── commands/              # Custom slash commands
-    │   ├── review.md
-    │   └── scaffold.md
+    │   └── <command-name>/
+    │       └── COMMAND.md
     │
     ├── agents/                # Subagent personas
-    │   ├── architect.md
-    │   └── reviewer.md
+    │   └── <agent-persona>/
+    │       └── AGENT.md
     │
     └── memory/                # Persistent agent memory
         ├── MEMORY.md          # Long-term memory. Durable facts, preferences, and decisions
-        └── YYYY-MM-DD.md      # Daily notes. Running context and observations
+        └── YYYY-MM-DD.md      # Daily notes (UTC timezone). Running context and observations
 ```
 
 ---
@@ -77,28 +75,14 @@ project-root/
 
 The agent's system prompt and manifest. Every runtime loads this first. Contains a `## Loaded Context` table that tells the runtime what else to load and when.
 
-### `.agent/settings.json` — Permissions & Config
-
-Declares what the agent can read, write, and execute. `permissions.deny` always wins.
-
-```json
-{
-  "permissions": {
-    "read": ["src/**", "docs/**", ".agent/**"],
-    "write": ["src/**", "docs/**", ".agent/memory/**"],
-    "deny": ["**/.env", "**/secrets/**"]
-  }
-}
-```
-
 ### `.agent/rules/` — Instructions
 
 Composable, single-concern instruction files. Each rule file targets a specific area: code style, testing conventions, security policy, git workflow.
 
 ```text
-rules/code-style.md
-rules/security.md
-rules/testing.md
+rules/code-style/RULE.md
+rules/security/RULE.md
+rules/testing/RULE.md
 ```
 
 Front matter controls when a rule is injected:
@@ -115,9 +99,9 @@ priority: high
 Skills are the agent's reflexes — they trigger automatically based on events or file patterns, without the user asking.
 
 ```text
-skills/on-new-file.md      → triggers when a file is created
-skills/on-test-fail.md     → triggers when CI fails
-skills/on-commit.md        → triggers before/after a commit
+skills/on-new-file/SKILL.md      → triggers when a file is created
+skills/on-test-fail/SKILL.md     → triggers when CI fails
+skills/on-commit/SKILL.md        → triggers before/after a commit
 ```
 
 ### `.agent/commands/` — Slash Commands
@@ -125,9 +109,9 @@ skills/on-commit.md        → triggers before/after a commit
 Explicit, user-invoked operations. Registered by the runtime and exposed via its invocation interface.
 
 ```text
-/review [target]     → structured code review
-/scaffold [name]     → generate boilerplate
-/deploy-check        → pre-deployment checklist
+commands/review/COMMAND.md       → /review — structured code review
+commands/scaffold/COMMAND.md     → /scaffold — generate boilerplate
+commands/deploy-check/COMMAND.md → /deploy-check — pre-deployment checklist
 ```
 
 ### `.agent/agents/` — Subagent Personas
@@ -135,9 +119,9 @@ Explicit, user-invoked operations. Registered by the runtime and exposed via its
 Specialized agents for specific roles. Invoked by `@mention`. Each carries its own identity, constraints, and optional permission overrides.
 
 ```text
-@architect    → system design and ADRs
-@reviewer     → code review and quality
-@security     → OWASP-focused audit
+agents/architect/AGENT.md        → @architect — system design and ADRs
+agents/reviewer/AGENT.md         → @reviewer — code review and quality
+agents/security-auditor/AGENT.md → @security — OWASP-focused audit
 ```
 
 ### `.agent/memory/` — Persistent Memory
@@ -146,7 +130,7 @@ Structured, append-only files that persist facts across sessions. Treated as low
 
 ```text
 memory/MEMORY.md       → Long-term memory. Durable facts, preferences, and decisions
-memory/YYYY-MM-DD.md   → Daily notes. Running context and observations
+memory/YYYY-MM-DD.md   → Daily notes (UTC timezone). Running context and observations
 ```
 
 ### `docs/<task>/` — Task Documentation
@@ -188,9 +172,9 @@ Write your agent instructions. That's it.
 ```text
 .agent/
 ├── README.md
-├── settings.json
 ├── rules/
-│   └── general.md
+│   └── general/
+│       └── RULE.md
 └── memory/
     └── MEMORY.md
 ```
@@ -204,7 +188,6 @@ project-root/
 │       └── *.md
 └── .agent/
     ├── README.md
-    ├── settings.json
     ├── rules/
     ├── skills/
     ├── commands/
@@ -218,28 +201,29 @@ project-root/
 
 A compliant runtime **MUST**:
 
-1. Load `.agent/README.md` at session start.
-2. Enforce `permissions.deny` before any file operation.
-3. Auto-inject files marked `Auto-load: yes` in the manifest.
-4. Trigger skills matching the current event or file pattern.
-5. Register and expose commands from `.agent/commands/`.
-6. Prevent subagents from exceeding parent agent permissions.
+1. Always load `.agent/README.md` at session start.
+2. Enforce permissions defined in `README.md` before any file operation.
+3. Auto-inject all files marked `Auto-load: yes` in `README.md`.
+4. Trigger skills whose `trigger.event` or `trigger.pattern` matches the current context.
+5. Register commands from `commands/` and expose them via the invocation interface.
+6. Respect subagent boundaries — a subagent must not exceed the parent agent's permissions.
 
 A compliant runtime **SHOULD**:
 
-- Warn when a manifest-referenced file does not exist.
-- Treat memory as low-confidence context.
-- Prompt before executing shell commands.
-- Validate `settings.json` on load.
+- Warn when a referenced file in `README.md` does not exist.
+- Surface memory from `memory/` as low-confidence context.
+- Prompt the user before executing any shell command.
+- Validate permissions configuration and report errors.
 
 ---
 
 ## Security
 
-- Commit `.agent/` to version control — it's configuration, not secrets.
-- **Never** store API keys, tokens, or credentials in `.agent/`.
-- Always include `**/.env` and `**/secrets/**` in `permissions.deny`.
-- Review memory files periodically for inadvertent sensitive data.
+- `.agent/` should be committed to version control — it is project configuration, not secrets.
+- **Never** store API keys, tokens, or credentials in any `.agent/` file.
+- Permissions configuration should always deny access to `**/.env` and `**/secrets/**`.
+- Memory files must be reviewed periodically to ensure no sensitive data has been inadvertently captured.
+- Subagent personas should have the minimum permissions necessary for their role.
 
 ---
 
