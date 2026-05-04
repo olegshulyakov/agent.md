@@ -37,7 +37,6 @@ project-root/
 │
 └── .agent/
     ├── README.md              # Primary instruction file + table of contents
-    ├── settings.json          # Permissions, preferences, and runtime config
     │
     ├── rules/                 # Modular instruction files
     │   └── <rule-name>/
@@ -105,54 +104,6 @@ The agent's entry point. Every runtime MUST load this file first. It serves two 
 - Must contain a `## Loaded Context` table listing all active files.
 - `Auto-load: yes` files are injected into every session. `on-demand` files are loaded only when relevant or explicitly invoked.
 - Keep it concise — this is a prompt, not a novel.
-
----
-
-### `settings.json` — Permissions & Preferences
-
-Machine-readable configuration controlling runtime behavior, permissions, and tool access.
-
-#### Schema
-
-```json
-{
-  "version": "1.0",
-  "agent": {
-    "name": "ProjectBot",
-    "model": "claude-sonnet-4",
-    "temperature": 0.3
-  },
-  "permissions": {
-    "read": ["src/**", "docs/**", ".agent/**"],
-    "write": ["src/**", "docs/**", ".agent/memory/**"],
-    "deny": ["**/.env", "**/secrets/**", "**/*.key"],
-    "shell": {
-      "allow": ["npm test", "npm run lint", "git status", "git diff"],
-      "deny": ["rm -rf", "git push --force", "curl *"]
-    }
-  },
-  "memory": {
-    "auto_save": true,
-    "max_entries": 500
-  },
-  "tools": {
-    "web_search": false,
-    "code_execution": true,
-    "file_write": true
-  },
-  "context_window": {
-    "auto_load_rules": true,
-    "auto_load_memory": true,
-    "max_docs_tokens": 8000
-  }
-}
-```
-
-#### Rules
-
-- Must be valid JSON or YAML (`.yaml` extension also accepted).
-- `permissions.deny` always takes precedence over `permissions.read` or `permissions.write`.
-- Shell commands in `allow` are exact-match prefixes unless a glob `*` is used.
 
 ---
 
@@ -364,7 +315,7 @@ Use structured Mermaid diagrams for system visualizations.
 
 - `invoke` defines the `@mention` syntax to activate the subagent.
 - `inherits` lists rule files that carry over from the parent agent.
-- `overrides` allows subagents to override top-level `settings.json` values (e.g., lower temperature for more deterministic output).
+- `overrides` allows subagents to override default runtime values (e.g., lower temperature for more deterministic output).
 - Subagents should not have broader permissions than the parent agent.
 
 ---
@@ -566,7 +517,6 @@ Start with just a `README.md`. Write your agent instructions. Add folders as nee
 ```
 .agent/
 ├── README.md
-├── settings.json
 ├── rules/
 │ ├── general/
 │ │ └── RULE.md
@@ -589,7 +539,7 @@ Add `skills/`, `commands/`, `agents/`, and `docs/<task>/` as the project matures
 A compliant runtime MUST:
 
 1. **Always load** `.agent/README.md` at session start.
-2. **Load `settings.json`** and enforce `permissions.deny` rules before any file operation.
+2. **Enforce permissions** defined in `README.md` before any file operation.
 3. **Auto-inject** all files marked `Auto-load: yes` in `README.md`.
 4. **Trigger skills** whose `trigger.event` or `trigger.pattern` matches the current context.
 5. **Register commands** from `commands/` and expose them via the invocation interface.
@@ -600,14 +550,13 @@ A compliant runtime SHOULD:
 - Warn when a referenced file in `README.md` does not exist.
 - Surface memory from `memory/` as low-confidence context.
 - Prompt the user before executing any shell command.
-- Validate `settings.json` against the schema and report errors.
+- Validate permissions configuration and report errors.
 
 ---
 
 ## Versioning & Compatibility
 
 - This playbook follows [Semantic Versioning](https://semver.org/).
-- The `settings.json` `version` field must match the major version of the playbook in use.
 - Breaking changes to the playbook require a major version bump.
 
 ---
@@ -616,7 +565,7 @@ A compliant runtime SHOULD:
 
 - `.agent/` should be committed to version control — it is project configuration, not secrets.
 - **Never** store API keys, tokens, or credentials in any `.agent/` file.
-- `settings.json` `permissions.deny` should always include `**/.env` and `**/secrets/**`.
+- Permissions configuration should always deny access to `**/.env` and `**/secrets/**`.
 - Memory files must be reviewed periodically to ensure no sensitive data has been inadvertently captured.
 - Subagent personas should have the minimum permissions necessary for their role.
 
@@ -640,7 +589,6 @@ agent.md/ ← this repo
 │
 └── .agent/ ← reference implementation
 ├── README.md
-├── settings.json
 ├── rules/
 │ ├── writing-style/
 │ │ └── RULE.md
@@ -682,7 +630,6 @@ my-saas-app/
 │
 └── .agent/
 ├── README.md
-├── settings.json
 ├── rules/
 │ ├── code-style/ # TypeScript conventions
 │ │ └── RULE.md
