@@ -568,8 +568,10 @@ Start with just a `README.md`. Write your agent instructions. Add folders as nee
 ├── README.md
 ├── settings.json
 ├── rules/
-│ ├── general.md
-│ └── code-style.md
+│ ├── general/
+│ │ └── RULE.md
+│ └── code-style/
+│     └── RULE.md
 └── memory/
     └── MEMORY.md
 ```
@@ -640,14 +642,19 @@ agent.md/ ← this repo
 ├── README.md
 ├── settings.json
 ├── rules/
-│ ├── writing-style.md
-│ └── contribution.md
+│ ├── writing-style/
+│ │ └── RULE.md
+│ └── contribution/
+│     └── RULE.md
 ├── skills/
-│ └── on-new-example.md
+│ └── on-new-example/
+│     └── SKILL.md
 ├── commands/
-│ └── validate.md
+│ └── validate/
+│     └── COMMAND.md
 ├── agents/
-│ └── spec-reviewer.md
+│ └── spec-reviewer/
+│     └── AGENT.md
 └── memory/
     └── MEMORY.md
 ```
@@ -677,18 +684,27 @@ my-saas-app/
 ├── README.md
 ├── settings.json
 ├── rules/
-│ ├── code-style.md # TypeScript conventions
-│ ├── testing.md # Test coverage requirements
-│ └── security.md # OWASP top-10 awareness
+│ ├── code-style/ # TypeScript conventions
+│ │ └── RULE.md
+│ ├── testing/ # Test coverage requirements
+│ │ └── RULE.md
+│ └── security/ # OWASP top-10 awareness
+│     └── RULE.md
 ├── skills/
-│ ├── on-new-file.md # Auto-scaffold test files
-│ └── on-test-fail.md # Diagnose CI failures
+│ ├── on-new-file/ # Auto-scaffold test files
+│ │ └── SKILL.md
+│ └── on-test-fail/ # Diagnose CI failures
+│     └── SKILL.md
 ├── commands/
-│ ├── review.md # /review — structured code review
-│ └── scaffold.md # /scaffold — generate boilerplate
+│ ├── review/ # /review — structured code review
+│ │ └── COMMAND.md
+│ └── scaffold/ # /scaffold — generate boilerplate
+│     └── COMMAND.md
 ├── agents/
-│ ├── architect.md # @architect — system design advisor
-│ └── security-auditor.md # @security — OWASP-focused review
+│ ├── architect/ # @architect — system design advisor
+│ │ └── AGENT.md
+│ └── security-auditor/ # @security — OWASP-focused review
+│     └── AGENT.md
 └── memory/
     └── MEMORY.md
 ```
