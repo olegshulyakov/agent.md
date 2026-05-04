@@ -57,7 +57,7 @@ project-root/
     │
     └── memory/                # Persistent agent memory
         ├── MEMORY.md          # Long-term memory. Durable facts, preferences, and decisions
-        └── YYYY-MM-DD.md      # Daily notes. Running context and observations
+        └── YYYY-MM-DD.md      # Daily notes (UTC timezone). Running context and observations
 ```
 
 ---
@@ -378,7 +378,7 @@ Persistent storage of facts, decisions, entities, and context that should surviv
 | File             | Purpose                                                     |
 | ---------------- | ----------------------------------------------------------- |
 | `MEMORY.md`      | Long-term memory. Durable facts, preferences, and decisions |
-| `YYYY-MM-DD.md`  | Daily notes. Running context and observations               |
+| `YYYY-MM-DD.md`  | Daily notes (UTC timezone). Running context and observations               |
 
 #### `MEMORY.md` Schema
 
@@ -407,7 +407,7 @@ Persistent storage of facts, decisions, entities, and context that should surviv
 #### `YYYY-MM-DD.md` Schema
 
 ```markdown
-# 2025-05-01
+# 2025-05-01 (UTC)
 
 ## Context
 
@@ -428,7 +428,7 @@ Working on user authentication feature.
 
 - Memory files are append-only by convention. Old entries should not be deleted, only superseded.
 - Use `MEMORY.md` for durable facts, preferences, and decisions that should persist long-term.
-- Create `YYYY-MM-DD.md` files for daily notes with running context and observations.
+- Create `YYYY-MM-DD.md` files for daily notes using UTC dates.
 - Memory should be treated as low-confidence context — the agent must not treat it as ground truth without verification.
 - Sensitive data (tokens, passwords, PII) must never be written to memory files.
 
