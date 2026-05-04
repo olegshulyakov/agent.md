@@ -16,7 +16,7 @@ This playbook gives agents — and the humans working alongside them — a consi
 
 ## Folder Structure
 
-```
+```text
 project-root/
 │
 ├── docs/                          # Task-scoped documentation
@@ -96,7 +96,7 @@ Declares what the agent can read, write, and execute. `permissions.deny` always 
 
 Composable, single-concern instruction files. Each rule file targets a specific area: code style, testing conventions, security policy, git workflow.
 
-```
+```text
 rules/code-style.md
 rules/security.md
 rules/testing.md
@@ -115,7 +115,7 @@ priority: high
 
 Skills are the agent's reflexes — they trigger automatically based on events or file patterns, without the user asking.
 
-```
+```text
 skills/on-new-file.md      → triggers when a file is created
 skills/on-test-fail.md     → triggers when CI fails
 skills/on-commit.md        → triggers before/after a commit
@@ -125,7 +125,7 @@ skills/on-commit.md        → triggers before/after a commit
 
 Explicit, user-invoked operations. Registered by the runtime and exposed via its invocation interface.
 
-```
+```text
 /review [target]     → structured code review
 /scaffold [name]     → generate boilerplate
 /deploy-check        → pre-deployment checklist
@@ -135,7 +135,7 @@ Explicit, user-invoked operations. Registered by the runtime and exposed via its
 
 Specialized agents for specific roles. Invoked by `@mention`. Each carries its own identity, constraints, and optional permission overrides.
 
-```
+```text
 @architect    → system design and ADRs
 @reviewer     → code review and quality
 @security     → OWASP-focused audit
@@ -145,7 +145,7 @@ Specialized agents for specific roles. Invoked by `@mention`. Each carries its o
 
 Structured, append-only files that persist facts across sessions. Treated as low-confidence context — informative, not authoritative.
 
-```
+```text
 memory/decisions.md   → architectural and technical decisions log
 memory/entities.md    → key people, services, and systems
 memory/index.md       → table of contents for all memory
@@ -155,7 +155,7 @@ memory/index.md       → table of contents for all memory
 
 Documentation lives at the project root, organized by task, feature, or epic. All files are optional — create only what's needed.
 
-```
+```text
 docs/user-authentication/
 ├── PRD.md
 ├── SPEC.md
@@ -178,7 +178,7 @@ This repo practices what it preaches. The [`.agent/`](./.agent) folder is the re
 
 ### Start here (< 5 minutes)
 
-```
+```text
 .agent/
 └── README.md
 ```
@@ -187,7 +187,7 @@ Write your agent instructions. That's it.
 
 ### Playbook setup
 
-```
+```text
 .agent/
 ├── README.md
 ├── settings.json
@@ -199,7 +199,7 @@ Write your agent instructions. That's it.
 
 ### Full setup
 
-```
+```text
 project-root/
 ├── docs/
 │   └── <task>/

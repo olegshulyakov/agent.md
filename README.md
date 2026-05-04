@@ -10,7 +10,7 @@ Agent behavior is code. It should be versioned, reviewed, and readable by both h
 
 ## At a Glance
 
-```
+```text
 project-root/
 ├── docs/                     # Task-scoped documentation
 │   └── <task-name>/
@@ -73,8 +73,8 @@ Write your agent instructions there. Add folders only when you have a reason to.
 
 ## Folder Reference
 
-| Path                    | Purpose                                          | File pattern                 |
-| ----------------------- | ------------------------------------------------ | ---------------------------- |
+| Path                   | Purpose                                          | File pattern                 |
+| ---------------------- | ------------------------------------------------ | ---------------------------- |
 | `.agent/README.md`     | Entry point — system prompt + file manifest      | `README.md`                  |
 | `.agent/settings.json` | Permissions, tool access, runtime config         | `settings.json`              |
 | `.agent/rules/`        | Granular, composable instruction files           | `rules/<name>/RULE.md`       |
@@ -82,7 +82,7 @@ Write your agent instructions there. Add folders only when you have a reason to.
 | `.agent/commands/`     | Explicit slash commands (`/review`, `/scaffold`) | `commands/<name>/COMMAND.md` |
 | `.agent/agents/`       | Subagent personas (`@architect`, `@reviewer`)    | `agents/<name>/AGENT.md`     |
 | `.agent/memory/`       | Persistent facts, decisions, and entities        | `memory/*.md`                |
-| `docs/<task>/`          | Per-task PRD, SPEC, ARCHITECTURE, TASKS          | `docs/<task>/*.md`           |
+| `docs/<task>/`         | Per-task PRD, SPEC, ARCHITECTURE, TASKS          | `docs/<task>/*.md`           |
 
 ---
 

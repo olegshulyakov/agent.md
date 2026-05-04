@@ -22,7 +22,7 @@ Agent behavior is code. It should be versioned, reviewed, modular, and readable 
 
 ## Folder Structure
 
-```
+```text
 project-root/
 │
 ├── docs/                          # Project documentation artifacts (task-scoped)
@@ -56,9 +56,9 @@ project-root/
     │       └── AGENT.md
     │
     └── memory/                # Persistent agent memory
-        ├── decisions.md
-        ├── entities.md
-        └── index.md
+        ├── decisions.md       # architectural and technical decisions log
+        ├── entities.md        # key people, services, and systems
+        └── index.md           # table of contents for all memory
 ```
 
 ---
@@ -163,7 +163,7 @@ Granular, composable instruction files. Each file governs a single concern. Rule
 
 #### Naming Convention
 
-```
+```text
 rules/<name>/RULE.md
 ```
 
@@ -171,7 +171,7 @@ Examples: `rules/code-style/RULE.md`, `rules/security/RULE.md`, `rules/testing/R
 
 #### File Schema
 
-```markdown
+````markdown
 ---
 name: Code Style
 description: Enforces project coding conventions
@@ -185,7 +185,7 @@ priority: high
 - Prefer `const` over `let`; never use `var`
 - All exported functions must have JSDoc comments
   ...
-```
+````
 
 #### Rules
 
@@ -202,7 +202,7 @@ Skills are pre-defined workflows that trigger automatically based on context sig
 
 #### Naming Convention
 
-```
+```text
 skills/<name>/SKILL.md
 ```
 
@@ -210,7 +210,7 @@ Examples: `skills/on-new-file/SKILL.md`, `skills/on-test-fail/SKILL.md`, `skills
 
 #### File Schema
 
-```markdown
+````markdown
 ---
 name: On New File
 trigger:
@@ -236,7 +236,7 @@ Whenever a new `.ts` file is created in `src/`.
 
 - Creates: `src/__tests__/<filename>.test.ts`
 - Notifies: Yes
-```
+````
 
 #### Rules
 
@@ -253,7 +253,7 @@ Explicit, user-invoked operations exposed as slash commands (e.g., `/review`, `/
 
 #### Naming Convention
 
-```
+```text
 commands/<name>/COMMAND.md
 ```
 
@@ -261,7 +261,7 @@ Examples: `commands/review/COMMAND.md`, `commands/scaffold/COMMAND.md`, `command
 
 #### File Schema
 
-```markdown
+````markdown
 ---
 name: review
 alias: ["/review", "/cr"]
@@ -277,12 +277,11 @@ args:
 # Command: /review
 
 ## Usage
-```
 
+```text
 /review [target]
 /review src/auth/login.ts
 /review staged
-
 ```
 
 ## Behavior
@@ -301,7 +300,7 @@ args:
 | 🔵 Info | 12 | Consider extracting magic number `3600` to a constant |
 
 **Suggestion:** [Optional refactor idea]
-```
+````
 
 #### Rules
 
@@ -326,7 +325,7 @@ Examples: `agents/reviewer/AGENT.md`, `agents/architect/AGENT.md`, `agents/debug
 
 #### File Schema
 
-```markdown
+````markdown
 ---
 name: Architect
 invoke: "@architect"
@@ -360,7 +359,7 @@ You are a senior software architect with 15 years of experience designing scalab
 ## Output Format
 
 Use structured Mermaid diagrams for system visualizations.
-```
+````
 
 #### Rules
 
