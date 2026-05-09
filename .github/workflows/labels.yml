@@ -1,0 +1,74 @@
+name: Update repository labels
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/labels.yml"
+
+jobs:
+  create-labels:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    env:
+      LABELS_JSON: |
+        [
+          {"name": "type: bug", "color": "d73a4a", "description": "Something isn't working"},
+          {"name": "type: feature", "color": "a2eeef", "description": "New functionality or enhancement"},
+          {"name": "type: refactor", "color": "d4c5f9", "description": "Code improvements (no logic change)"},
+          {"name": "type: chore", "color": "ededed", "description": "Maintenance, dependencies, config"},
+          {"name": "type: docs", "color": "0075ca", "description": "Documentation changes"},
+          {"name": "type: security", "color": "e99695", "description": "Security updates"},
+          {"name": "priority: critical", "color": "b60205", "description": "Immediate fix required"},
+          {"name": "priority: high", "color": "d93f0b", "description": "High impact"},
+          {"name": "priority: medium", "color": "fbca04", "description": "Standard priority"},
+          {"name": "priority: low", "color": "0e8a16", "description": "Nice to have"},
+          {"name": "status: triage", "color": "fef2c0", "description": "Awaiting classification"},
+          {"name": "status: in-progress", "color": "1d76db", "description": "Work started"},
+          {"name": "status: needs-review", "color": "bfd4f2", "description": "PR or task awaiting review"},
+          {"name": "status: blocked", "color": "7f8c8d", "description": "Waiting on external factors"},
+          {"name": "status: help-wanted", "color": "008672", "description": "Open for contributors"},
+          {"name": "status: declined", "color": "e6e6e6", "description": "Will not be implemented"},
+          {"name": "area: code", "color": "d4c5f9", "description": "Implementation and logic"},
+          {"name": "area: ui-ux", "color": "fef2c0", "description": "Frontend, design, and user experience"},
+          {"name": "area: requirements", "color": "bfdadc", "description": "Specs, PRDs, and analysis"},
+          {"name": "area: devops", "color": "c2e0c6", "description": "Infrastructure, CI/CD, and SRE"},
+          {"name": "area: security", "color": "e99695", "description": "Audits and security hardening"},
+          {"name": "area: testing", "color": "ffcccc", "description": "QA and automated tests"},
+          {"name": "area: database", "color": "d1d5db", "description": "Schemas and data migrations"},
+          {"name": "area: ai-ml", "color": "a2eeef", "description": "LLM patterns, prompts, and evals"},
+          {"name": "area: agile", "color": "fbca04", "description": "Process, retros, and planning"},
+          {"name": "area: architecture", "color": "0075ca", "description": "ADRs and system design"}
+        ]
+    steps:
+      - uses: actions/github-script@v7
+        with:
+          script: |
+            const labels = JSON.parse(process.env.LABELS_JSON);
+            for (const label of labels) {
+              try {
+                await github.rest.issues.createLabel({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  name: label.name,
+                  description: label.description || '',
+                  color: label.color
+                });
+                console.log(`Created label '${label.name}'`);
+              } catch (error) {
+                if (error.status === 422) {
+                  await github.rest.issues.updateLabel({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    name: label.name,
+                    description: label.description || '',
+                    color: label.color
+                  });
+                  console.log(`Updated label '${label.name}'`);
+                } else {
+                  console.error(`Error processing label '${label.name}': ${error}`);
+                }
+              }
+            }
