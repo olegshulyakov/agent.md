@@ -184,11 +184,11 @@ Ordered alphabetically by name (matches filesystem order).
 | - [ ] | `writer-runbook`            | 🟡 P3    | Docs         | Tech Writer / SRE     | Operational runbook for routine procedures                            |
 | - [ ] | `writer-runbook-oncall`     | 🟡 P3    | DevOps / SRE | SRE                   | On-call runbook with alert responses and escalation paths             |
 | - [ ] | `writer-slo`                | 🟡 P3    | DevOps / SRE | SRE                   | SLO definition with indicators, targets, and error budget             |
-| - [ ] | `writer-spec-data-contract` | 🟡 P3    | Database     | DBA / Data Engineer   | Data contract spec (schema, ownership, SLA, versioning)               |
-| - [ ] | `writer-spec-design`        | 🟡 P3    | UI/UX        | UX Designer           | Design spec with component annotations and design tokens              |
-| - [ ] | `writer-spec-functional`    | 🔴 P1    | Requirements | System Analyst        | Functional requirements spec (actors, flows, business rules)          |
-| - [ ] | `writer-spec-nfr`           | 🟡 P3    | Requirements | SA / Architect        | Non-functional requirements (performance, scalability, security)      |
-| - [ ] | `writer-spec-tech`          | 🟠 P2    | Requirements | SA / Architect        | Technical specification (orchestrates functional + nfr + integration) |
+| - [x] | `writer-spec-data-contract` | 🟡 P3    | Database     | DBA / Data Engineer   | Data contract spec (schema, ownership, SLA, versioning)               |
+| - [x] | `writer-spec-design`        | 🟡 P3    | UI/UX        | UX Designer           | Design spec with component annotations and design tokens              |
+| - [x] | `writer-spec-functional`    | 🔴 P1    | Requirements | System Analyst        | Functional requirements spec (actors, flows, business rules)          |
+| - [x] | `writer-spec-nfr`           | 🟡 P3    | Requirements | SA / Architect        | Non-functional requirements (performance, scalability, security)      |
+| - [x] | `writer-spec-tech`          | 🟠 P2    | Requirements | SA / Architect        | Technical specification (orchestrates functional + nfr + integration) |
 | - [ ] | `writer-sql`                | 🔴 P1    | Database     | DBA / Backend         | Dialect-aware SQL (Postgres, MySQL, MSSQL, SQLite, Oracle)            |
 | - [ ] | `writer-sql-analytics`      | 🟡 P3    | Database     | DBA / Data Engineer   | Analytics SQL (Snowflake, BigQuery, ClickHouse, CockroachDB)          |
 | - [ ] | `writer-stakeholder`        | 🟡 P3    | Agile        | PM / PO               | Stakeholder update (status, risks, decisions needed)                  |

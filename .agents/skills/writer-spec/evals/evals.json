@@ -1,0 +1,615 @@
+{
+  "skill_name": "writer-spec",
+  "evals": [
+    {
+      "id": 1,
+      "type": "technical",
+      "prompt": "Write a technical spec for a Redis cache layer for the auth service.",
+      "expected_output": "A standard technical specification document.",
+      "files": [],
+      "expectations": [
+        "Document has a numbered section structure",
+        "Identifies specific implementation details",
+        "Error conditions documented",
+        "Assumed details flagged with [assumed]"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "technical",
+      "prompt": "Write a TDD for implementing a rate limiter using token bucket algorithm.",
+      "expected_output": "A standard technical specification document.",
+      "files": [],
+      "expectations": [
+        "Document has a numbered section structure",
+        "Identifies specific implementation details",
+        "Error conditions documented",
+        "Assumed details flagged with [assumed]"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "technical",
+      "prompt": "Create a design doc for migrating from MySQL to PostgreSQL.",
+      "expected_output": "A standard technical specification document.",
+      "files": [],
+      "expectations": [
+        "Document has a numbered section structure",
+        "Identifies specific implementation details",
+        "Error conditions documented",
+        "Assumed details flagged with [assumed]"
+      ]
+    },
+    {
+      "id": 4,
+      "type": "technical",
+      "prompt": "Write a tech spec for a background worker queue using Celery.",
+      "expected_output": "A standard technical specification document.",
+      "files": [],
+      "expectations": [
+        "Document has a numbered section structure",
+        "Identifies specific implementation details",
+        "Error conditions documented",
+        "Assumed details flagged with [assumed]"
+      ]
+    },
+    {
+      "id": 5,
+      "type": "technical",
+      "prompt": "Draft an end-to-end spec for the new Stripe checkout integration.",
+      "expected_output": "A standard technical specification document.",
+      "files": [],
+      "expectations": [
+        "Document has a numbered section structure",
+        "Identifies specific implementation details",
+        "Error conditions documented",
+        "Assumed details flagged with [assumed]"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "technical",
+      "prompt": "Write a design doc for a websocket-based real-time chat module.",
+      "expected_output": "A standard technical specification document.",
+      "files": [],
+      "expectations": [
+        "Document has a numbered section structure",
+        "Identifies specific implementation details",
+        "Error conditions documented",
+        "Assumed details flagged with [assumed]"
+      ]
+    },
+    {
+      "id": 7,
+      "type": "technical",
+      "prompt": "Provide a tech spec for the user data export feature.",
+      "expected_output": "A standard technical specification document.",
+      "files": [],
+      "expectations": [
+        "Document has a numbered section structure",
+        "Identifies specific implementation details",
+        "Error conditions documented",
+        "Assumed details flagged with [assumed]"
+      ]
+    },
+    {
+      "id": 8,
+      "type": "technical",
+      "prompt": "Write a TDD for a unified notification system (email, sms, push).",
+      "expected_output": "A standard technical specification document.",
+      "files": [],
+      "expectations": [
+        "Document has a numbered section structure",
+        "Identifies specific implementation details",
+        "Error conditions documented",
+        "Assumed details flagged with [assumed]"
+      ]
+    },
+    {
+      "id": 9,
+      "type": "technical",
+      "prompt": "Create a design document for a distributed tracing system integration.",
+      "expected_output": "A standard technical specification document.",
+      "files": [],
+      "expectations": [
+        "Document has a numbered section structure",
+        "Identifies specific implementation details",
+        "Error conditions documented",
+        "Assumed details flagged with [assumed]"
+      ]
+    },
+    {
+      "id": 10,
+      "type": "technical",
+      "prompt": "Write an end-to-end spec for the CI/CD deployment pipeline.",
+      "expected_output": "A standard technical specification document.",
+      "files": [],
+      "expectations": [
+        "Document has a numbered section structure",
+        "Identifies specific implementation details",
+        "Error conditions documented",
+        "Assumed details flagged with [assumed]"
+      ]
+    },
+    {
+      "id": 11,
+      "type": "functional",
+      "prompt": "Write functional requirements for a shopping cart module.",
+      "expected_output": "A standard functional specification document.",
+      "files": [],
+      "expectations": [
+        "Functional requirements are numbered in FR-N-M format",
+        "Actors section identifies at least 1 actor",
+        "Business rules are explicitly documented"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "functional",
+      "prompt": "Create use cases for an admin dashboard managing user roles.",
+      "expected_output": "A standard functional specification document.",
+      "files": [],
+      "expectations": [
+        "Functional requirements are numbered in FR-N-M format",
+        "Actors section identifies at least 1 actor",
+        "Business rules are explicitly documented"
+      ]
+    },
+    {
+      "id": 13,
+      "type": "functional",
+      "prompt": "Write a functional spec for a booking system for a hotel.",
+      "expected_output": "A standard functional specification document.",
+      "files": [],
+      "expectations": [
+        "Functional requirements are numbered in FR-N-M format",
+        "Actors section identifies at least 1 actor",
+        "Business rules are explicitly documented"
+      ]
+    },
+    {
+      "id": 14,
+      "type": "functional",
+      "prompt": "Draft business rules and functional requirements for a return merchandise authorization (RMA) process.",
+      "expected_output": "A standard functional specification document.",
+      "files": [],
+      "expectations": [
+        "Functional requirements are numbered in FR-N-M format",
+        "Actors section identifies at least 1 actor",
+        "Business rules are explicitly documented"
+      ]
+    },
+    {
+      "id": 15,
+      "type": "functional",
+      "prompt": "Write functional requirements for a social media feed.",
+      "expected_output": "A standard functional specification document.",
+      "files": [],
+      "expectations": [
+        "Functional requirements are numbered in FR-N-M format",
+        "Actors section identifies at least 1 actor",
+        "Business rules are explicitly documented"
+      ]
+    },
+    {
+      "id": 16,
+      "type": "functional",
+      "prompt": "Create use cases for a 2FA authentication flow.",
+      "expected_output": "A standard functional specification document.",
+      "files": [],
+      "expectations": [
+        "Functional requirements are numbered in FR-N-M format",
+        "Actors section identifies at least 1 actor",
+        "Business rules are explicitly documented"
+      ]
+    },
+    {
+      "id": 17,
+      "type": "functional",
+      "prompt": "Write functional requirements for a subscription billing system.",
+      "expected_output": "A standard functional specification document.",
+      "files": [],
+      "expectations": [
+        "Functional requirements are numbered in FR-N-M format",
+        "Actors section identifies at least 1 actor",
+        "Business rules are explicitly documented"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "functional",
+      "prompt": "Draft a functional spec for a ride-sharing driver matching algorithm.",
+      "expected_output": "A standard functional specification document.",
+      "files": [],
+      "expectations": [
+        "Functional requirements are numbered in FR-N-M format",
+        "Actors section identifies at least 1 actor",
+        "Business rules are explicitly documented"
+      ]
+    },
+    {
+      "id": 19,
+      "type": "functional",
+      "prompt": "Create use cases for a customer support ticketing system.",
+      "expected_output": "A standard functional specification document.",
+      "files": [],
+      "expectations": [
+        "Functional requirements are numbered in FR-N-M format",
+        "Actors section identifies at least 1 actor",
+        "Business rules are explicitly documented"
+      ]
+    },
+    {
+      "id": 20,
+      "type": "functional",
+      "prompt": "Write functional requirements for an online auction bidding system.",
+      "expected_output": "A standard functional specification document.",
+      "files": [],
+      "expectations": [
+        "Functional requirements are numbered in FR-N-M format",
+        "Actors section identifies at least 1 actor",
+        "Business rules are explicitly documented"
+      ]
+    },
+    {
+      "id": 21,
+      "type": "non-functional",
+      "prompt": "Write non-functional requirements for a high-frequency trading platform.",
+      "expected_output": "A standard non-functional specification document.",
+      "files": [],
+      "expectations": [
+        "Includes an SLA section",
+        "Performance requirements are quantified",
+        "Security or compliance requirements are documented"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "non-functional",
+      "prompt": "Create an NFR document for a medical records system focusing on HIPAA compliance.",
+      "expected_output": "A standard non-functional specification document.",
+      "files": [],
+      "expectations": [
+        "Includes an SLA section",
+        "Performance requirements are quantified",
+        "Security or compliance requirements are documented"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "non-functional",
+      "prompt": "Draft SLAs and performance requirements for the public API.",
+      "expected_output": "A standard non-functional specification document.",
+      "files": [],
+      "expectations": [
+        "Includes an SLA section",
+        "Performance requirements are quantified",
+        "Security or compliance requirements are documented"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "non-functional",
+      "prompt": "Write non-functional requirements for the video streaming CDN.",
+      "expected_output": "A standard non-functional specification document.",
+      "files": [],
+      "expectations": [
+        "Includes an SLA section",
+        "Performance requirements are quantified",
+        "Security or compliance requirements are documented"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "non-functional",
+      "prompt": "Create an NFR spec for the new mobile app focusing on battery and network usage.",
+      "expected_output": "A standard non-functional specification document.",
+      "files": [],
+      "expectations": [
+        "Includes an SLA section",
+        "Performance requirements are quantified",
+        "Security or compliance requirements are documented"
+      ]
+    },
+    {
+      "id": 26,
+      "type": "non-functional",
+      "prompt": "Draft non-functional requirements for the authentication microservice.",
+      "expected_output": "A standard non-functional specification document.",
+      "files": [],
+      "expectations": [
+        "Includes an SLA section",
+        "Performance requirements are quantified",
+        "Security or compliance requirements are documented"
+      ]
+    },
+    {
+      "id": 27,
+      "type": "non-functional",
+      "prompt": "Write SLAs for the cloud database hosting service.",
+      "expected_output": "A standard non-functional specification document.",
+      "files": [],
+      "expectations": [
+        "Includes an SLA section",
+        "Performance requirements are quantified",
+        "Security or compliance requirements are documented"
+      ]
+    },
+    {
+      "id": 28,
+      "type": "non-functional",
+      "prompt": "Create an NFR document for the massive multiplayer game server.",
+      "expected_output": "A standard non-functional specification document.",
+      "files": [],
+      "expectations": [
+        "Includes an SLA section",
+        "Performance requirements are quantified",
+        "Security or compliance requirements are documented"
+      ]
+    },
+    {
+      "id": 29,
+      "type": "non-functional",
+      "prompt": "Draft performance and reliability requirements for the payment gateway.",
+      "expected_output": "A standard non-functional specification document.",
+      "files": [],
+      "expectations": [
+        "Includes an SLA section",
+        "Performance requirements are quantified",
+        "Security or compliance requirements are documented"
+      ]
+    },
+    {
+      "id": 30,
+      "type": "non-functional",
+      "prompt": "Write non-functional requirements for the IoT device management platform.",
+      "expected_output": "A standard non-functional specification document.",
+      "files": [],
+      "expectations": [
+        "Includes an SLA section",
+        "Performance requirements are quantified",
+        "Security or compliance requirements are documented"
+      ]
+    },
+    {
+      "id": 31,
+      "type": "data-contract",
+      "prompt": "Write a data contract for the user profile update Kafka event.",
+      "expected_output": "A standard data-contract specification document.",
+      "files": [],
+      "expectations": [
+        "Data schema is clearly defined",
+        "Event formats or payload structures are specified",
+        "Data SLA is mentioned"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "data-contract",
+      "prompt": "Create an event schema for the order fulfillment webhook.",
+      "expected_output": "A standard data-contract specification document.",
+      "files": [],
+      "expectations": [
+        "Data schema is clearly defined",
+        "Event formats or payload structures are specified",
+        "Data SLA is mentioned"
+      ]
+    },
+    {
+      "id": 33,
+      "type": "data-contract",
+      "prompt": "Draft a data SLA and contract for the daily analytics ETL pipeline.",
+      "expected_output": "A standard data-contract specification document.",
+      "files": [],
+      "expectations": [
+        "Data schema is clearly defined",
+        "Event formats or payload structures are specified",
+        "Data SLA is mentioned"
+      ]
+    },
+    {
+      "id": 34,
+      "type": "data-contract",
+      "prompt": "Write a data contract for the integration between SalesForce and the internal ERP.",
+      "expected_output": "A standard data-contract specification document.",
+      "files": [],
+      "expectations": [
+        "Data schema is clearly defined",
+        "Event formats or payload structures are specified",
+        "Data SLA is mentioned"
+      ]
+    },
+    {
+      "id": 35,
+      "type": "data-contract",
+      "prompt": "Create an event schema for the IoT sensor temperature reading.",
+      "expected_output": "A standard data-contract specification document.",
+      "files": [],
+      "expectations": [
+        "Data schema is clearly defined",
+        "Event formats or payload structures are specified",
+        "Data SLA is mentioned"
+      ]
+    },
+    {
+      "id": 36,
+      "type": "data-contract",
+      "prompt": "Draft a data contract for the REST API response of the product catalog.",
+      "expected_output": "A standard data-contract specification document.",
+      "files": [],
+      "expectations": [
+        "Data schema is clearly defined",
+        "Event formats or payload structures are specified",
+        "Data SLA is mentioned"
+      ]
+    },
+    {
+      "id": 37,
+      "type": "data-contract",
+      "prompt": "Write a data contract for the third-party logistics provider status callback.",
+      "expected_output": "A standard data-contract specification document.",
+      "files": [],
+      "expectations": [
+        "Data schema is clearly defined",
+        "Event formats or payload structures are specified",
+        "Data SLA is mentioned"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "data-contract",
+      "prompt": "Create an event schema for the user sign-up tracking event.",
+      "expected_output": "A standard data-contract specification document.",
+      "files": [],
+      "expectations": [
+        "Data schema is clearly defined",
+        "Event formats or payload structures are specified",
+        "Data SLA is mentioned"
+      ]
+    },
+    {
+      "id": 39,
+      "type": "data-contract",
+      "prompt": "Draft a data contract for the synchronized employee directory feed.",
+      "expected_output": "A standard data-contract specification document.",
+      "files": [],
+      "expectations": [
+        "Data schema is clearly defined",
+        "Event formats or payload structures are specified",
+        "Data SLA is mentioned"
+      ]
+    },
+    {
+      "id": 40,
+      "type": "data-contract",
+      "prompt": "Write a data contract for the financial transaction ledger entry.",
+      "expected_output": "A standard data-contract specification document.",
+      "files": [],
+      "expectations": [
+        "Data schema is clearly defined",
+        "Event formats or payload structures are specified",
+        "Data SLA is mentioned"
+      ]
+    },
+    {
+      "id": 41,
+      "type": "ui-ux",
+      "prompt": "Write a UI/UX spec for a multi-step checkout wizard.",
+      "expected_output": "A standard ui-ux specification document.",
+      "files": [],
+      "expectations": [
+        "Component states are explicitly listed",
+        "Accessibility (a11y) requirements are mentioned",
+        "Layout or visual behavior described"
+      ]
+    },
+    {
+      "id": 42,
+      "type": "ui-ux",
+      "prompt": "Create a design handoff doc for the new dark mode toggle component.",
+      "expected_output": "A standard ui-ux specification document.",
+      "files": [],
+      "expectations": [
+        "Component states are explicitly listed",
+        "Accessibility (a11y) requirements are mentioned",
+        "Layout or visual behavior described"
+      ]
+    },
+    {
+      "id": 43,
+      "type": "ui-ux",
+      "prompt": "Draft a UI spec for a drag-and-drop file upload zone with error states.",
+      "expected_output": "A standard ui-ux specification document.",
+      "files": [],
+      "expectations": [
+        "Component states are explicitly listed",
+        "Accessibility (a11y) requirements are mentioned",
+        "Layout or visual behavior described"
+      ]
+    },
+    {
+      "id": 44,
+      "type": "ui-ux",
+      "prompt": "Write a UI/UX spec for the interactive data analytics dashboard.",
+      "expected_output": "A standard ui-ux specification document.",
+      "files": [],
+      "expectations": [
+        "Component states are explicitly listed",
+        "Accessibility (a11y) requirements are mentioned",
+        "Layout or visual behavior described"
+      ]
+    },
+    {
+      "id": 45,
+      "type": "ui-ux",
+      "prompt": "Create a component state spec for a complex data table with filtering and sorting.",
+      "expected_output": "A standard ui-ux specification document.",
+      "files": [],
+      "expectations": [
+        "Component states are explicitly listed",
+        "Accessibility (a11y) requirements are mentioned",
+        "Layout or visual behavior described"
+      ]
+    },
+    {
+      "id": 46,
+      "type": "ui-ux",
+      "prompt": "Draft a design handoff doc for the mobile navigation drawer.",
+      "expected_output": "A standard ui-ux specification document.",
+      "files": [],
+      "expectations": [
+        "Component states are explicitly listed",
+        "Accessibility (a11y) requirements are mentioned",
+        "Layout or visual behavior described"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "ui-ux",
+      "prompt": "Write a UI spec for the user profile settings page.",
+      "expected_output": "A standard ui-ux specification document.",
+      "files": [],
+      "expectations": [
+        "Component states are explicitly listed",
+        "Accessibility (a11y) requirements are mentioned",
+        "Layout or visual behavior described"
+      ]
+    },
+    {
+      "id": 48,
+      "type": "ui-ux",
+      "prompt": "Create a UI/UX spec for a calendar date picker component.",
+      "expected_output": "A standard ui-ux specification document.",
+      "files": [],
+      "expectations": [
+        "Component states are explicitly listed",
+        "Accessibility (a11y) requirements are mentioned",
+        "Layout or visual behavior described"
+      ]
+    },
+    {
+      "id": 49,
+      "type": "ui-ux",
+      "prompt": "Draft a design handoff for the onboarding tooltip tour.",
+      "expected_output": "A standard ui-ux specification document.",
+      "files": [],
+      "expectations": [
+        "Component states are explicitly listed",
+        "Accessibility (a11y) requirements are mentioned",
+        "Layout or visual behavior described"
+      ]
+    },
+    {
+      "id": 50,
+      "type": "ui-ux",
+      "prompt": "Write a UI spec for a real-time messaging chat interface.",
+      "expected_output": "A standard ui-ux specification document.",
+      "files": [],
+      "expectations": [
+        "Component states are explicitly listed",
+        "Accessibility (a11y) requirements are mentioned",
+        "Layout or visual behavior described"
+      ]
+    }
+  ]
+}
