@@ -2,7 +2,7 @@
 
 ## Overview
 
-A comprehensive library of 80 skills for CLI Agent (and compatible CLI agents) that gives every software team role a dedicated, well-scoped AI capability. Instead of relying on generic prompting, each skill encodes the conventions, output formats, and domain knowledge specific to a role and artifact type.
+A comprehensive library of 71 skills for CLI Agent (and compatible CLI agents) that gives every software team role a dedicated, well-scoped AI capability. Instead of relying on generic prompting, each skill encodes the conventions, output formats, and domain knowledge specific to a role and artifact type.
 
 ## Problem
 
@@ -75,11 +75,11 @@ System Analyst, Product Owner, Product Manager, DBA, AQA, Team Lead, Scrum Maste
 
 ### Phase 1 — Foundation (highest cross-role leverage)
 
-`writer-prd`, `writer-spec-functional`, `writer-spec-tech`, `writer-story-task`, `writer-adr`, `design-schema`, `writer-sql`, `codegen-backend`, `codegen-frontend`, `codegen-test-e2e`
+`writer-prd`, `writer-spec`, `writer-story-task`, `writer-adr`, `design-schema`, `writer-sql`, `codegen-backend`, `codegen-frontend`, `codegen-test`
 
 ### Phase 2 — Delivery
 
-`writer-epic`, `planner-sprint`, `design-arch`, `diagram-c4`, `setup-pipeline-cicd`, `writer-postmortem`, `audit-security`, `writer-runbook`
+`writer-epic`, `planner-sprint`, `design-arch`, `diagram-c4`, `setup-pipeline`, `writer-postmortem`, `audit-security`, `writer-runbook`
 
 ### Phase 3 — Specialist
 

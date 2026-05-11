@@ -20,7 +20,7 @@ This groups related skills together on the filesystem automatically. The type is
 **Valid types:**
 `audit` · `checklist` · `codegen` · `design` · `diagram` · `model` · `patterns` · `planner` · `report` · `setup` · `strategy` · `template` · `tracker` · `writer`
 
-**Multi-variant skills** append a variant suffix: `writer-sql-analytics`, `writer-runbook-oncall`
+**Multi-variant skills** append a variant suffix only when domains are significantly distinct (e.g., `writer-sql-analytics`). For most domains, variants are handled dynamically by the router skill.
 
 ---
 
@@ -38,9 +38,7 @@ skills/
 ├── codegen-backend/
 ├── codegen-frontend/
 ├── codegen-mobile/
-├── codegen-test-api/
-├── codegen-test-e2e/
-├── codegen-test-perf/
+├── codegen-test/
 ├── design-api/
 ├── design-arch/
 ├── design-css/
@@ -54,8 +52,7 @@ skills/
 ├── patterns-auth/
 ├── patterns-graphql/
 ├── patterns-realtime/
-├── planner-capacity-db/
-├── planner-capacity-infra/
+├── planner-capacity/
 ├── planner-sprint/
 ├── report-cve/
 ├── report-db-health/
@@ -65,8 +62,7 @@ skills/
 ├── setup-infra/
 ├── setup-monorepo/
 ├── setup-observability/
-├── setup-pipeline-cicd/
-├── setup-pipeline-etl/
+├── setup-pipeline/
 ├── setup-rag/
 ├── setup-test-framework/
 ├── strategy-api-versioning/
@@ -94,13 +90,8 @@ skills/
 ├── writer-readme/
 ├── writer-release-notes/
 ├── writer-runbook/
-├── writer-runbook-oncall/
 ├── writer-slo/
-├── writer-spec-data-contract/
-├── writer-spec-design/
-├── writer-spec-functional/
-├── writer-spec-nfr/
-├── writer-spec-tech/
+├── writer-spec/
 ├── writer-sql/
 ├── writer-sql-analytics/
 ├── writer-stakeholder/
@@ -137,26 +128,36 @@ description: >
 
 ---
 
-## Full Skill Catalog (80 skills)
+## Full Skill Catalog (71 skills)
 
-### 📋 Requirements (8)
+### 📋 Requirements (6)
 
-| Skill                    | Roles          | Output Artifact                                                           |
-| ------------------------ | -------------- | ------------------------------------------------------------------------- |
-| `writer-prd`             | PM, PO         | Product Requirements Document with goals, personas, scope, metrics        |
-| `writer-spec-functional` | System Analyst | Functional requirements doc with actors, flows, rules                     |
-| `writer-spec-tech`       | SA, Architect  | Technical spec orchestrating functional + NFR + integration sections      |
-| `writer-spec-nfr`        | SA, Architect  | Non-functional requirements: performance, scalability, availability       |
-| `writer-use-case`        | System Analyst | Use case document with actors, preconditions, main/alt flows              |
-| `diagram-dfd`            | System Analyst | Data flow diagram (Mermaid or structured text)                            |
-| `audit-gap`              | System Analyst | Gap analysis report: current state vs target state, with remediation list |
-| `diagram-integration`    | System Analyst | Integration map: systems, APIs, data flows, ownership                     |
+| Skill                 | Roles             | Output Artifact                                                           |
+| --------------------- | ----------------- | ------------------------------------------------------------------------- |
+| `writer-prd`          | PM, PO            | Product Requirements Document with goals, personas, scope, metrics        |
+| `writer-spec`         | SA, Architect, UX | Specification doc (functional, technical, NFR, design, data-contract)     |
+| `writer-use-case`     | System Analyst    | Use case document with actors, preconditions, main/alt flows              |
+| `diagram-dfd`         | System Analyst    | Data flow diagram (Mermaid or structured text)                            |
+| `audit-gap`           | System Analyst    | Gap analysis report: current state vs target state, with remediation list |
+| `diagram-integration` | System Analyst    | Integration map: systems, APIs, data flows, ownership                     |
 
 **Trigger disambiguation:**
 
 - `writer-prd` → triggered by business goals, personas, success metrics language
-- `writer-spec-functional` → triggered by functional requirements, business rules, system behavior
-- `writer-spec-tech` → triggered by "full spec", "technical specification", combines multiple concerns
+- `writer-spec` → triggered by "write a spec", "tech spec", "TDD", "functional requirements", "non-functional requirements", "NFR", "data contract", "UI spec", "handoff doc"
+
+#### Multi-variant: `writer-spec`
+
+```text
+writer-spec/
+├── SKILL.md
+└── references/
+    ├── functional.md     # Business rules, actors, main/alt flows
+    ├── technical.md      # System architecture, integrations, data flow
+    ├── non-functional.md # Performance, security, scalability targets
+    ├── design-ui.md      # UI tokens, spacing, component states
+    └── data-contract.md  # Schema, ownership, versioning, SLA
+```
 
 ---
 
@@ -199,18 +200,16 @@ description: >
 
 ---
 
-### 🗄️ Database (8)
+### 🗄️ Database (6)
 
-| Skill                       | Roles         | Output Artifact                                                           |
-| --------------------------- | ------------- | ------------------------------------------------------------------------- |
-| `design-schema`             | DBA           | Normalized schema: tables, columns, types, PKs, FKs, indexes              |
-| `writer-sql`                | DBA, Backend  | SQL queries/DDL for OLTP dialects: Postgres, MySQL, MSSQL, SQLite, Oracle |
-| `writer-sql-analytics`      | DBA, Data Eng | SQL for analytics dialects: Snowflake, BigQuery, ClickHouse, CockroachDB  |
-| `writer-migration`          | DBA           | Migration scripts: up/down, safe for production, idempotent               |
-| `report-db-health`          | DBA           | DB health report: slow queries, bloat, index usage, replication lag       |
-| `strategy-backup`           | DBA           | Backup strategy: schedule, retention, restore SLAs, tooling               |
-| `planner-capacity-db`       | DBA           | DB capacity plan: growth projections, storage, connection pool sizing     |
-| `writer-spec-data-contract` | DBA, Data Eng | Data contract: schema, ownership, SLA, versioning, consumers              |
+| Skill                  | Roles         | Output Artifact                                                           |
+| ---------------------- | ------------- | ------------------------------------------------------------------------- |
+| `design-schema`        | DBA           | Normalized schema: tables, columns, types, PKs, FKs, indexes              |
+| `writer-sql`           | DBA, Backend  | SQL queries/DDL for OLTP dialects: Postgres, MySQL, MSSQL, SQLite, Oracle |
+| `writer-sql-analytics` | DBA, Data Eng | SQL for analytics dialects: Snowflake, BigQuery, ClickHouse, CockroachDB  |
+| `writer-migration`     | DBA           | Migration scripts: up/down, safe for production, idempotent               |
+| `report-db-health`     | DBA           | DB health report: slow queries, bloat, index usage, replication lag       |
+| `strategy-backup`      | DBA           | Backup strategy: schedule, retention, restore SLAs, tooling               |
 
 **Trigger disambiguation:**
 
@@ -313,41 +312,68 @@ codegen-mobile/
 
 ---
 
-### 🎨 UI/UX (4)
+### 🎨 UI/UX (3)
 
-| Skill                | Roles            | Output Artifact                                                     |
-| -------------------- | ---------------- | ------------------------------------------------------------------- |
-| `diagram-ux-flow`    | UX Designer      | User flow / journey map in structured Mermaid or text format        |
-| `writer-spec-design` | UX Designer      | Design spec: component annotations, spacing, states, design tokens  |
-| `audit-a11y`         | Frontend Dev, UX | Accessibility audit: WCAG violations, severity, fix recommendations |
-| `design-css`         | Frontend Dev     | Design system: tokens, component styles, spacing scale, typography  |
-
----
-
-### 🧪 Testing (6)
-
-| Skill                  | Roles    | Output Artifact                                                  |
-| ---------------------- | -------- | ---------------------------------------------------------------- |
-| `codegen-test-e2e`     | AQA      | E2E test suite: scenarios, page objects, assertions              |
-| `codegen-test-api`     | AQA      | API test suite: happy path, edge cases, contract tests           |
-| `codegen-test-perf`    | AQA, SRE | Performance test scripts: load scenarios, thresholds, ramp-up    |
-| `strategy-test`        | AQA, QA  | Test strategy: scope, types, coverage targets, tooling decisions |
-| `setup-test-framework` | AQA      | Test framework setup: config, folder structure, CI integration   |
-| `audit-test-flaky`     | AQA      | Flaky test report: root cause analysis, fix recommendations      |
+| Skill             | Roles            | Output Artifact                                                     |
+| ----------------- | ---------------- | ------------------------------------------------------------------- |
+| `diagram-ux-flow` | UX Designer      | User flow / journey map in structured Mermaid or text format        |
+| `audit-a11y`      | Frontend Dev, UX | Accessibility audit: WCAG violations, severity, fix recommendations |
+| `design-css`      | Frontend Dev     | Design system: tokens, component styles, spacing scale, typography  |
 
 ---
 
-### 🚀 DevOps / SRE (7)
+### 🧪 Testing (4)
 
-| Skill                    | Roles       | Output Artifact                                                    |
-| ------------------------ | ----------- | ------------------------------------------------------------------ |
-| `setup-pipeline-cicd`    | DevOps      | CI/CD pipeline YAML: GitHub Actions, GitLab CI, or similar         |
-| `setup-infra`            | DevOps      | IaC: Terraform/Pulumi modules for target cloud                     |
-| `planner-capacity-infra` | DevOps, SRE | Infrastructure capacity plan: traffic projections, instance sizing |
-| `setup-observability`    | DevOps, SRE | Observability setup: metrics, logs, traces, dashboards             |
-| `writer-slo`             | SRE         | SLO definition: SLI, target, error budget, alerting policy         |
-| `writer-alert-rules`     | SRE         | Alert rules: conditions, severity, routing, runbook links          |
-| `writer-runbook-oncall`  | SRE         | On-call runbook: symptoms, diagnosis steps, escalation, rollback   |
+| Skill                  | Roles   | Output Artifact                                                  |
+| ---------------------- | ------- | ---------------------------------------------------------------- |
+| `codegen-test`         | AQA     | Test suite (E2E, API, Performance) with page objects and scripts |
+| `strategy-test`        | AQA, QA | Test strategy: scope, types, coverage targets, tooling decisions |
+| `setup-test-framework` | AQA     | Test framework setup: config, folder structure, CI integration   |
+| `audit-test-flaky`     | AQA     | Flaky test report: root cause analysis, fix recommendations      |
+
+#### Multi-variant: `codegen-test`
+
+```text
+codegen-test/
+├── SKILL.md
+└── references/
+    ├── e2e.md    # Playwright, Cypress, Selenium patterns
+    ├── api.md    # Supertest, Jest-extended, Postman/Newman
+    └── perf.md   # k6, JMeter, Locust scripts
+```
+
+---
+
+### 🚀 DevOps / SRE (6)
+
+| Skill                 | Roles       | Output Artifact                                              |
+| --------------------- | ----------- | ------------------------------------------------------------ |
+| `setup-pipeline`      | DevOps      | Pipeline config (CI/CD, ETL) with logging and error handling |
+| `setup-infra`         | DevOps      | IaC: Terraform/Pulumi modules for target cloud               |
+| `planner-capacity`    | DevOps, SRE | Capacity plan: traffic and storage projections, sizing       |
+| `setup-observability` | DevOps, SRE | Observability setup: metrics, logs, traces, dashboards       |
+| `writer-slo`          | SRE         | SLO definition: SLI, target, error budget, alerting policy   |
+| `writer-alert-rules`  | SRE         | Alert rules: conditions, severity, routing, runbook links    |
+
+#### Multi-variant: `setup-pipeline`
+
+```text
+setup-pipeline/
+├── SKILL.md
+└── references/
+    ├── cicd.md    # GitHub Actions, GitLab CI, Jenkins
+    └── etl.md     # dbt, Airflow, Glue patterns
+```
+
+#### Multi-variant: `planner-capacity`
+
+```text
+planner-capacity/
+├── SKILL.md
+└── references/
+    ├── db.md      # Storage, IOPS, connection pool sizing
+    └── infra.md   # Compute, memory, scaling thresholds
+```
 
 ---
 
@@ -372,11 +398,10 @@ codegen-mobile/
 
 ---
 
-### 📊 Data & ML (7)
+### 📊 Data & ML (6)
 
 | Skill                  | Roles      | Output Artifact                                                        |
 | ---------------------- | ---------- | ---------------------------------------------------------------------- |
-| `setup-pipeline-etl`   | Data Eng   | ETL pipeline: source → transform → load design + code scaffold         |
 | `model-dbt`            | Data Eng   | dbt model: SQL + schema.yml + tests + documentation                    |
 | `writer-lineage`       | Data Eng   | Data lineage doc: source → transformation → consumer map               |
 | `writer-ml-experiment` | ML Eng     | ML experiment: hypothesis, setup, metrics, results, model card section |
@@ -392,7 +417,7 @@ codegen-mobile/
 | ---------------------- | -------------------- | ------------------------------------------------------------------ |
 | `writer-readme`        | Tech Writer          | README: overview, install, usage, contributing; scoped by audience |
 | `writer-api-docs`      | Tech Writer, Backend | API reference documentation for existing APIs                      |
-| `writer-runbook`       | Tech Writer, SRE     | General operational runbook: steps, checks, rollback               |
+| `writer-runbook`       | Tech Writer, SRE     | Runbook guide: operational steps and on-call responses             |
 | `writer-changelog`     | Tech Writer          | Changelog: grouped by type (feat/fix/breaking), linked to PRs      |
 | `writer-release-notes` | Release Manager      | User-facing release notes: what's new, what's fixed, upgrade notes |
 
@@ -401,6 +426,16 @@ codegen-mobile/
 - `writer-readme` → project intro, targeted at new users or contributors
 - `writer-api-docs` → reference docs for existing API endpoints
 - `design-api` → contract-first spec before implementation
+
+#### Multi-variant: `writer-runbook`
+
+```text
+writer-runbook/
+├── SKILL.md
+└── references/
+    ├── routine.md    # Standard operational procedures
+    └── oncall.md     # Emergency response, alert triage
+```
 
 ---
 
@@ -439,7 +474,7 @@ Each skill is built using the `skill-creator` skill in this sequence:
 
 ## Multi-Variant Router Pattern
 
-For `codegen-frontend`, `codegen-backend`, `codegen-mobile`, `writer-sql`, `writer-sql-analytics`:
+For `codegen-frontend`, `codegen-backend`, `codegen-mobile`, `codegen-test`, `writer-sql`, `writer-sql-analytics`, `writer-spec`, `setup-pipeline`, `writer-runbook`, `planner-capacity`:
 
 The `SKILL.md` must:
 
@@ -463,19 +498,19 @@ Check in this order:
 
 Skills with overlapping domains must have explicit disambiguation in their descriptions. High-risk pairs and their resolution:
 
-| Pair                                     | Disambiguation Rule                                                |
-| ---------------------------------------- | ------------------------------------------------------------------ |
-| `writer-prd` vs `writer-spec-functional` | PRD = business goals; spec-functional = system behavior            |
-| `design-api` vs `writer-api-docs`        | design-api = contract first (no code yet); api-docs = existing API |
-| `design-arch` vs `diagram-c4`            | design-arch = prose document; diagram-c4 = diagram output          |
-| `design-schema` vs `writer-sql`          | design-schema = structure design; writer-sql = query/DDL writing   |
-| `writer-story-task` vs `writer-epic`     | story-task = single story → tasks; epic = feature grouping         |
+| Pair                                 | Disambiguation Rule                                                |
+| ------------------------------------ | ------------------------------------------------------------------ |
+| `writer-prd` vs `writer-spec`        | PRD = business goals; spec = system behavior or technical detail   |
+| `design-api` vs `writer-api-docs`    | design-api = contract first (no code yet); api-docs = existing API |
+| `design-arch` vs `diagram-c4`        | design-arch = prose document; diagram-c4 = diagram output          |
+| `design-schema` vs `writer-sql`      | design-schema = structure design; writer-sql = query/DDL writing   |
+| `writer-story-task` vs `writer-epic` | story-task = single story → tasks; epic = feature grouping         |
 
 ## Totals
 
 | Category                                    | Count |
 | ------------------------------------------- | ----- |
-| Total skills                                | 80    |
-| Multi-variant router skills                 | 4     |
-| Total framework/language/dialect references | 30+   |
+| Total skills                                | 71    |
+| Multi-variant router skills                 | 10    |
+| Total framework/language/dialect references | 50+   |
 | Prefix types                                | 14    |
