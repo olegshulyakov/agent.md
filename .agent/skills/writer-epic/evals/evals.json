@@ -1,0 +1,33 @@
+{
+  "skill_name": "writer-epic",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write an epic for adding a subscription billing feature to our SaaS platform. Users should be able to choose a plan, enter payment details, manage their subscription (upgrade, downgrade, cancel), and see invoices. We're using Stripe.",
+      "expected_output": "A complete epic definition covering: goal (monetization, self-serve subscription management), child stories (plan selection, payment setup, subscription management, invoices, webhook handling), acceptance criteria (users can subscribe and manage without contacting support), and DoD.",
+      "files": [],
+      "expectations": [
+        "Epic has a clear goal statement about subscription management",
+        "At least 5 child user stories are listed (plan selection, payment entry, management, invoices, etc.)",
+        "Both in-scope and out-of-scope sections are present",
+        "Acceptance criteria include at least 3 specific, testable criteria",
+        "Dependencies section mentions Stripe integration",
+        "Definition of Done section is included"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create an epic for implementing team collaboration features in our project management tool. Team members should be able to invite others, assign tasks to teammates, comment on tasks, and see who's working on what.",
+      "expected_output": "Epic with goal (team visibility and collaboration), stories (invitations, task assignment, comments/mentions, presence/activity feed), acceptance criteria (a new team member can be invited and immediately collaborate), DoD with accessibility criteria.",
+      "files": [],
+      "expectations": [
+        "Epic goal focuses on collaboration outcomes, not just features",
+        "Child stories cover invitations, task assignment, comments (at minimum)",
+        "In-scope and out-of-scope clearly separate what's included",
+        "Acceptance criteria are specific and testable",
+        "Risks or open questions section is included",
+        "Epic sizing is appropriate (not trying to do everything)"
+      ]
+    }
+  ]
+}

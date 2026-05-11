@@ -1,0 +1,33 @@
+{
+  "skill_name": "strategy-test",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a test strategy for our e-commerce platform. It's a Next.js frontend calling a Node.js API which uses PostgreSQL. We have 5 developers and 1 QA engineer. Key features: product search, cart, checkout (Stripe), user accounts.",
+      "expected_output": "A comprehensive test strategy document covering: test pyramid choice (unit-heavy given team size), specific scope per test level, tooling recommendations (Vitest for unit/integration, Playwright for E2E), coverage targets, critical E2E flows (checkout, auth), team responsibilities, and quality gates.",
+      "files": [],
+      "expectations": [
+        "Document defines test levels (unit, integration, E2E) with scope for each",
+        "Document specifies coverage targets (numbers, not just 'good coverage')",
+        "Document identifies critical E2E flows (checkout at minimum)",
+        "Document specifies tooling choices with rationale",
+        "Document defines quality gates (what blocks merge vs what blocks deploy)",
+        "Document addresses team responsibilities (who writes what)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What should our testing strategy be for a set of Python microservices that communicate via REST APIs? We have an auth service, a user service, and an orders service. Each has its own database. We need to test them both in isolation and together.",
+      "expected_output": "A test strategy addressing: unit tests per service (mocking other services), API contract tests between services (Pact), integration tests with real DBs, end-to-end service integration tests, and recommendations on when to use TestContainers vs mocks.",
+      "files": [],
+      "expectations": [
+        "Document covers unit testing each service in isolation",
+        "Document addresses API contract testing between services",
+        "Document covers integration testing with real databases (TestContainers mentioned or similar)",
+        "Document addresses how to test cross-service flows",
+        "Document provides tooling recommendations for Python microservices",
+        "Document discusses mock vs real service in tests"
+      ]
+    }
+  ]
+}

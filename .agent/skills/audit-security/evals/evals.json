@@ -1,0 +1,44 @@
+{
+  "skill_name": "audit-security",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Please do a security review of this Python Flask API endpoint:\n```python\n@app.route('/users/<user_id>/profile')\ndef get_profile(user_id):\n    query = f\"SELECT * FROM users WHERE id = {user_id}\"\n    result = db.execute(query)\n    return jsonify(result.fetchone())\n```",
+      "expected_output": "Security audit identifying SQL injection vulnerability (no parameterized query), missing authentication/authorization check (anyone can fetch any user's profile = IDOR), and potentially returning sensitive fields in SELECT *.",
+      "files": [],
+      "expectations": [
+        "Report identifies SQL injection vulnerability (OWASP A03:2021)",
+        "Report identifies missing authorization check / IDOR vulnerability (OWASP A01:2021)",
+        "At least one finding is rated Critical or High",
+        "Report provides parameterized query as the SQL injection fix",
+        "Report provides corrected code for at least the SQL injection issue"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Security audit this JWT authentication middleware for a Node.js Express app:\n```javascript\nconst jwt = require('jsonwebtoken');\n\nfunction authMiddleware(req, res, next) {\n  const token = req.query.token || req.headers['x-token'];\n  if (!token) return res.status(401).json({ error: 'No token' });\n  \n  const decoded = jwt.decode(token); // not verifying signature!\n  req.user = decoded;\n  next();\n}\n```",
+      "expected_output": "Critical security audit finding: jwt.decode() is used instead of jwt.verify(), meaning the JWT signature is never validated. Anyone can craft a JWT with any payload and bypass authentication. Also should flag token in query string (logged in URLs) and missing algorithm specification.",
+      "files": [],
+      "expectations": [
+        "Report identifies the jwt.decode vs jwt.verify issue as Critical severity",
+        "Report references authentication failure category (OWASP A07:2021)",
+        "Report provides corrected code using jwt.verify() with secret",
+        "Report notes the risk of token being passed as a query parameter",
+        "Report flags the lack of algorithm specification as a security concern"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Can you do a security review of our React frontend password reset flow? When a user forgets their password, we email them a link like: https://app.com/reset?token=abc123&email=user@example.com. The token is valid for 7 days. The backend checks if the token matches the email in the database.",
+      "expected_output": "Security review covering: tokens valid for too long (7 days), email in URL leaks to server logs/referrers (Referer header), tokens should be invalidated after use, should use constant-time comparison to prevent timing attacks, rate limiting on reset endpoint.",
+      "files": [],
+      "expectations": [
+        "Report flags 7-day token expiry as excessive (recommend 1 hour or similar)",
+        "Report identifies email address in URL as a privacy/logging risk",
+        "Report recommends single-use tokens (invalidate after successful reset)",
+        "At least 3 distinct findings are identified",
+        "Severity levels are assigned to each finding"
+      ]
+    }
+  ]
+}

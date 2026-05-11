@@ -1,0 +1,33 @@
+{
+  "skill_name": "codegen-test-api",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write API tests for a user registration endpoint: POST /api/users with body { email, password, name }. It returns 201 with the created user (no password in response) or 400 if email is already taken or fields are missing. Use Jest and Supertest.",
+      "expected_output": "Jest + Supertest test suite covering: successful registration (201, correct fields, no password in response), duplicate email (409 or 400), missing required fields (400 for each), and email format validation.",
+      "files": [],
+      "expectations": [
+        "Tests use Jest describe/it blocks and Supertest request",
+        "Test covers successful registration returning 201",
+        "Test verifies password is NOT in the response body",
+        "Test covers duplicate email case",
+        "Test covers missing required fields (at least email and password)",
+        "Tests are organized in a describe block for the endpoint"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Generate pytest tests for a paginated GET /products endpoint. It accepts ?page and ?limit query params, returns { items: [...], total: N, page: N, limit: N }. Products have id, name, price, category fields. Auth is required via Bearer token.",
+      "expected_output": "Pytest test suite covering: successful paginated response with correct schema, default pagination, custom page/limit params, auth required (401 without token), and empty page response.",
+      "files": [],
+      "expectations": [
+        "Tests use pytest fixtures and httpx or requests",
+        "Test verifies response schema (items array, total, page, limit fields)",
+        "Test verifies authentication is required (401 without token)",
+        "Test verifies pagination parameters work (custom page/limit)",
+        "Test verifies individual product has expected fields (id, name, price, category)",
+        "Test covers empty/last page scenario"
+      ]
+    }
+  ]
+}

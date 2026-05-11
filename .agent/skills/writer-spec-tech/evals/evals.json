@@ -1,0 +1,33 @@
+{
+  "skill_name": "writer-spec-tech",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a technical specification for a password reset feature. Users should be able to request a reset link by email, click the link within 1 hour, and set a new password. The app is a Node.js API with PostgreSQL.",
+      "expected_output": "A comprehensive tech spec covering: functional requirements (request reset, validate token, set new password), non-functional (token expires in 1 hour, secure token generation, rate limiting), API endpoints (POST /auth/reset-password/request, POST /auth/reset-password), data model (password_reset_tokens table), security (timing-safe comparison, single use, HTTPS only).",
+      "files": [],
+      "expectations": [
+        "Document includes functional requirements with acceptance criteria",
+        "Document specifies the token expiry (1 hour) and single-use constraint",
+        "Document includes API endpoint designs for request and reset",
+        "Document includes data model for reset tokens table",
+        "Document addresses security (rate limiting, secure token generation)",
+        "Document includes at least one non-functional requirement (performance or security)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need a technical spec for adding multi-tenant support to our SaaS API. Currently all data is in shared tables. We need to isolate data by tenant_id, all new API calls should scope to the authenticated tenant, and existing data needs migration.",
+      "expected_output": "Tech spec covering: architecture decision (tenant_id row-level security vs schema-per-tenant vs database-per-tenant), functional requirements (data isolation, admin super-access), non-functional (zero cross-tenant data leakage), API changes (tenant context from JWT), schema changes (add tenant_id to all tables), migration plan (backfill, multi-phase rollout).",
+      "files": [],
+      "expectations": [
+        "Document covers architectural options for multi-tenancy with chosen approach",
+        "Document includes non-functional requirement for data isolation (no cross-tenant leakage)",
+        "Document describes how tenant context is determined (JWT claim, header, etc.)",
+        "Document includes schema changes (tenant_id column addition)",
+        "Document includes a migration plan for existing data",
+        "Security section addresses cross-tenant access prevention"
+      ]
+    }
+  ]
+}

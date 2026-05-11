@@ -1,0 +1,33 @@
+{
+  "skill_name": "setup-infra",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write Terraform to provision a production-ready AWS setup for a Node.js API: an ECS Fargate cluster, an RDS PostgreSQL database, an Application Load Balancer, and a VPC with public and private subnets. The app should be in private subnets, the ALB in public subnets, and the database in private subnets.",
+      "expected_output": "Terraform code with modular structure: VPC (public/private subnets), ECS Fargate cluster + task definition + service, RDS PostgreSQL in private subnet, ALB in public subnet, security groups, IAM roles, and outputs for the ALB endpoint.",
+      "files": [],
+      "expectations": [
+        "Code includes VPC with both public and private subnets",
+        "Code includes ECS Fargate cluster and service configuration",
+        "Code includes RDS instance in private subnet with db_subnet_group",
+        "Code includes Application Load Balancer in public subnets",
+        "Security groups restrict database to only allow app access",
+        "Database password uses random_password or Secrets Manager (not hardcoded)",
+        "Code includes variables.tf with descriptions and outputs.tf"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need Terraform for a simple S3-hosted static website with CloudFront CDN in front. The S3 bucket should be private and only accessible via CloudFront. Include a custom domain configuration placeholder.",
+      "expected_output": "Terraform for S3 bucket (private ACL), CloudFront distribution with Origin Access Control, bucket policy allowing only CloudFront, and optional ACM certificate + Route53 record for custom domain.",
+      "files": [],
+      "expectations": [
+        "S3 bucket has block_public_acls and block_public_policy enabled",
+        "CloudFront distribution uses Origin Access Control (OAC, not legacy OAI)",
+        "Bucket policy allows only CloudFront to read objects",
+        "CloudFront is configured for SPA routing (custom error for 404 → index.html)",
+        "Custom domain/ACM certificate section is included (even if as commented or variable)"
+      ]
+    }
+  ]
+}

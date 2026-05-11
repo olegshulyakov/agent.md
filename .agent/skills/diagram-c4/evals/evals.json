@@ -1,0 +1,32 @@
+{
+  "skill_name": "diagram-c4",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a C4 diagram for an e-commerce platform. It has a React web frontend, a Node.js API, PostgreSQL database, Redis cache, and integrates with Stripe for payments and SendGrid for email. Users shop and checkout online.",
+      "expected_output": "C4 Context diagram showing the system with users and external systems (Stripe, SendGrid), and a C4 Container diagram showing the internal components (React app, API, PostgreSQL, Redis) with their relationships and protocols.",
+      "files": [],
+      "expectations": [
+        "Output includes a C4 Context (L1) diagram",
+        "Output includes a C4 Container (L2) diagram",
+        "Both diagrams are in valid Mermaid C4 syntax (C4Context and C4Container)",
+        "Context diagram shows Stripe and SendGrid as external systems",
+        "Container diagram shows all 4 internal containers (React, API, PostgreSQL, Redis)",
+        "Relationships include protocol labels (e.g., HTTPS, SQL, TCP)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need a component-level C4 diagram for our authentication service. It has an AuthController (handles HTTP routes), AuthService (JWT logic, session management), UserRepository (database access), and it talks to PostgreSQL and Redis for sessions.",
+      "expected_output": "A C4 Component (L3) diagram for the auth service showing AuthController, AuthService, UserRepository as internal components with their relationships, plus external PostgreSQL and Redis dependencies.",
+      "files": [],
+      "expectations": [
+        "Output is a C4 Component (L3) diagram using C4Component mermaid syntax",
+        "Diagram shows AuthController, AuthService, and UserRepository as separate components",
+        "Diagram shows PostgreSQL and Redis as external dependencies",
+        "Component responsibilities are described",
+        "Relationships between components are shown with directional arrows"
+      ]
+    }
+  ]
+}

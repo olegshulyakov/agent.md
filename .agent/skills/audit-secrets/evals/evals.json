@@ -1,0 +1,45 @@
+{
+  "skill_name": "audit-secrets",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Audit this Python config file for exposed secrets:\n```python\nimport os\n\nDB_URL = \"postgresql://user:password@prod-db.company.com:5432/users\"\nAWS_ACCESS_KEY_ID = \"EXAMPLE_KEY_ID_12345\"\nAWS_SECRET_ACCESS_KEY = \"EXAMPLE_SECRET_ACCESS_KEY_67890\"\nSTRIPE_SECRET = \"sk_test_EXAMPLE_KEY_STRING\"\nDEBUG = True\nSECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-dev-secret-do-not-use')\n```",
+      "expected_output": "A secrets exposure report identifying: hardcoded DB credentials (critical), hardcoded AWS keys (critical), hardcoded Stripe live key (critical), and insecure fallback for SECRET_KEY (medium). Each finding should include rotation steps and long-term fix.",
+      "files": [],
+      "expectations": [
+        "Report identifies the hardcoded database connection string with credentials as critical",
+        "Report identifies the hardcoded AWS access key and secret as critical",
+        "Report identifies the Stripe live secret key as critical",
+        "Report identifies the insecure fallback SECRET_KEY as at least medium severity",
+        "Each critical finding includes rotation steps",
+        "Report recommends environment variable or secret manager as long-term fix"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I think we might have accidentally committed some API keys to our GitHub repo last week. Can you help me understand what to do? We're a Node.js app using Twilio, SendGrid, and a PostgreSQL database. The commit was to our main branch.",
+      "expected_output": "A guidance report covering: how to identify what was exposed (git log, github secret scanning), immediate rotation steps for Twilio, SendGrid, and PostgreSQL, how to remove secrets from git history, and how to prevent this in the future.",
+      "files": [],
+      "expectations": [
+        "Report covers rotating each service type mentioned (Twilio, SendGrid, PostgreSQL)",
+        "Report explains how to remove secrets from git history",
+        "Report mentions that rotating the credential is required even after history rewrite",
+        "Report recommends prevention measures (pre-commit hooks, secret scanning)",
+        "Report addresses urgency given it was the main branch"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Review this docker-compose.yml for secrets management issues:\n```yaml\nversion: '3.8'\nservices:\n  api:\n    image: myapp:latest\n    environment:\n      - DATABASE_URL=postgres://app_user:example-db-password@db:5432/appdb\n      - REDIS_URL=redis://:example-redis-password@redis:6379\n      - JWT_SECRET=example-jwt-secret-string-32chars\n      - NODE_ENV=production\n  db:\n    image: postgres:15\n    environment:\n      POSTGRES_PASSWORD: example-db-password\n      POSTGRES_USER: app_user\n```",
+      "expected_output": "Audit report identifying: hardcoded database password in multiple places (api + db service), hardcoded Redis password, hardcoded JWT secret. Recommend Docker secrets, env_file, or external secret injection pattern.",
+      "files": [],
+      "expectations": [
+        "Report identifies hardcoded database credentials as high/critical",
+        "Report identifies JWT secret hardcoded in compose file",
+        "Report notes the password appears in multiple places (api and db service)",
+        "Report recommends Docker secrets or env_file pattern",
+        "Report advises against committing docker-compose files with real secrets"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "skill_name": "writer-adr",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write an ADR for our decision to use PostgreSQL instead of MongoDB for our new SaaS product. We chose PostgreSQL because our data is relational (users, orders, products), we need transactions, the team has more SQL experience, and MongoDB's flexible schema caused data quality issues in a previous project.",
+      "expected_output": "ADR with: status (Accepted), context describing the SaaS data model and previous MongoDB pain points, options (PostgreSQL vs MongoDB, possibly MySQL as third option), decision rationale (relational data, transactions, team skill), consequences (positive: ACID, relational queries; negative: less flexible schema evolution).",
+      "files": [],
+      "expectations": [
+        "Document has a proper ADR header with status, date, and title",
+        "Context section describes the relational data model and motivation",
+        "At least 2 options are compared (PostgreSQL and MongoDB minimum)",
+        "Each option has pros and cons",
+        "Decision section clearly states what was chosen and why",
+        "Consequences section has both positive and negative entries"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We need to write an ADR for adopting GraphQL for our mobile API. Currently we have a REST API but mobile clients are over-fetching and under-fetching data, causing performance issues. We considered adding REST versioning, BFF pattern, and GraphQL.",
+      "expected_output": "ADR documenting the over-fetching/under-fetching problem, three options (REST versioning, BFF, GraphQL), decision for GraphQL with rationale (type system, flexible queries, tooling), consequences (positive: mobile efficiency, negative: N+1 risk, learning curve, tooling complexity).",
+      "files": [],
+      "expectations": [
+        "Context describes the over-fetching/under-fetching problem clearly",
+        "All three options (REST versioning, BFF, GraphQL) are evaluated",
+        "Decision section explains why GraphQL was chosen over alternatives",
+        "Negative consequences include N+1 query risk or complexity",
+        "Revisit conditions or implementation notes are included",
+        "ADR format is consistent with the standard structure"
+      ]
+    }
+  ]
+}

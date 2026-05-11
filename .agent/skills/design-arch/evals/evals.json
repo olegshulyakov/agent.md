@@ -1,0 +1,32 @@
+{
+  "skill_name": "design-arch",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design the architecture for a real-time collaborative document editing system (like Google Docs). It needs to support multiple users editing the same document simultaneously, with changes visible to all editors within 200ms. We expect up to 10,000 concurrent documents with an average of 3 users each.",
+      "expected_output": "A system design document covering: operational transformation or CRDT for conflict resolution, WebSocket connections for real-time sync, document storage (primary DB + document state cache), presence service, and deployment architecture. Should include component descriptions, key decisions with trade-offs.",
+      "files": [],
+      "expectations": [
+        "Document includes a system overview section with component descriptions",
+        "Document addresses the real-time sync mechanism (OT, CRDT, or similar) as a key decision",
+        "Document includes WebSocket or SSE for real-time communication",
+        "Document covers data storage decisions with rationale",
+        "Document includes at least 2 key architectural decisions with trade-offs",
+        "Document addresses the stated scale requirements (10k concurrent documents)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We're building a payment processing microservice that needs to handle checkout for our e-commerce platform. It needs to integrate with Stripe, handle webhook events from Stripe, maintain our own order records, and ensure payments are never double-processed. What's the architecture?",
+      "expected_output": "Architecture document covering: idempotency key pattern to prevent double-processing, webhook endpoint with signature verification, event sourcing or saga pattern for order state, separate read/write models, integration with Stripe API, retry/timeout handling.",
+      "files": [],
+      "expectations": [
+        "Document addresses idempotency to prevent double-processing",
+        "Document covers Stripe webhook handling with signature verification",
+        "Document describes order state management approach",
+        "Document includes security considerations for payment data",
+        "Document identifies failure modes and mitigation strategies"
+      ]
+    }
+  ]
+}

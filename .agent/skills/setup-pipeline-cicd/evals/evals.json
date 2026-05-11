@@ -1,0 +1,33 @@
+{
+  "skill_name": "setup-pipeline-cicd",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a GitHub Actions CI/CD pipeline for a Node.js TypeScript API. It should run lint, tests (with a PostgreSQL service container), build a Docker image, push to GitHub Container Registry, and deploy to staging automatically. Production deployment should require manual approval.",
+      "expected_output": "A .github/workflows/ci.yml with jobs for: lint, test (with postgres service), build-and-push Docker image, deploy-staging (auto on main), deploy-prod (manual approval via environment). Includes proper caching and secret usage.",
+      "files": [],
+      "expectations": [
+        "Workflow has separate jobs for lint, test, build, deploy-staging, deploy-prod",
+        "Test job includes a postgres service container",
+        "Build job pushes Docker image to ghcr.io using GITHUB_TOKEN",
+        "Deploy-staging triggers automatically on push to main",
+        "Deploy-prod uses environment with manual approval (environment: production)",
+        "npm dependencies are cached between runs"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Set up GitLab CI for a Python FastAPI project. Include stages for linting (ruff, mypy), testing with pytest (and a postgres service), building a Docker image, and deploying to a staging environment on the main branch.",
+      "expected_output": "A .gitlab-ci.yml with stages: lint, test, build, deploy. Lint uses ruff and mypy. Test includes postgres service. Build pushes to GitLab Container Registry. Deploy runs only on main branch.",
+      "files": [],
+      "expectations": [
+        "Pipeline uses GitLab CI/CD stages (lint, test, build, deploy)",
+        "Lint stage runs ruff and mypy",
+        "Test stage includes postgres as a service",
+        "Build stage uses $CI_REGISTRY_IMAGE for Docker image naming",
+        "Deploy stage is restricted to main branch only",
+        "Python dependencies are cached using cache: paths:"
+      ]
+    }
+  ]
+}

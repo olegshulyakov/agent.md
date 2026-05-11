@@ -1,0 +1,34 @@
+{
+  "skill_name": "writer-api-docs",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Document this Express route:\n```typescript\nrouter.get('/users/:id', authMiddleware, async (req, res) => {\n  const user = await userService.findById(req.params.id);\n  if (!user) return res.status(404).json({ error: 'User not found' });\n  res.json({ id: user.id, email: user.email, name: user.name, role: user.role, createdAt: user.createdAt });\n});\n```",
+      "expected_output": "API reference documentation for GET /users/:id including: path parameter table, authentication required note, response body schema with field descriptions and types, error responses (401, 404), and a curl example.",
+      "files": [],
+      "expectations": [
+        "Documents GET /users/:id as the endpoint",
+        "Path parameter 'id' is documented with type and description",
+        "Authentication requirement is noted",
+        "Response body is documented with all fields (id, email, name, role, createdAt) and types",
+        "404 error response is documented",
+        "401 error response is documented (due to authMiddleware)",
+        "Includes a curl example"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write API documentation for our payments API. We have: POST /payments (creates a payment with amount, currency, source), GET /payments/:id (get payment status), POST /payments/:id/refund (refund a payment). Auth is via API key in x-api-key header.",
+      "expected_output": "Structured API reference with Authentication section (API key), and documentation for all three endpoints including request bodies, response schemas, error codes, and examples for create payment, get payment, and refund.",
+      "files": [],
+      "expectations": [
+        "Authentication section documents x-api-key header",
+        "POST /payments documents amount, currency, source request fields",
+        "GET /payments/:id documents the payment status response",
+        "POST /payments/:id/refund is documented with appropriate request/response",
+        "Error responses are documented for each endpoint",
+        "At least one curl example is provided per endpoint"
+      ]
+    }
+  ]
+}

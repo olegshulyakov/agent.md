@@ -1,0 +1,47 @@
+{
+  "skill_name": "codegen-mobile",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a SwiftUI view for a user profile screen. It should show the user's avatar, name, email, and bio. Include a loading state while the profile fetches and an error state if it fails. The data comes from a ProfileViewModel.",
+      "expected_output": "A SwiftUI ProfileView with @StateObject or @ObservedObject for the ProfileViewModel, AsyncImage or placeholder for avatar, loading/error/content states, and proper SwiftUI modifiers.",
+      "files": [],
+      "expectations": [
+        "Code uses SwiftUI View struct",
+        "Code handles loading state (ProgressView or similar)",
+        "Code handles error state with an error message",
+        "Code shows avatar, name, email, and bio when loaded",
+        "Code uses @ObservedObject or @StateObject for the view model",
+        "Code is complete and compilable Swift"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create a Jetpack Compose screen for a settings page with a dark mode toggle, notification preferences toggle, and a sign out button. Use a ViewModel to hold the state. The app uses Hilt for dependency injection.",
+      "expected_output": "A Jetpack Compose SettingsScreen composable with ViewModel, two Switch/Toggle preferences for dark mode and notifications, a sign-out button, and Hilt ViewModel injection via hiltViewModel().",
+      "files": [],
+      "expectations": [
+        "Code uses @Composable function",
+        "Code includes a SettingsViewModel with Hilt @HiltViewModel annotation",
+        "Dark mode and notification toggles are implemented (Switch composable)",
+        "Sign out button is present",
+        "State is managed through the ViewModel (not local remember state for persistent settings)",
+        "Code uses Kotlin"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Build a Flutter screen for a product list with search. Items come from an API. Use Riverpod for state management. Each product shows an image, name, and price. Tapping a product navigates to its detail screen.",
+      "expected_output": "Flutter ProductListScreen using ConsumerWidget, a Riverpod provider for fetching products, ListView with product cards showing image/name/price, search TextField, and navigation to detail screen.",
+      "files": [],
+      "expectations": [
+        "Code uses Flutter Widget and ConsumerWidget",
+        "Code uses Riverpod (StateNotifierProvider or FutureProvider) for product data",
+        "ListView or GridView shows product cards with image, name, and price",
+        "Search TextField is included",
+        "Navigation to detail screen is implemented (Navigator.push or go_router)",
+        "Loading and error states are handled"
+      ]
+    }
+  ]
+}

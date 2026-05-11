@@ -1,0 +1,33 @@
+{
+  "skill_name": "setup-test-framework",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Set up a testing framework for our Node.js TypeScript Express API. We need unit tests for services, integration tests that hit a real PostgreSQL database, and 80% coverage minimum. Use Vitest.",
+      "expected_output": "Complete Vitest setup with vitest.config.ts (coverage thresholds at 80%, node environment), test setup file, folder structure, a user.repository.test.ts integration example, a user.service.test.ts unit example with mocking, test factory, and npm scripts.",
+      "files": [],
+      "expectations": [
+        "vitest.config.ts is provided with coverage thresholds set to 80%",
+        "Test setup file (setupFiles) is provided for DB initialization",
+        "A test factory/builder for test data is provided",
+        "At least one unit test example with mocked dependencies",
+        "At least one integration test example with real database",
+        "package.json scripts for test, test:coverage, test:watch are provided"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need to set up pytest for a FastAPI project. Include fixtures for the test database, async HTTP client, a conftest.py, factory for creating test users, and instructions to run tests in CI.",
+      "expected_output": "Pytest configuration in pyproject.toml, conftest.py with async DB session fixture and AsyncClient fixture, a user factory, example unit and integration tests, and CI yaml snippet for running tests.",
+      "files": [],
+      "expectations": [
+        "pyproject.toml or pytest.ini is provided with test configuration",
+        "conftest.py includes database session fixture",
+        "conftest.py includes AsyncClient fixture for FastAPI testing",
+        "Test factory for building user test data is provided",
+        "Example test file showing how to use the fixtures",
+        "Coverage configuration is included (--cov flag)"
+      ]
+    }
+  ]
+}

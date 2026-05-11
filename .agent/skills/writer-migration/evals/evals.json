@@ -1,0 +1,47 @@
+{
+  "skill_name": "writer-migration",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a PostgreSQL migration to add a `phone_number` column (VARCHAR 20, nullable) and a `phone_verified` boolean (NOT NULL, default false) to the `users` table. Include the rollback migration.",
+      "expected_output": "An up migration adding both columns with proper defaults, and a down migration that removes them. Should use safe patterns for NOT NULL column addition. Include index if relevant.",
+      "files": [],
+      "expectations": [
+        "Up migration adds phone_number as nullable VARCHAR(20)",
+        "Up migration adds phone_verified as NOT NULL with default false",
+        "Down/rollback migration drops both columns",
+        "Migration includes a validation or sanity check",
+        "File naming convention is provided",
+        "Migration is idempotent or uses IF NOT EXISTS checks"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write an Alembic migration to rename the `user_id` foreign key column in the `orders` table to `customer_id`. The table has 50 million rows so this needs to be safe for production with minimal locking.",
+      "expected_output": "A multi-phase migration strategy: add customer_id column, backfill from user_id in batches, add FK constraint with NOT VALID, validate constraint separately, drop user_id. Alembic functions for upgrade() and downgrade().",
+      "files": [],
+      "expectations": [
+        "Migration adds new customer_id column first (not immediate rename)",
+        "Backfill copies data from user_id to customer_id",
+        "Foreign key constraint added safely (NOT VALID pattern or equivalent)",
+        "Migration acknowledges the large table and mentions batching or phased approach",
+        "Proper Alembic upgrade() and downgrade() functions",
+        "Downgrade/rollback restores user_id column"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write a migration to add a composite index on (tenant_id, created_at DESC) to the `events` table for a PostgreSQL database. The table is large and in active production use.",
+      "expected_output": "Migration using CREATE INDEX CONCURRENTLY to avoid table locks, with proper naming convention, a rollback that drops the index, and a note about the non-transactional nature of CONCURRENTLY.",
+      "files": [],
+      "expectations": [
+        "Uses CREATE INDEX CONCURRENTLY to avoid table lock",
+        "Index covers both tenant_id and created_at columns",
+        "created_at is ordered DESC as specified",
+        "Rollback uses DROP INDEX CONCURRENTLY or DROP INDEX IF EXISTS",
+        "Notes that CONCURRENTLY cannot run inside a transaction",
+        "Index name follows a clear naming convention"
+      ]
+    }
+  ]
+}

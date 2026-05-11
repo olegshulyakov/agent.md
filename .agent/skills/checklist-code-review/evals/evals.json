@@ -1,0 +1,45 @@
+{
+  "skill_name": "checklist-code-review",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Please review this Python function that handles user registration:\n```python\ndef register_user(username, password, email):\n    user = db.query(f'SELECT * FROM users WHERE username = \"{username}\"')\n    if user:\n        return {'error': 'User exists'}\n    \n    db.execute(f'INSERT INTO users (username, password, email) VALUES (\"{username}\", \"{password}\", \"{email}\")')\n    return {'success': True}\n```",
+      "expected_output": "A structured code review identifying: SQL injection (blocker), plaintext password storage (blocker), no input validation (blocker), no error handling on DB operations (suggestion). Should include positive notes if any exist, and provide corrected code for the blockers.",
+      "files": [],
+      "expectations": [
+        "Review identifies SQL injection as a blocker with specific location",
+        "Review identifies plaintext password storage as a blocker",
+        "Review identifies missing input validation",
+        "Review provides an overall verdict (should be 'Request Changes' given severity)",
+        "Review includes at least one corrected code snippet",
+        "Review uses the structured format with sections for blockers vs suggestions"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Review this TypeScript React hook:\n```typescript\nfunction useUserData(userId: string) {\n  const [data, setData] = useState(null);\n  \n  useEffect(() => {\n    fetch(`/api/users/${userId}`)\n      .then(r => r.json())\n      .then(setData);\n  }, []);\n  \n  return data;\n}\n```",
+      "expected_output": "Code review noting: missing userId in useEffect dependency array (bug - stale data), no loading/error state handling (suggestion), no cleanup for in-flight requests on unmount (suggestion), missing TypeScript types (nit).",
+      "files": [],
+      "expectations": [
+        "Review identifies missing userId in useEffect dependency array as at least a suggestion (it's a bug)",
+        "Review flags missing error handling",
+        "Review notes the lack of loading state or error state return",
+        "Review includes an overall verdict",
+        "Review distinguishes between blockers/bugs and suggestions/nits"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need a code review checklist template for our team's Go microservices. We care a lot about error handling, proper use of context, and not leaking goroutines.",
+      "expected_output": "A customized code review checklist template for Go microservices emphasizing: error handling patterns (errors.Is/As, wrapping), context propagation and cancellation, goroutine lifecycle management, and standard Go conventions.",
+      "files": [],
+      "expectations": [
+        "Checklist includes Go-specific error handling items (errors.Is, errors.As, wrapping)",
+        "Checklist includes context.Context propagation as a review item",
+        "Checklist includes goroutine lifecycle and leak prevention",
+        "Checklist is formatted for reuse as a template (reviewers can check off items)",
+        "At least 10 specific checklist items are provided"
+      ]
+    }
+  ]
+}

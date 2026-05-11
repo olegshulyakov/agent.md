@@ -1,0 +1,45 @@
+{
+  "skill_name": "audit-a11y",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Please audit this login form for accessibility issues:\n```html\n<div class=\"form\">\n  <div>Email: <input type=\"text\" placeholder=\"Enter email\"></div>\n  <div>Password: <input type=\"password\" placeholder=\"Enter password\"></div>\n  <div onclick=\"login()\" style=\"background:gray;color:white;cursor:pointer\">Login</div>\n  <img src=\"logo.png\">\n</div>\n```",
+      "expected_output": "A structured accessibility audit report with severity-rated findings covering: missing form labels, non-semantic button element, missing alt text on image, and potentially insufficient color contrast. Each finding should include WCAG criterion, severity, current/fixed code snippets.",
+      "files": [],
+      "expectations": [
+        "Report includes a summary with total finding count and severity breakdown",
+        "At least one finding addresses missing or inadequate form labels (WCAG 3.3.2 or 1.3.1)",
+        "At least one finding addresses the non-semantic button div (WCAG 4.1.2 or 2.1.1)",
+        "At least one finding addresses the image missing alt text (WCAG 1.1.1)",
+        "Each finding includes a corrected code snippet",
+        "Each finding references a specific WCAG criterion"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Audit this navigation component for WCAG 2.1 AA compliance:\n```html\n<nav>\n  <a href=\"/home\" style=\"color:#aaa\">Home</a>\n  <a href=\"/about\" style=\"color:#aaa\">About</a>\n  <a href=\"/contact\" style=\"color:#aaa\" tabindex=\"-1\">Contact</a>\n  <span onclick=\"openMenu()\">☰</span>\n</nav>\n```",
+      "expected_output": "An audit report identifying: low contrast on links (#aaa on white fails 4.5:1), contact link removed from keyboard focus (tabindex=-1), and menu icon lacking accessible name and keyboard access.",
+      "files": [],
+      "expectations": [
+        "Report flags low color contrast issue (WCAG 1.4.3) for #aaa colored links",
+        "Report flags the tabindex=-1 on Contact link as a keyboard accessibility issue",
+        "Report flags the onclick span as missing keyboard support and accessible name",
+        "Severity levels are assigned to each finding",
+        "Fixes are provided for at least the contrast and keyboard issues"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I need an accessibility audit of our modal dialog component. It opens when a button is clicked, shows content, and has a close button. But users have complained it traps keyboard focus and screen readers announce the wrong thing. Here's the pattern we're using:\n```html\n<div id=\"modal\" style=\"display:none\">\n  <h2>Confirm Action</h2>\n  <p>Are you sure you want to delete this item?</p>\n  <button onclick=\"close()\">X</button>\n</div>\n```",
+      "expected_output": "A detailed audit covering modal-specific a11y patterns: missing role=dialog and aria-modal, no focus trap implementation, vague close button label, missing aria-labelledby, and no focus return on close.",
+      "files": [],
+      "expectations": [
+        "Report identifies missing role=dialog or dialog element",
+        "Report identifies keyboard focus trap requirement (WCAG 2.1.2)",
+        "Report identifies the 'X' close button as having an insufficient accessible name",
+        "Report recommends aria-labelledby or aria-label for the modal",
+        "Report addresses focus management (return focus to trigger on close)"
+      ]
+    }
+  ]
+}

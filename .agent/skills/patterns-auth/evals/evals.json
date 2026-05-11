@@ -1,0 +1,33 @@
+{
+  "skill_name": "patterns-auth",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm building a REST API in Node.js for a mobile app. Users log in with email/password and should stay logged in for 30 days without re-entering credentials. What auth approach should I use and how do I implement it?",
+      "expected_output": "Recommendation for JWT with refresh token rotation (short-lived access token + long-lived refresh token stored server-side). Implementation of login endpoint, JWT middleware, refresh endpoint, and token rotation logic. Security notes about storage on mobile.",
+      "files": [],
+      "expectations": [
+        "Recommends JWT with refresh tokens (not just long-lived JWTs)",
+        "Provides implementation of login endpoint returning access + refresh tokens",
+        "Provides authMiddleware that validates JWT",
+        "Provides refresh token endpoint",
+        "Mentions security considerations (token storage, rotation, revocation)",
+        "Code is complete and runnable Node.js/Express"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "How do I implement RBAC in a FastAPI app? We have three roles: admin (full access), manager (can read/write but not delete), viewer (read only). Different API routes need different permission levels.",
+      "expected_output": "FastAPI RBAC implementation with role definition, permission mapping, a permission dependency, and examples of applying it to routes. Should show how to get current user from JWT and check their role.",
+      "files": [],
+      "expectations": [
+        "Defines roles and their permissions (admin, manager, viewer)",
+        "Provides a FastAPI dependency for permission checking",
+        "Shows how to apply permission checks to route decorators",
+        "Provides a 403 Forbidden response for insufficient permissions",
+        "Code uses FastAPI patterns (Depends, HTTPException)",
+        "Includes an example of a protected route for each permission level"
+      ]
+    }
+  ]
+}

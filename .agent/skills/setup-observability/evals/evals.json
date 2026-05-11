@@ -1,0 +1,33 @@
+{
+  "skill_name": "setup-observability",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add OpenTelemetry observability to my Node.js Express API. I need metrics exposed for Prometheus, distributed traces sent to Jaeger, and structured JSON logs. The service is called 'order-service'.",
+      "expected_output": "OpenTelemetry SDK setup for Node.js with PrometheusExporter for metrics, OTLPTraceExporter for Jaeger, pino or winston structured JSON logger, health/ready endpoints, and docker-compose snippet for Prometheus+Jaeger.",
+      "files": [],
+      "expectations": [
+        "Output includes OpenTelemetry SDK initialization code for Node.js",
+        "Metrics are exported via PrometheusExporter on a dedicated port",
+        "Traces are exported via OTLP to Jaeger or a collector",
+        "Structured JSON logging is configured",
+        "Health check endpoint (/health or /ready) is provided",
+        "Service name 'order-service' is used in the resource configuration"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Set up a complete local observability stack with docker-compose for a microservices setup. I need Prometheus for metrics, Grafana for dashboards, Jaeger for traces, and an OpenTelemetry collector to receive telemetry from services.",
+      "expected_output": "A docker-compose.yml with Prometheus, Grafana, Jaeger, and OpenTelemetry Collector services. Prometheus config to scrape metrics. OTel Collector config to receive OTLP and forward to Jaeger/Prometheus. Grafana provisioning for Prometheus datasource.",
+      "files": [],
+      "expectations": [
+        "docker-compose includes Prometheus, Grafana, Jaeger, and OTel Collector services",
+        "OTel Collector config accepts OTLP (gRPC and/or HTTP) from services",
+        "OTel Collector forwards traces to Jaeger",
+        "OTel Collector exposes metrics for Prometheus scraping",
+        "Grafana is configured with Prometheus as a datasource",
+        "Port mappings allow access to Grafana UI and Jaeger UI"
+      ]
+    }
+  ]
+}

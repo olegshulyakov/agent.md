@@ -51,17 +51,17 @@ Ordered alphabetically by name (matches filesystem order).
 
 | Done  | Skill              | Priority | Domain       | Primary Role      | Produces                                                                |
 | ----- | ------------------ | -------- | ------------ | ----------------- | ----------------------------------------------------------------------- |
-| - [ ] | `audit-a11y`       | 🟠 P2    | UI/UX        | Frontend / UX     | Accessibility checklist with annotated findings and fix recommendations |
+| - [x] | `audit-a11y`       | 🟠 P2    | UI/UX        | Frontend / UX     | Accessibility checklist with annotated findings and fix recommendations |
 | - [ ] | `audit-gap`        | 🟡 P3    | Requirements | System Analyst    | Gap analysis report between current and target state                    |
-| - [ ] | `audit-secrets`    | 🟠 P2    | Security     | Security Engineer | Secrets exposure report with remediation steps                          |
-| - [ ] | `audit-security`   | 🟠 P2    | Security     | Security Engineer | OWASP-aligned security review with severity ratings                     |
+| - [x] | `audit-secrets`    | 🟠 P2    | Security     | Security Engineer | Secrets exposure report with remediation steps                          |
+| - [x] | `audit-security`   | 🟠 P2    | Security     | Security Engineer | OWASP-aligned security review with severity ratings                     |
 | - [ ] | `audit-test-flaky` | 🟡 P3    | Testing      | AQA               | Root cause report for flaky tests with fix recommendations              |
 
 ### `checklist-`
 
 | Done  | Skill                   | Priority | Domain     | Primary Role    | Produces                                          |
 | ----- | ----------------------- | -------- | ---------- | --------------- | ------------------------------------------------- |
-| - [ ] | `checklist-code-review` | 🟠 P2    | Leadership | Team Lead       | Structured PR review checklist by concern area    |
+| - [x] | `checklist-code-review` | 🟠 P2    | Leadership | Team Lead       | Structured PR review checklist by concern area    |
 | - [ ] | `checklist-release`     | 🟡 P3    | Release    | Release Manager | Go/no-go release checklist with sign-off sections |
 
 ### `codegen-`
@@ -70,8 +70,8 @@ Ordered alphabetically by name (matches filesystem order).
 | ----- | ------------------- | -------- | ------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
 | - [x] | `codegen-backend`   | 🔴 P1    | Code    | Backend Dev   | Production-ready backend code (Python, Node, Go, Java, Ruby, Rust, C#, PHP, Kotlin, Elixir)                   |
 | - [x] | `codegen-frontend`  | 🔴 P1    | Code    | Frontend Dev  | Production-ready frontend code (React, Vue, Angular, Svelte, Next.js, Nuxt, Remix, Astro, SolidJS, SvelteKit) |
-| - [ ] | `codegen-mobile`    | 🟠 P2    | Code    | Mobile Dev    | Production-ready mobile code (Swift/iOS, Kotlin/Android, React Native, Flutter)                               |
-| - [ ] | `codegen-test-api`  | 🟠 P2    | Testing | AQA / Backend | API test suite with assertions and fixtures                                                                   |
+| - [x] | `codegen-mobile`    | 🟠 P2    | Code    | Mobile Dev    | Production-ready mobile code (Swift/iOS, Kotlin/Android, React Native, Flutter)                               |
+| - [x] | `codegen-test-api`  | 🟠 P2    | Testing | AQA / Backend | API test suite with assertions and fixtures                                                                   |
 | - [x] | `codegen-test-e2e`  | 🔴 P1    | Testing | AQA           | End-to-end test scenarios with page objects                                                                   |
 | - [ ] | `codegen-test-perf` | 🟡 P3    | Testing | AQA / SRE     | Load and stress test scripts with thresholds                                                                  |
 
@@ -80,7 +80,7 @@ Ordered alphabetically by name (matches filesystem order).
 | Done  | Skill           | Priority | Domain       | Primary Role       | Produces                                                      |
 | ----- | --------------- | -------- | ------------ | ------------------ | ------------------------------------------------------------- |
 | - [x] | `design-api`    | 🔴 P1    | Code         | Backend Dev        | Contract-first API spec (OpenAPI / AsyncAPI)                  |
-| - [ ] | `design-arch`   | 🟠 P2    | Architecture | Solution Architect | System design document with components and tradeoffs          |
+| - [x] | `design-arch`   | 🟠 P2    | Architecture | Solution Architect | System design document with components and tradeoffs          |
 | - [ ] | `design-css`    | 🟡 P3    | UI/UX        | Frontend Dev       | Design system tokens, component style guide                   |
 | - [x] | `design-schema` | 🔴 P1    | Database     | DBA / Backend      | Normalized database schema with relationships and constraints |
 
@@ -88,7 +88,7 @@ Ordered alphabetically by name (matches filesystem order).
 
 | Done  | Skill                 | Priority | Domain       | Primary Role       | Produces                                                    |
 | ----- | --------------------- | -------- | ------------ | ------------------ | ----------------------------------------------------------- |
-| - [ ] | `diagram-c4`          | 🟠 P2    | Architecture | Solution Architect | C4 model diagrams (context, container, component, code)     |
+| - [x] | `diagram-c4`          | 🟠 P2    | Architecture | Solution Architect | C4 model diagrams (context, container, component, code)     |
 | - [ ] | `diagram-dfd`         | 🟡 P3    | Requirements | System Analyst     | Data flow diagram (L0 context through L2 process detail)    |
 | - [ ] | `diagram-integration` | 🟡 P3    | Requirements | System Analyst     | Integration map showing system boundaries and data exchange |
 | - [ ] | `diagram-ux-flow`     | 🟡 P3    | UI/UX        | UX Designer        | User flows and journey maps                                 |
@@ -98,13 +98,13 @@ Ordered alphabetically by name (matches filesystem order).
 | Done  | Skill          | Priority | Domain   | Primary Role      | Produces                                           |
 | ----- | -------------- | -------- | -------- | ----------------- | -------------------------------------------------- |
 | - [ ] | `model-dbt`    | 🟡 P3    | Data     | Data Engineer     | dbt model definitions with tests and documentation |
-| - [ ] | `model-threat` | 🟠 P2    | Security | Security Engineer | STRIDE threat model with mitigations               |
+| - [x] | `model-threat` | 🟠 P2    | Security | Security Engineer | STRIDE threat model with mitigations               |
 
 ### `patterns-`
 
 | Done  | Skill               | Priority | Domain | Primary Role | Produces                                                                              |
 | ----- | ------------------- | -------- | ------ | ------------ | ------------------------------------------------------------------------------------- |
-| - [ ] | `patterns-auth`     | 🟠 P2    | Code   | Backend Dev  | Auth pattern catalogue (JWT, OAuth2, sessions, API keys) with implementation examples |
+| - [x] | `patterns-auth`     | 🟠 P2    | Code   | Backend Dev  | Auth pattern catalogue (JWT, OAuth2, sessions, API keys) with implementation examples |
 | - [ ] | `patterns-graphql`  | 🟡 P3    | Code   | Backend Dev  | GraphQL schema, resolver, and N+1 pattern guide                                       |
 | - [ ] | `patterns-realtime` | 🟡 P3    | Code   | Backend Dev  | WebSocket / SSE / polling pattern guide with tradeoffs                                |
 
@@ -130,13 +130,13 @@ Ordered alphabetically by name (matches filesystem order).
 | ----- | ------------------------ | -------- | ------------ | ----------------- | -------------------------------------------------------- |
 | - [ ] | `setup-developer-portal` | ⚪ P4    | Platform     | Platform Engineer | Internal developer portal structure with service catalog |
 | - [ ] | `setup-eval-harness`     | 🟡 P3    | ML / AI      | ML Engineer       | Model evaluation harness with metrics and baselines      |
-| - [ ] | `setup-infra`            | 🟠 P2    | DevOps       | DevOps            | Infrastructure-as-code scaffolding (Terraform / Pulumi)  |
+| - [x] | `setup-infra`            | 🟠 P2    | DevOps       | DevOps            | Infrastructure-as-code scaffolding (Terraform / Pulumi)  |
 | - [ ] | `setup-monorepo`         | 🟡 P3    | Platform     | Platform Engineer | Monorepo configuration (Nx, Turborepo, Bazel)            |
-| - [ ] | `setup-observability`    | 🟠 P2    | DevOps / SRE | DevOps            | Observability stack config (metrics, logs, traces)       |
-| - [ ] | `setup-pipeline-cicd`    | 🟠 P2    | DevOps       | DevOps            | CI/CD pipeline config (GitHub Actions, GitLab CI, etc.)  |
+| - [x] | `setup-observability`    | 🟠 P2    | DevOps / SRE | DevOps            | Observability stack config (metrics, logs, traces)       |
+| - [x] | `setup-pipeline-cicd`    | 🟠 P2    | DevOps       | DevOps            | CI/CD pipeline config (GitHub Actions, GitLab CI, etc.)  |
 | - [ ] | `setup-pipeline-etl`     | 🟡 P3    | Data         | Data Engineer     | ETL pipeline scaffolding with error handling and logging |
 | - [ ] | `setup-rag`              | 🟡 P3    | ML / AI      | AI Engineer       | RAG pipeline setup (chunking, embedding, retrieval)      |
-| - [ ] | `setup-test-framework`   | 🟠 P2    | Testing      | AQA               | Test framework scaffolding with config and conventions   |
+| - [x] | `setup-test-framework`   | 🟠 P2    | Testing      | AQA               | Test framework scaffolding with config and conventions   |
 
 ### `strategy-`
 
@@ -146,7 +146,7 @@ Ordered alphabetically by name (matches filesystem order).
 | - [ ] | `strategy-backup`             | 🟡 P3    | Database | DBA                 | Backup and recovery strategy with RPO/RTO targets               |
 | - [ ] | `strategy-dependency-upgrade` | 🟡 P3    | Release  | DevOps / Team Lead  | Dependency upgrade strategy with risk assessment                |
 | - [ ] | `strategy-feature-flag`       | 🟡 P3    | Code     | Team Lead / Backend | Feature flag strategy with rollout and rollback plan            |
-| - [ ] | `strategy-test`               | 🟠 P2    | Testing  | AQA / QA            | Test strategy document (scope, levels, tools, coverage targets) |
+| - [x] | `strategy-test`               | 🟠 P2    | Testing  | AQA / QA            | Test strategy document (scope, levels, tools, coverage targets) |
 
 ### `template-`
 
@@ -165,16 +165,16 @@ Ordered alphabetically by name (matches filesystem order).
 
 | Done  | Skill                       | Priority | Domain       | Primary Role          | Produces                                                              |
 | ----- | --------------------------- | -------- | ------------ | --------------------- | --------------------------------------------------------------------- |
-| - [ ] | `writer-adr`                | 🟠 P2    | Architecture | Solution Architect    | Architecture Decision Record (context, decision, consequences)        |
+| - [x] | `writer-adr`                | 🟠 P2    | Architecture | Solution Architect    | Architecture Decision Record (context, decision, consequences)        |
 | - [ ] | `writer-alert-rules`        | 🟡 P3    | DevOps / SRE | SRE                   | Alert rule definitions with severity and runbook links                |
-| - [ ] | `writer-api-docs`           | 🟠 P2    | Docs         | Tech Writer / Backend | API reference documentation (endpoints, params, examples)             |
+| - [x] | `writer-api-docs`           | 🟠 P2    | Docs         | Tech Writer / Backend | API reference documentation (endpoints, params, examples)             |
 | - [ ] | `writer-backlog`            | 🟡 P3    | Agile        | Product Owner         | Groomed backlog with priorities, estimates, and dependencies          |
 | - [ ] | `writer-changelog`          | 🟡 P3    | Docs         | Tech Writer           | Developer changelog (grouped by type: added, changed, fixed)          |
 | - [ ] | `writer-compliance`         | ⚪ P4    | Security     | Security / Legal      | Compliance documentation (GDPR, SOC2, HIPAA)                          |
-| - [ ] | `writer-epic`               | 🟠 P2    | Agile        | Product Owner         | Epic definition with goal, scope, child stories, DoD                  |
+| - [x] | `writer-epic`               | 🟠 P2    | Agile        | Product Owner         | Epic definition with goal, scope, child stories, DoD                  |
 | - [ ] | `writer-lineage`            | ⚪ P4    | Data         | Data Engineer         | Data lineage documentation (sources, transforms, destinations)        |
 | - [ ] | `writer-mentorship`         | ⚪ P4    | Leadership   | Team Lead             | Mentorship guide with goals, checkpoints, and resources               |
-| - [ ] | `writer-migration`          | 🟠 P2    | Database     | DBA                   | Database migration scripts with up/down and validation                |
+| - [x] | `writer-migration`          | 🟠 P2    | Database     | DBA                   | Database migration scripts with up/down and validation                |
 | - [ ] | `writer-ml-experiment`      | 🟡 P3    | ML / AI      | ML Engineer           | ML experiment report with setup, results, and model card              |
 | - [ ] | `writer-postmortem`         | 🟡 P3    | Leadership   | Team Lead / SRE       | Incident postmortem (timeline, root cause, action items)              |
 | - [x] | `writer-prd`                | 🔴 P1    | Requirements | PM / PO               | Product Requirements Document (goals, personas, scope, metrics)       |
@@ -188,7 +188,7 @@ Ordered alphabetically by name (matches filesystem order).
 | - [ ] | `writer-spec-design`        | 🟡 P3    | UI/UX        | UX Designer           | Design spec with component annotations and design tokens              |
 | - [x] | `writer-spec-functional`    | 🔴 P1    | Requirements | System Analyst        | Functional requirements spec (actors, flows, business rules)          |
 | - [ ] | `writer-spec-nfr`           | 🟡 P3    | Requirements | SA / Architect        | Non-functional requirements (performance, scalability, security)      |
-| - [ ] | `writer-spec-tech`          | 🟠 P2    | Requirements | SA / Architect        | Technical specification (orchestrates functional + nfr + integration) |
+| - [x] | `writer-spec-tech`          | 🟠 P2    | Requirements | SA / Architect        | Technical specification (orchestrates functional + nfr + integration) |
 | - [x] | `writer-sql`                | 🔴 P1    | Database     | DBA / Backend         | Dialect-aware SQL (Postgres, MySQL, MSSQL, SQLite, Oracle)            |
 | - [ ] | `writer-sql-analytics`      | 🟡 P3    | Database     | DBA / Data Engineer   | Analytics SQL (Snowflake, BigQuery, ClickHouse, CockroachDB)          |
 | - [ ] | `writer-stakeholder`        | 🟡 P3    | Agile        | PM / PO               | Stakeholder update (status, risks, decisions needed)                  |

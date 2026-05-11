@@ -1,0 +1,34 @@
+{
+  "skill_name": "model-threat",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a threat model for a password reset flow. The user enters their email, receives a reset link, clicks it, and sets a new password. The link contains a token that's valid for 1 hour.",
+      "expected_output": "A STRIDE threat model covering: Spoofing (token theft/prediction), Tampering (email address manipulation), Repudiation (no audit of reset requests), Information Disclosure (token in URL), DoS (rate limiting), Elevation of Privilege (account takeover via reset). Should include mitigations for each.",
+      "files": [],
+      "expectations": [
+        "Document covers all 6 STRIDE categories",
+        "Document identifies token prediction or brute force as a spoofing/auth threat",
+        "Document identifies information disclosure risk from token in URL (logs, Referer)",
+        "Document identifies DoS/rate limiting risk on the reset endpoint",
+        "Document identifies account takeover as an elevation of privilege risk",
+        "Each threat includes at least one mitigation",
+        "Document includes a risk summary table"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Threat model a multi-tenant SaaS API where tenants are isolated by a tenant_id field in the database. The API uses JWT tokens that include the tenant_id claim. Service A calls Service B internally.",
+      "expected_output": "Threat model covering: JWT tampering to change tenant_id (Spoofing/Tampering), IDOR via missing tenant isolation checks (Elevation of Privilege), internal service authentication (Spoofing), tenant data leakage in shared database (Information Disclosure), service-to-service auth.",
+      "files": [],
+      "expectations": [
+        "Document identifies tenant isolation bypass as a critical threat (IDOR/missing checks)",
+        "Document addresses JWT tampering risks (tenant_id in payload)",
+        "Document addresses internal service-to-service authentication",
+        "Document identifies cross-tenant data leakage as an information disclosure risk",
+        "Mitigations include tenant ID validation on every DB query",
+        "Risk summary identifies tenant isolation bypass as high/critical"
+      ]
+    }
+  ]
+}
