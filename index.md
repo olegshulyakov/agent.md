@@ -2,7 +2,7 @@
 
 **A portable, tool-agnostic file structure playbook for LLM agents in software projects.**
 
-Agent behavior is code. It should be versioned, reviewed, modular, and readable by both humans and machines. The `.agent/` folder is the single source of truth for everything an LLM agent needs to operate within a project — permissions, instructions, skills, memory, commands, and documentation artifacts.
+Agent behavior is code. It should be versioned, reviewed, modular, and readable by both humans and machines. The `.agents/` folder is the single source of truth for everything an LLM agent needs to operate within a project — permissions, instructions, skills, memory, commands, and documentation artifacts.
 
 ---
 
@@ -18,7 +18,7 @@ This playbook gives agents — and the humans working alongside them — a consi
 
 ```text
 project-root/
-└── .agent/
+└── .agents/
     ├── README.md              # Primary instruction file + table of contents
     ├── rules/                 # Modular instruction files
     │   └── <rule-name>/
@@ -55,11 +55,11 @@ project-root/
 
 ## Quick Reference
 
-### `.agent/README.md` — Entry Point
+### `.agents/README.md` — Entry Point
 
 The agent's system prompt and manifest. Every runtime loads this first. Contains a `## Loaded Context` table that tells the runtime what else to load and when.
 
-### `.agent/rules/` — Instructions
+### `.agents/rules/` — Instructions
 
 Composable, single-concern instruction files. Each rule file targets a specific area: code style, testing conventions, security policy, git workflow.
 
@@ -78,7 +78,7 @@ priority: high
 ---
 ```
 
-### `.agent/skills/` — Auto-Invoking Workflows
+### `.agents/skills/` — Auto-Invoking Workflows
 
 Skills are the agent's reflexes — they trigger automatically based on events or file patterns, without the user asking.
 
@@ -88,7 +88,7 @@ skills/on-test-fail/SKILL.md     → triggers when CI fails
 skills/on-commit/SKILL.md        → triggers before/after a commit
 ```
 
-### `.agent/commands/` — Slash Commands
+### `.agents/commands/` — Slash Commands
 
 Explicit, user-invoked operations. Registered by the runtime and exposed via its invocation interface.
 
@@ -98,7 +98,7 @@ commands/scaffold/COMMAND.md     → /scaffold — generate boilerplate
 commands/deploy-check/COMMAND.md → /deploy-check — pre-deployment checklist
 ```
 
-### `.agent/agents/` — Subagent Personas
+### `.agents/agents/` — Subagent Personas
 
 Specialized agents for specific roles. Invoked by `@mention`. Each carries its own identity, constraints, and optional permission overrides.
 
@@ -108,7 +108,7 @@ agents/reviewer/AGENT.md         → @reviewer — code review and quality
 agents/security-auditor/AGENT.md → @security — OWASP-focused audit
 ```
 
-### `.agent/memory/` — Persistent Memory
+### `.agents/memory/` — Persistent Memory
 
 Structured, append-only files that persist facts across sessions. Treated as low-confidence context — informative, not authoritative.
 
@@ -124,7 +124,7 @@ memory/YYYY-MM-DD.md   → Daily notes (UTC timezone). Running context and obser
 ### Start here (< 5 minutes)
 
 ```text
-.agent/
+.agents/
 └── README.md
 ```
 
@@ -133,7 +133,7 @@ Write your agent instructions. That's it.
 ### Playbook setup
 
 ```text
-.agent/
+.agents/
 ├── README.md
 ├── rules/
 │   └── general/
@@ -146,7 +146,7 @@ Write your agent instructions. That's it.
 
 ```text
 project-root/
-└── .agent/
+└── .agents/
     ├── README.md
     ├── rules/
     ├── skills/
@@ -161,7 +161,7 @@ project-root/
 
 A compliant runtime **MUST**:
 
-1. Always load `.agent/README.md` at session start.
+1. Always load `.agents/README.md` at session start.
 2. Enforce permissions defined in `README.md` before any file operation.
 3. Auto-inject all files marked `Auto-load: yes` in `README.md`.
 4. Trigger skills whose `trigger.event` or `trigger.pattern` matches the current context.
@@ -179,8 +179,8 @@ A compliant runtime **SHOULD**:
 
 ## Security
 
-- `.agent/` should be committed to version control — it is project configuration, not secrets.
-- **Never** store API keys, tokens, or credentials in any `.agent/` file.
+- `.agents/` should be committed to version control — it is project configuration, not secrets.
+- **Never** store API keys, tokens, or credentials in any `.agents/` file.
 - Permissions configuration should always deny access to `**/.env` and `**/secrets/**`.
 - Memory files must be reviewed periodically to ensure no sensitive data has been inadvertently captured.
 - Subagent personas should have the minimum permissions necessary for their role.
