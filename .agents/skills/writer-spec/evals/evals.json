@@ -1,0 +1,32 @@
+{
+  "skill_name": "writer-spec-functional",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a functional requirements specification for a user authentication module. It needs to support registration, login, logout, and password reset. The system uses email-based accounts.",
+      "expected_output": "A functional requirements specification document with actors, data entities, numbered functional requirements (FR-N-M), business rules, validation rules, and open issues.",
+      "files": [],
+      "expectations": [
+        "Document has a numbered section structure (1. Overview, 2. Actors, 5. Functional Requirements, etc.)",
+        "Actors section identifies at least 2 actors (e.g., registered user, system/email service)",
+        "Functional requirements are numbered in FR-N-M format",
+        "Each requirement has at least a Description and Error Conditions field",
+        "Business rules section documents at least 2 rules (e.g., email uniqueness, password complexity)",
+        "Data validation rules table covers at least email and password fields"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write a functional spec for an order management system. A customer can place an order, and a merchant can update its status (pending → processing → shipped → delivered). Orders can be cancelled before they ship.",
+      "expected_output": "Functional spec covering order lifecycle, actors (customer, merchant, system), state transitions, and business rules around cancellation.",
+      "files": [],
+      "expectations": [
+        "Document identifies at least 3 actors: customer, merchant, and system or notification service",
+        "State transitions section or diagram shows order lifecycle states",
+        "Cancellation business rule is explicitly documented",
+        "Functional requirements numbered and include preconditions and postconditions",
+        "Error conditions documented for at least invalid state transitions"
+      ]
+    }
+  ]
+}

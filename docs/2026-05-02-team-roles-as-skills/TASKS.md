@@ -186,8 +186,8 @@ Ordered alphabetically by name (matches filesystem order).
 | - [ ] | `writer-slo`                | 🟡 P3    | DevOps / SRE | SRE                   | SLO definition with indicators, targets, and error budget             |
 | - [ ] | `writer-spec-data-contract` | 🟡 P3    | Database     | DBA / Data Engineer   | Data contract spec (schema, ownership, SLA, versioning)               |
 | - [ ] | `writer-spec-design`        | 🟡 P3    | UI/UX        | UX Designer           | Design spec with component annotations and design tokens              |
-| - [ ] | `writer-spec-functional`    | 🔴 P1    | Requirements | System Analyst        | Functional requirements spec (actors, flows, business rules)          |
-| - [ ] | `writer-spec-nfr`           | 🟡 P3    | Requirements | SA / Architect        | Non-functional requirements (performance, scalability, security)      |
+| - [x] | `writer-spec-functional`    | 🔴 P1    | Requirements | System Analyst        | Functional requirements spec (actors, flows, business rules)          |
+| - [x] | `writer-spec-nfr`           | 🟡 P3    | Requirements | SA / Architect        | Non-functional requirements (performance, scalability, security)      |
 | - [ ] | `writer-spec-tech`          | 🟠 P2    | Requirements | SA / Architect        | Technical specification (orchestrates functional + nfr + integration) |
 | - [ ] | `writer-sql`                | 🔴 P1    | Database     | DBA / Backend         | Dialect-aware SQL (Postgres, MySQL, MSSQL, SQLite, Oracle)            |
 | - [ ] | `writer-sql-analytics`      | 🟡 P3    | Database     | DBA / Data Engineer   | Analytics SQL (Snowflake, BigQuery, ClickHouse, CockroachDB)          |
