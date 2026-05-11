@@ -1,12 +1,12 @@
-# PRD: Software Team Skill Set for Claude Code
+# PRD: Software Team Roles as Skills
 
 ## Overview
 
-A comprehensive library of 80 skills for Claude Code (and compatible CLI agents) that gives every software team role a dedicated, well-scoped AI capability. Instead of relying on generic prompting, each skill encodes the conventions, output formats, and domain knowledge specific to a role and artifact type.
+A comprehensive library of 80 skills for CLI Agent (and compatible CLI agents) that gives every software team role a dedicated, well-scoped AI capability. Instead of relying on generic prompting, each skill encodes the conventions, output formats, and domain knowledge specific to a role and artifact type.
 
 ## Problem
 
-Claude Code is a general-purpose agent. When a DBA asks it to design a schema, or an AQA engineer asks it to generate E2E tests, it produces reasonable output — but without knowledge of team conventions, artifact formats, or role-specific best practices. Every user has to re-explain context every time. There is no shared, reusable, versioned encoding of "how our team does things."
+Any CLI agent is a general-purpose agent. When a DBA asks it to design a schema, or an AQA engineer asks it to generate E2E tests, it produces reasonable output — but without knowledge of team conventions, artifact formats, or role-specific best practices. Every user has to re-explain context every time. There is no shared, reusable, versioned encoding of "how our team does things."
 
 ## Goal
 

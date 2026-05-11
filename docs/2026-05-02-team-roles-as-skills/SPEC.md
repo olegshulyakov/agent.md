@@ -1,4 +1,11 @@
-# SPEC: Software Team Skill Set — Technical Specification
+# SPEC: Software Team Roles as Skills — Technical Specification
+
+## Concept
+
+Each skill encodes a specific capability of a software team role. A role (e.g. System Analyst) produces multiple artifact types (functional specs, use cases, data flow diagrams, gap analyses), so it maps to multiple skills. Conversely, one skill type (e.g. `codegen-backend`) serves multiple roles (Backend Dev, Team Lead). The library works both ways:
+
+- **Role → Skills:** install all skills for a role to give the agent a complete role capability
+- **Skill → Roles:** install individual skills across roles to solve a specific artifact need
 
 ## Naming Convention
 
@@ -6,7 +13,7 @@ All skills use prefix-first naming: `<type>-<subject>`
 
 This groups related skills together on the filesystem automatically. The type is the kind of artifact produced; the subject is the domain or topic.
 
-```
+```text
 <type>-<subject>[-<variant>]
 ```
 
@@ -19,7 +26,7 @@ This groups related skills together on the filesystem automatically. The type is
 
 ## Filesystem Layout
 
-```
+```text
 skills/
 ├── audit-a11y/
 ├── audit-gap/
@@ -107,11 +114,11 @@ skills/
 
 ## Skill Structure (per skill)
 
-```
+```text
 <skill-name>/
 ├── SKILL.md              # Required. YAML frontmatter + instructions. Max 500 lines.
 ├── evals/
-│   └── evals.json        # Min 2 test cases
+│   └── evals.json        # Min 10 test cases
 └── references/           # Optional. Large reference files, loaded on demand.
     ├── <variant-a>.md
     └── <variant-b>.md
@@ -213,7 +220,7 @@ description: >
 
 #### Multi-variant: `writer-sql`
 
-```
+```text
 writer-sql/
 ├── SKILL.md          # Detects dialect from context or asks once
 └── references/
@@ -226,7 +233,7 @@ writer-sql/
 
 #### Multi-variant: `writer-sql-analytics`
 
-```
+```text
 writer-sql-analytics/
 ├── SKILL.md
 └── references/
@@ -259,7 +266,7 @@ writer-sql-analytics/
 
 #### Multi-variant: `codegen-frontend`
 
-```
+```text
 codegen-frontend/
 ├── SKILL.md          # Detects framework from imports, package.json, or file extensions
 └── references/
@@ -276,7 +283,7 @@ codegen-frontend/
 
 #### Multi-variant: `codegen-backend`
 
-```
+```text
 codegen-backend/
 ├── SKILL.md          # Detects language from file extension, imports, or asks once
 └── references/
@@ -294,7 +301,7 @@ codegen-backend/
 
 #### Multi-variant: `codegen-mobile`
 
-```
+```text
 codegen-mobile/
 ├── SKILL.md          # Detects platform from file extension or project structure
 └── references/

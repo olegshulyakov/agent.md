@@ -1,13 +1,13 @@
 # Tasks
 
-A collection of skills for AI coding agents (Claude Code, etc.), modeled after real software team roles.
+A collection of skills for AI coding agents, modeled after real software team roles.
 Each skill is a `SKILL.md` that teaches the agent how to produce a specific artifact — document, code, diagram, report, or plan.
 
 ---
 
 ## Naming Convention
 
-```
+```text
 <type>-<subject>
 ```
 
@@ -197,48 +197,3 @@ Ordered alphabetically by name (matches filesystem order).
 | - [ ] | `writer-tech-radar`         | ⚪ P4    | Architecture | Solution Architect    | Technology radar (adopt, trial, assess, hold)                         |
 | - [ ] | `writer-use-case`           | 🟡 P3    | Requirements | System Analyst        | Use case document (actors, preconditions, main/alternate flows)       |
 
----
-
-## Totals
-
-| Priority            | Count  |
-| ------------------- | ------ |
-| 🔴 P1 — Build first | 10     |
-| 🟠 P2 — High value  | 18     |
-| 🟡 P3 — Important   | 36     |
-| ⚪ P4 — Specialized | 16     |
-| **Total**           | **80** |
-
-| Prefix       | Count |
-| ------------ | ----- |
-| `writer-`    | 29    |
-| `setup-`     | 9     |
-| `codegen-`   | 6     |
-| `audit-`     | 5     |
-| `strategy-`  | 5     |
-| `design-`    | 4     |
-| `diagram-`   | 4     |
-| `patterns-`  | 3     |
-| `planner-`   | 3     |
-| `report-`    | 3     |
-| `checklist-` | 2     |
-| `model-`     | 2     |
-| `template-`  | 2     |
-| `tracker-`   | 1     |
-
----
-
-## Suggested Build Order
-
-Start with P1 — these have the broadest cross-role daily use:
-
-1. `writer-prd` — everything starts with a requirement
-2. `writer-story-task` — the most frequently created artifact on any team
-3. `writer-spec-functional` — System Analyst core output
-4. `design-api` — contract-first, unblocks frontend + backend in parallel
-5. `design-schema` — foundational for backend + DBA
-6. `writer-sql` — used daily across backend, DBA, and data roles
-7. `codegen-backend` — multi-language router, highest daily code volume
-8. `codegen-frontend` — multi-framework router, highest daily code volume
-9. `codegen-test-e2e` — AQA core, closes the loop on stories
-10. `writer-readme` — every repo needs one, immediate visible value
