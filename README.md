@@ -12,14 +12,6 @@ Agent behavior is code. It should be versioned, reviewed, and readable by both h
 
 ```text
 project-root/
-├── docs/                     # Task-scoped documentation
-│   └── <task-name>/
-│       ├── PRD.md
-│       ├── SPEC.md
-│       ├── ARCHITECTURE.md
-│       ├── DESIGN.md
-│       └── TASKS.md
-│
 └── .agents/
     ├── README.md             # Agent entry point + file manifest
     ├── settings.json         # Permissions & runtime config
@@ -81,7 +73,6 @@ Write your agent instructions there. Add folders only when you have a reason to.
 | `.agents/commands/`     | Explicit slash commands (`/review`, `/scaffold`).   | `commands/<name>/COMMAND.md` |
 | `.agents/agents/`       | Subagent personas (`@architect`, `@reviewer`)       | `agents/<name>/AGENT.md`     |
 | `.agents/memory/`       | Persistent facts, decisions, and daily observations | `memory/*.md`                |
-| `docs/<task>/`         | Per-task PRD, SPEC, ARCHITECTURE, TASKS             | `docs/<task>/*.md`           |
 
 ---
 

@@ -18,36 +18,20 @@ This playbook gives agents — and the humans working alongside them — a consi
 
 ```text
 project-root/
-│
-├── docs/                          # Task-scoped documentation
-│   ├── <task-name>/
-│   │   ├── PRD.md
-│   │   ├── SPEC.md
-│   │   ├── ARCHITECTURE.md
-│   │   ├── DESIGN.md
-│   │   └── TASKS.md
-│   └── <another-task>/
-│       └── ...
-│
 └── .agent/
     ├── README.md              # Primary instruction file + table of contents
-    │
     ├── rules/                 # Modular instruction files
     │   └── <rule-name>/
     │       └── RULE.md
-    │
     ├── skills/                # Auto-invoking workflows (trigger → action)
     │   └── <skill-name>/
     │       └── SKILL.md
-    │
     ├── commands/              # Custom slash commands
     │   └── <command-name>/
     │       └── COMMAND.md
-    │
     ├── agents/                # Subagent personas
     │   └── <agent-persona>/
     │       └── AGENT.md
-    │
     └── memory/                # Persistent agent memory
         ├── MEMORY.md          # Long-term memory. Durable facts, preferences, and decisions
         └── YYYY-MM-DD.md      # Daily notes (UTC timezone). Running context and observations
@@ -133,27 +117,6 @@ memory/MEMORY.md       → Long-term memory. Durable facts, preferences, and dec
 memory/YYYY-MM-DD.md   → Daily notes (UTC timezone). Running context and observations
 ```
 
-### `docs/<task>/` — Task Documentation
-
-Documentation lives at the project root, organized by task, feature, or epic. All files are optional — create only what's needed.
-
-```text
-docs/user-authentication/
-├── PRD.md
-├── SPEC.md
-└── ARCHITECTURE.md
-
-docs/payment-integration/
-├── PRD.md
-└── TASKS.md
-```
-
----
-
-## Examples
-
-This repo practices what it preaches. The [`.agent/`](./.agent) folder is the reference implementation — every file is a working example of the playbook applied to a real project. Use it as a starting point: copy any file, drop it into your project, and adapt it.
-
 ---
 
 ## Adoption
@@ -183,9 +146,6 @@ Write your agent instructions. That's it.
 
 ```text
 project-root/
-├── docs/
-│   └── <task>/
-│       └── *.md
 └── .agent/
     ├── README.md
     ├── rules/
@@ -233,5 +193,5 @@ A compliant runtime **SHOULD**:
 
 ---
 
-**Version 0.0.1 — Draft**
+**Version 0.0.2 — Draft**
 _This playbook is intentionally tool-agnostic. Runtimes may extend it provided they do not break compatibility with the core specification._

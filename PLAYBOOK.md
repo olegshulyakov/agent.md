@@ -1,6 +1,6 @@
 # Agent Playbook
 
-> **Version:** 0.0.1
+> **Version:** 0.0.2
 > **Status:** Draft
 > **Purpose:** A portable, tool-agnostic playbook for structuring LLM agent context, memory, rules, and documentation inside any software project.
 
@@ -24,36 +24,20 @@ Agent behavior is code. It should be versioned, reviewed, modular, and readable 
 
 ```text
 project-root/
-│
-├── docs/                          # Project documentation artifacts (task-scoped)
-│   ├── <task-name>/               # One folder per task, feature, or epic
-│   │   ├── PRD.md
-│   │   ├── SPEC.md
-│   │   ├── ARCHITECTURE.md
-│   │   ├── DESIGN.md
-│   │   └── TASKS.md
-│   └── <another-task>/
-│       └── ...
-│
 └── .agents/
     ├── README.md              # Primary instruction file + table of contents
-    │
     ├── rules/                 # Modular instruction files
     │   └── <rule-name>/
     │       └── RULE.md
-    │
     ├── skills/                # Auto-invoking workflows (trigger → action)
     │   └── <skill-name>/
     │       └── SKILL.md
-    │
     ├── commands/              # Custom slash commands
     │   └── <command-name>/
     │       └── COMMAND.md
-    │
     ├── agents/                # Subagent personas
     │   └── <agent-persona>/
     │       └── AGENT.md
-    │
     └── memory/                # Persistent agent memory
         ├── MEMORY.md          # Long-term memory. Durable facts, preferences, and decisions
         └── YYYY-MM-DD.md      # Daily notes (UTC timezone). Running context and observations
@@ -385,120 +369,6 @@ Working on user authentication feature.
 
 ---
 
-### `docs/` — Project Documentation Artifacts
-
-Lives at the **project root**, not inside `.agents/`. Documentation is organized by task, feature, or epic — each gets its own subfolder. All files within a task folder are optional and created only when needed.
-
-#### Structure
-
-```
-docs/
-└── <task-name>/
-    ├── PRD.md
-    ├── SPEC.md
-    ├── ARCHITECTURE.md
-    ├── DESIGN.md
-    └── TASKS.md
-```
-
-`<task-name>` should be a short, lowercase, hyphenated identifier that matches the work it describes — a feature name, epic, ticket ID, or initiative slug.
-
-```
-docs/
-├── user-authentication/
-│   ├── PRD.md
-│   ├── SPEC.md
-│   └── ARCHITECTURE.md
-├── payment-integration/
-│   ├── PRD.md
-│   └── TASKS.md
-└── api-v2-migration/
-    ├── SPEC.md
-    ├── ARCHITECTURE.md
-    └── DESIGN.md
-```
-
-#### File Inventory
-
-| File              | Purpose                              | When to create                    |
-| ----------------- | ------------------------------------ | --------------------------------- |
-| `PRD.md`          | Product Requirements Document        | At task inception                 |
-| `SPEC.md`         | Functional & technical specification | Before implementation begins      |
-| `ARCHITECTURE.md` | System design, diagrams, ADRs        | When technical decisions are made |
-| `DESIGN.md`       | UI/UX decisions, component system    | For frontend/product work         |
-| `TASKS.md`        | Actionable task list, backlog        | During active development         |
-| `CHANGELOG.md`    | Human-readable history of changes    | For versioned releases            |
-| `GLOSSARY.md`     | Domain-specific terminology          | For complex domains               |
-
-#### Naming Convention
-
-```
-docs/[YYYY-MM-DD-task-name]/<document>.md
-```
-
-- `<task-name>` — lowercase, hyphenated. Examples: `user-auth`, `payment-v2`, `PROJ-142`, `onboarding-flow`
-- `<document>` — uppercase, hyphenated. Examples: `PRD`, `SPEC`, `ARCHITECTURE`, `DESIGN`, `TASKS`, `CHANGELOG`, `GLOSSARY`
-
-#### `TASKS.md` Schema
-
-```markdown
-# Tasks — <task-name>
-
-## In Progress
-
-- [ ] #12 Implement JWT refresh token rotation (@alex)
-
-## Backlog
-
-- [ ] #13 Add rate limiting to `/api/auth/login`
-- [ ] #14 Write integration tests for UserService
-
-## Done
-
-- [x] #11 Set up Postgres schema migrations
-- [x] #10 Configure CI pipeline
-```
-
-#### `ARCHITECTURE.md` Schema
-
-````markdown
-# Architecture — <task-name>
-
-## Overview
-
-[1-2 paragraph description of the system]
-
-## System Diagram
-
-```mermaid
-graph TD
-  Client --> API
-  API --> AuthService
-  API --> UserService
-  UserService --> Postgres
-```
-````
-
-## Architecture Decision Records
-
-### ADR-001: Use JWT for authentication
-
-**Date:** 2025-05-01
-**Status:** Accepted
-**Context:** Need stateless, scalable auth across multiple services.
-**Decision:** Use short-lived JWTs (15min) with refresh token rotation.
-**Consequences:** Must implement token blacklist for revocation.
-
-#### Rules
-
-- `docs/` is **not** inside `.agents/`. It is a first-class project folder at the root.
-- Every task folder must have at least one document to justify its existence.
-- The agent references task docs using root-relative paths: `docs/user-auth/spec.md`.
-- Cross-task references are allowed but should be explicit: `See docs/api-v2-migration/architecture.md`.
-- Task folders should not be deleted when work completes — they serve as a historical record.
-
----
-
 ## Adoption Guide
 
 ### Minimal Setup (< 5 min)
@@ -530,7 +400,7 @@ Start with just a `README.md`. Write your agent instructions. Add folders as nee
 
 ### Full Setup
 
-Add `skills/`, `commands/`, `agents/`, and `docs/[YYYY-MM-DD-task-name]/` as the project matures.
+Add `skills/`, `commands/`, and `agents/` as the project matures.
 
 ---
 
@@ -583,10 +453,6 @@ agent.md/ ← this repo
 ├── PLAYBOOK.md
 ├── LICENSE
 │
-├── docs/
-│ └── <task>/
-│ └── \*.md
-│
 └── .agents/ ← reference implementation
 ├── README.md
 ├── rules/
@@ -618,15 +484,6 @@ my-saas-app/
 ├── src/
 ├── tests/
 ├── package.json
-│
-├── docs/ # Task-scoped documentation
-│ ├── user-authentication/
-│ │ ├── PRD.md
-│ │ ├── SPEC.md
-│ │ └── ARCHITECTURE.md
-│ └── payment-integration/
-│ ├── PRD.md
-│ └── TASKS.md
 │
 └── .agents/
 ├── README.md
