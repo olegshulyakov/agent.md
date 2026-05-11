@@ -1,6 +1,9 @@
 ---
-name: branch-naming-guidelines
+name: setup-branch
 description: Use this skill whenever the user asks to name a branch, create a branch, suggests a branch name for review, or mentions Git workflow tasks like starting a feature, fixing a bug, making a hotfix, or preparing a release.
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # Branch Naming Guidelines
