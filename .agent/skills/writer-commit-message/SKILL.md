@@ -1,6 +1,9 @@
 ---
-name: commit-message-guidelines
+name: writer-commit-message
 description: Use when the user asks to write, generate, or improve a commit message, or pastes a diff needing a commit.
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # Commit Message Guidelines
