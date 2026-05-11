@@ -1,0 +1,36 @@
+{
+  "skill_name": "codegen-frontend",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build a React TypeScript component for a user profile card that shows avatar, name, email, and a bio. It should have an Edit button that opens an inline edit form. Use React Hook Form for the form. Show loading and error states.",
+      "expected_output": "TypeScript React component(s) with typed props, React Hook Form integration, loading/error/edit states, and accessible markup.",
+      "files": [],
+      "expectations": [
+        "Output is TypeScript (.tsx) not plain JavaScript",
+        "Props interface is defined with typed fields",
+        "React Hook Form is used for the edit form (useForm hook visible)",
+        "Component handles at least loading and error states",
+        "Edit mode toggles between view and edit inline",
+        "Form submit handler is shown",
+        "Accessible attributes are present (aria-label, button type, label associations)",
+        "File path is shown as a comment at the top"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create a Next.js App Router page for a product listing page that fetches products from /api/products server-side. Show a skeleton loading state. Products have name, price, and category. Support filtering by category via URL search params.",
+      "expected_output": "Next.js App Router page using Server Components for data fetching, with category filter via searchParams and skeleton loading via Suspense.",
+      "files": [],
+      "expectations": [
+        "Page component is a Server Component (no 'use client' at the top level)",
+        "Data is fetched using async/await directly in the component or a lib function",
+        "searchParams are used for category filtering",
+        "Suspense boundary is used with a fallback skeleton",
+        "Product list renders name, price, and category",
+        "The filtering UI (category selector) is a separate 'use client' component or uses a form",
+        "File path follows Next.js App Router convention (app/...)"
+      ]
+    }
+  ]
+}

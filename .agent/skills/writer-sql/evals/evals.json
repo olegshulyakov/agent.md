@@ -1,0 +1,34 @@
+{
+  "skill_name": "writer-sql",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a PostgreSQL query to find the top 10 customers by total order value in the last 90 days, including their email, number of orders, and total spent. Exclude customers who have been deleted (soft delete). Use a CTE.",
+      "expected_output": "A well-formatted PostgreSQL query using CTEs, proper aggregation, soft-delete filtering, and a LIMIT clause, with comments explaining the approach.",
+      "files": [],
+      "expectations": [
+        "Query uses a WITH clause (CTE)",
+        "Query filters deleted_at IS NULL for soft-delete support",
+        "Query uses a date filter for the 90-day window using NOW() or CURRENT_TIMESTAMP",
+        "Query aggregates with COUNT for order count and SUM for total value",
+        "Query uses GROUP BY and ORDER BY with LIMIT 10",
+        "Query includes a comment explaining the index(es) it benefits from",
+        "SQL keywords are in UPPERCASE",
+        "No SELECT * is used"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need a MySQL upsert query. When a user logs in, I want to insert a login_events record or, if a record for that user and date already exists, increment the login_count column.",
+      "expected_output": "A MySQL INSERT ... ON DUPLICATE KEY UPDATE query for the described upsert behavior.",
+      "files": [],
+      "expectations": [
+        "Query uses INSERT INTO ... ON DUPLICATE KEY UPDATE syntax",
+        "The UPDATE clause increments login_count using VALUES() or direct expression",
+        "Query uses parameterized placeholders (? or :named)",
+        "Output explains what UNIQUE constraint must exist for the upsert to work",
+        "SQL keywords are in UPPERCASE"
+      ]
+    }
+  ]
+}

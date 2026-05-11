@@ -1,0 +1,36 @@
+{
+  "skill_name": "codegen-backend",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a FastAPI endpoint POST /users that creates a user with email and password. Validate that the email is unique. Hash the password before storing. Return the created user (without the password hash). Include the service, repository, and Pydantic schemas.",
+      "expected_output": "Multiple Python files: Pydantic schemas, UserRepository class, UserService class, and a FastAPI router. Proper async patterns, error handling for duplicate email (409), and password hashing.",
+      "files": [],
+      "expectations": [
+        "Output includes separate schema, service, and repository layers",
+        "Pydantic schema for the response excludes the password field",
+        "Password is hashed (bcrypt or passlib reference) before storage",
+        "Duplicate email raises HTTPException with status 409 or a custom ConflictError",
+        "All functions use async def with await",
+        "Repository uses async SQLAlchemy or an async DB driver",
+        "Dependency injection is used for the service or repository in the route handler",
+        "At least a basic test is included or referenced"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Implement a GET /products endpoint in Node.js with Fastify + TypeScript. It should support pagination (page, limit query params), filter by category_id, and return products with total count. Use Prisma as the ORM.",
+      "expected_output": "TypeScript files for the Fastify route, service, and Prisma repository with type-safe pagination and filtering.",
+      "files": [],
+      "expectations": [
+        "Output is TypeScript (not JavaScript)",
+        "Route handler extracts page and limit query parameters with defaults",
+        "category_id filter is applied conditionally (only if provided)",
+        "Prisma findMany is used with skip, take, and where",
+        "Response includes both the data array and a total count",
+        "Zod or JSON Schema is used for query parameter validation",
+        "File paths are shown as comments at the top of each file"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "skill_name": "codegen-test-e2e",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write Playwright TypeScript E2E tests for a login flow. Test the happy path (valid credentials), invalid password, and locked account. Use the Page Object Model.",
+      "expected_output": "A LoginPage page object class and a test spec file covering 3 scenarios with proper assertions and no hardcoded waits.",
+      "files": [],
+      "expectations": [
+        "Output includes a separate Page Object class (LoginPage or similar)",
+        "Page object uses Playwright Locators (getByRole, getByLabel, getByTestId)",
+        "Test spec file imports and uses the page object",
+        "Three test scenarios are present: happy path, invalid password, and locked/blocked account",
+        "No page.waitForTimeout() calls — waits use Playwright's built-in waitFor* or expect(locator).toBeVisible()",
+        "Assertions use Playwright expect() API",
+        "Test file uses test.describe() block",
+        "playwright.config.ts or baseURL note is mentioned"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Generate Playwright E2E tests for a multi-step checkout flow: cart review, shipping address form, payment form, and order confirmation. The app is a React e-commerce site.",
+      "expected_output": "Page object(s) for each checkout step and a test spec covering the full happy path, with at least one edge case (e.g., invalid address or failed payment).",
+      "files": [],
+      "expectations": [
+        "Output includes page object(s) covering checkout steps",
+        "Happy path test navigates through all 4 steps in sequence",
+        "At least one error or edge case test is included",
+        "Form fields use accessible locators (getByLabel, getByPlaceholder, or getByRole)",
+        "Order confirmation page is asserted after successful checkout",
+        "No arbitrary wait times (waitForTimeout)",
+        "Test data (addresses, card numbers) uses test values not real data"
+      ]
+    }
+  ]
+}

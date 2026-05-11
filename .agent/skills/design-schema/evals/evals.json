@@ -1,0 +1,35 @@
+{
+  "skill_name": "design-schema",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design a PostgreSQL schema for a multi-tenant SaaS application with users, organizations, and roles. Users belong to organizations and have roles within them. Support soft deletes.",
+      "expected_output": "PostgreSQL DDL with CREATE TABLE statements for organizations, users, roles, and a junction table, using UUIDs, TIMESTAMPTZ, proper FKs with ON DELETE behavior, and indexes.",
+      "files": [],
+      "expectations": [
+        "Output contains SQL CREATE TABLE statements",
+        "Tables use UUID primary keys with DEFAULT uuid_generate_v4() or gen_random_uuid()",
+        "All tables include created_at and updated_at TIMESTAMPTZ columns",
+        "At least one table includes deleted_at for soft delete support",
+        "A junction table exists for the many-to-many user-organization-role relationship",
+        "Foreign key constraints include explicit ON DELETE behavior",
+        "Indexes are created on all foreign key columns",
+        "Constraint names follow a consistent naming convention"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Design a database schema for an e-commerce platform: products, categories (hierarchical), orders, order items, and customers. Use PostgreSQL.",
+      "expected_output": "PostgreSQL DDL covering all 5 entities with proper relationships, a self-referential FK for hierarchical categories, numeric types for money, and relevant indexes.",
+      "files": [],
+      "expectations": [
+        "Output contains CREATE TABLE statements for all 5 entities",
+        "categories table has a self-referential parent_id foreign key for hierarchy",
+        "Price/amount columns use NUMERIC type (not FLOAT or REAL)",
+        "orders and order_items tables are properly related with a FK",
+        "An index exists on order_items.order_id",
+        "Entity-relationship overview or comment section explains relationships"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "skill_name": "writer-story-task",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a user story for password reset via email for a web app, then break it into developer tasks. The tech stack is Node.js with Express and PostgreSQL.",
+      "expected_output": "A user story in As a / I want / So that format with acceptance criteria in Given/When/Then format, followed by a table of developer tasks with effort estimates and file hints.",
+      "files": [],
+      "expectations": [
+        "Story uses 'As a / I want / So that' format",
+        "Acceptance criteria use 'Given / When / Then' format",
+        "At least one AC covers the error scenario (unregistered email or expired link)",
+        "Developer tasks are in a table with at least 4 rows",
+        "Each task row includes an effort estimate (XS/S/M/L or similar)",
+        "At least one task row includes a file path or module hint",
+        "Story includes a story points estimate"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create user stories for a shopping cart feature in a React + Python FastAPI e-commerce app. Users should be able to add items, update quantities, remove items, and proceed to checkout.",
+      "expected_output": "Multiple user stories (one per action or grouped logically) with acceptance criteria and developer task breakdowns.",
+      "files": [],
+      "expectations": [
+        "Output contains at least 2 separate user stories",
+        "Each story has its own acceptance criteria section",
+        "Stories cover at least add-to-cart and checkout or remove-from-cart scenarios",
+        "Developer tasks reference relevant frontend and backend files or modules",
+        "Each story has a story points estimate"
+      ]
+    }
+  ]
+}

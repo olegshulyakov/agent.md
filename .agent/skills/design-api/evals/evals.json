@@ -1,0 +1,35 @@
+{
+  "skill_name": "design-api",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design a REST API for a blog platform. It needs endpoints for creating, reading, updating, and deleting blog posts. Posts have a title, body, author, tags, and published status. Include authentication.",
+      "expected_output": "A complete OpenAPI 3.1 YAML specification with paths for CRUD operations on posts, request/response schemas, authentication scheme, and standard error responses.",
+      "files": [],
+      "expectations": [
+        "Output is valid YAML starting with 'openapi: \"3.1.0\"'",
+        "Spec includes info, servers, and paths sections",
+        "At least 4 HTTP methods defined (GET list, GET by id, POST, PATCH or PUT, DELETE)",
+        "Each endpoint has at least a 2xx response and one error response (4xx)",
+        "components/schemas includes at least a Post schema and a request body schema",
+        "Security scheme is defined (bearerAuth or apiKeyAuth)",
+        "Pagination parameters present on the list endpoint",
+        "Error response uses a consistent ErrorResponse schema referenced via $ref"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Design an API for a task management app. Users can create projects, add tasks to projects, assign tasks to team members, and update task status. Use OpenAPI.",
+      "expected_output": "OpenAPI YAML with separate resources for projects and tasks, with nested relationships, assignment endpoint, and status update endpoint.",
+      "files": [],
+      "expectations": [
+        "Output is valid YAML with openapi field",
+        "Both /projects and /tasks (or /projects/{id}/tasks) paths are defined",
+        "Task assignment operation is defined (patch or post to an assignment endpoint)",
+        "Task status values are enumerated in the schema",
+        "Response schemas for both Project and Task are defined in components/schemas",
+        "All path parameters have schema definitions"
+      ]
+    }
+  ]
+}
