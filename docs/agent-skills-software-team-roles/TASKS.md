@@ -68,21 +68,21 @@ Ordered alphabetically by name (matches filesystem order).
 
 | Done  | Skill               | Priority | Domain  | Primary Role  | Produces                                                                                                      |
 | ----- | ------------------- | -------- | ------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| - [ ] | `codegen-backend`   | 🔴 P1    | Code    | Backend Dev   | Production-ready backend code (Python, Node, Go, Java, Ruby, Rust, C#, PHP, Kotlin, Elixir)                   |
-| - [ ] | `codegen-frontend`  | 🔴 P1    | Code    | Frontend Dev  | Production-ready frontend code (React, Vue, Angular, Svelte, Next.js, Nuxt, Remix, Astro, SolidJS, SvelteKit) |
+| - [x] | `codegen-backend`   | 🔴 P1    | Code    | Backend Dev   | Production-ready backend code (Python, Node, Go, Java, Ruby, Rust, C#, PHP, Kotlin, Elixir)                   |
+| - [x] | `codegen-frontend`  | 🔴 P1    | Code    | Frontend Dev  | Production-ready frontend code (React, Vue, Angular, Svelte, Next.js, Nuxt, Remix, Astro, SolidJS, SvelteKit) |
 | - [ ] | `codegen-mobile`    | 🟠 P2    | Code    | Mobile Dev    | Production-ready mobile code (Swift/iOS, Kotlin/Android, React Native, Flutter)                               |
 | - [ ] | `codegen-test-api`  | 🟠 P2    | Testing | AQA / Backend | API test suite with assertions and fixtures                                                                   |
-| - [ ] | `codegen-test-e2e`  | 🔴 P1    | Testing | AQA           | End-to-end test scenarios with page objects                                                                   |
+| - [x] | `codegen-test-e2e`  | 🔴 P1    | Testing | AQA           | End-to-end test scenarios with page objects                                                                   |
 | - [ ] | `codegen-test-perf` | 🟡 P3    | Testing | AQA / SRE     | Load and stress test scripts with thresholds                                                                  |
 
 ### `design-`
 
 | Done  | Skill           | Priority | Domain       | Primary Role       | Produces                                                      |
 | ----- | --------------- | -------- | ------------ | ------------------ | ------------------------------------------------------------- |
-| - [ ] | `design-api`    | 🔴 P1    | Code         | Backend Dev        | Contract-first API spec (OpenAPI / AsyncAPI)                  |
+| - [x] | `design-api`    | 🔴 P1    | Code         | Backend Dev        | Contract-first API spec (OpenAPI / AsyncAPI)                  |
 | - [ ] | `design-arch`   | 🟠 P2    | Architecture | Solution Architect | System design document with components and tradeoffs          |
 | - [ ] | `design-css`    | 🟡 P3    | UI/UX        | Frontend Dev       | Design system tokens, component style guide                   |
-| - [ ] | `design-schema` | 🔴 P1    | Database     | DBA / Backend      | Normalized database schema with relationships and constraints |
+| - [x] | `design-schema` | 🔴 P1    | Database     | DBA / Backend      | Normalized database schema with relationships and constraints |
 
 ### `diagram-`
 
@@ -177,22 +177,22 @@ Ordered alphabetically by name (matches filesystem order).
 | - [ ] | `writer-migration`          | 🟠 P2    | Database     | DBA                   | Database migration scripts with up/down and validation                |
 | - [ ] | `writer-ml-experiment`      | 🟡 P3    | ML / AI      | ML Engineer           | ML experiment report with setup, results, and model card              |
 | - [ ] | `writer-postmortem`         | 🟡 P3    | Leadership   | Team Lead / SRE       | Incident postmortem (timeline, root cause, action items)              |
-| - [ ] | `writer-prd`                | 🔴 P1    | Requirements | PM / PO               | Product Requirements Document (goals, personas, scope, metrics)       |
+| - [x] | `writer-prd`                | 🔴 P1    | Requirements | PM / PO               | Product Requirements Document (goals, personas, scope, metrics)       |
 | - [ ] | `writer-prompt`             | 🟡 P3    | ML / AI      | ML / AI Engineer      | Optimized prompt with system instructions, examples, and eval         |
-| - [ ] | `writer-readme`             | 🔴 P1    | Docs         | Tech Writer           | Project README (overview, setup, usage, contributing)                 |
+| - [x] | `writer-readme`             | 🔴 P1    | Docs         | Tech Writer           | Project README (overview, setup, usage, contributing)                 |
 | - [ ] | `writer-release-notes`      | 🟡 P3    | Docs         | Release Manager       | User-facing release notes (features, fixes, upgrade guide)            |
 | - [ ] | `writer-runbook`            | 🟡 P3    | Docs         | Tech Writer / SRE     | Operational runbook for routine procedures                            |
 | - [ ] | `writer-runbook-oncall`     | 🟡 P3    | DevOps / SRE | SRE                   | On-call runbook with alert responses and escalation paths             |
 | - [ ] | `writer-slo`                | 🟡 P3    | DevOps / SRE | SRE                   | SLO definition with indicators, targets, and error budget             |
 | - [ ] | `writer-spec-data-contract` | 🟡 P3    | Database     | DBA / Data Engineer   | Data contract spec (schema, ownership, SLA, versioning)               |
 | - [ ] | `writer-spec-design`        | 🟡 P3    | UI/UX        | UX Designer           | Design spec with component annotations and design tokens              |
-| - [ ] | `writer-spec-functional`    | 🔴 P1    | Requirements | System Analyst        | Functional requirements spec (actors, flows, business rules)          |
+| - [x] | `writer-spec-functional`    | 🔴 P1    | Requirements | System Analyst        | Functional requirements spec (actors, flows, business rules)          |
 | - [ ] | `writer-spec-nfr`           | 🟡 P3    | Requirements | SA / Architect        | Non-functional requirements (performance, scalability, security)      |
 | - [ ] | `writer-spec-tech`          | 🟠 P2    | Requirements | SA / Architect        | Technical specification (orchestrates functional + nfr + integration) |
-| - [ ] | `writer-sql`                | 🔴 P1    | Database     | DBA / Backend         | Dialect-aware SQL (Postgres, MySQL, MSSQL, SQLite, Oracle)            |
+| - [x] | `writer-sql`                | 🔴 P1    | Database     | DBA / Backend         | Dialect-aware SQL (Postgres, MySQL, MSSQL, SQLite, Oracle)            |
 | - [ ] | `writer-sql-analytics`      | 🟡 P3    | Database     | DBA / Data Engineer   | Analytics SQL (Snowflake, BigQuery, ClickHouse, CockroachDB)          |
 | - [ ] | `writer-stakeholder`        | 🟡 P3    | Agile        | PM / PO               | Stakeholder update (status, risks, decisions needed)                  |
-| - [ ] | `writer-story-task`         | 🔴 P1    | Agile        | PO / Team Lead        | User stories with acceptance criteria decomposed into dev tasks       |
+| - [x] | `writer-story-task`         | 🔴 P1    | Agile        | PO / Team Lead        | User stories with acceptance criteria decomposed into dev tasks       |
 | - [ ] | `writer-team-agreement`     | ⚪ P4    | Agile        | Scrum Master          | Team working agreement (definition of done, norms, ceremonies)        |
 | - [ ] | `writer-tech-radar`         | ⚪ P4    | Architecture | Solution Architect    | Technology radar (adopt, trial, assess, hold)                         |
 | - [ ] | `writer-use-case`           | 🟡 P3    | Requirements | System Analyst        | Use case document (actors, preconditions, main/alternate flows)       |
