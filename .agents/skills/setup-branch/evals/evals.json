@@ -1,0 +1,29 @@
+{
+  "skill_name": "branch-naming-guidelines",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm working on a new feature to add PayPal to the checkout page. The Jira ticket is PAY-123. What should I name my branch?",
+      "expected_output": "A suggested branch name following conventional patterns.",
+      "files": [],
+      "expectations": [
+        "Uses a standard prefix (e.g., feature/, feat/)",
+        "Includes the ticket number (PAY-123)",
+        "Includes a concise, kebab-case description (e.g., add-paypal-checkout)",
+        "Example output: feature/PAY-123-add-paypal-checkout"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What are the standard branch prefixes we should use for bug fixes, documentation, and experimental work?",
+      "expected_output": "A list of standard branch prefixes with explanations.",
+      "files": [],
+      "expectations": [
+        "Recommends 'bugfix/' or 'fix/' for bugs",
+        "Recommends 'docs/' for documentation",
+        "Recommends 'experiment/' or 'spike/' for experimental work",
+        "Provides a brief explanation of when to use each"
+      ]
+    }
+  ]
+}
