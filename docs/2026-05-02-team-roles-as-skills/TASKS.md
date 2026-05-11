@@ -179,7 +179,7 @@ Ordered alphabetically by name (matches filesystem order).
 | - [ ] | `writer-postmortem`         | 🟡 P3    | Leadership   | Team Lead / SRE       | Incident postmortem (timeline, root cause, action items)              |
 | - [ ] | `writer-prd`                | 🔴 P1    | Requirements | PM / PO               | Product Requirements Document (goals, personas, scope, metrics)       |
 | - [ ] | `writer-prompt`             | 🟡 P3    | ML / AI      | ML / AI Engineer      | Optimized prompt with system instructions, examples, and eval         |
-| - [ ] | `writer-readme`             | 🔴 P1    | Docs         | Tech Writer           | Project README (overview, setup, usage, contributing)                 |
+| - [x] | `writer-readme`             | 🔴 P1    | Docs         | Tech Writer           | Project README (overview, setup, usage, contributing)                 |
 | - [ ] | `writer-release-notes`      | 🟡 P3    | Docs         | Release Manager       | User-facing release notes (features, fixes, upgrade guide)            |
 | - [ ] | `writer-runbook`            | 🟡 P3    | Docs         | Tech Writer / SRE     | Operational runbook for routine procedures                            |
 | - [ ] | `writer-runbook-oncall`     | 🟡 P3    | DevOps / SRE | SRE                   | On-call runbook with alert responses and escalation paths             |

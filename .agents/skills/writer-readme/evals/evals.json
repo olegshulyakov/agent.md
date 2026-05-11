@@ -1,0 +1,34 @@
+{
+  "skill_name": "writer-readme",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a README for an open source CLI tool called 'dbsnap' that takes a PostgreSQL database snapshot and uploads it to S3. It's written in Go. Usage: dbsnap --db-url=<url> --bucket=<s3-bucket> [--compress]",
+      "expected_output": "A professional README.md with project overview, installation instructions, quick start example, CLI flags reference, and contributing section.",
+      "files": [],
+      "expectations": [
+        "README has a level-1 heading with the project name 'dbsnap'",
+        "First paragraph or quote line describes what the tool does in one sentence",
+        "Installation section includes 'go install' or banner download instructions",
+        "Quick start shows a working command-line example with the flags mentioned",
+        "CLI flags (--db-url, --bucket, --compress) are documented in a table or list",
+        "License and Contributing sections are present",
+        "No unexpanded placeholder text like '[YOUR_VALUE]' remains in the output"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write a README for a React component library called 'ui-kit' published to npm. It provides Button, Modal, and Table components. TypeScript support included.",
+      "expected_output": "A library-focused README with npm install instructions, a quick code example, component API table or docs link, and TypeScript note.",
+      "files": [],
+      "expectations": [
+        "README has a level-1 heading with 'ui-kit' or similar name",
+        "Installation shows 'npm install' command",
+        "A code example is shown in the first screenful (within first 30 lines of output)",
+        "At least Button, Modal, and Table components are mentioned",
+        "TypeScript support is noted",
+        "README is targeted at developers consuming the library (not contributors only)"
+      ]
+    }
+  ]
+}
