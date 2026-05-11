@@ -1,0 +1,29 @@
+{
+  "skill_name": "diagram-integration",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Map out the integrations for our E-commerce backend. It connects to Stripe for payments (REST API), SendGrid for emails (SMTP), and an internal Inventory Service (gRPC).",
+      "expected_output": "Integration diagram showing protocols and system boundaries.",
+      "files": [],
+      "expectations": [
+        "Identifies the core E-commerce backend system",
+        "Includes external integrations: Stripe, SendGrid, Inventory Service",
+        "Labels connections with integration protocols (REST, SMTP, gRPC)",
+        "Uses Mermaid graph to visually represent the topology"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Document our third-party integrations, specifically highlighting synchronous vs asynchronous connections and data ownership.",
+      "expected_output": "Integration map focusing on coupling and data flows.",
+      "files": [],
+      "expectations": [
+        "Distinguishes between sync and async connections",
+        "Indicates data ownership or flow direction",
+        "Provides a tabular summary alongside the diagram for clarity",
+        "Highlights boundaries between internal and third-party systems"
+      ]
+    }
+  ]
+}

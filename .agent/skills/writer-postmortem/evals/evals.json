@@ -1,0 +1,29 @@
+{
+  "skill_name": "writer-postmortem",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a blameless postmortem. On Tuesday, a bad config change dropped the database tables. We restored from a backup, but there was 2 hours of downtime. The engineer didn't know the script would run in prod.",
+      "expected_output": "A structured, blameless incident postmortem.",
+      "files": [],
+      "expectations": [
+        "Uses blameless language (focuses on the lack of environment safeguards, not the engineer's mistake)",
+        "Includes a timeline of events (Detection, Mitigation, Resolution)",
+        "Includes a '5 Whys' root cause analysis",
+        "Includes actionable remediation steps (e.g., separating prod/dev credentials, adding confirmation prompts)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Our payment API went down because the SSL certificate expired. Alerts fired but went to an email nobody checks. We realized when customers complained on Twitter.",
+      "expected_output": "Postmortem addressing monitoring and alerting failures.",
+      "files": [],
+      "expectations": [
+        "Identifies the root cause (expired cert) and the secondary failure (alert routing)",
+        "Calculates Time to Detect (TTD) as unacceptably high due to relying on customer reports",
+        "Action items include fixing the cert renewal process AND fixing the PagerDuty/alert routing",
+        "Maintains an objective, factual tone"
+      ]
+    }
+  ]
+}

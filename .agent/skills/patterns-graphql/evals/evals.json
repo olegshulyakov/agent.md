@@ -1,0 +1,29 @@
+{
+  "skill_name": "patterns-graphql",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design a GraphQL schema for a blogging platform. I need queries for fetching a post by ID, and a paginated list of posts. Posts have an author and comments.",
+      "expected_output": "GraphQL schema definition (SDL) for a blog.",
+      "files": [],
+      "expectations": [
+        "Defines types for Post, Author, and Comment",
+        "Includes a Query type with post(id: ID!) and posts queries",
+        "Implements cursor-based or offset-based pagination for the posts list",
+        "Uses appropriate GraphQL types (String!, ID!, Int)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "How do I solve the N+1 query problem when fetching posts and their authors in my GraphQL resolvers using Node.js?",
+      "expected_output": "Explanation and implementation pattern for DataLoader.",
+      "files": [],
+      "expectations": [
+        "Identifies the N+1 problem in graph traversal",
+        "Recommends using DataLoader (or similar batching mechanism)",
+        "Provides a code example of a DataLoader implementation",
+        "Shows how to inject DataLoader into the GraphQL context and use it in a resolver"
+      ]
+    }
+  ]
+}

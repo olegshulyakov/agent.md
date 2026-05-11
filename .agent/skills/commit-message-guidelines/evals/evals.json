@@ -1,0 +1,28 @@
+{
+  "skill_name": "commit-message-guidelines",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a commit message for this change: I updated the user profile page to show the avatar image. It resolves ticket UI-456.",
+      "expected_output": "A Conventional Commits formatted commit message.",
+      "files": [],
+      "expectations": [
+        "Uses the 'feat' type (e.g., feat: show avatar image on user profile)",
+        "Subject line is concise and in the imperative mood",
+        "Includes a body if necessary for context",
+        "Includes the ticket reference (e.g., Resolves: UI-456 or Closes UI-456) in the footer"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What are the rules for writing a good commit message body? How long should the lines be?",
+      "expected_output": "Guidelines for writing the body of a commit message.",
+      "files": [],
+      "expectations": [
+        "Recommends wrapping lines at 72 characters",
+        "Advises explaining the 'what' and 'why', not the 'how' (which the code shows)",
+        "Suggests separating the subject from the body with a blank line"
+      ]
+    }
+  ]
+}

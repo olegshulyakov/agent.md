@@ -1,0 +1,30 @@
+{
+  "skill_name": "setup-eval-harness",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Set up an evaluation harness for our customer support LLM chatbot. We need to measure response accuracy, tone, and hallucination rate.",
+      "expected_output": "Evaluation harness design and metric definitions for an LLM chatbot.",
+      "files": [],
+      "expectations": [
+        "Defines clear metrics for Accuracy, Tone, and Hallucination (e.g., using LLM-as-a-judge or exact match)",
+        "Recommends a framework (e.g., Ragas, LangSmith, TruLens, or custom Python scripts)",
+        "Describes the structure of a 'Golden Dataset' for ground truth comparison",
+        "Includes a sample scoring rubric for the LLM judge"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create a Python script using pytest that runs an LLM evaluation on a small dataset of 5 prompts and compares the output against expected keywords.",
+      "expected_output": "Python test script implementing a basic LLM evaluation.",
+      "files": [],
+      "expectations": [
+        "Uses pytest as the test runner",
+        "Includes a mock or placeholder function for calling the LLM",
+        "Iterates over a predefined dataset of prompts and expected keywords",
+        "Uses assertions to check if expected keywords are in the LLM response",
+        "Outputs valid Python code"
+      ]
+    }
+  ]
+}

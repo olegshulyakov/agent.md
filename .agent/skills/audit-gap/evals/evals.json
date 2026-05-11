@@ -1,0 +1,30 @@
+{
+  "skill_name": "audit-gap",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Do a gap analysis of our current manual deployment process vs a target of fully automated CI/CD pipeline. Currently, we run scripts on our laptops to deploy to prod once a week. The target is 1-click deployments, multiple times a day.",
+      "expected_output": "Gap analysis report comparing manual deployments with automated CI/CD.",
+      "files": [],
+      "expectations": [
+        "Identifies the current state (manual, laptop scripts, weekly)",
+        "Identifies the target state (automated, 1-click, daily)",
+        "Details specific gaps (e.g., lack of CI server, test automation, infrastructure-as-code)",
+        "Provides prioritized remediation steps",
+        "Includes risk assessment of the transition"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We want to become SOC2 compliant. Our current architecture is a monolith on EC2 with a shared database and basic IAM. What's the gap?",
+      "expected_output": "Gap analysis for SOC2 compliance based on current EC2 monolith setup.",
+      "files": [],
+      "expectations": [
+        "Focuses on security, availability, and confidentiality principles",
+        "Highlights gaps in access control, logging, monitoring, and database segregation",
+        "Provides actionable recommendations to close the compliance gap",
+        "Uses structured gap analysis format (Current vs Target vs Gap)"
+      ]
+    }
+  ]
+}

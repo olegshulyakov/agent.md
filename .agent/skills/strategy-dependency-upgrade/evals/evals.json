@@ -1,0 +1,29 @@
+{
+  "skill_name": "strategy-dependency-upgrade",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a strategy for keeping our npm dependencies up to date. We have 5 microservices. We want to balance security with the risk of breaking changes.",
+      "expected_output": "Dependency upgrade strategy document.",
+      "files": [],
+      "expectations": [
+        "Recommends automated tooling (e.g., Dependabot, Renovate)",
+        "Defines a cadence (e.g., auto-merge patch/minor updates, manual review for major)",
+        "Mandates CI/CD test coverage as a prerequisite for auto-merging",
+        "Includes a process for handling zero-day security vulnerabilities"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We need to upgrade from React 16 to React 18 across our entire frontend monolith. What is the plan?",
+      "expected_output": "Major framework upgrade plan.",
+      "files": [],
+      "expectations": [
+        "Suggests an incremental approach (e.g., fixing deprecation warnings in 16 first)",
+        "Includes a testing and QA strategy (e.g., visual regression testing)",
+        "Addresses the specific breaking changes (e.g., createRoot API)",
+        "Provides a rollback plan if issues are found in production"
+      ]
+    }
+  ]
+}

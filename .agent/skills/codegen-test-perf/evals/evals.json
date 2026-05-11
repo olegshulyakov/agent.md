@@ -1,0 +1,30 @@
+{
+  "skill_name": "codegen-test-perf",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a k6 load test script that simulates 50 concurrent users logging in and fetching their profile over 5 minutes. The API is at https://api.example.com.",
+      "expected_output": "k6 JavaScript load test script with VUs, duration, and HTTP requests.",
+      "files": [],
+      "expectations": [
+        "Generates valid k6 script syntax",
+        "Includes options object with 50 VUs and 5m duration",
+        "Simulates a login request followed by a profile fetch",
+        "Includes basic checks (status 200) and sleep times",
+        "Includes thresholds for latency or error rate"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Generate a Locust Python script to test our search endpoint. Users should arrive gradually (ramp-up) to 100 users, and pick a random search query from a list.",
+      "expected_output": "Python Locust test script with HttpUser and ramp-up configuration.",
+      "files": [],
+      "expectations": [
+        "Generates valid Locust script syntax",
+        "Defines an HttpUser class with wait_time",
+        "Includes a task for the search endpoint using random.choice()",
+        "Provides instructions on how to run Locust with ramp-up parameters"
+      ]
+    }
+  ]
+}

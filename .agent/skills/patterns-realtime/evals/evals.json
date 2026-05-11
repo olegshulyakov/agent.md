@@ -1,0 +1,29 @@
+{
+  "skill_name": "patterns-realtime",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I need to add live notifications to my web app. Should I use WebSockets or Server-Sent Events (SSE)? Only the server sends data to the client after initial connection.",
+      "expected_output": "Comparison and recommendation favoring SSE for unidirectional data.",
+      "files": [],
+      "expectations": [
+        "Compares WebSockets and SSE",
+        "Identifies that SSE is better suited for unidirectional (server-to-client) data flow",
+        "Mentions trade-offs (e.g., SSE has a connection limit in HTTP/1.1)",
+        "Provides a high-level architectural pattern for the solution"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Provide a basic Node.js Express implementation pattern for Server-Sent Events (SSE).",
+      "expected_output": "Code example demonstrating SSE endpoint in Express.",
+      "files": [],
+      "expectations": [
+        "Includes correct HTTP headers (Content-Type: text/event-stream, Cache-Control: no-cache, Connection: keep-alive)",
+        "Shows how to write data to the stream (res.write('data: ...\\n\\n'))",
+        "Includes client connection cleanup handling (req.on('close'))",
+        "Demonstrates a simple loop or event listener sending data"
+      ]
+    }
+  ]
+}

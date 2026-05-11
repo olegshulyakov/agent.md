@@ -1,0 +1,29 @@
+{
+  "skill_name": "diagram-dfd",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a level 0 Context DFD for our Food Delivery App. It interacts with Customers, Restaurants, and a third-party Payment Gateway.",
+      "expected_output": "Context level Data Flow Diagram using Mermaid or structured text.",
+      "files": [],
+      "expectations": [
+        "Identifies the core system as a single process (Level 0)",
+        "Includes external entities: Customer, Restaurant, Payment Gateway",
+        "Shows data flows between entities and the main system",
+        "Uses Mermaid syntax (graph TD or sequenceDiagram if adapted) or clear structured text"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Draw a Level 1 DFD for the 'Process Order' function. Data stores include 'Orders DB' and 'Inventory DB'.",
+      "expected_output": "Level 1 DFD showing internal processes and data stores.",
+      "files": [],
+      "expectations": [
+        "Breaks down the system into sub-processes",
+        "Includes data stores (Orders DB, Inventory DB)",
+        "Shows data flows between processes, data stores, and external entities",
+        "Follows standard DFD notation mapping (Process, Data Store, Data Flow, External Entity)"
+      ]
+    }
+  ]
+}

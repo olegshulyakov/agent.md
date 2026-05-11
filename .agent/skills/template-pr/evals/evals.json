@@ -1,0 +1,29 @@
+{
+  "skill_name": "template-pr",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a GitHub pull request template for our repository. It should include sections for type of change, testing instructions, and a checklist.",
+      "expected_output": "A comprehensive markdown PR template.",
+      "files": [],
+      "expectations": [
+        "Includes a 'Type of change' section with checkboxes",
+        "Includes a 'Description' or 'Summary' section",
+        "Includes a 'How to test' section with clear steps",
+        "Includes a 'Checklist' for the author (e.g., self-review, linting passed)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Help me write a PR description. I just added a new Redis caching layer to the user profile endpoint to speed up load times. I also added unit tests for the cache hit/miss logic.",
+      "expected_output": "A filled-in PR description based on the provided context.",
+      "files": [],
+      "expectations": [
+        "Summarizes the addition of Redis caching to the profile endpoint",
+        "Explains the 'Why' (to speed up load times)",
+        "Lists the changes (added caching logic, added unit tests)",
+        "Provides instructions on how a reviewer can test the cache hit/miss behavior locally"
+      ]
+    }
+  ]
+}

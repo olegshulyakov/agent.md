@@ -1,0 +1,30 @@
+{
+  "skill_name": "checklist-release",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a release checklist for deploying v2.0 of our backend API to production. It includes database migrations and a new Redis cache.",
+      "expected_output": "Comprehensive release checklist tailored for a backend deployment with DB migrations.",
+      "files": [],
+      "expectations": [
+        "Includes Pre-Deployment, Deployment, and Post-Deployment phases",
+        "Specific steps for database migration backups and execution",
+        "Specific steps for verifying the new Redis cache",
+        "Includes a clear rollback plan (especially handling DB changes)",
+        "Includes Go/No-Go criteria"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We are launching a new mobile app (iOS and Android) next week. What's the go-to-market and technical release checklist?",
+      "expected_output": "Release checklist covering mobile app store submissions and backend readiness.",
+      "files": [],
+      "expectations": [
+        "Covers App Store / Google Play submission review times and metadata",
+        "Includes backend API scaling readiness",
+        "Includes marketing/comms coordination steps",
+        "Has a section for post-launch monitoring of crash rates"
+      ]
+    }
+  ]
+}

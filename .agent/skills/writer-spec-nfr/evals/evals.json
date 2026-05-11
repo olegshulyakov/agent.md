@@ -1,0 +1,17 @@
+{
+  "skill_name": "writer-spec-nfr",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write the non-functional requirements for a new financial trading API. It needs to be extremely fast, highly available, and secure.",
+      "expected_output": "An NFR document tailored for a high-performance financial system.",
+      "files": [],
+      "expectations": [
+        "Specifies strict performance targets (e.g., p99 latency < 50ms)",
+        "Specifies high availability targets (e.g., 99.99% uptime, multi-region)",
+        "Includes strict security constraints (e.g., MTLS, encryption at rest)",
+        "Uses a structured format like tables with Requirement IDs"
+      ]
+    }
+  ]
+}

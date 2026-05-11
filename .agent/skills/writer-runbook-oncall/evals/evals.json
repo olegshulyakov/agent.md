@@ -1,0 +1,29 @@
+{
+  "skill_name": "writer-runbook-oncall",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write an on-call runbook for the alert `HighLatencyP95` which triggers when the auth-service p95 response time exceeds 2 seconds. It's usually caused by the Redis cache being evicted or network issues.",
+      "expected_output": "An actionable on-call response runbook.",
+      "files": [],
+      "expectations": [
+        "Prioritizes immediate assessment and mitigation steps over deep context",
+        "Provides specific commands or dashboard links to check Redis hit rates and network latency",
+        "Lists quick mitigation options (e.g., scaling up Redis, scaling up the auth-service)",
+        "Includes escalation criteria (e.g., 'Escalate to Platform team if network latency is across all zones')"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What should the on-call runbook look like for an OutOfMemory (OOMKilled) alert on our Java background worker pods?",
+      "expected_output": "On-call runbook for diagnosing and mitigating Java OOM issues.",
+      "files": [],
+      "expectations": [
+        "Provides `kubectl` commands to check pod status and previous logs",
+        "Suggests checking JVM heap settings vs container memory limits",
+        "Provides a quick mitigation (e.g., restarting the pod or increasing the limit temporarily via scaling)",
+        "Advises capturing a heap dump for post-incident analysis if possible"
+      ]
+    }
+  ]
+}

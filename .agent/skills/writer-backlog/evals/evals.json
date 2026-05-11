@@ -1,0 +1,29 @@
+{
+  "skill_name": "writer-backlog",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a groomed backlog from these requirements: 1. Users need to reset passwords. 2. Admins need to see daily sales. 3. Users need to login. 4. We want a dark mode. Login and reset are must-haves for launch.",
+      "expected_output": "A prioritized product backlog mapped to user stories.",
+      "files": [],
+      "expectations": [
+        "Converts requirements into User Stories (As a... I want to... So that...)",
+        "Prioritizes stories (Login and Password Reset as P1, Admin Sales as P2, Dark Mode as P3)",
+        "Identifies dependencies (e.g., Password Reset depends on Login existing, or vice versa)",
+        "Assigns rough size estimates to stories"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Organize our backlog using the RICE scoring method. Feature A: Reach 10k, Impact 3, Confidence 80%, Effort 2 weeks. Feature B: Reach 500, Impact 3, Confidence 100%, Effort 1 week.",
+      "expected_output": "Backlog prioritized using RICE scores.",
+      "files": [],
+      "expectations": [
+        "Calculates RICE score for Feature A (10000 * 3 * 0.8 / 2 = 12000)",
+        "Calculates RICE score for Feature B (500 * 3 * 1.0 / 1 = 1500)",
+        "Ranks Feature A higher than Feature B based on score",
+        "Presents the data in a clear tabular format"
+      ]
+    }
+  ]
+}

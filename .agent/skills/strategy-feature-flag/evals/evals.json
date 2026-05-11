@@ -1,0 +1,29 @@
+{
+  "skill_name": "strategy-feature-flag",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design a feature flag strategy for a new checkout flow. We want to roll it out safely to 10% of users first, then 50%, then 100%.",
+      "expected_output": "Feature flag rollout plan and strategy.",
+      "files": [],
+      "expectations": [
+        "Defines the targeting strategy (e.g., user ID hashing for consistent assignment)",
+        "Details the progressive rollout phases (10% -> 50% -> 100%)",
+        "Includes monitoring and rollback criteria for each phase",
+        "Mandates a cleanup phase to remove the flag after 100% rollout"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We are using LaunchDarkly. Write a policy for feature flag lifecycle management so our codebase doesn't become a mess of old flags.",
+      "expected_output": "Feature flag lifecycle management policy.",
+      "files": [],
+      "expectations": [
+        "Categorizes flags (e.g., Release, Experiment, Ops/Kill Switch)",
+        "Defines naming conventions",
+        "Establishes a maximum lifespan for release flags (e.g., 2 weeks post-launch)",
+        "Describes the process for creating technical debt tickets to clean up stale flags"
+      ]
+    }
+  ]
+}

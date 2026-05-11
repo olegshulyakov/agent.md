@@ -1,0 +1,29 @@
+{
+  "skill_name": "strategy-api-versioning",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We are building a new REST API for external developers. Should we use URI versioning (e.g., /v1/users) or Header versioning (e.g., Accept: application/vnd.company.v1+json)? What are the trade-offs?",
+      "expected_output": "Comparison of API versioning strategies with a clear recommendation.",
+      "files": [],
+      "expectations": [
+        "Explains URI versioning pros (discoverability, caching) and cons (URI changes)",
+        "Explains Header versioning pros (clean URIs) and cons (harder to test/cache)",
+        "Provides a clear recommendation (usually URI versioning for general public APIs)",
+        "Mentions Stripe-style date versioning as an alternative"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write a deprecation policy for our API. We need to retire v1 endpoints safely over the next 6 months.",
+      "expected_output": "API deprecation policy and timeline.",
+      "files": [],
+      "expectations": [
+        "Defines a clear timeline (e.g., Announcement, Deprecation period, Brownouts, Sunset)",
+        "Specifies communication channels (emails, developer portal, API response headers)",
+        "Recommends using the `Sunset` and `Deprecation` HTTP headers",
+        "Includes a rollback or exception plan"
+      ]
+    }
+  ]
+}

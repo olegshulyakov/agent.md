@@ -1,0 +1,29 @@
+{
+  "skill_name": "planner-sprint",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Help me plan a 2-week sprint for a team of 4 engineers. Everyone is full-time, but one person has 2 days off. How many points is our capacity if we usually do 10 points per person per week?",
+      "expected_output": "Sprint capacity calculation and planning template.",
+      "files": [],
+      "expectations": [
+        "Calculates capacity correctly (4 people * 10 days = 40 dev days. Minus 2 days off = 38 dev days. Converts days to points based on historical velocity)",
+        "Provides a Sprint Goal section",
+        "Provides a structured Sprint Backlog allocation section",
+        "Identifies potential risks or capacity constraints"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We have these stories: 'User login' (5 pts, P1), 'Password reset' (3 pts, P2), 'Admin dashboard' (8 pts, P1), 'Export to CSV' (2 pts, P3). Our sprint capacity is 15 points. What's the plan?",
+      "expected_output": "Sprint plan allocating stories based on priority and capacity.",
+      "files": [],
+      "expectations": [
+        "Allocates 'User login' (5) and 'Admin dashboard' (8) as P1s (total 13 points)",
+        "Allocates 'Password reset' (3) if adjusting capacity, or explains it doesn't fit (13 + 3 = 16 > 15)",
+        "Recommends deferring 'Export to CSV'",
+        "Defines a clear sprint goal based on the selected stories"
+      ]
+    }
+  ]
+}

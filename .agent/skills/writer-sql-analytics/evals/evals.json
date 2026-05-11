@@ -1,0 +1,17 @@
+{
+  "skill_name": "writer-sql-analytics",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a BigQuery SQL query to calculate a 7-day rolling average of daily sales from a table called `daily_revenue`.",
+      "expected_output": "A BigQuery SQL query using window functions.",
+      "files": [],
+      "expectations": [
+        "Uses BigQuery syntax",
+        "Uses an analytical window function: AVG(sales) OVER (ORDER BY date ROWS BETWEEN 6 PRECEDING AND CURRENT ROW)",
+        "Formats SQL cleanly",
+        "Provides a brief explanation of how the window frame works"
+      ]
+    }
+  ]
+}

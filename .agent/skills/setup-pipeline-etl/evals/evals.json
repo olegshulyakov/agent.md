@@ -1,0 +1,30 @@
+{
+  "skill_name": "setup-pipeline-etl",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write an Airflow DAG that extracts daily sales data from a Postgres database, transforms it using a Pandas script to calculate daily totals, and loads it into BigQuery.",
+      "expected_output": "Python Airflow DAG script implementing an ETL pipeline.",
+      "files": [],
+      "expectations": [
+        "Defines a valid Airflow DAG with schedule_interval and default_args",
+        "Includes an Extract task (e.g., PostgresOperator or PythonOperator with psycopg2)",
+        "Includes a Transform task using Pandas",
+        "Includes a Load task (e.g., GCSToBigQueryOperator or bigquery client)",
+        "Sets correct task dependencies (extract >> transform >> load)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Design an ETL pipeline architecture for streaming IoT sensor data into a data lake for analytics. Needs to handle 10,000 events per second.",
+      "expected_output": "High-level architecture design for streaming ETL.",
+      "files": [],
+      "expectations": [
+        "Recommends a streaming ingestion tool (e.g., Kafka, Kinesis, Pub/Sub)",
+        "Recommends a stream processing engine (e.g., Spark Streaming, Flink, Dataflow)",
+        "Recommends a data lake storage destination (e.g., S3, GCS)",
+        "Addresses scalability and error handling (dead letter queues)"
+      ]
+    }
+  ]
+}

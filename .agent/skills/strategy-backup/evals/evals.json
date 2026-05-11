@@ -1,0 +1,29 @@
+{
+  "skill_name": "strategy-backup",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design a backup strategy for our PostgreSQL database. We can tolerate a maximum of 1 hour of data loss (RPO) and need to be back online within 4 hours (RTO).",
+      "expected_output": "Backup and disaster recovery strategy meeting RPO and RTO targets.",
+      "files": [],
+      "expectations": [
+        "Defines daily full backups",
+        "Mandates continuous WAL archiving / Point-In-Time Recovery (PITR) to meet the 1-hour RPO",
+        "Suggests automated restore testing to guarantee the 4-hour RTO",
+        "Recommends offsite/cross-region storage for the backups"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What should our backup retention policy be for a healthcare application subject to HIPAA?",
+      "expected_output": "Data retention policy compliant with strict regulatory requirements.",
+      "files": [],
+      "expectations": [
+        "Specifies short-term retention for operational recovery (e.g., 30 days)",
+        "Specifies long-term retention for compliance (e.g., 6-7 years for HIPAA)",
+        "Mentions encryption at rest for all backups",
+        "Mentions access controls and immutability (WORM storage)"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "skill_name": "audit-test-flaky",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Our Cypress E2E test for the login flow fails randomly about 10% of the time in CI. It usually fails trying to find the 'Dashboard' header after clicking login. What should we look for?",
+      "expected_output": "Flaky test audit report diagnosing the Cypress login test.",
+      "files": [],
+      "expectations": [
+        "Identifies potential root causes (e.g., async state, network latency, waiting for animations)",
+        "Suggests specific fixes for Cypress (e.g., intercepting network requests, proper assertions)",
+        "Categorizes the flake according to standard flaky test taxonomy",
+        "Provides actionable recommendations for stabilization"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I have a Python test that inserts a user into the database and checks if the total count is 5. It passes locally but fails randomly in our Jenkins pipeline when run in parallel with other tests. Why?",
+      "expected_output": "Flaky test audit report diagnosing the Python database test.",
+      "files": [],
+      "expectations": [
+        "Identifies test isolation/shared state issues due to parallel execution",
+        "Suggests using transactions, unique data per test, or test-specific databases",
+        "Provides code-level or architectural recommendations to fix data leakage",
+        "Clearly separates root cause analysis from remediation steps"
+      ]
+    }
+  ]
+}

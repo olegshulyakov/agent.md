@@ -1,0 +1,29 @@
+{
+  "skill_name": "template-retro",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a sprint retrospective template using the standard 'What went well / What could be better / Action Items' format.",
+      "expected_output": "A standard sprint retrospective markdown template.",
+      "files": [],
+      "expectations": [
+        "Includes header information (Date, Sprint name, Attendees)",
+        "Provides a section for 'What went well'",
+        "Provides a section for 'What could be better' or 'Delta'",
+        "Provides a section for specific, assigned 'Action Items'"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I want to run a 'Start / Stop / Continue' retro format. Generate the agenda and template.",
+      "expected_output": "A 'Start / Stop / Continue' retrospective template.",
+      "files": [],
+      "expectations": [
+        "Includes an agenda with timeboxing",
+        "Provides clear sections for Start, Stop, and Continue with explanations of each",
+        "Includes a mechanism for voting or discussing items",
+        "Concludes with an Action Items section"
+      ]
+    }
+  ]
+}

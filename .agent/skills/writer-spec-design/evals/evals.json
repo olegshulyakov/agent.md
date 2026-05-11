@@ -1,0 +1,17 @@
+{
+  "skill_name": "writer-spec-design",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a design spec for a primary call-to-action button. It needs to handle hover, active, disabled, and loading states.",
+      "expected_output": "A design specification document for a button component.",
+      "files": [],
+      "expectations": [
+        "Details design tokens (colors, padding, border-radius)",
+        "Describes all requested states (Hover, Active, Disabled, Loading)",
+        "Includes interaction/animation details (e.g., transition duration)",
+        "Provides guidance on text truncation or content scaling"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "skill_name": "writer-use-case",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a use case for a user resetting their password. The main flow should involve entering an email, receiving a link, and setting a new password. Include alternate flows for an unregistered email and an expired reset link.",
+      "expected_output": "A detailed use case specification for password reset.",
+      "files": [],
+      "expectations": [
+        "Identifies the Primary Actor (e.g., Unauthenticated User)",
+        "Details the Main Success Scenario step-by-step",
+        "Includes an Extension/Alternate Flow for an unregistered email (e.g., show generic message to prevent enumeration)",
+        "Includes an Extension/Alternate Flow for an expired link (e.g., prompt to request a new link)",
+        "Uses a structured table or numbered list format"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "skill_name": "writer-ml-experiment",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write an ML experiment report. We tried fine-tuning BERT for sentiment analysis. It achieved 92% accuracy, beating the baseline TF-IDF model (85%). The main issue was it took 3x longer to infer.",
+      "expected_output": "A structured ML experiment report.",
+      "files": [],
+      "expectations": [
+        "Includes sections for Hypothesis, Setup, Results, and Analysis",
+        "Documents the baseline (TF-IDF 85%) and the new model (BERT 92%)",
+        "Highlights the trade-off in inference time",
+        "Provides a conclusion or recommendation on whether to deploy"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Document a failed experiment where adding data augmentation (back-translation) to our NER model actually decreased F1 score from 0.88 to 0.84. We suspect the translation introduced noise.",
+      "expected_output": "Experiment report detailing a negative result.",
+      "files": [],
+      "expectations": [
+        "Clearly states the hypothesis and that it was disproved",
+        "Documents the metrics (0.88 baseline vs 0.84 new)",
+        "Includes an error analysis section suggesting translation noise as the root cause",
+        "Recommends abandoning this specific augmentation approach"
+      ]
+    }
+  ]
+}

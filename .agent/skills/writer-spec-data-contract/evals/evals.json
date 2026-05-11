@@ -1,0 +1,17 @@
+{
+  "skill_name": "writer-spec-data-contract",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a data contract for a 'Customer Events' Kafka topic. It tracks page views and clicks. It contains user_id, event_type, url, and timestamp.",
+      "expected_output": "A data contract specification for a Kafka topic.",
+      "files": [],
+      "expectations": [
+        "Includes schema definition for the specified fields",
+        "Specifies the format (e.g., JSON or Avro) and location (Kafka topic name)",
+        "Includes SLAs or quality expectations appropriate for streaming data (e.g., latency, throughput)",
+        "Defines ownership"
+      ]
+    }
+  ]
+}

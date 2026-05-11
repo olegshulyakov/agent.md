@@ -1,0 +1,31 @@
+{
+  "skill_name": "model-dbt",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a dbt model to calculate monthly recurring revenue (MRR) from a staging table `stg_subscriptions`. The staging table has user_id, amount, status (active/canceled), and start_date.",
+      "expected_output": "dbt SQL model calculating MRR aggregated by month.",
+      "files": [],
+      "expectations": [
+        "Uses standard dbt config block (e.g., materialized='table')",
+        "Uses the ref() function to select from stg_subscriptions",
+        "Includes date truncation logic for monthly aggregation",
+        "Filters for active subscriptions",
+        "Returns clear, readable SQL"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Generate a schema.yml file for my `fct_orders` dbt model. It has order_id, customer_id, and total_amount. Add tests for uniqueness and not null on the primary key.",
+      "expected_output": "dbt schema.yml definition with tests.",
+      "files": [],
+      "expectations": [
+        "Outputs valid YAML format",
+        "Includes model definition for fct_orders",
+        "Documents columns: order_id, customer_id, total_amount",
+        "Applies 'unique' and 'not_null' tests to order_id",
+        "Includes descriptions for the model and columns"
+      ]
+    }
+  ]
+}

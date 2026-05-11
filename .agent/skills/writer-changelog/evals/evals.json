@@ -1,0 +1,31 @@
+{
+  "skill_name": "writer-changelog",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Generate a changelog for v1.2.0. Commits: 'feat: add CSV export', 'fix: resolve null pointer on login', 'chore: update deps', 'docs: fix typo in readme'. Follow Keep a Changelog format.",
+      "expected_output": "A Keep a Changelog formatted markdown document.",
+      "files": [],
+      "expectations": [
+        "Uses the standard Keep a Changelog header and structure",
+        "Groups 'add CSV export' under '### Added'",
+        "Groups 'resolve null pointer on login' under '### Fixed'",
+        "Omits or minimizes 'chore' and 'docs' if they aren't user/developer facing",
+        "Includes the version number and date"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write a changelog entry for a major release (v3.0.0). We removed the old /v1 API endpoints and changed the default authentication method to JWT. Also fixed a memory leak.",
+      "expected_output": "Changelog entry highlighting breaking changes.",
+      "files": [],
+      "expectations": [
+        "Prominently displays a 'Breaking Changes' warning",
+        "Groups the API removal under '### Removed'",
+        "Groups the authentication change under '### Changed'",
+        "Groups the memory leak under '### Fixed'",
+        "Advises developers to read a migration guide"
+      ]
+    }
+  ]
+}

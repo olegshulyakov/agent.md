@@ -1,0 +1,30 @@
+{
+  "skill_name": "setup-rag",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build a simple RAG pipeline in Python using LangChain and ChromaDB. It should load a PDF, split it into chunks, embed it using OpenAI, and answer a question based on the retrieved context.",
+      "expected_output": "Python code implementing a complete basic RAG pipeline.",
+      "files": [],
+      "expectations": [
+        "Uses LangChain document loaders (e.g., PyPDFLoader)",
+        "Implements text chunking (e.g., RecursiveCharacterTextSplitter)",
+        "Initializes OpenAI embeddings and a Chroma vector store",
+        "Creates a retrieval chain (e.g., create_retrieval_chain or RetrievalQA)",
+        "Outputs valid Python code"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "What chunking strategy should I use for legal contracts where clauses often refer back to previous definitions?",
+      "expected_output": "Recommendation for chunking strategies suited for legal documents.",
+      "files": [],
+      "expectations": [
+        "Recommends semantic chunking or hierarchical chunking over naive fixed-size chunking",
+        "Suggests using a large chunk overlap to preserve context",
+        "Mentions metadata tagging (e.g., tagging chunks with section headers)",
+        "Provides a rationale based on the nature of legal texts"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "skill_name": "writer-slo",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Define an availability SLO for our checkout service. It's revenue-critical. Define the SLI, set a target, and calculate the monthly error budget.",
+      "expected_output": "A complete SLO definition document.",
+      "files": [],
+      "expectations": [
+        "Defines the SLI clearly (e.g., successful HTTP 2xx/3xx responses / total valid requests)",
+        "Sets a highly available target appropriate for revenue (e.g., 99.9% or 99.95%)",
+        "Calculates the exact error budget in minutes (e.g., 43.2 minutes/month for 99.9%)",
+        "Excludes invalid requests (e.g., 4xx errors caused by user input) from the SLI calculation"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write an error budget policy. What happens when the team burns 100% of their error budget?",
+      "expected_output": "An error budget policy defining consequences and actions.",
+      "files": [],
+      "expectations": [
+        "Clearly states the consequence of exhausting the budget (e.g., feature freeze, no non-emergency deploys)",
+        "Mandates shifting engineering focus to reliability work",
+        "Includes a process for reviewing the budget and reinstating feature work",
+        "Defines intermediate warnings (e.g., at 75% burn)"
+      ]
+    }
+  ]
+}

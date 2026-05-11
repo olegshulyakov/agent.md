@@ -1,0 +1,29 @@
+{
+  "skill_name": "writer-release-notes",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write user-facing release notes for v2.1.0 of our consumer mobile app. The technical changelog says: 'Reduced API latency by 40% via connection pooling', 'Fixed NPE in OrderService when order contains no items', and 'Added dark mode toggle'.",
+      "expected_output": "User-friendly release notes suitable for an App Store.",
+      "files": [],
+      "expectations": [
+        "Translates 'Added dark mode toggle' into a compelling feature headline",
+        "Translates the latency reduction into user benefit ('App loads much faster now')",
+        "Translates the NPE fix into user language ('Fixed a crash when submitting an empty cart')",
+        "Uses a friendly tone, possibly with emojis, suitable for a consumer app"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Draft release notes for our enterprise SaaS dashboard update. It includes a breaking change where old API keys (v1) will stop working next month.",
+      "expected_output": "Professional release notes emphasizing action required.",
+      "files": [],
+      "expectations": [
+        "Adopts a professional, formal tone suitable for enterprise users",
+        "Prominently features a 'Breaking Changes' or 'Action Required' section",
+        "Provides clear instructions on how users can migrate to the new API keys",
+        "Includes standard sections for new features and improvements"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "skill_name": "writer-prompt",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design a system prompt for an LLM to extract names, dates, and locations from raw text and output it strictly as JSON. Give it two few-shot examples.",
+      "expected_output": "An optimized LLM prompt with system instructions and examples.",
+      "files": [],
+      "expectations": [
+        "Includes a clear persona/role definition",
+        "Explicitly mandates JSON output and provides the expected schema",
+        "Includes exactly two few-shot examples of input text and expected JSON output",
+        "Includes constraints (e.g., 'Do not output any text before or after the JSON')"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "My summarization prompt is failing because the LLM keeps adding its own opinions to the summary. Fix it.",
+      "expected_output": "A revised prompt addressing the hallucination/opinion issue.",
+      "files": [],
+      "expectations": [
+        "Diagnoses the issue as a lack of constraints",
+        "Adds explicit negative constraints (e.g., 'Do not include outside information', 'Maintain a neutral, objective tone')",
+        "Suggests using a 'Chain of Thought' or specific formatting to keep the model grounded in the text"
+      ]
+    }
+  ]
+}

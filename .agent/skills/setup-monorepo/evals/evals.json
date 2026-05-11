@@ -1,0 +1,30 @@
+{
+  "skill_name": "setup-monorepo",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Set up a Turborepo monorepo configuration for a project with a Next.js frontend (apps/web) and an Express backend (apps/api), sharing a UI library (packages/ui).",
+      "expected_output": "Turborepo configuration (turbo.json) and basic workspace setup.",
+      "files": [],
+      "expectations": [
+        "Provides a valid turbo.json configuration file",
+        "Defines pipeline tasks (build, lint, dev)",
+        "Configures correct topological dependencies (e.g., ^build)",
+        "Explains how to set up the package.json workspaces array (npm/yarn/pnpm)",
+        "Details the folder structure"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "How do I configure Nx to cache my Jest test results across the monorepo?",
+      "expected_output": "Nx configuration snippet for caching test results.",
+      "files": [],
+      "expectations": [
+        "Provides nx.json or project.json configuration",
+        "Identifies the 'test' target",
+        "Sets 'cache: true' or includes 'test' in cacheableOperations",
+        "Mentions configuring inputs (e.g., source files) to invalidate the cache correctly"
+      ]
+    }
+  ]
+}

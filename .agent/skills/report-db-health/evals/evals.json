@@ -1,0 +1,30 @@
+{
+  "skill_name": "report-db-health",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Generate a database health report structure for our PostgreSQL instance. Users are complaining about slow load times during peak hours.",
+      "expected_output": "Comprehensive DB health report template focusing on slow queries and connection limits.",
+      "files": [],
+      "expectations": [
+        "Includes a section for Slow Query Analysis (pg_stat_statements)",
+        "Includes a section for Connection Pool Status (pg_stat_activity)",
+        "Includes checking for table bloat and vacuum status",
+        "Includes checking for unused or missing indexes",
+        "Provides clear actionable recommendations"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Review this slow query: `SELECT * FROM orders WHERE status = 'PENDING' ORDER BY created_at DESC`. There are 5 million orders. What's the diagnosis?",
+      "expected_output": "Database health snippet diagnosing a specific slow query.",
+      "files": [],
+      "expectations": [
+        "Identifies the likely lack of a covering index or compound index on (status, created_at)",
+        "Notes that `SELECT *` retrieves unnecessary columns causing more I/O",
+        "Recommends creating an index: `CREATE INDEX idx_orders_status_created ON orders (status, created_at DESC)`",
+        "Suggests using `EXPLAIN ANALYZE` to verify"
+      ]
+    }
+  ]
+}

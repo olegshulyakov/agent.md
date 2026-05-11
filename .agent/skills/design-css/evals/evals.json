@@ -1,0 +1,31 @@
+{
+  "skill_name": "design-css",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a CSS design system for a SaaS dashboard. I need a modern color palette (blue primary), typography scale, spacing variables, and shadows using CSS custom properties.",
+      "expected_output": "Comprehensive CSS file with :root variables for tokens.",
+      "files": [],
+      "expectations": [
+        "Defines variables in :root",
+        "Includes a blue primary color palette with shades (e.g., 50 to 900)",
+        "Includes a logical typography scale (rem-based)",
+        "Includes a spacing scale (e.g., --space-1, --space-2)",
+        "Includes elevation/shadow tokens",
+        "Output is pure CSS"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Set up dark mode support for my CSS variables. Currently I just have: --bg: #fff; --text: #333; --border: #ddd; --primary: #007bff;",
+      "expected_output": "CSS demonstrating light and dark mode custom property toggling.",
+      "files": [],
+      "expectations": [
+        "Shows @media (prefers-color-scheme: dark)",
+        "Demonstrates data-theme='dark' attribute override pattern",
+        "Inverts/adjusts the provided colors for dark mode context",
+        "Maintains semantic variable names"
+      ]
+    }
+  ]
+}

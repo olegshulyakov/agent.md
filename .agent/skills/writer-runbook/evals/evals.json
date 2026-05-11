@@ -1,0 +1,29 @@
+{
+  "skill_name": "writer-runbook",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create an operational runbook for how to rotate the database password in our production PostgreSQL RDS instance without causing downtime.",
+      "expected_output": "A step-by-step operational runbook.",
+      "files": [],
+      "expectations": [
+        "Lists prerequisites (e.g., AWS CLI access, Secret Manager access)",
+        "Details the steps clearly (e.g., generate new password, update Secret Manager, restart app instances rolling)",
+        "Includes a verification step to confirm the new password works",
+        "Provides a rollback plan if the new password causes connection failures"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Document the procedure for restoring a single dropped table from a nightly pg_dump backup into a running database.",
+      "expected_output": "A runbook for restoring a specific database table.",
+      "files": [],
+      "expectations": [
+        "Provides the exact pg_restore commands with necessary flags (e.g., -t table_name)",
+        "Includes warnings about data consistency or foreign key constraints",
+        "Suggests restoring to a temporary database or schema first as a safety measure",
+        "Includes a verification step to check row counts"
+      ]
+    }
+  ]
+}

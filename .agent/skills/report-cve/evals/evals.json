@@ -1,0 +1,29 @@
+{
+  "skill_name": "report-cve",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Triage CVE-2021-44228 (Log4j). We use Java 8, and our web application uses Log4j 2.14.1 but is behind a strict WAF.",
+      "expected_output": "CVE triage report assessing Log4j vulnerability impact.",
+      "files": [],
+      "expectations": [
+        "Identifies the CVE correctly (Log4Shell, high/critical severity)",
+        "Assesses the specific environment (Java 8, Log4j 2.14.1 means it is vulnerable)",
+        "Addresses the WAF as a mitigation but not a complete fix",
+        "Provides actionable remediation steps (upgrade to 2.15.0+ or apply specific configuration changes)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Dependabot reported a High severity vulnerability in the 'express' package in our internal admin dashboard repository. What should the triage report look like?",
+      "expected_output": "CVE triage report template for a Dependabot alert.",
+      "files": [],
+      "expectations": [
+        "Includes sections for Vulnerability Description, Affected Components, and Impact Assessment",
+        "Evaluates the context (internal admin dashboard lowers risk profile vs public internet)",
+        "Recommends upgrading the 'express' package via npm/yarn",
+        "Includes a verification step to confirm the fix"
+      ]
+    }
+  ]
+}

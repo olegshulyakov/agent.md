@@ -1,0 +1,29 @@
+{
+  "skill_name": "writer-alert-rules",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a Prometheus alert rule that fires if the error rate for our 'payment-service' goes above 1% for 5 minutes.",
+      "expected_output": "Prometheus alert rule YAML for high error rate.",
+      "files": [],
+      "expectations": [
+        "Outputs valid YAML format for Prometheus rules",
+        "Includes a PromQL expression calculating error rate (errors / total)",
+        "Includes 'for: 5m' clause",
+        "Includes severity labels (e.g., critical) and actionable annotations (runbook URL)"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create an SLO burn rate alert for a 99.9% availability target. Alert if we consume 5% of the monthly budget in 1 hour.",
+      "expected_output": "Prometheus alert rule for fast SLO burn rate.",
+      "files": [],
+      "expectations": [
+        "Calculates the correct burn rate multiplier (14.4x for 1 hour)",
+        "Uses a 1-hour window in the PromQL expression",
+        "Alerts on the burn rate threshold being exceeded",
+        "Explains the math behind the alert"
+      ]
+    }
+  ]
+}

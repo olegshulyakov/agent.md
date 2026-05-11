@@ -1,0 +1,30 @@
+{
+  "skill_name": "diagram-ux-flow",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a user flow diagram for an e-commerce checkout process. Starts at cart, goes to shipping, payment, and order confirmation. Handle the case where payment fails.",
+      "expected_output": "Mermaid diagram mapping the checkout user flow.",
+      "files": [],
+      "expectations": [
+        "Uses Mermaid flowchart syntax",
+        "Includes nodes for Cart, Shipping, Payment, and Confirmation",
+        "Includes a decision node for Payment Success/Failure",
+        "Maps the failure path back to the Payment screen",
+        "Includes clear labels on the transition arrows"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Map the journey for a user resetting their password. Include email steps.",
+      "expected_output": "User flow diagram for password reset.",
+      "files": [],
+      "expectations": [
+        "Shows screens and offline steps (email)",
+        "Includes 'Forgot Password' screen, 'Check Email' state, 'Set New Password' screen",
+        "Maps both happy path and potential errors (e.g., expired token)",
+        "Is visually structured to separate user actions from system actions"
+      ]
+    }
+  ]
+}

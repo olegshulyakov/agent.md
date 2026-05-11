@@ -1,0 +1,18 @@
+{
+  "skill_name": "writer-stakeholder",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a weekly stakeholder update for the 'Mobile App Redesign' project. We finished the login screens. We are currently working on the home feed. The design team hasn't delivered the profile screen assets yet, which might delay us next week. We are currently 'On Track'.",
+      "expected_output": "A concise stakeholder update document.",
+      "files": [],
+      "expectations": [
+        "Sets status to 'On Track'",
+        "Lists 'Finished login screens' under Key Achievements",
+        "Lists 'Working on home feed' under Current Focus",
+        "Highlights the missing design assets as a Risk/Blocker",
+        "Uses a professional, easy-to-skim format"
+      ]
+    }
+  ]
+}
