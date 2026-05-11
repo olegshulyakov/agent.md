@@ -7,6 +7,9 @@ description: >
   write Jira/Linear/GitHub stories, create implementation tasks, or asks "how would we build X as stories?"
   Also trigger when the user mentions sprint planning at the story level, story pointing, or task breakdown.
   Distinct from writer-epic (which groups stories) and planner-sprint (which plans capacity).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-story-task

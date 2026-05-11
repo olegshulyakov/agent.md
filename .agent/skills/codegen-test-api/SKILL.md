@@ -8,6 +8,9 @@ description: >
   this endpoint", "add contract tests", or "create a Postman collection". Also trigger for "test this REST API",
   "write assertions for this response", and "generate fixtures for API testing". Distinct from codegen-test-e2e
   (browser/UI flow tests) and codegen-test-perf (load/performance tests).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # codegen-test-api

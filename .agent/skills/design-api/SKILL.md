@@ -7,6 +7,9 @@ description: >
   contract, document request/response shapes, design an async messaging API, or asks "what should the API
   look like?" Trigger even if they say "API design", "API contract", "endpoint design", or "define the interface".
   Distinct from writer-api-docs (which documents an already-existing API).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # design-api

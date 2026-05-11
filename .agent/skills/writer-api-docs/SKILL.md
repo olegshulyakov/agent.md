@@ -8,6 +8,9 @@ description: >
   "document request and response formats", "write docs for this REST API", or "create API documentation
   from this code". Also trigger for "add JSDoc to this API", "document these routes", and "generate
   Postman-style docs". Distinct from design-api (contract-first spec before implementation exists).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-api-docs

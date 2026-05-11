@@ -7,6 +7,9 @@ description: >
   and their interactions, write use case narratives in spec form, or asks "what should the system do?"
   Distinct from writer-prd (which captures business goals and personas, not system behavior) and
   writer-spec-tech (which orchestrates functional + NFR + integration into a full technical specification).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-spec-functional

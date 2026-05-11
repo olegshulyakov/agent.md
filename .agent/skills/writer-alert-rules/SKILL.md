@@ -10,6 +10,9 @@ description: >
   Also trigger for "alerting thresholds", "SLO burn rate alerts", "dead man's switch", "heartbeat
   alert", and "multi-window multi-burn-rate". Distinct from writer-slo (which defines the SLO targets
   themselves) and writer-runbook-oncall (which documents the response procedures).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-alert-rules

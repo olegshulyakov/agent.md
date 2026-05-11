@@ -7,6 +7,9 @@ description: >
   "help me design the backend", "choose between microservices and monolith", or "how should this system be
   structured". Also trigger for system decomposition, service boundary design, and architecture discussions.
   Distinct from diagram-c4 (visual C4 diagram) and writer-adr (records a single specific decision).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # design-arch

@@ -8,6 +8,9 @@ description: >
   capacity", "create a sprint goal", or "write up the sprint plan". Also trigger for "sprint 1 planning",
   "two-week sprint", "capacity planning for the team", and "sprint backlog". Distinct from writer-epic
   (which defines feature groupings) and writer-story-task (which decomposes individual stories into tasks).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # planner-sprint

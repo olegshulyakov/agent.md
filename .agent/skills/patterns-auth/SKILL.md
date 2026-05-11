@@ -8,6 +8,9 @@ description: >
   "should I use JWT or sessions", "implement OAuth2 login", "add role-based access control", "how do I
   authenticate API requests", or "secure my endpoints". Also trigger for refresh token patterns, SSO setup,
   and MFA implementation guidance.
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # patterns-auth

@@ -10,6 +10,9 @@ description: >
   variables should I define?". Also trigger for "brand tokens", "style guide", "theming setup", and
   "dark mode implementation". Distinct from codegen-frontend (which generates component code) and
   writer-spec-design (which documents design specs for a specific component or screen).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # design-css

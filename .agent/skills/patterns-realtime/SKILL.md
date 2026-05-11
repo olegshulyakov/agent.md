@@ -10,6 +10,9 @@ description: >
   Also trigger for "long polling vs WebSocket", "Socket.io setup", "real-time collaboration", and
   "server push". Distinct from patterns-graphql (GraphQL subscriptions specifically) and codegen-backend
   (general backend code generation).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # patterns-realtime

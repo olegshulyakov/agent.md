@@ -9,6 +9,9 @@ description: >
   or "instrument this service". Also trigger for "add health checks", "set up alerting", "configure log
   aggregation", and "instrument for production". Distinct from writer-slo (which defines SLO targets)
   and writer-alert-rules (which writes specific alert rule definitions).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # setup-observability

@@ -10,6 +10,9 @@ description: >
   "dependency vulnerability", "npm audit findings", "OWASP dependency check", "Dependabot alerts",
   and "security advisory assessment". Distinct from audit-security (full OWASP code review) and
   audit-secrets (credential exposure).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # report-cve

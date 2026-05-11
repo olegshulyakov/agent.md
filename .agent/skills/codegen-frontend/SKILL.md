@@ -8,6 +8,9 @@ description: >
   implement a design system component, or asks "build this UI", "write a component for X",
   "implement this screen", "add this feature to the frontend", or "scaffold a page". Detects the framework
   from context automatically. Distinct from design-css (design tokens/style guide) and audit-a11y (accessibility audit).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # codegen-frontend

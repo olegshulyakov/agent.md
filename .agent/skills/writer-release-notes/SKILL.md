@@ -10,6 +10,9 @@ description: >
   announcement", "product update notes", "feature announcement", and "upgrade notes". Distinct from
   writer-changelog (which is developer-facing technical changelog) and writer-api-docs (which
   documents APIs for developers).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-release-notes

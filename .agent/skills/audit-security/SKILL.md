@@ -8,6 +8,9 @@ description: >
   attack surface", or "do a security review". Also trigger for threat analysis, security hardening reviews,
   penetration test prep, and security sign-off before release. Distinct from model-threat (which produces
   a STRIDE threat model) and audit-secrets (which focuses specifically on credential exposure).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # audit-security

@@ -7,6 +7,9 @@ description: >
   "write UI tests", "generate acceptance tests", or "create end-to-end test coverage". Also trigger for
   "test the happy path", "test the login flow", "write tests for this feature", or "set up E2E testing".
   Distinct from codegen-test-api (API contract tests) and codegen-test-perf (performance/load tests).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # codegen-test-e2e

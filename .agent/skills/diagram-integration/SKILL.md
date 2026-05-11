@@ -10,6 +10,9 @@ description: >
   diagram", "API dependency map", "integration landscape", and "show the boundaries between systems".
   Distinct from diagram-c4 (which models software architecture levels) and diagram-dfd (which models
   data flows through processes).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # diagram-integration

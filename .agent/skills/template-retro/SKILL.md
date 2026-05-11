@@ -9,6 +9,9 @@ description: >
   Also trigger for "blameless retrospective", "start/stop/continue retro", "4Ls retrospective",
   "sailboat retro", and "post-sprint reflection". Distinct from writer-postmortem (which is for
   incident analysis) and planner-sprint (which plans the next sprint).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # template-retro

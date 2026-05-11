@@ -10,6 +10,9 @@ description: >
   my AI system". Also trigger for "LLM evaluation", "model scoring", "RAGAS setup", "evals pipeline",
   "automated testing for AI", and "ground truth dataset creation". Distinct from setup-rag (which sets
   up the retrieval pipeline) and writer-ml-experiment (which documents experiment results).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # setup-eval-harness

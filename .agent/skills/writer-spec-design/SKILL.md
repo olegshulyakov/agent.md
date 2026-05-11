@@ -7,6 +7,9 @@ description: >
   "document this UI component", "create a handoff document", "define the states for this button",
   or "write the UX spec for this feature". Distinct from design-css (which generates the actual CSS
   code) and codegen-frontend (which generates React/Vue code).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-spec-design

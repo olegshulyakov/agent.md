@@ -9,6 +9,9 @@ description: >
   or "improve our PR review process". Also trigger for "PR checklist", "code review template",
   "pull request format", and "merge request template". Distinct from checklist-code-review (which
   is the reviewer's checklist, not the author's template).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # template-pr

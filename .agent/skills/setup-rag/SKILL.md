@@ -10,6 +10,9 @@ description: >
   Also trigger for "embedding pipeline", "vector database setup", "LlamaIndex setup", "LangChain RAG",
   "Chroma setup", "Pinecone integration", "Weaviate setup", and "reranking pipeline". Distinct from
   setup-eval-harness (which evaluates model outputs) and writer-prompt (which designs prompts).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # setup-rag

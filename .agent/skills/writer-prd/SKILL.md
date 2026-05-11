@@ -6,6 +6,9 @@ description: >
   go-to-market requirements, success metrics, user personas, OKRs tied to a feature, product scope definition,
   or asks for help capturing what a product should do and for whom. Trigger even if they say things like
   "document the requirements", "write up the product goals", or "define what we're building".
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-prd

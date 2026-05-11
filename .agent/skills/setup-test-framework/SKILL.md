@@ -8,6 +8,9 @@ description: >
   project", "configure Jest", "scaffold our test setup", "what's the right test structure for X",
   "create a testing baseline", or "add unit/integration tests to this project". Also trigger for "how
   should we organize tests", "configure test coverage thresholds", and "set up test database".
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # setup-test-framework

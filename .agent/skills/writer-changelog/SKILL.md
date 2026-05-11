@@ -10,6 +10,9 @@ description: >
   the user provides a list of commits or PRs and wants them organized into a changelog. Distinct from
   writer-release-notes (which is user-facing, not developer-facing) and writer-postmortem
   (which documents incidents).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-changelog

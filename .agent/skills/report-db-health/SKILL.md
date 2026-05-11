@@ -10,6 +10,9 @@ description: >
   for "DB performance audit", "PostgreSQL health check", "MySQL slow query analysis", and
   "database optimization report". Distinct from writer-sql (writes queries) and design-schema
   (designs schema structure).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # report-db-health

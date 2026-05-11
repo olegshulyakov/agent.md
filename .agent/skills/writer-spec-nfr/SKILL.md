@@ -7,6 +7,9 @@ description: >
   performance targets, or asks to "write the NFRs for this project", "document system constraints",
   "specify the performance requirements", or "create an NFR spec". Distinct from writer-spec-functional
   (which describes what the system does) and writer-spec-tech (which orchestrates both into a full design).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-spec-nfr

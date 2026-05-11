@@ -11,6 +11,9 @@ description: >
   workspaces", "monorepo task pipeline", and "affected tests in monorepo". Distinct from
   setup-pipeline-cicd (which generates the CI/CD workflow files) and setup-developer-portal
   (which creates internal documentation).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # setup-monorepo

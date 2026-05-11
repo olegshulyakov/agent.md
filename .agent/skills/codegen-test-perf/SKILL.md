@@ -11,6 +11,9 @@ description: >
   (k6 for JavaScript/Node.js projects, Gatling for JVM, Locust for Python, JMeter as fallback).
   Distinct from strategy-test (which plans what performance tests to write) and setup-test-framework
   (which scaffolds the testing framework).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # codegen-test-perf

@@ -7,6 +7,9 @@ description: >
   check", "find WCAG violations", "audit this for screen reader support", or "check color contrast". Also trigger
   when the user mentions ARIA attributes, keyboard navigation, focus management, or accessible forms.
   Distinct from codegen-frontend (which generates code) and writer-spec-design (which writes design specs).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # audit-a11y

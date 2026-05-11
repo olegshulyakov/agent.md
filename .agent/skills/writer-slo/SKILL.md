@@ -9,6 +9,9 @@ description: >
   alerts", or "define our uptime goals". Also trigger for "SLI definition", "availability target",
   "reliability engineering", "error budget burn rate", and "SLO review". Distinct from writer-alert-rules
   (which writes the alert rule syntax) and writer-runbook-oncall (which documents alert responses).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-slo

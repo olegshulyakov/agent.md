@@ -11,6 +11,9 @@ description: >
   "incident response runbook", "SRE runbook", and "on-call handbook for service X". Distinct from
   writer-runbook (which documents general operational procedures, not specific alert responses) and
   writer-postmortem (which documents what happened after an incident).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-runbook-oncall

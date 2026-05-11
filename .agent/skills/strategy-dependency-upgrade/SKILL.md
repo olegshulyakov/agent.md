@@ -11,6 +11,9 @@ description: >
   "major version migration", "breaking change management in dependencies", and "package update
   policy". Distinct from checklist-release (which focuses on deployment) and setup-pipeline-cicd
   (which sets up automation).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # strategy-dependency-upgrade

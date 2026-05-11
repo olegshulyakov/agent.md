@@ -7,6 +7,9 @@ description: >
   or asks "how should I structure the database?" Also trigger for "what tables do I need?", "design the data model",
   or "normalize this into a schema". Distinct from writer-sql (which writes queries against an existing schema)
   and writer-migration (which writes migration scripts for an existing schema).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # design-schema

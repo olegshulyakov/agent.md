@@ -8,6 +8,9 @@ description: >
   or "document the expectations for this dataset". Also trigger for "data mesh contract", "event
   schema specification", "data quality agreement", and "data producer/consumer agreement". Distinct
   from design-schema (which designs the database tables) and design-api (which designs REST/GraphQL APIs).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-spec-data-contract

@@ -9,6 +9,9 @@ description: >
   "document our restore procedure", or "test our backup strategy". Also trigger for "PITR setup",
   "point-in-time recovery", "continuous backup", "backup testing", and "data retention policy".
   Distinct from writer-runbook (general operational runbook) and setup-infra (IaC provisioning).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # strategy-backup

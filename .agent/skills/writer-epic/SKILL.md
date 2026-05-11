@@ -8,6 +8,9 @@ description: >
   or "write the epic definition for this feature". Also trigger for "epic breakdown", "what stories are in
   this epic", and "define the MVP scope for this epic". Distinct from writer-story-task (single story →
   tasks) and writer-prd (business-level requirements document).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-epic

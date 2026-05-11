@@ -8,6 +8,9 @@ description: >
   a migration script", "how do I migrate this database change", or "generate an Alembic/Flyway/Liquibase
   migration". Also trigger for "alter this table", "rename this column", "add a foreign key", and "backfill
   this data". Distinct from design-schema (designing structure) and writer-sql (general SQL queries).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-migration

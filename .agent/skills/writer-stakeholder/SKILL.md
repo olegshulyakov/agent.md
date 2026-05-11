@@ -7,6 +7,9 @@ description: >
   "create a weekly status report", "draft an update for the exec team", "summarize project status",
   or "write an email to stakeholders". Distinct from planner-sprint (which is for the engineering
   team) and writer-release-notes (which is for end users).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-stakeholder

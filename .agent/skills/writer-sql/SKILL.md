@@ -8,6 +8,9 @@ description: >
   "how do I query Y in SQL", "write a migration query", or "generate SQL". Distinct from writer-sql-analytics
   (which targets warehouse dialects: Snowflake, BigQuery, ClickHouse) and design-schema (which designs
   the structure, not the queries).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-sql

@@ -8,6 +8,9 @@ description: >
   or "what could go wrong security-wise". Also trigger for pre-design security review, new feature threat
   analysis, and security architecture review. Distinct from audit-security (which reviews existing code)
   and audit-secrets (credential exposure focus).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # model-threat

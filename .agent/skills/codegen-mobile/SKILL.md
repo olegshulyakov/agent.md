@@ -8,6 +8,9 @@ description: >
   "implement this in React Native", "write Flutter widgets", or "scaffold this mobile feature". Detect the
   platform from context automatically (file extensions, imports, project structure). Also trigger for "make this
   work on iOS/Android", mobile state management, and cross-platform component patterns.
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # codegen-mobile

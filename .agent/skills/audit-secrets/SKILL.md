@@ -8,6 +8,9 @@ description: >
   or asks to "find secrets", "check for hardcoded passwords", "audit credentials in code", "help rotate
   leaked keys", or "migrate secrets to a vault". Also trigger when the user mentions .env files,
   secret scanning, credential rotation, or vault setup (HashiCorp, AWS Secrets Manager, etc.).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # audit-secrets

@@ -10,6 +10,9 @@ description: >
   "show inputs and outputs of the system", and "data flow model". Distinct from diagram-c4 (which models
   software architecture at system/container/component levels) and diagram-integration (which shows
   system integrations and API boundaries).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # diagram-dfd

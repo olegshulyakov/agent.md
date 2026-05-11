@@ -9,6 +9,9 @@ description: >
   Also trigger when someone says "we decided to use X" and wants to capture the reasoning, or when reviewing
   past decisions that have no documentation. Distinct from design-arch (full system design) and writer-spec-tech
   (full technical specification).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-adr

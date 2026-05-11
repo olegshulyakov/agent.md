@@ -10,6 +10,9 @@ description: >
   "incident retrospective", "outage report", and "service disruption analysis". Distinct from
   template-retro (which is for sprint retrospectives) and writer-runbook (which documents
   operational procedures).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-postmortem

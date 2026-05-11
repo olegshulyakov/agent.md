@@ -8,6 +8,9 @@ description: >
   this deployment", "add a pipeline", "configure CI for this project", or "set up automated testing and
   deployment". Also trigger for "add linting to CI", "automate Docker builds", "set up deployment automation",
   and "create a release pipeline".
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # setup-pipeline-cicd

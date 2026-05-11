@@ -9,6 +9,9 @@ description: >
   "summarize this experiment". Also trigger for "hyperparameter search results", "ablation study",
   "model comparison report", and "training run documentation". Distinct from setup-eval-harness
   (which sets up the evaluation infrastructure) and writer-prompt (which designs prompts for LLMs).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-ml-experiment

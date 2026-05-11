@@ -8,6 +8,9 @@ description: >
   "provision this infrastructure", "set up AWS resources", "create a Pulumi stack", "scaffold cloud infra",
   or "infrastructure as code for this architecture". Also trigger for networking setup, IAM role creation,
   and managed service provisioning.
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # setup-infra

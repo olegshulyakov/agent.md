@@ -9,6 +9,9 @@ description: >
   "how should I structure this GraphQL API?". Also trigger for "schema-first vs code-first GraphQL",
   "GraphQL subscriptions", "GraphQL federation", and "Apollo Server setup". Distinct from design-api
   (OpenAPI/REST specs) and codegen-backend (general backend code).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # patterns-graphql

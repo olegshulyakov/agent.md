@@ -9,6 +9,9 @@ description: >
   project", or "how much test coverage do we need". Also trigger for "test planning", "testing standards
   document", "QA approach for this release", and "test coverage policy". Distinct from setup-test-framework
   (which sets up the tooling) and codegen-test-e2e (which generates test code).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # strategy-test

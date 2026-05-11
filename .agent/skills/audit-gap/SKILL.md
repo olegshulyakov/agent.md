@@ -9,6 +9,9 @@ description: >
   Also trigger for capability assessments, maturity model evaluations, compliance readiness reviews, and any
   structured current-state vs future-state comparison. Distinct from audit-security (security focus) and
   writer-spec-functional (defines requirements, doesn't compare states).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # audit-gap

@@ -9,6 +9,9 @@ description: >
   decision points in this user journey". Also trigger for "task flow diagram", "screen flow", "UX flow",
   "navigation map", "user path", and "interaction flow". Distinct from diagram-dfd (data flows through
   system processes) and diagram-c4 (software architecture).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # diagram-ux-flow

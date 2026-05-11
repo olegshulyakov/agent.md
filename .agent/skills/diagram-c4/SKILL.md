@@ -8,6 +8,9 @@ description: >
   how this system works". Also trigger when the user wants to document service boundaries, show how microservices
   relate, or produce any structured architecture visualization. Distinct from design-arch (prose document with
   trade-offs) and diagram-dfd (data flow focus).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # diagram-c4

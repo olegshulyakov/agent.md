@@ -10,6 +10,9 @@ description: >
   release via flags", "A/B testing setup", "feature toggle lifecycle", "flag cleanup policy", and
   "percentage rollout". Distinct from setup-pipeline-cicd (which handles CI/CD deployment pipelines)
   and checklist-release (which covers the deployment checklist).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # strategy-feature-flag

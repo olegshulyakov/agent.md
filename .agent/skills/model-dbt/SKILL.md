@@ -9,6 +9,9 @@ description: >
   Also trigger for "dbt source definition", "dbt snapshot", "dbt seed", "dbt materialization", and
   "incremental model". Distinct from writer-sql (general SQL queries) and setup-pipeline-etl
   (broader ETL pipeline scaffolding).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # model-dbt

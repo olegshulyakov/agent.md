@@ -9,6 +9,9 @@ description: >
   readiness review", "deployment runbook", "cut a release", and "production deployment plan". Distinct
   from writer-runbook (general operational runbook) and strategy-dependency-upgrade (focused on dependency
   management during releases).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # checklist-release

@@ -10,6 +10,9 @@ description: >
   trigger for "semantic versioning for APIs", "breaking vs non-breaking changes", "sunset headers",
   and "API evolution strategy". Distinct from design-api (which designs the initial API contract) and
   writer-api-docs (which documents existing endpoints).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # strategy-api-versioning

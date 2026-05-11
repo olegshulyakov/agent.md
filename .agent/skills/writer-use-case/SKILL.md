@@ -7,6 +7,9 @@ description: >
   or asks to "write a use case for X", "document the main flow and alternate flows", or "create a
   use case specification". Distinct from writer-story-task (which writes Agile user stories) and
   writer-spec-functional (which defines the entire system's functional requirements).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-use-case

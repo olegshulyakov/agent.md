@@ -7,6 +7,9 @@ description: >
   "calculate monthly active users in SQL", "write a Snowflake query for X", "how do I do cohort
   analysis in SQL", or "write an analytical SQL query". Distinct from writer-sql (which focuses on
   OLTP transactional databases like Postgres/MySQL) and model-dbt (which focuses on dbt project structure).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-sql-analytics

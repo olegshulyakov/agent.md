@@ -10,6 +10,9 @@ description: >
   for "prompt engineering", "system message design", "chain of thought prompting", "prompt templates",
   "structured output prompts", and "prompt optimization". Distinct from setup-eval-harness (which
   evaluates prompt performance) and setup-rag (which retrieves context for prompts).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-prompt

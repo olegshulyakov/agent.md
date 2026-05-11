@@ -6,6 +6,9 @@ description: >
   write a project overview, document how to install or run something, or asks "can you write a README for this?"
   Also trigger for "update the README", "document this project", "write the docs for this repo",
   or "help someone get started with this project". Works from code, existing docs, or a description.
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-readme

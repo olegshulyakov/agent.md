@@ -10,6 +10,9 @@ description: >
   runbook for this process". Also trigger for "operational playbook", "procedure documentation",
   "maintenance guide", and "operations how-to". Distinct from writer-runbook-oncall (which is
   specific to on-call alert responses) and checklist-release (which is a deployment checklist).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-runbook

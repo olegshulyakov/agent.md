@@ -9,6 +9,9 @@ description: >
   should we do first?". Also trigger for "RICE scoring", "story mapping", "backlog refinement",
   "MoSCoW prioritization", and "backlog ordering". Distinct from planner-sprint (which allocates
   stories to a specific sprint) and writer-story-task (which decomposes a single story into tasks).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-backlog

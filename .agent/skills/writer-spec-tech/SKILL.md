@@ -9,6 +9,9 @@ description: >
   spec before we start building". Also trigger for "write a TDD", "technical specification document",
   and "spec out this feature end-to-end". Distinct from writer-spec-functional (functional behavior only),
   writer-spec-nfr (non-functional only), and design-arch (architecture prose without the full spec wrapper).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # writer-spec-tech

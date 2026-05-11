@@ -9,6 +9,9 @@ description: >
   mentions tests that "sometimes pass, sometimes fail", test quarantine lists, or CI pipelines with high
   retry rates. Distinct from strategy-test (which defines testing strategy) and setup-test-framework
   (which sets up tooling).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # audit-test-flaky

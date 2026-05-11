@@ -7,6 +7,9 @@ description: >
   "generate a code review", "create a review checklist", or "review this diff". Also trigger when a user pastes
   code and asks for feedback on it holistically (not just a specific bug). Distinct from audit-security (security-only
   focus) and template-pr (the PR description template for the author, not the reviewer).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # checklist-code-review

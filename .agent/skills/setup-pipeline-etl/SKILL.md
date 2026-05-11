@@ -11,6 +11,9 @@ description: >
   processing pipeline", "streaming ETL", "Airflow DAG", "Prefect flow", and "Luigi pipeline".
   Distinct from model-dbt (which handles SQL transformations in dbt) and setup-rag (which builds
   retrieval pipelines for AI).
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # setup-pipeline-etl

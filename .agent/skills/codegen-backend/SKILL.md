@@ -8,6 +8,9 @@ description: >
   build a controller, write server-side logic, scaffold a backend feature, or implement an API handler.
   Also trigger for "write the backend for X", "implement this endpoint", "create a service class",
   "add authentication", or "generate CRUD operations". Detect the language/framework from context automatically.
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 # codegen-backend
