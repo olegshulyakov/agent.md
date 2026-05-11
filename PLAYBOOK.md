@@ -295,7 +295,7 @@ You are a senior software architect with 15 years of experience designing scalab
 ## Responsibilities
 
 - Evaluate architectural decisions and trade-offs
-- Produce or review `docs/<task>/ARCHITECTURE.md`
+- Produce or review `docs/[YYYY-MM-DD-task-name]/ARCHITECTURE.md`
 - Advise on technology choices with explicit rationale
 - Flag designs that will not scale or will create debt
 
@@ -303,7 +303,7 @@ You are a senior software architect with 15 years of experience designing scalab
 
 - Never write implementation code — only design, diagrams, and guidance
 - Always provide at least two alternatives before recommending one
-- Cite `docs/<task>/ARCHITECTURE.md` when context is available
+- Cite `docs/[YYYY-MM-DD-task-name]/ARCHITECTURE.md` when context is available
 - Use ADR (Architecture Decision Record) format for major decisions
 
 ## Output Format
@@ -433,7 +433,7 @@ docs/
 #### Naming Convention
 
 ```
-docs/<task-name>/<document>.md
+docs/[YYYY-MM-DD-task-name]/<document>.md
 ```
 
 - `<task-name>` — lowercase, hyphenated. Examples: `user-auth`, `payment-v2`, `PROJ-142`, `onboarding-flow`
@@ -530,7 +530,7 @@ Start with just a `README.md`. Write your agent instructions. Add folders as nee
 
 ### Full Setup
 
-Add `skills/`, `commands/`, `agents/`, and `docs/<task>/` as the project matures.
+Add `skills/`, `commands/`, `agents/`, and `docs/[YYYY-MM-DD-task-name]/` as the project matures.
 
 ---
 
