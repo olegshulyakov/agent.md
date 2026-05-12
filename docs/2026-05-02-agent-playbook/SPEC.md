@@ -51,7 +51,27 @@ Currently, LLM agents lack a standardized way to maintain context, rules, and me
 
 **Priority:** Must-have
 **Actor:** Developer
-**Description:** The system shall define a standard `.agents/` folder schema including `rules/`, `skills/`, `commands/`, `agents/`, and `memory/` subdirectories.
+**Description:** The system shall define a standard `.agents/` folder schema including subdirectories with the following concrete layout:
+
+```text
+.agents/
+├── rules/
+│   ├── code-style.md
+│   ├── testing.md
+│   └── security.md
+├── skills/
+│   ├── on-new-file/SKILL.md
+│   └── on-test-fail/SKILL.md
+├── commands/
+│   ├── review.md
+│   └── scaffold.md
+├── agents/
+│   ├── architect.md
+│   └── security-auditor.md
+└── memory/
+    └── MEMORY.md
+```
+
 **Acceptance criteria:**
 
 - [ ] The folder structure is clearly documented and reproducible.
@@ -60,10 +80,10 @@ Currently, LLM agents lack a standardized way to maintain context, rules, and me
 
 **Priority:** Must-have
 **Actor:** Developer
-**Description:** The system shall define the structure and purpose of the `.agents/README.md` file as the primary entry point for agents.
+**Description:** The system shall define the structure and purpose of the `AGENTS.md` file at the project root as the primary entry point for agents.
 **Acceptance criteria:**
 
-- [ ] Schema and required sections for `README.md` are documented.
+- [ ] Schema and required sections for `AGENTS.md` are documented.
 
 #### FR-003: Schema Provisioning
 
@@ -72,13 +92,13 @@ Currently, LLM agents lack a standardized way to maintain context, rules, and me
 **Description:** The system shall provide schemas for rules, skills, commands, subagents, and memory files.
 **Acceptance criteria:**
 
-- [ ] JSON or Markdown schemas are provided for each component type.
+- [ ] Markdown schemas are provided for each component type.
 
 #### FR-004: Context Auto-loading
 
 **Priority:** Must-have
 **Actor:** Agent Runtime
-**Description:** The agent runtime shall automatically load context from `.agents/README.md` and relevant rules based on the user's current directory or task.
+**Description:** The agent runtime shall automatically load context from `AGENTS.md` and relevant rules based on the user's current directory or task.
 **Acceptance criteria:**
 
 - [ ] Compliant runtimes automatically inject rules into the context window.
@@ -112,8 +132,8 @@ The Agent Playbook is implemented as a standard directory structure within a rep
 
 ```mermaid
 flowchart TD
-    RepoRoot[Repository Root] --> AgentsFolder[.agents/]
-    AgentsFolder --> Readme[README.md (Entry Point)]
+    RepoRoot[Repository Root] --> AgentsFile[AGENTS.md (Entry Point)]
+    RepoRoot --> AgentsFolder[.agents/]
     AgentsFolder --> Rules[rules/]
     AgentsFolder --> Skills[skills/]
     AgentsFolder --> Commands[commands/]
@@ -123,14 +143,14 @@ flowchart TD
 
 ### 4.2 Component Responsibilities
 
-| Component           | Responsibility                                                                            |
-| ------------------- | ----------------------------------------------------------------------------------------- |
-| `.agents/README.md` | Central registry and bootstrapping instructions for the project's agents.                 |
-| `rules/`            | Project-specific constraints and style guidelines (e.g., indentation, language features). |
-| `skills/`           | Actionable capabilities the agent can invoke (e.g., scaffolding, linting).                |
-| `commands/`         | Custom slash commands or macros for developers to use with the agent.                     |
-| `agents/`           | Specialized subagent personas or roles (e.g., code reviewer, architect).                  |
-| `memory/`           | Ephemeral or long-term state/context for the agent.                                       |
+| Component   | Responsibility                                                                            |
+| ----------- | ----------------------------------------------------------------------------------------- |
+| `AGENTS.md` | Central registry and bootstrapping instructions for the project's agents.                 |
+| `rules/`    | Project-specific constraints and style guidelines (e.g., indentation, language features). |
+| `skills/`   | Actionable capabilities the agent can invoke (e.g., scaffolding, linting).                |
+| `commands/` | Custom slash commands or macros for developers to use with the agent.                     |
+| `agents/`   | Specialized subagent personas or roles (e.g., code reviewer, architect).                  |
+| `memory/`   | Ephemeral or long-term state/context for the agent.                                       |
 
 ### 4.3 Centralized Registry
 
@@ -150,7 +170,7 @@ flowchart TD
 
 ### Phase 1: Structure and Schema Definition
 
-- [ ] Define the exact markdown structure for `README.md`.
+- [ ] Define the exact markdown structure for `AGENTS.md`.
 - [ ] Create schemas for `RULE.md`, `SKILL.md`, and subagent definitions.
 - [ ] Document the centralized registry structure (`~/.agents/`).
 

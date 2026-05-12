@@ -26,8 +26,9 @@ Currently, LLM agents lack a standardized, tool-agnostic way to maintain context
 ### In Scope
 
 - Definition of the `.agents/` folder structure and its core components (`rules/`, `skills/`, `commands/`, `agents/`, `memory/`).
-- Specification of the `README.md` entry point for agents.
+- Specification of the `AGENTS.md` entry point for agents at the project root.
 - Schemas for modular instructions, skills, custom slash commands, and subagent personas.
+- Concrete file naming and folder conventions (e.g., `rules/code-style.md`, `skills/on-new-file/SKILL.md`, `commands/review.md`, `agents/architect.md`, `memory/MEMORY.md`).
 - Runtime expectations for compliant tools.
 
 ### Out of Scope
@@ -38,8 +39,8 @@ Currently, LLM agents lack a standardized, tool-agnostic way to maintain context
 ## Functional Requirements
 
 1. **Playbook Structure Definition**
-   1.1 The system shall define a standard `.agents/` folder schema.
-   1.2 The system shall specify the structure and purpose of the `.agents/README.md` file.
+   1.1 The system shall define a standard `.agents/` folder schema (rules, skills, commands, agents, memory) with the following concrete layout: - `rules/` — e.g., `code-style.md`, `testing.md`, `security.md` - `skills/<name>/SKILL.md` — e.g., `on-new-file/SKILL.md`, `on-test-fail/SKILL.md` - `commands/` — e.g., `review.md`, `scaffold.md` - `agents/` — e.g., `architect.md`, `security-auditor.md` - `memory/MEMORY.md`
+   1.2 The system shall specify the structure and purpose of the `AGENTS.md` file at the project root as the primary entry point.
    1.3 The system shall provide schemas for rules, skills, commands, subagents, and memory.
 2. **Runtime Expectations**
    2.1 The system shall list requirements for runtimes to be considered compliant (e.g., auto-loading context, enforcing permissions, triggering skills).
@@ -52,23 +53,22 @@ Currently, LLM agents lack a standardized, tool-agnostic way to maintain context
 
 ## User Journeys / Key Flows
 
-1. **Bootstrapping a new project:** A developer creates a `.agents/README.md` file to initialize the agent context.
-2. **Defining a rule:** A developer creates `.agents/rules/code-style/RULE.md` to enforce 2-space indentation. The agent runtime reads this file and automatically applies the rule in future code generation.
-3. **Running a skill:** A developer creates a new TypeScript file, triggering a skill defined in `.agents/skills/on-new-file/SKILL.md` which automatically generates a scaffolded test file.
+1. **Bootstrapping a new project:** A developer creates an `AGENTS.md` file at the project root to initialize the agent context.
+2. **Defining a rule:** A developer creates `.agents/rules/code-style.md` to enforce TypeScript conventions. The agent runtime reads this file and automatically applies the rule in future code generation.
+3. **Running a skill:** A developer creates a new TypeScript file in `src/`, triggering a skill defined in `.agents/skills/on-new-file/SKILL.md` which auto-scaffolds a matching test file.
 
 ## Assumptions & Dependencies
 
-| Item | Type | Detail |
-|------|------|--------|
-| LLM tool support | Dependency | LLM IDEs and runtimes will adopt or allow custom configuration reading to support this specification. |
-| Markdown adoption | Assumption | Markdown remains the standard format for LLM instructions. |
+| Item              | Type       | Detail                                                                                                |
+| ----------------- | ---------- | ----------------------------------------------------------------------------------------------------- |
+| LLM tool support  | Dependency | LLM IDEs and runtimes will adopt or allow custom configuration reading to support this specification. |
+| Markdown adoption | Assumption | Markdown remains the standard format for LLM instructions.                                            |
 
 ## Open Questions
 
 - [x] How will runtimes handle conflicting rules defined in different `.agents/rules/` files?
 
   Advanced agents use Large Language Models (LLMs) to understand the **underlying intent** of conflicting instructions.
-
   - **Semantic Merging**: If two rules or code changes overlap, the agent analyzes both to synthesize a version that fulfills the logic of both sides.
   - **First-Principles Reasoning**: Agents may ignore rigid rules in favor of a "judgment call" based on the full context of the project.
 
