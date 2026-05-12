@@ -48,6 +48,8 @@ project-root/
 
 ### `AGENTS.md` — Primary Instruction File
 
+Think of `AGENTS.md` as a **README for agents**: a dedicated, predictable place to provide the context and instructions an AI coding agent needs to work on your project.
+
 The agent's entry point. Every runtime MUST load this file first. It serves two roles:
 
 1. **System prompt** — High-level instructions, persona, tone, and behavioral defaults.
@@ -56,15 +58,15 @@ The agent's entry point. Every runtime MUST load this file first. It serves two 
 #### Schema
 
 ```markdown
-# AGENTS.md
+# Agent Instructions
 
-## Identity
+## Setup commands
 
-[Who this agent is and what it does]
+[Commands an agent may need to run, e.g. install, dev, test, lint, build]
 
-## Behavior
+## Code style
 
-[How it should act, tone, defaults]
+[Language and style conventions — TypeScript strict mode, single quotes, etc.]
 
 ## Loaded Context
 
@@ -85,6 +87,7 @@ The agent's entry point. Every runtime MUST load this file first. It serves two 
 - Must contain a `## Loaded Context` table listing all active files.
 - `Auto-load: yes` files are injected into every session. `on-demand` files are loaded only when relevant or explicitly invoked.
 - Keep it concise — this is a prompt, not a novel.
+- Setup commands, code style, and other recurring instructions should already exist in `README.md`, `.editorconfig`, or committed IDE settings. Prefer referencing those over duplicating them.
 
 ---
 
