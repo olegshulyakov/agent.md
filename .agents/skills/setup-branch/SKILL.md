@@ -26,13 +26,11 @@ Produce clear, consistent, and informative Git branch names that follow team bes
 
 **Examples:**
 
-```
-feature/PROJ-42-user-authentication
-bugfix/PROJ-101-fix-login-redirect
-hotfix/payment-null-pointer-crash
-chore/upgrade-node-18
-release/v2.4.0
-```
+- `feature/PROJ-42-user-authentication`
+- `bugfix/PROJ-101-fix-login-redirect`
+- `hotfix/payment-null-pointer-crash`
+- `chore/upgrade-node-18`
+- `release/v2.4.0`
 
 ---
 
