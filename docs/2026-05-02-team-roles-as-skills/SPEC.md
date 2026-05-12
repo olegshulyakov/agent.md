@@ -75,9 +75,7 @@ skills/
 ├── tracker-velocity/
 ├── writer-adr/
 ├── writer-alert-rules/
-├── writer-api-docs/
 ├── writer-backlog/
-├── writer-changelog/
 ├── writer-compliance/
 ├── writer-epic/
 ├── writer-lineage/
@@ -87,15 +85,13 @@ skills/
 ├── writer-postmortem/
 ├── writer-prd/
 ├── writer-prompt/
-├── writer-readme/
-├── writer-release-notes/
-├── writer-runbook/
 ├── writer-slo/
 ├── writer-spec/
 ├── writer-sql/
 ├── writer-sql-analytics/
 ├── writer-stakeholder/
 ├── writer-story-task/
+├── writer-tech-docs/
 ├── writer-team-agreement/
 ├── writer-tech-radar/
 └── writer-use-case/
@@ -261,7 +257,7 @@ writer-sql-analytics/
 **Trigger disambiguation:**
 
 - `design-api` → contract-first, produces OpenAPI spec before any code is written
-- `writer-api-docs` → reference documentation for an existing API
+- `writer-tech-docs` (api-docs variant) → reference documentation for an existing API
 
 #### Multi-variant: `codegen-frontend`
 
@@ -411,30 +407,29 @@ planner-capacity/
 
 ---
 
-### 📝 Documentation (5)
+### 📝 Documentation (1)
 
-| Skill                  | Roles                | Output Artifact                                                    |
-| ---------------------- | -------------------- | ------------------------------------------------------------------ |
-| `writer-readme`        | Tech Writer          | README: overview, install, usage, contributing; scoped by audience |
-| `writer-api-docs`      | Tech Writer, Backend | API reference documentation for existing APIs                      |
-| `writer-runbook`       | Tech Writer, SRE     | Runbook guide: operational steps and on-call responses             |
-| `writer-changelog`     | Tech Writer          | Changelog: grouped by type (feat/fix/breaking), linked to PRs      |
-| `writer-release-notes` | Release Manager      | User-facing release notes: what's new, what's fixed, upgrade notes |
+| Skill              | Roles                                  | Output Artifact                                                                                  |
+| ------------------ | -------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `writer-tech-docs` | Tech Writer, Backend, SRE, Release Mgr | Technical documentation: README, API docs, runbooks, changelog, release notes, scoped by variant |
 
 **Trigger disambiguation:**
 
-- `writer-readme` → project intro, targeted at new users or contributors
-- `writer-api-docs` → reference docs for existing API endpoints
-- `design-api` → contract-first spec before implementation
+- `writer-tech-docs` → any technical documentation request. The router dispatches to the correct variant.
+- `design-api` → contract-first spec before implementation (not docs for an existing API)
 
-#### Multi-variant: `writer-runbook`
+#### Multi-variant: `writer-tech-docs`
 
 ```text
-writer-runbook/
-├── SKILL.md
+writer-tech-docs/
+├── SKILL.md          # Detects variant from keywords, file patterns, or user mention
 └── references/
-    ├── routine.md    # Standard operational procedures
-    └── oncall.md     # Emergency response, alert triage
+    ├── readme.md         # README: overview, install, usage, contributing
+    ├── api-docs.md       # API reference docs for existing endpoints
+    ├── runbook-routine.md# Standard operational procedures
+    ├── runbook-oncall.md # Emergency response, alert triage
+    ├── changelog.md      # Changelog: grouped by type, linked to PRs
+    └── release-notes.md  # User-facing release notes: what's new, what's fixed, upgrade notes
 ```
 
 ---
@@ -474,7 +469,7 @@ Each skill is built using the `skill-creator` skill in this sequence:
 
 ## Multi-Variant Router Pattern
 
-For `codegen-frontend`, `codegen-backend`, `codegen-mobile`, `codegen-test`, `writer-sql`, `writer-sql-analytics`, `writer-spec`, `setup-pipeline`, `writer-runbook`, `planner-capacity`:
+For `codegen-frontend`, `codegen-backend`, `codegen-mobile`, `codegen-test`, `writer-sql`, `writer-sql-analytics`, `writer-spec`, `setup-pipeline`, `writer-tech-docs`, `planner-capacity`:
 
 The `SKILL.md` must:
 
@@ -498,19 +493,19 @@ Check in this order:
 
 Skills with overlapping domains must have explicit disambiguation in their descriptions. High-risk pairs and their resolution:
 
-| Pair                                 | Disambiguation Rule                                                |
-| ------------------------------------ | ------------------------------------------------------------------ |
-| `writer-prd` vs `writer-spec`        | PRD = business goals; spec = system behavior or technical detail   |
-| `design-api` vs `writer-api-docs`    | design-api = contract first (no code yet); api-docs = existing API |
-| `design-arch` vs `diagram-c4`        | design-arch = prose document; diagram-c4 = diagram output          |
-| `design-schema` vs `writer-sql`      | design-schema = structure design; writer-sql = query/DDL writing   |
-| `writer-story-task` vs `writer-epic` | story-task = single story → tasks; epic = feature grouping         |
+| Pair                                          | Disambiguation Rule                                                                         |
+| --------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `writer-prd` vs `writer-spec`                 | PRD = business goals; spec = system behavior or technical detail                            |
+| `design-api` vs `writer-tech-docs` (api-docs) | design-api = contract first (no code yet); writer-tech-docs api-docs variant = existing API |
+| `design-arch` vs `diagram-c4`                 | design-arch = prose document; diagram-c4 = diagram output                                   |
+| `design-schema` vs `writer-sql`               | design-schema = structure design; writer-sql = query/DDL writing                            |
+| `writer-story-task` vs `writer-epic`          | story-task = single story → tasks; epic = feature grouping                                  |
 
 ## Totals
 
 | Category                                    | Count |
 | ------------------------------------------- | ----- |
-| Total skills                                | 71    |
+| Total skills                                | 67    |
 | Multi-variant router skills                 | 10    |
 | Total framework/language/dialect references | 50+   |
 | Prefix types                                | 14    |

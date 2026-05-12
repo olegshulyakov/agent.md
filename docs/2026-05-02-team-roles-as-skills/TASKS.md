@@ -159,31 +159,27 @@ Ordered alphabetically by name (matches filesystem order).
 
 ### `writer-`
 
-| Done  | Skill                   | Priority | Domain       | Primary Role          | Produces                                                              |
-| ----- | ----------------------- | -------- | ------------ | --------------------- | --------------------------------------------------------------------- |
-| - [ ] | `writer-adr`            | 🟠 P2    | Architecture | Solution Architect    | Architecture Decision Record (context, decision, consequences)        |
-| - [ ] | `writer-alert-rules`    | 🟡 P3    | DevOps / SRE | SRE                   | Alert rule definitions with severity and runbook links                |
-| - [ ] | `writer-api-docs`       | 🟠 P2    | Docs         | Tech Writer / Backend | API reference documentation (endpoints, params, examples)             |
-| - [ ] | `writer-backlog`        | 🟡 P3    | Agile        | Product Owner         | Groomed backlog with priorities, estimates, and dependencies          |
-| - [ ] | `writer-changelog`      | 🟡 P3    | Docs         | Tech Writer           | Developer changelog (grouped by type: added, changed, fixed)          |
-| - [ ] | `writer-compliance`     | ⚪ P4    | Security     | Security / Legal      | Compliance documentation (GDPR, SOC2, HIPAA)                          |
-| - [ ] | `writer-epic`           | 🟠 P2    | Agile        | Product Owner         | Epic definition with goal, scope, child stories, DoD                  |
-| - [ ] | `writer-lineage`        | ⚪ P4    | Data         | Data Engineer         | Data lineage documentation (sources, transforms, destinations)        |
-| - [ ] | `writer-mentorship`     | ⚪ P4    | Leadership   | Team Lead             | Mentorship guide with goals, checkpoints, and resources               |
-| - [ ] | `writer-migration`      | 🟠 P2    | Database     | DBA                   | Database migration scripts with up/down and validation                |
-| - [ ] | `writer-ml-experiment`  | 🟡 P3    | ML / AI      | ML Engineer           | ML experiment report with setup, results, and model card              |
-| - [ ] | `writer-postmortem`     | 🟡 P3    | Leadership   | Team Lead / SRE       | Incident postmortem (timeline, root cause, action items)              |
-| - [x] | `writer-prd`            | 🔴 P1    | Requirements | PM / PO               | Product Requirements Document (goals, personas, scope, metrics)       |
-| - [ ] | `writer-prompt`         | 🟡 P3    | ML / AI      | ML / AI Engineer      | Optimized prompt with system instructions, examples, and eval         |
-| - [ ] | `writer-readme`         | 🔴 P1    | Docs         | Tech Writer           | Project README (overview, setup, usage, contributing)                 |
-| - [ ] | `writer-release-notes`  | 🟡 P3    | Docs         | Release Manager       | User-facing release notes (features, fixes, upgrade guide)            |
-| - [ ] | `writer-runbook`        | 🟡 P3    | Docs         | Tech Writer / SRE     | Runbook guide (routine procedures, on-call alert response)            |
-| - [ ] | `writer-slo`            | 🟡 P3    | DevOps / SRE | SRE                   | SLO definition with indicators, targets, and error budget             |
-| - [x] | `writer-spec`           | 🔴 P1    | Requirements | SA / Architect / UX   | Specification document (functional, tech, NFR, design, data-contract) |
-| - [ ] | `writer-sql`            | 🔴 P1    | Database     | DBA / Backend         | Dialect-aware SQL (Postgres, MySQL, MSSQL, SQLite, Oracle)            |
-| - [ ] | `writer-sql-analytics`  | 🟡 P3    | Database     | DBA / Data Engineer   | Analytics SQL (Snowflake, BigQuery, ClickHouse, CockroachDB)          |
-| - [ ] | `writer-stakeholder`    | 🟡 P3    | Agile        | PM / PO               | Stakeholder update (status, risks, decisions needed)                  |
-| - [ ] | `writer-story-task`     | 🔴 P1    | Agile        | PO / Team Lead        | User stories with acceptance criteria decomposed into dev tasks       |
-| - [ ] | `writer-team-agreement` | ⚪ P4    | Agile        | Scrum Master          | Team working agreement (definition of done, norms, ceremonies)        |
-| - [ ] | `writer-tech-radar`     | ⚪ P4    | Architecture | Solution Architect    | Technology radar (adopt, trial, assess, hold)                         |
-| - [ ] | `writer-use-case`       | 🟡 P3    | Requirements | System Analyst        | Use case document (actors, preconditions, main/alternate flows)       |
+| Done  | Skill                   | Priority | Domain       | Primary Role        | Produces                                                              |
+| ----- | ----------------------- | -------- | ------------ | ------------------- | --------------------------------------------------------------------- |
+| - [ ] | `writer-adr`            | 🟠 P2    | Architecture | Solution Architect  | Architecture Decision Record (context, decision, consequences)        |
+| - [ ] | `writer-alert-rules`    | 🟡 P3    | DevOps / SRE | SRE                 | Alert rule definitions with severity and runbook links                |
+| - [ ] | `writer-backlog`        | 🟡 P3    | Agile        | Product Owner       | Groomed backlog with priorities, estimates, and dependencies          |
+| - [ ] | `writer-compliance`     | ⚪ P4    | Security     | Security / Legal    | Compliance documentation (GDPR, SOC2, HIPAA)                          |
+| - [ ] | `writer-epic`           | 🟠 P2    | Agile        | Product Owner       | Epic definition with goal, scope, child stories, DoD                  |
+| - [ ] | `writer-lineage`        | ⚪ P4    | Data         | Data Engineer       | Data lineage documentation (sources, transforms, destinations)        |
+| - [ ] | `writer-mentorship`     | ⚪ P4    | Leadership   | Team Lead           | Mentorship guide with goals, checkpoints, and resources               |
+| - [ ] | `writer-migration`      | 🟠 P2    | Database     | DBA                 | Database migration scripts with up/down and validation                |
+| - [ ] | `writer-ml-experiment`  | 🟡 P3    | ML / AI      | ML Engineer         | ML experiment report with setup, results, and model card              |
+| - [ ] | `writer-postmortem`     | 🟡 P3    | Leadership   | Team Lead / SRE     | Incident postmortem (timeline, root cause, action items)              |
+| - [x] | `writer-prd`            | 🔴 P1    | Requirements | PM / PO             | Product Requirements Document (goals, personas, scope, metrics)       |
+| - [ ] | `writer-prompt`         | 🟡 P3    | ML / AI      | ML / AI Engineer    | Optimized prompt with system instructions, examples, and eval         |
+| - [ ] | `writer-tech-docs`      | 🔴 P1    | Docs         | Tech Writer         | Technical docs: README, API docs, runbooks, changelog, release notes  |
+| - [ ] | `writer-slo`            | 🟡 P3    | DevOps / SRE | SRE                 | SLO definition with indicators, targets, and error budget             |
+| - [x] | `writer-spec`           | 🔴 P1    | Requirements | SA / Architect / UX | Specification document (functional, tech, NFR, design, data-contract) |
+| - [ ] | `writer-sql`            | 🔴 P1    | Database     | DBA / Backend       | Dialect-aware SQL (Postgres, MySQL, MSSQL, SQLite, Oracle)            |
+| - [ ] | `writer-sql-analytics`  | 🟡 P3    | Database     | DBA / Data Engineer | Analytics SQL (Snowflake, BigQuery, ClickHouse, CockroachDB)          |
+| - [ ] | `writer-stakeholder`    | 🟡 P3    | Agile        | PM / PO             | Stakeholder update (status, risks, decisions needed)                  |
+| - [ ] | `writer-story-task`     | 🔴 P1    | Agile        | PO / Team Lead      | User stories with acceptance criteria decomposed into dev tasks       |
+| - [ ] | `writer-team-agreement` | ⚪ P4    | Agile        | Scrum Master        | Team working agreement (definition of done, norms, ceremonies)        |
+| - [ ] | `writer-tech-radar`     | ⚪ P4    | Architecture | Solution Architect  | Technology radar (adopt, trial, assess, hold)                         |
+| - [ ] | `writer-use-case`       | 🟡 P3    | Requirements | System Analyst      | Use case document (actors, preconditions, main/alternate flows)       |
