@@ -1,11 +1,3 @@
----
-name: git-branch
-description: Use this skill whenever the user asks to name a branch, create a branch, suggests a branch name for review, or mentions Git workflow tasks like starting a feature, fixing a bug, making a hotfix, or preparing a release.
-author: Oleg Shulyakov
-licence: MIT
-version: 1.0.0
----
-
 # Branch Naming Guidelines
 
 Produce clear, consistent, and informative Git branch names that follow team best practices.
@@ -14,7 +6,7 @@ Produce clear, consistent, and informative Git branch names that follow team bes
 
 ## Branch Name Structure
 
-```
+```text
 <type>/<ticket-id>-<short-description>
 ```
 

@@ -1,14 +1,6 @@
----
-name: git-message
-description: Use when the user asks to write, generate, or improve a commit message, or pastes a diff needing a commit.
-author: Oleg Shulyakov
-licence: MIT
-version: 1.0.0
----
-
 # Commit Message Guidelines
 
-This skill produces well-formed commit messages following the **Conventional Commits** specification.
+Produce well-formed commit messages following the **Conventional Commits** specification.
 
 ---
 
