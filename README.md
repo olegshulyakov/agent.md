@@ -34,7 +34,7 @@ project-root/
 
 ## Examples
 
-This repo practices what it preaches — the [`.agents/`](./.agents) folder is the reference implementation. Every folder inside is a working example of the playbook applied to a real project. Browse it directly to see how rules, skills, commands, and memory files look in practice.
+This repo practices what it preaches — the [`examples/`](./examples) folder contains working examples. Every folder inside is a working example of the playbook applied to a real project. Browse it directly to see how rules, skills, commands, and memory files look in practice.
 
 ## Core Principles
 

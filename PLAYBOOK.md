@@ -443,74 +443,59 @@ A compliant runtime SHOULD:
 
 ## Reference Implementation
 
-This repository uses itself as the reference implementation. The `.agents/` folder at the root of this repo is a real, working example of the playbook applied to its own development — governing how agents should assist with writing, reviewing, and evolving the spec itself.
+This repository uses itself as the reference implementation. The `examples/` folder at the root of this repo is a real, working example of the playbook applied to its own development — governing how agents should assist with writing, reviewing, and evolving the spec itself.
 
-```
+```text
 agent.md/ ← this repo
-│
+├── examples/ ← reference implementation
+│   ├── README.md
+│   ├── rules/
+│   │ ├── writing-style.md
+│   │ └── contribution.md
+│   ├── skills/
+│   │ └── on-new-example/
+│   │     └── SKILL.md
+│   ├── commands/
+│   │ └── validate.md
+│   ├── agents/
+│   │ └── spec-reviewer.md
+│   └── memory/
+│       └── MEMORY.md
 ├── README.md
 ├── index.md
-├── PLAYBOOK.md
-├── LICENSE
-│
-└── .agents/ ← reference implementation
-├── README.md
-├── rules/
-│ ├── writing-style/
-│ │ └── RULE.md
-│ └── contribution/
-│     └── RULE.md
-├── skills/
-│ └── on-new-example/
-│     └── SKILL.md
-├── commands/
-│ └── validate/
-│     └── COMMAND.md
-├── agents/
-│ └── spec-reviewer/
-│     └── AGENT.md
-└── memory/
-    └── MEMORY.md
+└── PLAYBOOK.md
 ```
 
-Browse the [`.agents/`](./.agents) folder directly to see each file type as a working example.
+Browse the [`examples/`](./examples) folder directly to see real playbook-conformant files.
 
 ---
 
 ## Example: Real Project Layout
 
-```
+```text
 my-saas-app/
+├── .agents/
+│   ├── rules/
+│   │ ├── code-style.md/      # TypeScript conventions
+│   │ ├── testing.md/         # Test coverage requirements
+│   │ └── security.md/        # OWASP top-10 awareness
+│   ├── skills/
+│   │ ├── on-new-file/        # Auto-scaffold test files
+│   │ │ └── SKILL.md
+│   │ └── on-test-fail/       # Diagnose CI failures
+│   │     └── SKILL.md
+│   ├── commands/
+│   │ ├── review.md/          # /review — structured code review
+│   │ └── scaffold.md         # /scaffold — generate boilerplate
+│   ├── agents/
+│   │ ├── architect.md        # @architect — system design advisor
+│   │ └── security-auditor.md # @security — OWASP-focused review
+│   └── memory/
+│       └── MEMORY.md
 ├── src/
 ├── tests/
 ├── package.json
-│
-└── .agents/
-├── README.md
-├── rules/
-│ ├── code-style/ # TypeScript conventions
-│ │ └── RULE.md
-│ ├── testing/ # Test coverage requirements
-│ │ └── RULE.md
-│ └── security/ # OWASP top-10 awareness
-│     └── RULE.md
-├── skills/
-│ ├── on-new-file/ # Auto-scaffold test files
-│ │ └── SKILL.md
-│ └── on-test-fail/ # Diagnose CI failures
-│     └── SKILL.md
-├── commands/
-│ ├── review/ # /review — structured code review
-│ │ └── COMMAND.md
-│ └── scaffold/ # /scaffold — generate boilerplate
-│     └── COMMAND.md
-├── agents/
-│ ├── architect/ # @architect — system design advisor
-│ │ └── AGENT.md
-│ └── security-auditor/ # @security — OWASP-focused review
-│     └── AGENT.md
-└── memory/
-    └── MEMORY.md
+└── README.md
 ```
 
 ---
