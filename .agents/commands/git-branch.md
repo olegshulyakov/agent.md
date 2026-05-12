@@ -1,5 +1,8 @@
 ---
 description: Create a properly named Git branch from a task description
+author: Oleg Shulyakov
+licence: MIT
+version: 1.0.0
 ---
 
 Create a Git branch based on the provided description.
