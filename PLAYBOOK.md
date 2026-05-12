@@ -1,7 +1,9 @@
 # Agent Playbook
 
 > **Version:** 0.0.5
+>
 > **Status:** Draft
+>
 > **Purpose:** A portable, tool-agnostic playbook for structuring LLM agent context, memory, rules, and documentation inside any software project.
 
 ---

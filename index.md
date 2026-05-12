@@ -174,10 +174,11 @@ A compliant runtime **SHOULD**:
 
 ## References
 
-→ **[PLAYBOOK.md](./PLAYBOOK.md)**
-→ **[examples](./examples/)**
+- **[PLAYBOOK.md](./PLAYBOOK.md)**
+- **[examples](https://github.com/olegshulyakov/agent.md/tree/main/examples)**
 
 ---
 
 **Version 0.0.2 — Draft**
+
 _This playbook is intentionally tool-agnostic. Runtimes may extend it provided they do not break compatibility with the core specification._
