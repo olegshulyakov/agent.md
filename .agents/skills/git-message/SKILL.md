@@ -1,5 +1,5 @@
 ---
-name: writer-commit-message
+name: git-message
 description: Use when the user asks to write, generate, or improve a commit message, or pastes a diff needing a commit.
 author: Oleg Shulyakov
 licence: MIT
