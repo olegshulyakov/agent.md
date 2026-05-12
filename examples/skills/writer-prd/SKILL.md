@@ -44,7 +44,7 @@ Always produce a Markdown file. Use this structure exactly:
 
 [1–3 paragraphs. What pain exists? Who feels it? What's the cost of inaction?]
 
-## Goals
+## Goals [optional]
 
 - ...
 
@@ -58,7 +58,7 @@ Always produce a Markdown file. Use this structure exactly:
 
 - [Concrete capability or deliverable]
 
-### Out of Scope
+### Out of Scope [optional]
 
 - [Explicit exclusions to prevent scope creep]
 
@@ -74,21 +74,21 @@ Always produce a Markdown file. Use this structure exactly:
 
 [Performance, availability, security, compliance highlights. If deep NFRs are needed, recommend writer-spec-nfr.]
 
-## User Journeys / Key Flows
+## User Journeys / Key Flows [optional]
 
 [1–3 critical flows described as numbered steps. Diagrams optional but welcome.]
 
-## Assumptions & Dependencies
+## Assumptions & Dependencies [optional]
 
 | Item | Type                    | Detail |
 | ---- | ----------------------- | ------ |
 | ...  | Assumption / Dependency | ...    |
 
-## Open Questions
+## Open Questions [optional]
 
 - [ ] [Question that must be resolved before implementation]
 
-## Appendix
+## Appendix [optional]
 
 [Glossary, related docs, links — only if needed]
 ```
