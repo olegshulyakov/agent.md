@@ -14,7 +14,7 @@ This skill produces well-formed commit messages following the **Conventional Com
 
 ## Format
 
-```
+```text
 <type>(<optional scope>): <short description>
 
 <optional body>
@@ -29,9 +29,7 @@ This skill produces well-formed commit messages following the **Conventional Com
 - **Body**: explain _what_ and _why_, not _how_. Use bullet points (`-`) for multiple points.
 - **Footer**: reserved for metadata such as breaking changes or issue references.
 
----
-
-## Types
+### Types
 
 | Type       | When to use                               |
 | ---------- | ----------------------------------------- |
@@ -47,26 +45,20 @@ This skill produces well-formed commit messages following the **Conventional Com
 | `chore`    | Maintenance tasks (e.g. updating scripts) |
 | `revert`   | Reverts a previous commit                 |
 
----
-
-## Scope (optional)
+### Scope (optional)
 
 A short noun in parentheses that clarifies which part of the codebase the change affects.
 
 Examples: `auth`, `api`, `ui`, `payments`, `parser`, `cli`
 
----
-
-## Short Description
+### Short Description
 
 - Imperative mood: "add feature" not "adds feature" or "added feature"
 - Lowercase first letter
 - No trailing period
 - Max ~72 characters total for the header line
 
----
-
-## Body (optional)
+### Body (optional)
 
 Include when the change is non-obvious or complex. Use bullet points:
 
@@ -76,17 +68,15 @@ Include when the change is non-obvious or complex. Use bullet points:
 - Note anything reviewers should pay attention to
 ```
 
----
+### Footer (optional)
 
-## Footer (optional)
-
-### Breaking Changes
+#### Breaking Changes
 
 ```
 BREAKING CHANGE: <description of what broke and migration path>
 ```
 
-### Issue References
+#### Issue References
 
 ```
 Closes #123
