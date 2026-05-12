@@ -172,9 +172,10 @@ A compliant runtime **SHOULD**:
 
 ---
 
-## Full Playbook
+## References
 
 → **[PLAYBOOK.md](./PLAYBOOK.md)**
+→ **[examples](./examples/)**
 
 ---
 
