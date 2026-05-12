@@ -18,20 +18,20 @@ This playbook gives agents — and the humans working alongside them — a consi
 
 ```text
 project-root/
-└── .agents/
-    ├── README.md              # Primary instruction file + table of contents
-    ├── rules/                 # Modular instruction files
-    │   └── <rule-name>.md
-    ├── skills/                # Auto-invoking workflows (trigger → action)
-    │   └── <skill-name>/
-    │       └── SKILL.md
-    ├── commands/              # Custom slash commands
-    │   └── <command-name>.md
-    ├── agents/                # Subagent personas
-    │   └── <agent-persona>.md
-    └── memory/                # Persistent agent memory
-        ├── MEMORY.md          # Long-term memory. Durable facts, preferences, and decisions
-        └── YYYY-MM-DD.md      # Daily notes (UTC timezone). Running context and observations
+├── .agents/
+│   ├── rules/                 # Modular instruction files
+│   │   └── <rule-name>.md
+│   ├── skills/                # Auto-invoking workflows (trigger → action)
+│   │   └── <skill-name>/
+│   │       └── SKILL.md
+│   ├── commands/              # Custom slash commands
+│   │   └── <command-name>.md
+│   ├── agents/                # Subagent personas
+│   │   └── <agent-persona>.md
+│   └── memory/                # Persistent agent memory
+│       ├── MEMORY.md          # Long-term memory. Durable facts, preferences, and decisions
+│       └── YYYY-MM-DD.md      # Daily notes (UTC timezone). Running context and observations
+└── AGENTS.md                  # Primary instruction file + table of contents
 ```
 
 ---
@@ -46,13 +46,13 @@ project-root/
 
 **Portability** — Tool-agnostic. Works with Claude, Cursor, GitHub Copilot, or any custom runtime.
 
-**Progressive disclosure** — Start with a single `README.md`. Add folders only when you have a reason.
+**Progressive disclosure** — Start with a single `AGENTS.md`. Add folders only when you have a reason.
 
 ---
 
 ## Quick Reference
 
-### `.agents/README.md` — Entry Point
+### `AGENTS.md` — Entry Point
 
 The agent's system prompt and manifest. Every runtime loads this first. Contains a `## Loaded Context` table that tells the runtime what else to load and when.
 
@@ -77,32 +77,32 @@ priority: high
 
 Skills are the agent's reflexes — they trigger automatically based on events or file patterns, without the user asking.
 
-- `skills/on-new-file/SKILL.md`      → triggers when a file is created
-- `skills/on-test-fail/SKILL.md`     → triggers when CI fails
-- `skills/on-commit/SKILL.md`        → triggers before/after a commit
+- `skills/on-new-file/SKILL.md` → triggers when a file is created
+- `skills/on-test-fail/SKILL.md` → triggers when CI fails
+- `skills/on-commit/SKILL.md` → triggers before/after a commit
 
 ### `.agents/commands/` — Slash Commands
 
 Explicit, user-invoked operations. Registered by the runtime and exposed via its invocation interface.
 
-- `commands/review.md`       → /review — structured code review
-- `commands/scaffold.md`     → /scaffold — generate boilerplate
+- `commands/review.md` → /review — structured code review
+- `commands/scaffold.md` → /scaffold — generate boilerplate
 - `commands/deploy-check.md` → /deploy-check — pre-deployment checklist
 
 ### `.agents/agents/` — Subagent Personas
 
 Specialized agents for specific roles. Invoked by `@mention`. Each carries its own identity, constraints, and optional permission overrides.
 
-- `agents/architect.md`        → @architect — system design and ADRs
-- `agents/reviewer.md`         → @reviewer — code review and quality
+- `agents/architect.md` → @architect — system design and ADRs
+- `agents/reviewer.md` → @reviewer — code review and quality
 - `agents/security-auditor.md` → @security — OWASP-focused audit
 
 ### `.agents/memory/` — Persistent Memory
 
 Structured, append-only files that persist facts across sessions. Treated as low-confidence context — informative, not authoritative.
 
-- `memory/MEMORY.md`       → Long-term memory. Durable facts, preferences, and decisions
-- `memory/YYYY-MM-DD.md`   → Daily notes (UTC timezone). Running context and observations
+- `memory/MEMORY.md` → Long-term memory. Durable facts, preferences, and decisions
+- `memory/YYYY-MM-DD.md` → Daily notes (UTC timezone). Running context and observations
 
 ---
 
@@ -111,8 +111,7 @@ Structured, append-only files that persist facts across sessions. Treated as low
 ### Start here (< 5 minutes)
 
 ```text
-.agents/
-└── README.md
+AGENTS.md
 ```
 
 Write your agent instructions. That's it.
@@ -120,8 +119,8 @@ Write your agent instructions. That's it.
 ### Playbook setup
 
 ```text
+AGENTS.md
 .agents/
-├── README.md
 ├── rules/
 │   └── general.md
 └── memory/
@@ -132,13 +131,13 @@ Write your agent instructions. That's it.
 
 ```text
 project-root/
-└── .agents/
-    ├── README.md
-    ├── rules/
-    ├── skills/
-    ├── commands/
-    ├── agents/
-    └── memory/
+├── .agents/
+│   ├── rules/
+│   ├── skills/
+│   ├── commands/
+│   ├── agents/
+│   └── memory/
+└── AGENTS.md
 ```
 
 ---
@@ -147,16 +146,16 @@ project-root/
 
 A compliant runtime **MUST**:
 
-1. Always load `.agents/README.md` at session start.
-2. Enforce permissions defined in `README.md` before any file operation.
-3. Auto-inject all files marked `Auto-load: yes` in `README.md`.
+1. Always load `AGENTS.md` at session start.
+2. Enforce permissions defined in `AGENTS.md` before any file operation.
+3. Auto-inject all files marked `Auto-load: yes` in `AGENTS.md`.
 4. Trigger skills whose `trigger.event` or `trigger.pattern` matches the current context.
 5. Register commands from `commands/` and expose them via the invocation interface.
 6. Respect subagent boundaries — a subagent must not exceed the parent agent's permissions.
 
 A compliant runtime **SHOULD**:
 
-- Warn when a referenced file in `README.md` does not exist.
+- Warn when a referenced file in `AGENTS.md` does not exist.
 - Surface memory from `memory/` as low-confidence context.
 - Prompt the user before executing any shell command.
 - Validate permissions configuration and report errors.

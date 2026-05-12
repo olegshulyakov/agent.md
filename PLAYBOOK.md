@@ -1,6 +1,6 @@
 # Agent Playbook
 
-> **Version:** 0.0.2
+> **Version:** 0.0.5
 > **Status:** Draft
 > **Purpose:** A portable, tool-agnostic playbook for structuring LLM agent context, memory, rules, and documentation inside any software project.
 
@@ -16,7 +16,7 @@ Agent behavior is code. It should be versioned, reviewed, modular, and readable 
 - **Modularity** — Each concern (rules, skills, memory, docs) lives in its own folder and can be adopted incrementally.
 - **Composability** — Subagents, rules, and skills can be mixed and matched across projects.
 - **Portability** — The playbook is tool-agnostic. It should work with any LLM agent runtime (Claude, Cursor, GPT, custom).
-- **Progressive disclosure** — Start with just a `README.md`. Add folders only when needed.
+- **Progressive disclosure** — Start with just a `AGENTS.md`. Add folders only when needed.
 
 ---
 
@@ -24,8 +24,8 @@ Agent behavior is code. It should be versioned, reviewed, modular, and readable 
 
 ```text
 project-root/
+├── AGENTS.md                  # Primary instruction file + table of contents
 └── .agents/
-    ├── README.md              # Primary instruction file + table of contents
     ├── rules/                 # Modular instruction files
     │   └── <rule-name>.md
     ├── skills/                # Auto-invoking workflows (trigger → action)
@@ -46,7 +46,7 @@ project-root/
 
 ---
 
-### `README.md` — Primary Instruction File
+### `AGENTS.md` — Primary Instruction File
 
 The agent's entry point. Every runtime MUST load this file first. It serves two roles:
 
@@ -56,7 +56,7 @@ The agent's entry point. Every runtime MUST load this file first. It serves two 
 #### Schema
 
 ```markdown
-# Agent Instructions
+# AGENTS.md
 
 ## Identity
 
@@ -81,7 +81,7 @@ The agent's entry point. Every runtime MUST load this file first. It serves two 
 
 #### Rules
 
-- Must always be present in `.agents/`.
+- Must always be present at the project root.
 - Must contain a `## Loaded Context` table listing all active files.
 - `Auto-load: yes` files are injected into every session. `on-demand` files are loaded only when relevant or explicitly invoked.
 - Keep it concise — this is a prompt, not a novel.
@@ -90,7 +90,7 @@ The agent's entry point. Every runtime MUST load this file first. It serves two 
 
 ### `rules/` — Modular Instruction Files
 
-Granular, composable instruction files. Each file governs a single concern. Rules are injected into the context window based on relevance or the `Auto-load` setting in `README.md`.
+Granular, composable instruction files. Each file governs a single concern. Rules are injected into the context window based on relevance or the `Auto-load` setting in `AGENTS.md`.
 
 #### Naming Convention
 
@@ -372,20 +372,19 @@ Working on user authentication feature.
 
 ### Minimal Setup (< 5 min)
 
-```
-.agents/
-└── README.md
+```text
+AGENTS.md
 ```
 
-Start with just a `README.md`. Write your agent instructions. Add folders as needs emerge.
+Start with just a `AGENTS.md`. Write your agent instructions. Add folders as needs emerge.
 
 ---
 
 ### Playbook Setup
 
-```
+```text
+AGENTS.md
 .agents/
-├── README.md
 ├── rules/
 │ ├── general.md
 │ └── code-style.md
@@ -405,16 +404,16 @@ Add `skills/`, `commands/`, and `agents/` as the project matures.
 
 A compliant runtime MUST:
 
-1. **Always load** `.agents/README.md` at session start.
-2. **Enforce permissions** defined in `README.md` before any file operation.
-3. **Auto-inject** all files marked `Auto-load: yes` in `README.md`.
+1. **Always load** `AGENTS.md` at session start.
+2. **Enforce permissions** defined in `AGENTS.md` before any file operation.
+3. **Auto-inject** all files marked `Auto-load: yes` in `AGENTS.md`.
 4. **Trigger skills** whose `trigger.event` or `trigger.pattern` matches the current context.
 5. **Register commands** from `commands/` and expose them via the invocation interface.
 6. **Respect subagent boundaries** — a subagent must not exceed the parent agent's permissions.
 
 A compliant runtime SHOULD:
 
-- Warn when a referenced file in `README.md` does not exist.
+- Warn when a referenced file in `AGENTS.md` does not exist.
 - Surface memory from `memory/` as low-confidence context.
 - Prompt the user before executing any shell command.
 - Validate permissions configuration and report errors.

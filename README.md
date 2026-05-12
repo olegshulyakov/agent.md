@@ -12,21 +12,21 @@ Agent behavior is code. It should be versioned, reviewed, and readable by both h
 
 ```text
 project-root/
-└── .agents/
-    ├── README.md             # Agent entry point + file manifest
-    ├── settings.json         # Permissions & runtime config
-    ├── rules/                # Instruction files
-    │   └── <rule-name>.md
-    ├── skills/               # Auto-invoking workflows
-    │   └── <skill-name>/
-    │       └── SKILL.md
-    ├── commands/             # Custom slash commands
-    │   └── <command-name>.md
-    ├── agents/               # Subagent personas
-    │   └── <agent-persona>.md
-    └── memory/               # Persistent agent memory
-        ├── MEMORY.md         # Long-term memory. Durable facts, preferences, and decisions
-        └── YYYY-MM-DD.md     # Daily notes. Running context and observations
+├── .agents/
+│   ├── settings.json         # Permissions & runtime config
+│   ├── rules/                # Instruction files
+│   │   └── <rule-name>.md
+│   ├── skills/               # Auto-invoking workflows
+│   │   └── <skill-name>/
+│   │       └── SKILL.md
+│   ├── commands/             # Custom slash commands
+│   │   └── <command-name>.md
+│   ├── agents/               # Subagent personas
+│   │   └── <agent-persona>.md
+│   └── memory/               # Persistent agent memory
+│       ├── MEMORY.md         # Long-term memory. Durable facts, preferences, and decisions
+│       └── YYYY-MM-DD.md     # Daily notes. Running context and observations
+└── AGENTS.md                 # Agent entry point + file manifest
 ```
 
 ## Examples
@@ -39,7 +39,7 @@ This repo practices what it preaches — the [`examples/`](./examples) folder co
 - **Modularity** — Each concern lives in its own folder, adopted incrementally.
 - **Composability** — Rules, skills, and agents mix and match across projects.
 - **Portability** — Works with any LLM runtime: Claude, Cursor, Copilot, custom.
-- **Progressive disclosure** — Start with one `README.md`. Add folders as needed.
+- **Progressive disclosure** — Start with one `AGENTS.md`. Add folders as needed.
 
 ---
 
@@ -47,9 +47,8 @@ This repo practices what it preaches — the [`examples/`](./examples) folder co
 
 The minimum viable setup is a single file:
 
-```
-.agents/
-└── README.md
+```text
+AGENTS.md
 ```
 
 Write your agent instructions there. Add folders only when you have a reason to.
@@ -63,7 +62,7 @@ Write your agent instructions there. Add folders only when you have a reason to.
 
 | Path                    | Purpose                                             | File pattern             |
 | ----------------------- | --------------------------------------------------- | ------------------------ |
-| `.agents/README.md`     | Entry point — system prompt + file manifest         | `README.md`              |
+| `AGENTS.md`             | Entry point — system prompt + file manifest         | `AGENTS.md`              |
 | `.agents/settings.json` | Permissions, tool access, runtime config            | `settings.json`          |
 | `.agents/rules/`        | Granular, composable instruction files              | `rules/<name>.md`        |
 | `.agents/skills/`       | Trigger-based auto-invoking workflows               | `skills/<name>/SKILL.md` |
