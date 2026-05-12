@@ -21,17 +21,14 @@ project-root/
 └── .agents/
     ├── README.md              # Primary instruction file + table of contents
     ├── rules/                 # Modular instruction files
-    │   └── <rule-name>/
-    │       └── RULE.md
+    │   └── <rule-name>.md
     ├── skills/                # Auto-invoking workflows (trigger → action)
     │   └── <skill-name>/
     │       └── SKILL.md
     ├── commands/              # Custom slash commands
-    │   └── <command-name>/
-    │       └── COMMAND.md
+    │   └── <command-name>.md
     ├── agents/                # Subagent personas
-    │   └── <agent-persona>/
-    │       └── AGENT.md
+    │   └── <agent-persona>.md
     └── memory/                # Persistent agent memory
         ├── MEMORY.md          # Long-term memory. Durable facts, preferences, and decisions
         └── YYYY-MM-DD.md      # Daily notes (UTC timezone). Running context and observations
@@ -63,11 +60,9 @@ The agent's system prompt and manifest. Every runtime loads this first. Contains
 
 Composable, single-concern instruction files. Each rule file targets a specific area: code style, testing conventions, security policy, git workflow.
 
-```text
-rules/code-style/RULE.md
-rules/security/RULE.md
-rules/testing/RULE.md
-```
+- `rules/code-style.md`
+- `rules/security.md`
+- `rules/testing.md`
 
 Front matter controls when a rule is injected:
 
@@ -82,40 +77,32 @@ priority: high
 
 Skills are the agent's reflexes — they trigger automatically based on events or file patterns, without the user asking.
 
-```text
-skills/on-new-file/SKILL.md      → triggers when a file is created
-skills/on-test-fail/SKILL.md     → triggers when CI fails
-skills/on-commit/SKILL.md        → triggers before/after a commit
-```
+- `skills/on-new-file/SKILL.md`      → triggers when a file is created
+- `skills/on-test-fail/SKILL.md`     → triggers when CI fails
+- `skills/on-commit/SKILL.md`        → triggers before/after a commit
 
 ### `.agents/commands/` — Slash Commands
 
 Explicit, user-invoked operations. Registered by the runtime and exposed via its invocation interface.
 
-```text
-commands/review/COMMAND.md       → /review — structured code review
-commands/scaffold/COMMAND.md     → /scaffold — generate boilerplate
-commands/deploy-check/COMMAND.md → /deploy-check — pre-deployment checklist
-```
+- `commands/review.md`       → /review — structured code review
+- `commands/scaffold.md`     → /scaffold — generate boilerplate
+- `commands/deploy-check.md` → /deploy-check — pre-deployment checklist
 
 ### `.agents/agents/` — Subagent Personas
 
 Specialized agents for specific roles. Invoked by `@mention`. Each carries its own identity, constraints, and optional permission overrides.
 
-```text
-agents/architect/AGENT.md        → @architect — system design and ADRs
-agents/reviewer/AGENT.md         → @reviewer — code review and quality
-agents/security-auditor/AGENT.md → @security — OWASP-focused audit
-```
+- `agents/architect.md`        → @architect — system design and ADRs
+- `agents/reviewer.md`         → @reviewer — code review and quality
+- `agents/security-auditor.md` → @security — OWASP-focused audit
 
 ### `.agents/memory/` — Persistent Memory
 
 Structured, append-only files that persist facts across sessions. Treated as low-confidence context — informative, not authoritative.
 
-```text
-memory/MEMORY.md       → Long-term memory. Durable facts, preferences, and decisions
-memory/YYYY-MM-DD.md   → Daily notes (UTC timezone). Running context and observations
-```
+- `memory/MEMORY.md`       → Long-term memory. Durable facts, preferences, and decisions
+- `memory/YYYY-MM-DD.md`   → Daily notes (UTC timezone). Running context and observations
 
 ---
 
@@ -136,8 +123,7 @@ Write your agent instructions. That's it.
 .agents/
 ├── README.md
 ├── rules/
-│   └── general/
-│       └── RULE.md
+│   └── general.md
 └── memory/
     └── MEMORY.md
 ```

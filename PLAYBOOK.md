@@ -27,17 +27,14 @@ project-root/
 └── .agents/
     ├── README.md              # Primary instruction file + table of contents
     ├── rules/                 # Modular instruction files
-    │   └── <rule-name>/
-    │       └── RULE.md
+    │   └── <rule-name>.md
     ├── skills/                # Auto-invoking workflows (trigger → action)
     │   └── <skill-name>/
     │       └── SKILL.md
     ├── commands/              # Custom slash commands
-    │   └── <command-name>/
-    │       └── COMMAND.md
+    │   └── <command-name>.md
     ├── agents/                # Subagent personas
-    │   └── <agent-persona>/
-    │       └── AGENT.md
+    │   └── <agent-persona>.md
     └── memory/                # Persistent agent memory
         ├── MEMORY.md          # Long-term memory. Durable facts, preferences, and decisions
         └── YYYY-MM-DD.md      # Daily notes (UTC timezone). Running context and observations
@@ -75,9 +72,9 @@ The agent's entry point. Every runtime MUST load this file first. It serves two 
 
 | File                                  | Purpose              | Auto-load |
 | ------------------------------------- | -------------------- | --------- |
-| rules/code-style/RULE.md              | Coding conventions   | yes       |
-| rules/security/RULE.md                | Security constraints | yes       |
-| commands/review/COMMAND.md            | /review command      | on-demand |
+| rules/code-style.md                   | Coding conventions   | yes       |
+| rules/security.md                     | Security constraints | yes       |
+| commands/review.md                    | /review command      | on-demand |
 | memory/MEMORY.md                      | Long-term memory     | yes       |
 | ../docs/auth-redesign/ARCHITECTURE.md | Task architecture    | on-demand |
 ```
@@ -98,14 +95,14 @@ Granular, composable instruction files. Each file governs a single concern. Rule
 #### Naming Convention
 
 ```text
-rules/<name>/RULE.md
+rules/<name>.md
 ```
 
-Examples: `rules/code-style/RULE.md`, `rules/security/RULE.md`, `rules/testing/RULE.md`, `rules/git-workflow/RULE.md`, `rules/api-conventions/RULE.md`
+Examples: `rules/code-style.md`, `rules/security.md`, `rules/testing.md`, `rules/git-workflow.md`, `rules/api-conventions.md`
 
 #### File Schema
 
-````markdown
+```markdown
 ---
 name: Code Style
 description: Enforces project coding conventions
@@ -119,7 +116,7 @@ priority: high
 - Prefer `const` over `let`; never use `var`
 - All exported functions must have JSDoc comments
   ...
-````
+```
 
 #### Rules
 
@@ -144,7 +141,7 @@ Examples: `skills/on-new-file/SKILL.md`, `skills/on-test-fail/SKILL.md`, `skills
 
 #### File Schema
 
-````markdown
+```markdown
 ---
 name: On New File
 trigger:
@@ -163,14 +160,14 @@ Whenever a new `.ts` file is created in `src/`.
 
 1. Inspect the new file and identify exported functions/classes.
 2. Check if a corresponding `.test.ts` file exists in `src/__tests__/`.
-3. If not, generate a scaffold test file using the project's test conventions (see `rules/testing/RULE.md`).
+3. If not, generate a scaffold test file using the project's test conventions (see `rules/testing.md`).
 4. Notify the user: "Created test scaffold at `[path]`."
 
 ## Output
 
 - Creates: `src/__tests__/<filename>.test.ts`
 - Notifies: Yes
-````
+```
 
 #### Rules
 
@@ -188,10 +185,10 @@ Explicit, user-invoked operations exposed as slash commands (e.g., `/review`, `/
 #### Naming Convention
 
 ```text
-commands/<name>/COMMAND.md
+commands/<name>.md
 ```
 
-Examples: `commands/review/COMMAND.md`, `commands/scaffold/COMMAND.md`, `commands/deploy-check/COMMAND.md`, `commands/summarize/COMMAND.md`
+Examples: `commands/review.md`, `commands/scaffold.md`, `commands/deploy-check.md`, `commands/summarize.md`
 
 #### File Schema
 
@@ -219,11 +216,13 @@ args:
 ```
 
 ## Behavior
-1. Load `rules/code-style/RULE.md` and `rules/security/RULE.md`.
+
+1. Load `rules/code-style.md` and `rules/security.md`.
 2. Diff the target against `main` (or review the full file if untracked).
 3. Produce a structured review in the following format:
 
 ### Review Format
+
 **Summary:** [One-line verdict]
 
 **Issues:**
@@ -252,19 +251,19 @@ Specialized agent personas that can be invoked for specific tasks. Each subagent
 #### Naming Convention
 
 ```
-agents/<name>/AGENT.md
+agents/<name>.md
 ```
 
-Examples: `agents/reviewer/AGENT.md`, `agents/architect/AGENT.md`, `agents/debugger/AGENT.md`, `agents/writer/AGENT.md`, `agents/security-auditor/AGENT.md`
+Examples: `agents/reviewer.md`, `agents/architect.md`, `agents/debugger.md`, `agents/writer.md`, `agents/security-auditor.md`
 
 #### File Schema
 
-````markdown
+```markdown
 ---
 name: Architect
 invoke: "@architect"
 description: Senior software architect focused on system design and technical decisions
-inherits: ["rules/general/RULE.md"]
+inherits: ["rules/general.md"]
 overrides:
   temperature: 0.2
   tools: ["file_read", "web_search"]
@@ -293,7 +292,7 @@ You are a senior software architect with 15 years of experience designing scalab
 ## Output Format
 
 Use structured Mermaid diagrams for system visualizations.
-````
+```
 
 #### Rules
 
@@ -310,10 +309,10 @@ Persistent storage of facts, decisions, entities, and context that should surviv
 
 #### Recommended Files
 
-| File             | Purpose                                                     |
-| ---------------- | ----------------------------------------------------------- |
-| `MEMORY.md`      | Long-term memory. Durable facts, preferences, and decisions |
-| `YYYY-MM-DD.md`  | Daily notes (UTC timezone). Running context and observations               |
+| File            | Purpose                                                      |
+| --------------- | ------------------------------------------------------------ |
+| `MEMORY.md`     | Long-term memory. Durable facts, preferences, and decisions  |
+| `YYYY-MM-DD.md` | Daily notes (UTC timezone). Running context and observations |
 
 #### `MEMORY.md` Schema
 
@@ -388,10 +387,8 @@ Start with just a `README.md`. Write your agent instructions. Add folders as nee
 .agents/
 ├── README.md
 ├── rules/
-│ ├── general/
-│ │ └── RULE.md
-│ └── code-style/
-│     └── RULE.md
+│ ├── general.md
+│ └── code-style.md
 └── memory/
     └── MEMORY.md
 ```
@@ -476,16 +473,16 @@ Browse the [`examples/`](./examples) folder directly to see real playbook-confor
 my-saas-app/
 ├── .agents/
 │   ├── rules/
-│   │ ├── code-style.md/      # TypeScript conventions
-│   │ ├── testing.md/         # Test coverage requirements
-│   │ └── security.md/        # OWASP top-10 awareness
+│   │ ├── code-style.md       # TypeScript conventions
+│   │ ├── testing.md          # Test coverage requirements
+│   │ └── security.md         # OWASP top-10 awareness
 │   ├── skills/
 │   │ ├── on-new-file/        # Auto-scaffold test files
 │   │ │ └── SKILL.md
 │   │ └── on-test-fail/       # Diagnose CI failures
 │   │     └── SKILL.md
 │   ├── commands/
-│   │ ├── review.md/          # /review — structured code review
+│   │ ├── review.md           # /review — structured code review
 │   │ └── scaffold.md         # /scaffold — generate boilerplate
 │   ├── agents/
 │   │ ├── architect.md        # @architect — system design advisor
@@ -500,4 +497,4 @@ my-saas-app/
 
 ---
 
-*This playbook is intentionally tool-agnostic. Implementations may extend it with runtime-specific features provided they do not break compatibility with this core specification.*
+_This playbook is intentionally tool-agnostic. Implementations may extend it with runtime-specific features provided they do not break compatibility with this core specification._
