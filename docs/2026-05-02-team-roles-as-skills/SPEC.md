@@ -41,7 +41,6 @@ skills/
 ├── codegen-test/
 ├── design-api/
 ├── design-arch/
-├── design-css/
 ├── design-database/
 ├── diagram-c4/
 ├── diagram-dfd/
@@ -273,7 +272,8 @@ codegen-frontend/
     ├── nuxt.md       # Auto-imports, composables, Nitro
     ├── remix.md      # Loaders, actions, nested routes
     ├── astro.md      # Islands, content collections, SSG/SSR
-    └── solidjs.md    # Signals, createStore, SolidStart
+    ├── solidjs.md    # Signals, createStore, SolidStart
+    └── css.md        # Design system: tokens, component styles, spacing scale, typography
 ```
 
 #### Multi-variant: `codegen-backend`
@@ -308,13 +308,12 @@ codegen-mobile/
 
 ---
 
-### 🎨 UI/UX (3)
+### 🎨 UI/UX (2)
 
 | Skill             | Roles            | Output Artifact                                                     |
 | ----------------- | ---------------- | ------------------------------------------------------------------- |
 | `diagram-ux-flow` | UX Designer      | User flow / journey map in structured Mermaid or text format        |
 | `audit-a11y`      | Frontend Dev, UX | Accessibility audit: WCAG violations, severity, fix recommendations |
-| `design-css`      | Frontend Dev     | Design system: tokens, component styles, spacing scale, typography  |
 
 ---
 

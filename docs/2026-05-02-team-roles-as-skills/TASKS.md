@@ -66,20 +66,19 @@ Ordered alphabetically by name (matches filesystem order).
 
 ### `codegen-`
 
-| Done  | Skill              | Priority | Domain  | Primary Role  | Produces                                                                                                      |
-| ----- | ------------------ | -------- | ------- | ------------- | ------------------------------------------------------------------------------------------------------------- |
-| - [ ] | `codegen-backend`  | 🔴 P1    | Code    | Backend Dev   | Production-ready backend code (Python, Node, Go, Java, Ruby, Rust, C#, PHP, Kotlin, Elixir)                   |
-| - [ ] | `codegen-frontend` | 🔴 P1    | Code    | Frontend Dev  | Production-ready frontend code (React, Vue, Angular, Svelte, Next.js, Nuxt, Remix, Astro, SolidJS, SvelteKit) |
-| - [ ] | `codegen-mobile`   | 🟠 P2    | Code    | Mobile Dev    | Production-ready mobile code (Swift/iOS, Kotlin/Android, React Native, Flutter)                               |
-| - [ ] | `codegen-test`     | 🔴 P1    | Testing | AQA / Backend | Test suite generation (e2e, api, perf)                                                                        |
+| Done  | Skill              | Priority | Domain  | Primary Role  | Produces                                                                                    |
+| ----- | ------------------ | -------- | ------- | ------------- | ------------------------------------------------------------------------------------------- |
+| - [ ] | `codegen-backend`  | 🔴 P1    | Code    | Backend Dev   | Production-ready backend code (Python, Node, Go, Java, Ruby, Rust, C#, PHP, Kotlin, Elixir) |
+| - [ ] | `codegen-frontend` | 🔴 P1    | Code    | Frontend Dev  | Production-ready frontend code + design system tokens + component style guide               |
+| - [ ] | `codegen-mobile`   | 🟠 P2    | Code    | Mobile Dev    | Production-ready mobile code (Swift/iOS, Kotlin/Android, React Native, Flutter)             |
+| - [ ] | `codegen-test`     | 🔴 P1    | Testing | AQA / Backend | Test suite generation (e2e, api, perf)                                                      |
 
 ### `design-`
 
-| Done  | Skill           | Priority | Domain       | Primary Role       | Produces                                                      |
-| ----- | --------------- | -------- | ------------ | ------------------ | ------------------------------------------------------------- |
-| - [ ] | `design-api`    | 🔴 P1    | Code         | Backend Dev        | Contract-first API spec (OpenAPI / AsyncAPI)                  |
-| - [ ] | `design-arch`   | 🟠 P2    | Architecture | Solution Architect | System design document with components and tradeoffs          |
-| - [ ] | `design-css`    | 🟡 P3    | UI/UX        | Frontend Dev       | Design system tokens, component style guide                   |
+| Done  | Skill             | Priority | Domain       | Primary Role       | Produces                                                      |
+| ----- | ----------------- | -------- | ------------ | ------------------ | ------------------------------------------------------------- |
+| - [ ] | `design-api`      | 🔴 P1    | Code         | Backend Dev        | Contract-first API spec (OpenAPI / AsyncAPI)                  |
+| - [ ] | `design-arch`     | 🟠 P2    | Architecture | Solution Architect | System design document with components and tradeoffs          |
 | - [ ] | `design-database` | 🔴 P1    | Database     | DBA / Backend      | Normalized database schema with relationships and constraints |
 
 ### `diagram-`
