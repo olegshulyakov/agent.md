@@ -178,7 +178,7 @@ Ordered alphabetically by name (matches filesystem order).
 | - [ ] | `writer-sql`            | 🔴 P1    | Database     | DBA / Backend       | Dialect-aware SQL (Postgres, MySQL, MSSQL, SQLite, Oracle)            |
 | - [ ] | `writer-sql-analytics`  | 🟡 P3    | Database     | DBA / Data Engineer | Analytics SQL (Snowflake, BigQuery, ClickHouse, CockroachDB)          |
 | - [ ] | `writer-stakeholder`    | 🟡 P3    | Agile        | PM / PO             | Stakeholder update (status, risks, decisions needed)                  |
-| - [ ] | `writer-story-task`     | 🔴 P1    | Agile        | PO / Team Lead      | User stories with acceptance criteria decomposed into dev tasks       |
+| - [ ] | `writer-user-story`     | 🔴 P1    | Agile        | PO / Team Lead      | User stories with acceptance criteria decomposed into dev tasks       |
 | - [ ] | `writer-team-agreement` | ⚪ P4    | Agile        | Scrum Master        | Team working agreement (definition of done, norms, ceremonies)        |
 | - [ ] | `writer-tech-radar`     | ⚪ P4    | Architecture | Solution Architect  | Technology radar (adopt, trial, assess, hold)                         |
 | - [ ] | `writer-use-case`       | 🟡 P3    | Requirements | System Analyst      | Use case document (actors, preconditions, main/alternate flows)       |
