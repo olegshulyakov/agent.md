@@ -1,37 +1,27 @@
 # Agent Playbook
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![Version](https://img.shields.io/badge/version-0.0.5-blue.svg)](./PLAYBOOK.md)
 
 > A portable, tool-agnostic file structure playbook for LLM agents in software projects.
 
-Agent behavior is code. It should be versioned, reviewed, and readable by both humans and machines. This playbook defines where agent instructions, rules, skills, memory, commands, and documentation live — consistently, across any project and any runtime.
+Agent behavior is code. It should be versioned, reviewed, modular, and readable by both humans and machines. The `.agents/` folder is the single source of truth for everything an LLM agent needs to operate within a project — permissions, instructions, skills, memory, commands, and documentation artifacts.
 
----
+## Overview
 
-## At a Glance
+Every team using LLM agents invents their own folder structure. Instructions live in random `.md` files, prompts are buried in config, and memory is nowhere. When the runtime changes or someone new joins the project, nothing is discoverable.
 
-```text
-project-root/
-├── .agents/
-│   ├── settings.json         # Permissions & runtime config
-│   ├── rules/                # Instruction files
-│   │   └── <rule-name>.md
-│   ├── skills/               # Auto-invoking workflows
-│   │   └── <skill-name>/
-│   │       └── SKILL.md
-│   ├── commands/             # Custom slash commands
-│   │   └── <command-name>.md
-│   ├── agents/               # Subagent personas
-│   │   └── <agent-persona>.md
-│   └── memory/               # Persistent agent memory
-│       ├── MEMORY.md         # Long-term memory. Durable facts, preferences, and decisions
-│       └── YYYY-MM-DD.md     # Daily notes. Running context and observations
-└── AGENTS.md                 # Agent entry point + file manifest
-```
+This playbook gives agents — and the humans working alongside them — a consistent, predictable home. It defines where agent instructions, rules, skills, memory, commands, and documentation live, consistently across any project and any runtime.
 
-## Examples
+## Features
 
-This repo practices what it preaches — the [`examples/`](./examples) folder contains working examples. Every folder inside is a working example of the playbook applied to a real project. Browse it directly to see how rules, skills, commands, and memory files look in practice.
+- **`AGENTS.md`** — Primary instruction file and manifest. Every runtime loads this first.
+- **`docs/`** — Task-scoped documentation with standardized layout (PRD, SPEC, ARCHITECTURE, TASKS).
+- **`examples/rules/`** — Modular, composable instruction files.
+- **`examples/skills/`** — Auto-invoking workflows triggered by events or file patterns.
+- **`examples/commands/`** — Explicit slash commands.
+- **`examples/agents/`** — Subagent personas invoked by `@mention`.
+- **`examples/memory/`** — Persistent, append-only memory across sessions.
 
 ## Core Principles
 
@@ -41,9 +31,18 @@ This repo practices what it preaches — the [`examples/`](./examples) folder co
 - **Portability** — Works with any LLM runtime: Claude, Cursor, Copilot, custom.
 - **Progressive disclosure** — Start with one `AGENTS.md`. Add folders as needed.
 
----
+## Folder Structure
 
-## Getting Started
+```text
+agent.md/              # ← this repository
+├── docs/              # Task-scoped documentation
+├── examples/          # Working reference implementation
+├── index.md           # GitHub Pages entry point
+├── PLAYBOOK.md        # Full playbook specification
+└── LICENSE
+```
+
+## Quick Start
 
 The minimum viable setup is a single file:
 
@@ -51,31 +50,100 @@ The minimum viable setup is a single file:
 AGENTS.md
 ```
 
-Write your agent instructions there. Add folders only when you have a reason to.
+Write your agent instructions. Add folders only when you have a reason to.
 
-→ **[Read the full playbook](./PLAYBOOK.md)**
-→ **[Browse the docs site](https://olegshulyakov.github.io/agent.md)**
+### Playbook setup
 
----
+```text
+AGENTS.md
+.agents/
+├── rules/
+│   └── general.md
+└── memory/
+    └── MEMORY.md
+```
 
-## Folder Reference
+### Full setup
 
-| Path                    | Purpose                                             | File pattern             |
-| ----------------------- | --------------------------------------------------- | ------------------------ |
-| `AGENTS.md`             | Entry point — system prompt + file manifest         | `AGENTS.md`              |
-| `.agents/settings.json` | Permissions, tool access, runtime config            | `settings.json`          |
-| `.agents/rules/`        | Granular, composable instruction files              | `rules/<name>.md`        |
-| `.agents/skills/`       | Trigger-based auto-invoking workflows               | `skills/<name>/SKILL.md` |
-| `.agents/commands/`     | Explicit slash commands (`/review`, `/scaffold`).   | `commands/<name>.md`     |
-| `.agents/agents/`       | Subagent personas (`@architect`, `@reviewer`)       | `agents/<name>.md`       |
-| `.agents/memory/`       | Persistent facts, decisions, and daily observations | `memory/*.md`            |
+Add `skills/`, `commands/`, `agents/`, and `docs/` as the project matures.
 
----
+## Usage
 
-## Status
+### Reference implementation
 
-**Version:** 0.0.1 — Draft · [MIT License](./LICENSE)
-Feedback, issues, and PRs welcome.
+This repository serves as its own reference implementation. Browse the [`examples/`](./examples) folder to see real playbook-conformant files:
+
+- **Rules** — `examples/rules/writing-style.md`, `examples/rules/contribution.md`
+- **Skills** — `examples/skills/on-new-example/SKILL.md`
+- **Commands** — `examples/commands/validate.md`
+- **Agents** — `examples/agents/spec-reviewer.md`
+- **Memory** — `examples/memory/MEMORY.md`
+
+### Real project layout
+
+```text
+project-root/
+├── AGENTS.md                  # Primary instruction file + table of contents
+├── .agents/
+│   ├── rules/                 # Modular instruction files
+│   │   ├── code-style.md      # TypeScript conventions
+│   │   ├── testing.md         # Test coverage requirements
+│   │   └── security.md        # OWASP top-10 awareness
+│   ├── skills/                # Auto-invoking workflows (trigger → action)
+│   │   ├── on-new-file/       # Auto-scaffold test files
+│   │   │   └── SKILL.md
+│   │   └── on-test-fail/      # Diagnose CI failures
+│   │       └── SKILL.md
+│   ├── commands/              # Custom slash commands
+│   │   ├── review.md          # /review — structured code review
+│   │   └── scaffold.md        # /scaffold — generate boilerplate
+│   ├── agents/                # Subagent personas
+│   │   ├── architect.md       # @architect — system design advisor
+│   │   └── security-auditor.md # @security — OWASP-focused review
+│   └── memory/                # Persistent agent memory
+│       ├── MEMORY.md          # Long-term memory
+│       └── YYYY-MM-DD.md      # Daily notes
+├── docs/                      # Project-scoped documentation
+│   ├── ARCHITECTURE.md
+│   ├── ROADMAP.md
+│   └── YYYY-MM-DD-task-name/
+│       ├── PRD.md
+│       ├── SPEC.md
+│       ├── ARCHITECTURE.md
+│       ├── DESIGN.md
+│       └── TASKS.md
+├── src/
+├── package.json
+└── README.md
+```
+
+## Development
+
+This repo uses itself to govern its own development — the `examples/` folder is a working playbook applied to the playbook itself.
+
+```bash
+# No build step required. All content is plain Markdown.
+# Fork, edit, and open a pull request.
+```
+
+## Contributing
+
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feat/your-feature`).
+3. Commit your changes following [Conventional Commits](https://www.conventionalcommits.org).
+4. Open a pull request.
+
+Before writing code, create a task folder: `mkdir docs/$(date +%Y-%m-%d)-my-feature` and use `TASKS.md` as your checklist.
+
+## References
+
+- **[PLAYBOOK.md](./PLAYBOOK.md)** — Full playbook specification
+- **[Docs site](https://olegshulyakov.github.io/agent.md)** — GitHub Pages documentation
+- **[Examples](./examples)** — Working playbook-conformant files
+
+## License
+
+MIT — see [LICENSE](./LICENSE) for details.
 
 ---
 
