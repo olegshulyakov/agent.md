@@ -89,11 +89,11 @@ skills/
 ├── writer-sql/
 ├── writer-sql-analytics/
 ├── writer-stakeholder/
-├── writer-story-task/
 ├── writer-tech-docs/
 ├── writer-team-agreement/
 ├── writer-tech-radar/
-└── writer-use-case/
+├── writer-use-case/
+└── writer-user-story/
 ```
 
 ---
@@ -162,7 +162,7 @@ writer-spec/
 | ----------------------- | ------------- | --------------------------------------------------------------------------- |
 | `writer-prd`            | PM, PO        | (see Requirements)                                                          |
 | `writer-epic`           | PO            | Epic: goal, value, child story list, definition of done                     |
-| `writer-story-task`     | PO, Team Lead | Hierarchical: story with AC → developer tasks with file hints and estimates |
+| `writer-user-story`     | PO, Team Lead | Hierarchical: story with AC → developer tasks with file hints and estimates |
 | `writer-backlog`        | PO            | Groomed backlog: prioritized, sized, dependency-flagged                     |
 | `writer-stakeholder`    | PM, PO        | Stakeholder update: progress, risks, decisions needed                       |
 | `planner-sprint`        | Scrum Master  | Sprint plan: goal, stories, capacity, impediment section                    |
@@ -172,7 +172,7 @@ writer-spec/
 
 **Trigger disambiguation:**
 
-- `writer-story-task` → triggered by breaking down a story into tasks, implementation steps
+- `writer-user-story` → triggered by breaking down a story into tasks, implementation steps
 - `writer-epic` → triggered by creating or defining an epic, feature grouping
 - `planner-sprint` → triggered by sprint planning, capacity, sprint goal
 
@@ -498,7 +498,7 @@ Skills with overlapping domains must have explicit disambiguation in their descr
 | `design-api` vs `writer-tech-docs` (api-docs) | design-api = contract first (no code yet); writer-tech-docs api-docs variant = existing API |
 | `design-arch` vs `diagram-c4`                 | design-arch = prose document; diagram-c4 = diagram output                                   |
 | `design-database` vs `writer-sql`               | design-database = structure design; writer-sql = query/DDL writing                            |
-| `writer-story-task` vs `writer-epic`          | story-task = single story → tasks; epic = feature grouping                                  |
+| `writer-user-story` vs `writer-epic`          | user-story = single story → tasks; epic = feature grouping                                  |
 
 ## Totals
 
