@@ -5,7 +5,7 @@ description: >
   mentions Git workflow tasks (starting a feature, fixing a bug, making a hotfix, preparing a release),
   or asks to write, generate, or improve a commit message, or pastes a diff needing a commit.
 author: Oleg Shulyakov
-licence: MIT
+license: MIT
 version: 1.0.0
 ---
 

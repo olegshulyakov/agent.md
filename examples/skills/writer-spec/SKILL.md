@@ -15,7 +15,7 @@ description: >
     - "handoff doc",
   "system requirements", "design specification", "what should the system do", "document this feature".
 author: Oleg Shulyakov
-licence: MIT
+license: MIT
 version: 1.2.0
 ---
 

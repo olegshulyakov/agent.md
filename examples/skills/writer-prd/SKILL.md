@@ -2,7 +2,7 @@
 name: writer-prd
 description: Use this skill whenever the user mentions writing a PRD, product requirements, product brief, feature requirements, go-to-market requirements, OKRs tied to a feature, product scope definition, or asks for help capturing what a product should do and for whom.
 author: Oleg Shulyakov
-licence: MIT
+license: MIT
 version: 1.0.0
 ---
 

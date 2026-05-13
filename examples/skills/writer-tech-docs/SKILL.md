@@ -10,7 +10,7 @@ description: >
   "incident response playbook", "SRE runbook". Distinct from design-api (contract-first spec)
   and writer-postmortem (incident postmortem).
 author: Oleg Shulyakov
-licence: MIT
+license: MIT
 version: 1.0.0
 ---
 

@@ -1,7 +1,7 @@
 ---
 description: Generate a Conventional Commits message from staged changes
 author: Oleg Shulyakov
-licence: MIT
+license: MIT
 version: 1.0.0
 ---
 
