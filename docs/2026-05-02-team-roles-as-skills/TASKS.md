@@ -80,7 +80,7 @@ Ordered alphabetically by name (matches filesystem order).
 | - [ ] | `design-api`    | 🔴 P1    | Code         | Backend Dev        | Contract-first API spec (OpenAPI / AsyncAPI)                  |
 | - [ ] | `design-arch`   | 🟠 P2    | Architecture | Solution Architect | System design document with components and tradeoffs          |
 | - [ ] | `design-css`    | 🟡 P3    | UI/UX        | Frontend Dev       | Design system tokens, component style guide                   |
-| - [ ] | `design-schema` | 🔴 P1    | Database     | DBA / Backend      | Normalized database schema with relationships and constraints |
+| - [ ] | `design-database` | 🔴 P1    | Database     | DBA / Backend      | Normalized database schema with relationships and constraints |
 
 ### `diagram-`
 

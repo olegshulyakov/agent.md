@@ -75,7 +75,7 @@ System Analyst, Product Owner, Product Manager, DBA, AQA, Team Lead, Scrum Maste
 
 ### Phase 1 — Foundation (highest cross-role leverage)
 
-`writer-prd`, `writer-spec`, `writer-story-task`, `writer-adr`, `design-schema`, `writer-sql`, `codegen-backend`, `codegen-frontend`, `codegen-test`
+`writer-prd`, `writer-spec`, `writer-story-task`, `writer-adr`, `design-database`, `writer-sql`, `codegen-backend`, `codegen-frontend`, `codegen-test`
 
 ### Phase 2 — Delivery
 

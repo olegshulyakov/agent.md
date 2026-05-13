@@ -42,7 +42,7 @@ skills/
 ├── design-api/
 ├── design-arch/
 ├── design-css/
-├── design-schema/
+├── design-database/
 ├── diagram-c4/
 ├── diagram-dfd/
 ├── diagram-integration/
@@ -200,7 +200,7 @@ writer-spec/
 
 | Skill                  | Roles         | Output Artifact                                                           |
 | ---------------------- | ------------- | ------------------------------------------------------------------------- |
-| `design-schema`        | DBA           | Normalized schema: tables, columns, types, PKs, FKs, indexes              |
+| `design-database`        | DBA           | Normalized schema: tables, columns, types, PKs, FKs, indexes              |
 | `writer-sql`           | DBA, Backend  | SQL queries/DDL for OLTP dialects: Postgres, MySQL, MSSQL, SQLite, Oracle |
 | `writer-sql-analytics` | DBA, Data Eng | SQL for analytics dialects: Snowflake, BigQuery, ClickHouse, CockroachDB  |
 | `writer-migration`     | DBA           | Migration scripts: up/down, safe for production, idempotent               |
@@ -211,7 +211,7 @@ writer-spec/
 
 - `writer-sql` → OLTP: transactional queries, stored procedures, standard DDL
 - `writer-sql-analytics` → analytical: window functions, partitioning, warehouse-specific syntax
-- `design-schema` → designing the structure, not writing queries
+- `design-database` → designing the structure, not writing queries
 
 #### Multi-variant: `writer-sql`
 
@@ -498,7 +498,7 @@ Skills with overlapping domains must have explicit disambiguation in their descr
 | `writer-prd` vs `writer-spec`                 | PRD = business goals; spec = system behavior or technical detail                            |
 | `design-api` vs `writer-tech-docs` (api-docs) | design-api = contract first (no code yet); writer-tech-docs api-docs variant = existing API |
 | `design-arch` vs `diagram-c4`                 | design-arch = prose document; diagram-c4 = diagram output                                   |
-| `design-schema` vs `writer-sql`               | design-schema = structure design; writer-sql = query/DDL writing                            |
+| `design-database` vs `writer-sql`               | design-database = structure design; writer-sql = query/DDL writing                            |
 | `writer-story-task` vs `writer-epic`          | story-task = single story → tasks; epic = feature grouping                                  |
 
 ## Totals
