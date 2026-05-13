@@ -173,7 +173,7 @@ Ordered alphabetically by name (matches filesystem order).
 | - [ ] | `writer-postmortem`     | 🟡 P3    | Leadership   | Team Lead / SRE     | Incident postmortem (timeline, root cause, action items)              |
 | - [x] | `writer-prd`            | 🔴 P1    | Requirements | PM / PO             | Product Requirements Document (goals, personas, scope, metrics)       |
 | - [ ] | `writer-prompt`         | 🟡 P3    | ML / AI      | ML / AI Engineer    | Optimized prompt with system instructions, examples, and eval         |
-| - [ ] | `writer-tech-docs`      | 🔴 P1    | Docs         | Tech Writer         | Technical docs: README, API docs, runbooks, changelog, release notes  |
+| - [x] | `writer-tech-docs`      | 🔴 P1    | Docs         | Tech Writer         | Technical docs: README, API docs, runbooks, changelog, release notes  |
 | - [ ] | `writer-slo`            | 🟡 P3    | DevOps / SRE | SRE                 | SLO definition with indicators, targets, and error budget             |
 | - [x] | `writer-spec`           | 🔴 P1    | Requirements | SA / Architect / UX | Specification document (functional, tech, NFR, design, data-contract) |
 | - [ ] | `writer-sql`            | 🔴 P1    | Database     | DBA / Backend       | Dialect-aware SQL (Postgres, MySQL, MSSQL, SQLite, Oracle)            |
