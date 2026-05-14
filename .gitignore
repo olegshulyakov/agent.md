@@ -359,4 +359,4 @@ $RECYCLE.BIN/
 # End of https://www.toptal.com/developers/gitignore/api/linux,macos,windows,dotenv,intellij+all,visualstudiocode,python
 
 # Evaluation output quality files
-examples/**/evals.json
+examples/**/evals/
