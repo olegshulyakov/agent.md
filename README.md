@@ -75,7 +75,7 @@ Add `skills/`, `commands/`, `agents/`, and `docs/` as the project matures.
 
 This repository serves as its own reference implementation. Browse the [`examples/`](./examples) folder to see real playbook-conformant files:
 
-- **Rules** — `examples/rules/writing-style.md`, `examples/rules/contribution.md`
+- **Rules** — `examples/rules/token-efficiency.md`
 - **Skills** — `examples/skills/on-new-example/SKILL.md`
 - **Commands** — `examples/commands/validate.md`
 - **Agents** — `examples/agents/spec-reviewer.md`
