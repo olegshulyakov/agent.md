@@ -2,8 +2,6 @@
 
 Produce well-formed commit messages following the **Conventional Commits** specification.
 
----
-
 ## Format
 
 ```text
@@ -36,6 +34,20 @@ Produce well-formed commit messages following the **Conventional Commits** speci
 | `ci`       | CI/CD configuration changes               |
 | `chore`    | Maintenance tasks (e.g. updating scripts) |
 | `revert`   | Reverts a previous commit                 |
+
+## Action Words
+
+Treat these user words as commit action intent:
+
+| User wording                         | Git behavior                                      |
+| ------------------------------------ | ------------------------------------------------- |
+| `commit this`                        | Commit staged changes only                        |
+| `commit the staged changes`          | Commit staged changes only                        |
+| `create a commit`                    | Commit staged changes only                        |
+| `create a commit message and commit` | Generate the message, then commit staged changes  |
+| `write a commit message`             | Output a message only, unless commit is requested |
+
+Before committing, inspect staged changes. If nothing is staged, ask whether to stage files or only provide a message. Do not stage files by default.
 
 ### Scope (optional)
 

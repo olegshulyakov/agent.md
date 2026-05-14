@@ -2,8 +2,6 @@
 
 Produce clear, consistent, and informative Git branch names that follow team best practices.
 
----
-
 ## Branch Name Structure
 
 ```text
@@ -38,6 +36,20 @@ Produce clear, consistent, and informative Git branch names that follow team bes
 | `docs/`       | Documentation-only changes                                 |
 | `test/`       | Adding or fixing tests with no production code change      |
 | `experiment/` | Exploratory work, spikes, or proof-of-concepts             |
+
+## Action Words
+
+Treat these user words as branch action intent:
+
+| User wording                 | Git behavior                                      |
+| ---------------------------- | ------------------------------------------------- |
+| `create a branch`            | Create a new branch from the current `HEAD`       |
+| `start a branch`             | Create and switch to a new branch                 |
+| `checkout a branch`          | Create/switch if clearly requested by the user    |
+| `switch to a branch`         | Switch to an existing branch, or create if asked  |
+| `rename this branch`         | Rename the current branch after checking context  |
+
+Prefer `git switch -c <branch>` for creating and switching to a new branch. Prefer `git switch <branch>` for switching to an existing branch.
 
 ---
 
