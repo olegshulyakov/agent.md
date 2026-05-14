@@ -276,4 +276,4 @@ If an agent CLI hangs, provide an explicit `--agent-command` that uses its non-i
 
 ## Useful Starting Points
 
-Use `creator-skill` when you want guided help creating or improving a skill. Use `writer-tech-docs`, `writer-spec`, and `writer-sql` as examples of router-style skills that load only the relevant reference file. Use `setup-git` as a compact single-purpose skill.
+Use `creator-skill` when you want guided help creating or improving a skill. Use `writer-tech-docs`, `writer-spec`, `writer-sql`, and `operator-git` as examples of router-style skills that load only the relevant reference file.
