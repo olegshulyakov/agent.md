@@ -1,0 +1,53 @@
+name: Markdown formatting
+
+on:
+  pull_request:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - ready_for_review
+    paths:
+      - "**/*.md"
+
+permissions:
+  contents: read
+
+jobs:
+  markdownlint:
+    name: Check changed Markdown lines
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout pull request
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: .devops/markdown-format/package.json
+
+      - name: Install Markdown lint dependencies
+        shell: bash
+        run: npm install --prefix .devops/markdown-format
+
+      - name: Find changed Markdown files
+        id: changed-files
+        shell: bash
+        env:
+          BASE_REF_NAME: ${{ github.base_ref }}
+        run: bash .devops/markdown-format/find-changed-markdown.sh
+
+      - name: Lint changed Markdown files
+        if: steps.changed-files.outputs.has_markdown == 'true'
+        shell: bash
+        run: bash .devops/markdown-format/lint-changed-markdown.sh
+
+      - name: Report lint issues on changed lines
+        if: steps.changed-files.outputs.has_markdown == 'true'
+        env:
+          BASE_REF_NAME: ${{ github.base_ref }}
+        run: node .devops/markdown-format/report-changed-line-markdownlint.js
