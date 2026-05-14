@@ -463,8 +463,9 @@ agent.md/ ← this repo
 │   └── memory/
 │       └── MEMORY.md
 ├── README.md
-├── index.md
-└── PLAYBOOK.md
+└── pages/
+    ├── index.md
+    └── PLAYBOOK.md
 ```
 
 Browse the [`examples/`](./examples) folder directly to see real playbook-conformant files.

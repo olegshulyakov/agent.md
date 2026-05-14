@@ -78,4 +78,4 @@ A centralized registry of common skills and rules to share across projects will 
 
 ## Appendix
 
-- [Agent Playbook v0.0.1](../../PLAYBOOK.md)
+- [Agent Playbook v0.0.1](../../pages/PLAYBOOK.md)

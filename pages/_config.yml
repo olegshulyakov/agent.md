@@ -11,5 +11,5 @@ github:
     name: MIT
   source:
     branch: "main"
-    path: "/"
+    path: "/pages"
   repository_url: "https://github.com/olegshulyakov/agent.md"

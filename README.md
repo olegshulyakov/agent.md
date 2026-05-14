@@ -1,7 +1,7 @@
 # Agent Playbook
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
-[![Version](https://img.shields.io/badge/version-0.0.5-blue.svg)](./PLAYBOOK.md)
+[![Version](https://img.shields.io/badge/version-0.0.5-blue.svg)](./pages/PLAYBOOK.md)
 
 > A portable, tool-agnostic file structure playbook for LLM agents in software projects.
 
@@ -37,8 +37,10 @@ This playbook gives agents — and the humans working alongside them — a consi
 agent.md/              # ← this repository
 ├── docs/              # Task-scoped documentation
 ├── examples/          # Working reference implementation
-├── index.md           # GitHub Pages entry point
-├── PLAYBOOK.md        # Full playbook specification
+├── pages/             # GitHub Pages source
+│   ├── _config.yml    # GitHub Pages configuration
+│   ├── index.md       # GitHub Pages entry point
+│   └── PLAYBOOK.md    # Full playbook specification
 └── LICENSE
 ```
 
@@ -137,7 +139,7 @@ Before writing code, create a task folder: `mkdir docs/$(date +%Y-%m-%d)-my-feat
 
 ## References
 
-- **[PLAYBOOK.md](./PLAYBOOK.md)** — Full playbook specification
+- **[PLAYBOOK.md](./pages/PLAYBOOK.md)** — Full playbook specification
 - **[Docs site](https://olegshulyakov.github.io/agent.md)** — GitHub Pages documentation
 - **[Examples](./examples)** — Working playbook-conformant files
 
