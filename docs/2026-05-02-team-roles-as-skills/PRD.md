@@ -2,7 +2,7 @@
 
 ## Overview
 
-A comprehensive library of 67 skills for CLI Agent (and compatible CLI agents) that gives every software team role a dedicated, well-scoped AI capability. Instead of relying on generic prompting, each skill encodes the conventions, output formats, and domain knowledge specific to a role and artifact type.
+A comprehensive library of 66 skills for CLI Agent (and compatible CLI agents) that gives every software team role a dedicated, well-scoped AI capability. Instead of relying on generic prompting, each skill encodes the conventions, output formats, and domain knowledge specific to a role and artifact type.
 
 ## Problem
 
@@ -40,7 +40,7 @@ System Analyst, Product Owner, Product Manager, DBA, AQA, Team Lead, Scrum Maste
 
 ### In Scope
 
-- 67 skills across 14 prefix groups (see SPEC.md for full list)
+- 66 skills across 14 prefix groups (see SPEC.md for full list)
 - Multi-variant router skills for frontend frameworks, backend languages, mobile platforms, and SQL dialects
 - Each skill built and tested via `skill-creator`
 - Each skill packaged as a `.skill` file for distribution
@@ -75,11 +75,11 @@ System Analyst, Product Owner, Product Manager, DBA, AQA, Team Lead, Scrum Maste
 
 ### Phase 1 — Foundation (highest cross-role leverage)
 
-`writer-prd`, `writer-spec`, `writer-user-story`, `writer-adr`, `design-database`, `writer-sql`, `codegen-backend`, `codegen-frontend`, `codegen-test`
+`writer-prd`, `writer-spec`, `writer-user-story`, `writer-sql`, `writer-tech-docs`, `design-api`, `codegen-backend`, `codegen-frontend`, `codegen-test`
 
 ### Phase 2 — Delivery
 
-`writer-epic`, `planner-sprint`, `design-arch`, `diagram-c4`, `setup-pipeline`, `writer-postmortem`, `audit-security`, `writer-tech-docs`
+`writer-adr`, `writer-epic`, `planner-sprint`, `design-arch`, `diagram-c4`, `setup-pipeline`, `writer-postmortem`, `audit-security`
 
 ### Phase 3 — Specialist
 

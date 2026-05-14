@@ -41,7 +41,6 @@ skills/
 ├── codegen-test/
 ├── design-api/
 ├── design-arch/
-├── design-database/
 ├── diagram-c4/
 ├── diagram-dfd/
 ├── diagram-integration/
@@ -195,12 +194,11 @@ writer-spec/
 
 ---
 
-### 🗄️ Database (6)
+### 🗄️ Database (5)
 
 | Skill                  | Roles         | Output Artifact                                                           |
 | ---------------------- | ------------- | ------------------------------------------------------------------------- |
-| `design-database`        | DBA           | Normalized schema: tables, columns, types, PKs, FKs, indexes              |
-| `writer-sql`           | DBA, Backend  | SQL queries/DDL for OLTP dialects: Postgres, MySQL, MSSQL, SQLite, Oracle |
+| `writer-sql`           | DBA, Backend  | Schema design plus SQL queries/DDL for OLTP dialects: Postgres, MySQL, MSSQL, SQLite, Oracle |
 | `writer-sql-analytics` | DBA, Data Eng | SQL for analytics dialects: Snowflake, BigQuery, ClickHouse, CockroachDB  |
 | `writer-migration`     | DBA           | Migration scripts: up/down, safe for production, idempotent               |
 | `report-db-health`     | DBA           | DB health report: slow queries, bloat, index usage, replication lag       |
@@ -208,9 +206,8 @@ writer-spec/
 
 **Trigger disambiguation:**
 
-- `writer-sql` → OLTP: transactional queries, stored procedures, standard DDL
+- `writer-sql` → OLTP: schema design, transactional queries, stored procedures, standard DDL
 - `writer-sql-analytics` → analytical: window functions, partitioning, warehouse-specific syntax
-- `design-database` → designing the structure, not writing queries
 
 #### Multi-variant: `writer-sql`
 
@@ -218,6 +215,8 @@ writer-spec/
 writer-sql/
 ├── SKILL.md          # Detects dialect from context or asks once
 └── references/
+    ├── design.md     # Normalized schema design, relationships, constraints, indexes
+    ├── common.md     # Dialect-neutral query and DDL patterns
     ├── postgres.md   # JSONB, CTEs, EXPLAIN ANALYZE, pg-specific types
     ├── mysql.md      # Engine differences, EXPLAIN, charset considerations
     ├── mssql.md      # T-SQL, execution plans, TempDB patterns
@@ -497,14 +496,14 @@ Skills with overlapping domains must have explicit disambiguation in their descr
 | `writer-prd` vs `writer-spec`                 | PRD = business goals; spec = system behavior or technical detail                            |
 | `design-api` vs `writer-tech-docs` (api-docs) | design-api = contract first (no code yet); writer-tech-docs api-docs variant = existing API |
 | `design-arch` vs `diagram-c4`                 | design-arch = prose document; diagram-c4 = diagram output                                   |
-| `design-database` vs `writer-sql`               | design-database = structure design; writer-sql = query/DDL writing                            |
+| `writer-sql` vs `writer-sql-analytics`        | writer-sql = OLTP schema/query work; writer-sql-analytics = warehouse/analytical SQL        |
 | `writer-user-story` vs `writer-epic`          | user-story = single story → tasks; epic = feature grouping                                  |
 
 ## Totals
 
 | Category                                    | Count |
 | ------------------------------------------- | ----- |
-| Total skills                                | 67    |
+| Total skills                                | 66    |
 | Multi-variant router skills                 | 10    |
 | Total framework/language/dialect references | 50+   |
 | Prefix types                                | 14    |
