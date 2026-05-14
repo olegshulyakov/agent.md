@@ -264,8 +264,7 @@ def generate_benchmark(benchmark_dir: Path, skill_name: str = "", skill_path: st
         "metadata": {
             "skill_name": skill_name or "<skill-name>",
             "skill_path": skill_path or "<path/to/skill>",
-            "executor_model": "<model-name>",
-            "analyzer_model": "<model-name>",
+            "executor_agent": "<agent-name>",
             "timestamp": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
             "evals_run": eval_ids,
             "runs_per_configuration": 3
@@ -293,7 +292,7 @@ def generate_markdown(benchmark: dict) -> str:
     lines = [
         f"# Skill Benchmark: {metadata['skill_name']}",
         "",
-        f"**Model**: {metadata['executor_model']}",
+        f"**Agent**: {metadata.get('executor_agent', '<agent-name>')}",
         f"**Date**: {metadata['timestamp']}",
         f"**Evals**: {', '.join(map(str, metadata['evals_run']))} ({metadata['runs_per_configuration']} runs each per configuration)",
         "",

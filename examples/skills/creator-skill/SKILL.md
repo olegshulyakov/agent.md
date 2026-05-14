@@ -14,7 +14,7 @@ At a high level, the process of creating a skill goes like this:
 
 - Decide what you want the skill to do and roughly how it should do it
 - Write a draft of the skill
-- Create a few test prompts and run claude-with-access-to-the-skill on them
+- Create a few test prompts and run the skill through the agent/runtime that is invoking it
 - Help the user evaluate the results both qualitatively and quantitatively
   - While the runs happen in the background, draft some quantitative evals if there aren't any (if there are some, you can either use as is or modify if you feel something needs to change about them). Then explain them to the user (or if they already existed, explain the ones that already exist)
   - Use the `eval-viewer/generate_review.py` script to show the user the results for them to look at, and also let them look at the quantitative metrics
@@ -34,7 +34,7 @@ Cool? Cool.
 
 ## Communicating with the user
 
-The skill creator is liable to be used by people across a wide range of familiarity with coding jargon. If you haven't heard (and how could you, it's only very recently that it started), there's a trend now where the power of Claude is inspiring plumbers to open up their terminals, parents and grandparents to google "how to install npm". On the other hand, the bulk of users are probably fairly computer-literate.
+The skill creator is liable to be used by people across a wide range of familiarity with coding jargon. Coding agents are inspiring everyone from experienced developers to people opening a terminal for the first time. On the other hand, the bulk of users are probably fairly computer-literate.
 
 So please pay attention to context cues to understand how to phrase your communication! In the default case, just to give you some idea:
 
@@ -51,7 +51,7 @@ It's OK to briefly explain terms if you're in doubt, and feel free to clarify te
 
 Start by understanding the user's intent. The current conversation might already contain a workflow the user wants to capture (e.g., they say "turn this into a skill"). If so, extract answers from the conversation history first — the tools used, the sequence of steps, corrections the user made, input/output formats observed. The user may need to fill the gaps, and should confirm before proceeding to the next step.
 
-1. What should this skill enable Claude to do?
+1. What should this skill enable the calling agent to do?
 2. When should this skill trigger? (what user phrases/contexts)
 3. What's the expected output format?
 4. Should we set up test cases to verify the skill works? Skills with objectively verifiable outputs (file transforms, data extraction, code generation, fixed workflow steps) benefit from test cases. Skills with subjective outputs (writing style, art) often don't need them. Suggest the appropriate default based on the skill type, but let the user decide.
@@ -67,8 +67,8 @@ Check available MCPs - if useful for research (searching docs, finding similar s
 Based on the user interview, fill in these components:
 
 - **name**: Skill identifier
-- **description**: When to trigger, what it does. This is the primary triggering mechanism - include both what the skill does AND specific contexts for when to use it. All "when to use" info goes here, not in the body. Note: currently Claude has a tendency to "undertrigger" skills -- to not use them when they'd be useful. To combat this, please make the skill descriptions a little bit "pushy". So for instance, instead of "How to build a simple fast dashboard to display internal Anthropic data.", you might write "How to build a simple fast dashboard to display internal Anthropic data. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they don't explicitly ask for a 'dashboard.'"
-- **compatibility**: Required tools, dependencies (optional, rarely needed)
+- **description**: When to trigger, what it does. This is the primary triggering mechanism - include both what the skill does AND specific contexts for when to use it. All "when to use" info goes here, not in the body. Many agents undertrigger skills when the description is too passive, so make descriptions a little bit "pushy". For instance, instead of "How to build a simple fast dashboard to display internal Anthropic data.", you might write "How to build a simple fast dashboard to display internal Anthropic data. Make sure to use this skill whenever the user mentions dashboards, data visualization, internal metrics, or wants to display any kind of company data, even if they don't explicitly ask for a 'dashboard.'"
+- **compatibility**: Required tools, dependencies, runtime assumptions, and packaging/install notes (optional, but important when the skill must work outside one specific agent)
 - **the rest of the skill :)**
 
 ### Skill Writing Guide
@@ -85,6 +85,22 @@ skill-name/
     ├── references/ - Docs loaded into context as needed
     └── assets/     - Files used in output (templates, icons, fonts)
 ```
+
+#### Agent compatibility
+
+Write skills so the core instructions work in whichever agent invoked them unless the user explicitly asks for one platform. Put agent-specific details in a short compatibility section instead of scattering product names through the whole file.
+
+Use a structure like this when the skill needs agent-specific setup:
+
+```markdown
+## Compatibility
+
+- Native skill runtimes: install as a skill folder with `SKILL.md`
+- CLI agents: load or reference this folder according to the local agent setup
+- Generic agents: load `SKILL.md` as instructions, and expose `scripts/`, `references/`, and `assets/` from the same directory
+```
+
+Avoid relying on one agent's tool names, slash commands, or event stream unless the skill is explicitly for that agent. If you must include platform-specific instructions, isolate them under headings such as "Claude Code", "Codex CLI", or "Generic CLI agent" so other agents can ignore them cleanly.
 
 #### Progressive Disclosure
 
@@ -113,7 +129,7 @@ cloud-deploy/
     └── azure.md
 ```
 
-Claude reads only the relevant reference file.
+The agent should read only the relevant reference file.
 
 #### Principle of Lack of Surprise
 
@@ -354,7 +370,36 @@ This is optional, requires subagents, and most users won't need it. The human re
 
 ## Description Optimization
 
-The description field in SKILL.md frontmatter is the primary mechanism that determines whether Claude invokes a skill. After creating or improving a skill, offer to optimize the description for better triggering accuracy.
+The description field in SKILL.md frontmatter is the primary mechanism that determines whether an agent invokes a skill when the agent has native skill support. For agents without native trigger telemetry, optimize the description by asking the calling agent to make routing judgments against realistic queries. After creating or improving a skill, offer to optimize the description for better triggering accuracy.
+
+### Use the calling agent
+
+Before running description optimization, infer the agent from the current session or from the CLI call that will run the evals:
+
+- `claude-code`: uses Claude Code's native skill/command trigger path and can detect real skill invocation.
+- Other agents: use a routing-judgment eval unless you have a platform-specific trigger detector.
+
+For non-Claude agents, pass `--agent <agent-name>` to the scripts. The adapter has convenience presets for a few common CLIs, but the list is intentionally open-ended: if there is no preset, the agent name is treated as an executable that receives the prompt on stdin. Use `--agent-command "<command template>"` only when the CLI needs a different command shape. Templates can use `{prompt}` or `{prompt_file}` placeholders. Do not pass a model override; the agent should use whatever model is already selected in its own configuration. Examples:
+
+```bash
+python -m scripts.run_eval \
+  --eval-set evals/trigger-evals.json \
+  --skill-path path/to/skill \
+  --agent codex-cli
+
+python -m scripts.run_loop \
+  --eval-set evals/trigger-evals.json \
+  --skill-path path/to/skill \
+  --agent my-new-agent
+
+python -m scripts.run_loop \
+  --eval-set evals/trigger-evals.json \
+  --skill-path path/to/skill \
+  --agent file-based-agent \
+  --agent-command "my-agent run --prompt-file {prompt_file}"
+```
+
+If a preset's CLI syntax differs in the user's environment, prefer the user's local command. These tools change flags often enough that hardcoding every dialect would age like unrefrigerated milk.
 
 ### Step 1: Generate trigger eval queries
 
@@ -367,7 +412,7 @@ Create 20 eval queries — a mix of should-trigger and should-not-trigger. Save 
 ]
 ```
 
-The queries must be realistic and something a Claude Code or Claude.ai user would actually type. Not abstract requests, but requests that are concrete and specific and have a good amount of detail. For instance, file paths, personal context about the user's job or situation, column names and values, company names, URLs. A little bit of backstory. Some might be in lowercase or contain abbreviations or typos or casual speech. Use a mix of different lengths, and focus on edge cases rather than making them clear-cut (the user will get a chance to sign off on them).
+The queries must be realistic and something a user of the calling agent would actually type. Not abstract requests, but requests that are concrete and specific and have a good amount of detail. For instance, file paths, personal context about the user's job or situation, column names and values, company names, URLs. A little bit of backstory. Some might be in lowercase or contain abbreviations or typos or casual speech. Use a mix of different lengths, and focus on edge cases rather than making them clear-cut (the user will get a chance to sign off on them).
 
 Bad: `"Format this data"`, `"Extract text from PDF"`, `"Create a chart"`
 
@@ -404,22 +449,23 @@ Save the eval set to the workspace, then run in the background:
 python -m scripts.run_loop \
   --eval-set <path-to-trigger-eval.json> \
   --skill-path <path-to-skill> \
-  --model <model-id-powering-this-session> \
+  --agent <calling-agent-label> \
+  --agent-command "<command-template-if-needed>" \
   --max-iterations 5 \
   --verbose
 ```
 
-Use the model ID from your system prompt (the one powering the current session) so the triggering test matches what the user actually experiences.
+Let the agent CLI use its current configuration. The point of this eval is to match what the user actually experiences in that agent, and sneaking in runtime overrides changes the thing being measured.
 
 While it runs, periodically tail the output to give the user updates on which iteration it's on and what the scores look like.
 
-This handles the full optimization loop automatically. It splits the eval set into 60% train and 40% held-out test, evaluates the current description (running each query 3 times to get a reliable trigger rate), then calls Claude to propose improvements based on what failed. It re-evaluates each new description on both train and test, iterating up to 5 times. When it's done, it opens an HTML report in the browser showing the results per iteration and returns JSON with `best_description` — selected by test score rather than train score to avoid overfitting.
+This handles the full optimization loop automatically. It splits the eval set into 60% train and 40% held-out test, evaluates the current description (running each query 3 times to get a reliable trigger or routing rate), then calls the configured agent to propose improvements based on what failed. It re-evaluates each new description on both train and test, iterating up to 5 times. When it's done, it opens an HTML report in the browser showing the results per iteration and returns JSON with `best_description` — selected by test score rather than train score to avoid overfitting.
 
 ### How skill triggering works
 
-Understanding the triggering mechanism helps design better eval queries. Skills appear in Claude's `available_skills` list with their name + description, and Claude decides whether to consult a skill based on that description. The important thing to know is that Claude only consults skills for tasks it can't easily handle on its own — simple, one-step queries like "read this PDF" may not trigger a skill even if the description matches perfectly, because Claude can handle them directly with basic tools. Complex, multi-step, or specialized queries reliably trigger skills when the description matches.
+Understanding the triggering mechanism helps design better eval queries. In agents with native skill support, skills usually appear in an available skill, command, or instruction list with their name + description, and the agent decides whether to consult a skill based on that description. The important thing to know is that agents may skip skills for tasks they can handle directly — simple, one-step queries like "read this PDF" may not trigger a skill even if the description matches perfectly, because the base agent can handle them with basic tools. Complex, multi-step, or specialized queries reliably trigger skills when the description matches.
 
-This means your eval queries should be substantive enough that Claude would actually benefit from consulting a skill. Simple queries like "read file X" are poor test cases — they won't trigger skills regardless of description quality.
+This means your eval queries should be substantive enough that the calling agent would actually benefit from consulting a skill. Simple queries like "read file X" are poor test cases — they won't trigger skills reliably regardless of description quality.
 
 ### Step 4: Apply the result
 
@@ -439,9 +485,11 @@ After packaging, direct the user to the resulting `.skill` file path so they can
 
 ---
 
-## Claude.ai-specific instructions
+## Agent-Specific Instructions
 
-In Claude.ai, the core workflow is the same (draft → test → review → improve → repeat), but because Claude.ai doesn't have subagents, some mechanics change. Here's what to adapt:
+### Agents without subagents
+
+In agents without subagents, the core workflow is the same (draft → test → review → improve → repeat), but some mechanics change. This applies to Claude.ai and any CLI or hosted agent that cannot spawn isolated workers.
 
 **Running test cases**: No subagents means no parallel execution. For each test case, read the skill's SKILL.md, then follow its instructions to accomplish the test prompt yourself. Do them one at a time. This is less rigorous than independent subagents (you wrote the skill and you're also running it, so you have full context), but it's a useful sanity check — and the human review step compensates. Skip the baseline runs — just use the skill to complete the task as requested.
 
@@ -451,11 +499,11 @@ In Claude.ai, the core workflow is the same (draft → test → review → impro
 
 **The iteration loop**: Same as before — improve the skill, rerun the test cases, ask for feedback — just without the browser reviewer in the middle. You can still organize results into iteration directories on the filesystem if you have one.
 
-**Description optimization**: This section requires the `claude` CLI tool (specifically `claude -p`) which is only available in Claude Code. Skip it if you're on Claude.ai.
+**Description optimization**: Use `scripts.run_loop` with the selected `--agent` and `--agent-command` when a local CLI is available. If the environment has no local agent CLI, skip automated optimization and do a manual routing review with the eval queries.
 
 **Blind comparison**: Requires subagents. Skip it.
 
-**Packaging**: The `package_skill.py` script works anywhere with Python and a filesystem. On Claude.ai, you can run it and the user can download the resulting `.skill` file.
+**Packaging**: The `package_skill.py` script works anywhere with Python and a filesystem. If the calling agent needs a different package shape, create that package from the same source folder and preserve the canonical `SKILL.md`.
 
 **Updating an existing skill**: The user might be asking you to update an existing skill, not create a new one. In this case:
 
@@ -465,17 +513,60 @@ In Claude.ai, the core workflow is the same (draft → test → review → impro
 
 ---
 
-## Cowork-Specific Instructions
+### Claude Code
+
+Claude Code has native trigger detection through `scripts.run_eval` and is the default agent:
+
+```bash
+python -m scripts.run_loop \
+  --eval-set <path-to-trigger-eval.json> \
+  --skill-path <path-to-skill> \
+  --agent claude-code \
+  --verbose
+```
+
+### CLI Agents
+
+Use the generic command adapter unless the calling agent exposes a better trigger API. Pass a stable agent label; if it is a known preset, the script uses that command, otherwise it runs the label as an executable and sends the optimization prompt on stdin by default:
+
+```bash
+python -m scripts.run_loop \
+  --eval-set <path-to-trigger-eval.json> \
+  --skill-path <path-to-skill> \
+  --agent codex-cli \
+  --verbose
+
+python -m scripts.run_loop \
+  --eval-set <path-to-trigger-eval.json> \
+  --skill-path <path-to-skill> \
+  --agent new-agent-cli \
+  --verbose
+```
+
+For CLIs that need arguments instead of stdin, pass `--agent-command` and use `{prompt}` or `{prompt_file}`:
+
+```bash
+python -m scripts.run_loop \
+  --eval-set <path-to-trigger-eval.json> \
+  --skill-path <path-to-skill> \
+  --agent custom \
+  --agent-command "agent run --input {prompt_file}" \
+  --verbose
+```
+
+These generic runs measure whether the agent judges that a skill should be used. They do not prove native auto-trigger behavior unless the agent exposes trigger telemetry and the script has a platform-specific adapter.
+
+### Cowork
 
 If you're in Cowork, the main things to know are:
 
 - You have subagents, so the main workflow (spawn test cases in parallel, run baselines, grade, etc.) all works. (However, if you run into severe problems with timeouts, it's OK to run the test prompts in series rather than parallel.)
 - You don't have a browser or display, so when generating the eval viewer, use `--static <output_path>` to write a standalone HTML file instead of starting a server. Then proffer a link that the user can click to open the HTML in their browser.
-- For whatever reason, the Cowork setup seems to disincline Claude from generating the eval viewer after running the tests, so just to reiterate: whether you're in Cowork or in Claude Code, after running tests, you should always generate the eval viewer for the human to look at examples before revising the skill yourself and trying to make corrections, using `generate_review.py` (not writing your own boutique html code). Sorry in advance but I'm gonna go all caps here: GENERATE THE EVAL VIEWER _BEFORE_ evaluating inputs yourself. You want to get them in front of the human ASAP!
+- Cowork setups can drift toward summarizing results in chat instead of generating the eval viewer, so just to reiterate: after running tests, always generate the eval viewer for the human to look at examples before revising the skill yourself and trying to make corrections, using `generate_review.py` (not writing your own boutique html code). Sorry in advance but I'm gonna go all caps here: GENERATE THE EVAL VIEWER _BEFORE_ evaluating inputs yourself. You want to get them in front of the human ASAP!
 - Feedback works differently: since there's no running server, the viewer's "Submit All Reviews" button will download `feedback.json` as a file. You can then read it from there (you may have to request access first).
 - Packaging works — `package_skill.py` just needs Python and a filesystem.
-- Description optimization (`run_loop.py` / `run_eval.py`) should work in Cowork just fine since it uses `claude -p` via subprocess, not a browser, but please save it until you've fully finished making the skill and the user agrees it's in good shape.
-- **Updating an existing skill**: The user might be asking you to update an existing skill, not create a new one. Follow the update guidance in the claude.ai section above.
+- Description optimization (`run_loop.py` / `run_eval.py`) should work in Cowork when the calling agent CLI is available via subprocess, but please save it until you've fully finished making the skill and the user agrees it's in good shape.
+- **Updating an existing skill**: The user might be asking you to update an existing skill, not create a new one. Follow the update guidance in the "Agents without subagents" section above.
 
 ---
 
@@ -497,7 +588,7 @@ Repeating one more time the core loop here for emphasis:
 
 - Figure out what the skill is about
 - Draft or edit the skill
-- Run claude-with-access-to-the-skill on test prompts
+- Run the skill-enabled calling agent on test prompts
 - With the user, evaluate the outputs:
   - Create benchmark.json and run `eval-viewer/generate_review.py` to help the user review them
   - Run quantitative evals

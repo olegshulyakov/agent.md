@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Run trigger evaluation for a skill description.
 
-Tests whether a skill's description causes Claude to trigger (read the skill)
-for a set of queries. Outputs results as JSON.
+For Claude Code, this tests whether the skill is actually invoked. For other
+agents, this runs a configurable agent command as a routing judge because most
+CLIs do not expose a native skill-trigger event stream.
 """
 
 import argparse
@@ -13,9 +14,10 @@ import subprocess
 import sys
 import time
 import uuid
-from concurrent.futures import ProcessPoolExecutor, as_completed
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
+from scripts.agent_runner import AGENT_COMMAND_PRESETS, resolve_agent_command, run_agent_command
 from scripts.utils import parse_skill_md
 
 
@@ -32,15 +34,14 @@ def find_project_root() -> Path:
     return current
 
 
-def run_single_query(
+def run_single_claude_code_query(
     query: str,
     skill_name: str,
     skill_description: str,
     timeout: int,
     project_root: str,
-    model: str | None = None,
 ) -> bool:
-    """Run a single query and return whether the skill was triggered.
+    """Run a single Claude Code query and return whether the skill triggered.
 
     Creates a command file in .claude/commands/ so it appears in Claude's
     available_skills list, then runs `claude -p` with the raw query.
@@ -74,8 +75,6 @@ def run_single_query(
             "--verbose",
             "--include-partial-messages",
         ]
-        if model:
-            cmd.extend(["--model", model])
 
         # Remove CLAUDECODE env var to allow nesting claude -p inside a
         # Claude Code session. The guard is for interactive terminal conflicts;
@@ -181,6 +180,71 @@ def run_single_query(
             command_file.unlink()
 
 
+def parse_routing_response(text: str) -> bool:
+    """Parse a routing judgment from agent output."""
+    stripped = text.strip()
+    try:
+        parsed = json.loads(stripped)
+        if isinstance(parsed, dict):
+            for key in ("would_use_skill", "trigger", "should_trigger", "use_skill"):
+                if key in parsed:
+                    return bool(parsed[key])
+        if isinstance(parsed, bool):
+            return parsed
+    except json.JSONDecodeError:
+        pass
+
+    lowered = stripped.lower()
+    if "would_use_skill" in lowered or "use_skill" in lowered:
+        if "true" in lowered:
+            return True
+        if "false" in lowered:
+            return False
+
+    first_line = lowered.splitlines()[0] if lowered else ""
+    if first_line in ("true", "yes", "trigger", "use"):
+        return True
+    if first_line in ("false", "no", "do not trigger", "skip"):
+        return False
+
+    raise ValueError(f"Could not parse routing response: {stripped[:200]}")
+
+
+def run_single_routing_query(
+    query: str,
+    skill_name: str,
+    skill_description: str,
+    timeout: int,
+    project_root: str,
+    agent: str,
+    agent_command: str | None,
+) -> bool:
+    """Ask a configurable agent whether the skill should be used."""
+    prompt = f"""You are evaluating skill routing for an AI coding agent.
+
+Skill name: {skill_name}
+Skill description: {skill_description}
+
+User query:
+{query}
+
+Would this agent use the skill for this user query? Consider the user's intent,
+not keyword overlap. Return only valid JSON in this exact shape:
+{{"would_use_skill": true}}
+
+Use false when the query is a near miss or would be better handled without this
+skill.
+"""
+    output = run_agent_command(
+        prompt=prompt,
+        agent=agent,
+        command_template=agent_command,
+        timeout=timeout,
+        cwd=project_root,
+    )
+    return parse_routing_response(output)
+
+
 def run_eval(
     eval_set: list[dict],
     skill_name: str,
@@ -190,24 +254,39 @@ def run_eval(
     project_root: Path,
     runs_per_query: int = 1,
     trigger_threshold: float = 0.5,
-    model: str | None = None,
+    agent: str = "claude-code",
+    agent_command: str | None = None,
 ) -> dict:
     """Run the full eval set and return results."""
     results = []
+    method = "claude_code_tool_trigger" if agent == "claude-code" and not agent_command else "agent_routing_judgment"
+    if method == "agent_routing_judgment":
+        resolve_agent_command(agent, agent_command)
 
-    with ProcessPoolExecutor(max_workers=num_workers) as executor:
+    with ThreadPoolExecutor(max_workers=num_workers) as executor:
         future_to_info = {}
         for item in eval_set:
             for run_idx in range(runs_per_query):
-                future = executor.submit(
-                    run_single_query,
-                    item["query"],
-                    skill_name,
-                    description,
-                    timeout,
-                    str(project_root),
-                    model,
-                )
+                if method == "claude_code_tool_trigger":
+                    future = executor.submit(
+                        run_single_claude_code_query,
+                        item["query"],
+                        skill_name,
+                        description,
+                        timeout,
+                        str(project_root),
+                    )
+                else:
+                    future = executor.submit(
+                        run_single_routing_query,
+                        item["query"],
+                        skill_name,
+                        description,
+                        timeout,
+                        str(project_root),
+                        agent,
+                        agent_command,
+                    )
                 future_to_info[future] = (item, run_idx)
 
         query_triggers: dict[str, list[bool]] = {}
@@ -247,6 +326,8 @@ def run_eval(
     return {
         "skill_name": skill_name,
         "description": description,
+        "agent": agent,
+        "method": method,
         "results": results,
         "summary": {
             "total": total,
@@ -265,7 +346,23 @@ def main():
     parser.add_argument("--timeout", type=int, default=30, help="Timeout per query in seconds")
     parser.add_argument("--runs-per-query", type=int, default=3, help="Number of runs per query")
     parser.add_argument("--trigger-threshold", type=float, default=0.5, help="Trigger rate threshold")
-    parser.add_argument("--model", default=None, help="Model to use for claude -p (default: user's configured model)")
+    parser.add_argument(
+        "--agent",
+        default="claude-code",
+        help=(
+            "Agent preset or executable name. Presets: "
+            f"{', '.join(sorted(AGENT_COMMAND_PRESETS))}. "
+            "Unknown values are run as commands that receive the prompt on stdin."
+        ),
+    )
+    parser.add_argument(
+        "--agent-command",
+        default=None,
+        help=(
+            "CLI template for non-default agents. Prompt is sent on stdin unless "
+            "{prompt} or {prompt_file} appears."
+        ),
+    )
     parser.add_argument("--verbose", action="store_true", help="Print progress to stderr")
     args = parser.parse_args()
 
@@ -292,12 +389,17 @@ def main():
         project_root=project_root,
         runs_per_query=args.runs_per_query,
         trigger_threshold=args.trigger_threshold,
-        model=args.model,
+        agent=args.agent,
+        agent_command=args.agent_command,
     )
 
     if args.verbose:
         summary = output["summary"]
-        print(f"Results: {summary['passed']}/{summary['total']} passed", file=sys.stderr)
+        print(
+            f"Results: {summary['passed']}/{summary['total']} passed "
+            f"(agent={output['agent']}, method={output['method']})",
+            file=sys.stderr,
+        )
         for r in output["results"]:
             status = "PASS" if r["pass"] else "FAIL"
             rate_str = f"{r['triggers']}/{r['runs']}"

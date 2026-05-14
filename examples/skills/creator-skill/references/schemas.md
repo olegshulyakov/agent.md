@@ -225,8 +225,7 @@ Output from Benchmark mode. Located at `benchmarks/<timestamp>/benchmark.json`.
   "metadata": {
     "skill_name": "pdf",
     "skill_path": "/path/to/pdf",
-    "executor_model": "claude-sonnet-4-20250514",
-    "analyzer_model": "most-capable-model",
+    "executor_agent": "claude-code",
     "timestamp": "2026-01-15T10:30:00Z",
     "evals_run": [1, 2, 3],
     "runs_per_configuration": 3
