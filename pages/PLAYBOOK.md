@@ -465,10 +465,13 @@ agent.md/ ← this repo
 ├── README.md
 └── pages/
     ├── index.md
+    ├── AGENT_PDLC.md
     └── PLAYBOOK.md
 ```
 
 Browse the [`examples/`](./examples) folder directly to see real playbook-conformant files.
+
+See [`AGENT_PDLC.md`](./AGENT_PDLC.md) for the lifecycle diagram used when humans and agents collaborate on product development work.
 
 ---
 

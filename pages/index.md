@@ -50,6 +50,16 @@ project-root/
 
 ---
 
+## Agent PDLC
+
+The Agent PDLC is the working loop for humans and agents building software together: intake, framing, context loading, planning, building, verification, refinement, capture, and learning.
+
+Use it when you want the agent to help with product development work without turning the process into prompt roulette with a meeting invite. It makes intent, context, verification, and learning explicit before the next request arrives.
+
+See the [Agent PDLC diagram](./AGENT_PDLC.md).
+
+---
+
 ## Quick Reference
 
 ### `AGENTS.md` — Entry Point
@@ -175,6 +185,7 @@ A compliant runtime **SHOULD**:
 ## References
 
 - **[PLAYBOOK.md](./PLAYBOOK.md)**
+- **[Agent PDLC](./AGENT_PDLC.md)**
 - **[examples](https://github.com/olegshulyakov/agent.md/tree/main/examples)**
 
 ---

@@ -139,8 +139,9 @@ Before writing code, create a task folder: `mkdir docs/$(date +%Y-%m-%d)-my-feat
 
 ## References
 
-- **[PLAYBOOK.md](./pages/PLAYBOOK.md)** — Full playbook specification
 - **[Docs site](https://olegshulyakov.github.io/agent.md)** — GitHub Pages documentation
+- **[PLAYBOOK.md](./pages/PLAYBOOK.md)** — Full playbook specification
+- **[Agent PDLC](./pages/AGENT_PDLC.md)** — Lifecycle diagram for working with an agent
 - **[Examples](./examples)** — Working playbook-conformant files
 
 ## License
