@@ -6,7 +6,7 @@ This document defines the JSON schemas used by skill-creator.
 
 ## evals.json
 
-Defines the evals for a skill. Located at `evals/evals.json` within the skill directory.
+Defines the evals for a skill. Located at `<skill-path>/evals/evals.json` within the skill directory. Do not create `evals/` as a sibling of the skill.
 
 ```json
 {
@@ -36,7 +36,7 @@ Defines the evals for a skill. Located at `evals/evals.json` within the skill di
 
 ## history.json
 
-Tracks version progression in Improve mode. Located at workspace root.
+Tracks version progression in Improve mode. Located at `<skill-path>/evals/iterations/history.json`.
 
 ```json
 {

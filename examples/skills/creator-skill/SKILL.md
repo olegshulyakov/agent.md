@@ -80,11 +80,14 @@ skill-name/
 ├── SKILL.md (required)
 │   ├── YAML frontmatter (name, description required)
 │   └── Markdown instructions
-└── Bundled Resources (optional)
+└── Bundled Resources (optional, create only if needed)
     ├── scripts/    - Executable code for deterministic/repetitive tasks
     ├── references/ - Docs loaded into context as needed
-    └── assets/     - Files used in output (templates, icons, fonts)
+    ├── assets/     - Files used in output (templates, icons, fonts)
+    └── evals/      - Test prompts, fixtures, and iteration outputs
 ```
+
+Do not create placeholder directories. A small skill like `hello-greeter` can be only `SKILL.md`; add `scripts/`, `references/`, `assets/`, or `evals/` only when the skill actually has files for that category.
 
 #### Agent compatibility
 
@@ -173,7 +176,7 @@ Try to explain to the model why things are important in lieu of heavy-handed mus
 
 After writing the skill draft, come up with 2-3 realistic test prompts — the kind of thing a real user would actually say. Share them with the user: [you don't have to use this exact language] "Here are a few test cases I'd like to try. Do these look right, or do you want to add more?" Then run them.
 
-Save test cases to `evals/evals.json`. Don't write assertions yet — just the prompts. You'll draft assertions in the next step while the runs are in progress.
+Save test cases to `<skill-path>/evals/evals.json`. The `evals/` directory belongs inside the skill folder, not as a sibling directory. Don't write assertions yet — just the prompts. You'll draft assertions in the next step while the runs are in progress.
 
 ```json
 {
@@ -195,7 +198,7 @@ See `references/schemas.md` for the full schema (including the `assertions` fiel
 
 This section is one continuous sequence — don't stop partway through. Do NOT use `/skill-test` or any other testing skill.
 
-Put results in `<skill-name>-workspace/` as a sibling to the skill directory. Within the workspace, organize results by iteration (`iteration-1/`, `iteration-2/`, etc.) and within that, each test case gets a directory (`eval-0/`, `eval-1/`, etc.). Don't create all of this upfront — just create directories as you go.
+Put run results in `<skill-path>/evals/iterations/`. Organize results by iteration (`iteration-1/`, `iteration-2/`, etc.) and within that, each test case gets a directory (`eval-0/`, `eval-1/`, etc.). Keep iteration data inside the skill folder so the skill, test prompts, fixtures, feedback, and benchmark history move together. Don't create all of this upfront — just create directories as you go.
 
 ### Step 1: Spawn all runs (with-skill AND baseline) in the same turn
 
@@ -208,14 +211,14 @@ Execute this task:
 - Skill path: <path-to-skill>
 - Task: <eval prompt>
 - Input files: <eval files if any, or "none">
-- Save outputs to: <workspace>/iteration-<N>/eval-<ID>/with_skill/outputs/
+- Save outputs to: <skill-path>/evals/iterations/iteration-<N>/eval-<ID>/with_skill/outputs/
 - Outputs to save: <what the user cares about — e.g., "the .docx file", "the final CSV">
 ```
 
 **Baseline run** (same prompt, but the baseline depends on context):
 
 - **Creating a new skill**: no skill at all. Same prompt, no skill path, save to `without_skill/outputs/`.
-- **Improving an existing skill**: the old version. Before editing, snapshot the skill (`cp -r <skill-path> <workspace>/skill-snapshot/`), then point the baseline subagent at the snapshot. Save to `old_skill/outputs/`.
+- **Improving an existing skill**: the old version. Before editing, snapshot the skill to `<skill-path>/evals/iterations/iteration-<N>/skill-snapshot/`, then point the baseline subagent at the snapshot. Copy only the skill source files needed for the run and exclude `evals/iterations/` so the snapshot does not recursively copy prior results. Save to `old_skill/outputs/`.
 
 Write an `eval_metadata.json` for each test case (assertions can be empty for now). Give each eval a descriptive name based on what it's testing — not just "eval-0". Use this name for the directory too. If this iteration uses new or modified eval prompts, create these files for each new eval directory — don't assume they carry over from previous iterations.
 
@@ -230,11 +233,11 @@ Write an `eval_metadata.json` for each test case (assertions can be empty for no
 
 ### Step 2: While runs are in progress, draft assertions
 
-Don't just wait for the runs to finish — you can use this time productively. Draft quantitative assertions for each test case and explain them to the user. If assertions already exist in `evals/evals.json`, review them and explain what they check.
+Don't just wait for the runs to finish — you can use this time productively. Draft quantitative assertions for each test case and explain them to the user. If assertions already exist in `<skill-path>/evals/evals.json`, review them and explain what they check.
 
 Good assertions are objectively verifiable and have descriptive names — they should read clearly in the benchmark viewer so someone glancing at the results immediately understands what each one checks. Subjective skills (writing style, design quality) are better evaluated qualitatively — don't force assertions onto things that need human judgment.
 
-Update the `eval_metadata.json` files and `evals/evals.json` with the assertions once drafted. Also explain to the user what they'll see in the viewer — both the qualitative outputs and the quantitative benchmark.
+Update the `eval_metadata.json` files and `<skill-path>/evals/evals.json` with the assertions once drafted. Also explain to the user what they'll see in the viewer — both the qualitative outputs and the quantitative benchmark.
 
 ### Step 3: As runs complete, capture timing data
 
@@ -259,7 +262,7 @@ Once all runs are done:
 2. **Aggregate into benchmark** — run the aggregation script from the skill-creator directory:
 
    ```bash
-   python -m scripts.aggregate_benchmark <workspace>/iteration-N --skill-name <name>
+   python -m scripts.aggregate_benchmark <skill-path>/evals/iterations/iteration-N --skill-name <name>
    ```
 
    This produces `benchmark.json` and `benchmark.md` with pass_rate, time, and tokens for each configuration, with mean ± stddev and the delta. If generating benchmark.json manually, see `references/schemas.md` for the exact schema the viewer expects.
@@ -271,16 +274,16 @@ Once all runs are done:
 
    ```bash
    nohup python <skill-creator-path>/eval-viewer/generate_review.py \
-     <workspace>/iteration-N \
+     <skill-path>/evals/iterations/iteration-N \
      --skill-name "my-skill" \
-     --benchmark <workspace>/iteration-N/benchmark.json \
+     --benchmark <skill-path>/evals/iterations/iteration-N/benchmark.json \
      > /dev/null 2>&1 &
    VIEWER_PID=$!
    ```
 
-   For iteration 2+, also pass `--previous-workspace <workspace>/iteration-<N-1>`.
+   For iteration 2+, also pass `--previous-workspace <skill-path>/evals/iterations/iteration-<N-1>`.
 
-   **Cowork / headless environments:** If `webbrowser.open()` is not available or the environment has no display, use `--static <output_path>` to write a standalone HTML file instead of starting a server. Feedback will be downloaded as a `feedback.json` file when the user clicks "Submit All Reviews". After download, copy `feedback.json` into the workspace directory for the next iteration to pick up.
+   **Cowork / headless environments:** If `webbrowser.open()` is not available or the environment has no display, use `--static <output_path>` to write a standalone HTML file instead of starting a server. Feedback will be downloaded as a `feedback.json` file when the user clicks "Submit All Reviews". After download, copy `feedback.json` into the current iteration directory for the next iteration to pick up.
 
 Note: please use generate_review.py to create the viewer; there's no need to write custom HTML.
 
@@ -347,7 +350,7 @@ This task is pretty important (we are trying to create billions a year in econom
 After improving the skill:
 
 1. Apply your improvements to the skill
-2. Rerun all test cases into a new `iteration-<N+1>/` directory, including baseline runs. If you're creating a new skill, the baseline is always `without_skill` (no skill) — that stays the same across iterations. If you're improving an existing skill, use your judgment on what makes sense as the baseline: the original version the user came in with, or the previous iteration.
+2. Rerun all test cases into a new `<skill-path>/evals/iterations/iteration-<N+1>/` directory, including baseline runs. If you're creating a new skill, the baseline is always `without_skill` (no skill) — that stays the same across iterations. If you're improving an existing skill, use your judgment on what makes sense as the baseline: the original version the user came in with, or the previous iteration.
 3. Launch the reviewer with `--previous-workspace` pointing at the previous iteration
 4. Wait for the user to review and tell you they're done
 5. Read the new feedback, improve again, repeat
@@ -383,17 +386,17 @@ For non-Claude agents, pass `--agent <agent-name>` to the scripts. The adapter h
 
 ```bash
 python -m scripts.run_eval \
-  --eval-set evals/trigger-evals.json \
+  --eval-set <skill-path>/evals/trigger-evals.json \
   --skill-path path/to/skill \
   --agent codex-cli
 
 python -m scripts.run_loop \
-  --eval-set evals/trigger-evals.json \
+  --eval-set <skill-path>/evals/trigger-evals.json \
   --skill-path path/to/skill \
   --agent my-new-agent
 
 python -m scripts.run_loop \
-  --eval-set evals/trigger-evals.json \
+  --eval-set <skill-path>/evals/trigger-evals.json \
   --skill-path path/to/skill \
   --agent file-based-agent \
   --agent-command "my-agent run --prompt-file {prompt_file}"
@@ -443,7 +446,7 @@ This step matters — bad eval queries lead to bad descriptions.
 
 Tell the user: "This will take some time — I'll run the optimization loop in the background and check on it periodically."
 
-Save the eval set to the workspace, then run in the background:
+Save the eval set to `<skill-path>/evals/trigger-evals.json`, then run in the background:
 
 ```bash
 python -m scripts.run_loop \
@@ -451,6 +454,7 @@ python -m scripts.run_loop \
   --skill-path <path-to-skill> \
   --agent <calling-agent-label> \
   --agent-command "<command-template-if-needed>" \
+  --results-dir <skill-path>/evals/description-optimization \
   --max-iterations 5 \
   --verbose
 ```
