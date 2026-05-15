@@ -77,7 +77,7 @@ Ordered alphabetically by name (matches filesystem order).
 
 | Done  | Skill             | Priority | Domain       | Primary Role       | Produces                                                      |
 | ----- | ----------------- | -------- | ------------ | ------------------ | ------------------------------------------------------------- |
-| - [ ] | `design-api`      | 🔴 P1    | Code         | Backend Dev        | Contract-first API spec (OpenAPI / AsyncAPI)                  |
+| - [x] | `design-api`      | 🔴 P1    | Code         | Backend Dev        | Contract-first API spec (OpenAPI / AsyncAPI)                  |
 | - [ ] | `design-arch`     | 🟠 P2    | Architecture | Solution Architect | System design document with components and tradeoffs          |
 
 ### `diagram-`
