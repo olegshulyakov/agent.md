@@ -1,6 +1,8 @@
 # Commit Message Guidelines
 
-Produce well-formed commit messages following the **Conventional Commits** specification.
+Generate commit messages in the Conventional Commits format. Use the target repository's recent Git history to refine scope, capitalization, body usage, and footer conventions without abandoning the Conventional Commits structure.
+
+Before generating a message, inspect the relevant diff and recent commit subjects.
 
 ## Format
 
@@ -14,10 +16,26 @@ Produce well-formed commit messages following the **Conventional Commits** speci
 
 ### Rules
 
-- **First line** (header): max 72 characters; imperative mood; no trailing period.
+- **First line** (header): match recent repository subjects; keep it concise; no trailing period.
 - **Blank line** separates header from body and body from footer.
-- **Body**: explain _what_ and _why_, not _how_. Use bullet points (`-`) for multiple points.
+- **Body**: omit for simple changes. Include only when the change has several meaningful parts or the motivation would otherwise be unclear.
+- **Body bullets**: when needed, use `-` bullets and describe what changed and why.
 - **Footer**: reserved for metadata such as breaking changes or issue references.
+
+## Repository Style
+
+Infer local preferences from recent commit subjects in the target repository:
+
+- Use `type(scope): summary` when the repository commonly uses scopes and there is a clear package, folder, domain, component, or feature area.
+- Use `type: summary` when the change is broad or no scope is clearer.
+- Prefer scopes already present in history when they fit. If no local scope pattern exists, derive a short noun from the changed area, such as the package, module, app, command, or documentation section.
+- Match the repository's capitalization style after the colon. If history is mixed or unclear, default to lowercase imperative text and preserve proper nouns, acronyms, tool names, and file names.
+- Include PR, issue, or ticket suffixes only when they are already known from the user's context, branch name, staged diff, or command output. Do not invent identifiers.
+- Preserve quoting style around literal file names, directories, commands, API names, config keys, or package names when that matches the repository or improves clarity.
+- For simple commits, return a single-line message unless the repository consistently uses bodies.
+- For squash-style or multi-part commits, use a concise header followed by bullets. Do not copy GitHub merge bullet prefixes such as `* feat(...)` into newly generated messages.
+
+Do not imitate obvious historical mistakes such as misspelled types, malformed headers, duplicate prefixes, or accidental copied bullet text. Treat those as evidence that the generator needs guardrails, not as precedent. A little mercy for past commits; none for new ones.
 
 ### Types
 
@@ -34,6 +52,8 @@ Produce well-formed commit messages following the **Conventional Commits** speci
 | `ci`       | CI/CD configuration changes               |
 | `chore`    | Maintenance tasks (e.g. updating scripts) |
 | `revert`   | Reverts a previous commit                 |
+
+Use only these type names. Convert `feature` to `feat`, and fix obvious type typos.
 
 ## Action Words
 
@@ -53,18 +73,18 @@ Before committing, inspect staged changes. If nothing is staged, ask whether to 
 
 A short noun in parentheses that clarifies which part of the codebase the change affects.
 
-Examples: `auth`, `api`, `ui`, `payments`, `parser`, `cli`
+Prefer scopes from recent history when applicable. If the repository has no clear scope convention, use a short noun from the changed path or omit the scope.
 
 ### Short Description
 
 - Imperative mood: "add feature" not "adds feature" or "added feature"
-- Lowercase first letter
+- Lowercase first letter unless the first word is a proper noun or acronym
 - No trailing period
-- Max ~72 characters total for the header line
+- Keep the header compact; if it becomes hard to read, use a body instead of cramming
 
 ### Body (optional)
 
-Include when the change is non-obvious or complex. Use bullet points:
+Include when the change is non-obvious, complex, or has multiple independently useful points. Use bullets:
 
 ```
 - Describe motivation or background
@@ -72,9 +92,13 @@ Include when the change is non-obvious or complex. Use bullet points:
 - Note anything reviewers should pay attention to
 ```
 
+Avoid a body that merely restates the header.
+
 ### Footer (optional)
 
 #### Breaking Changes
+
+Use a `BREAKING CHANGE:` footer when the staged change introduces an incompatible API, behavior, config, data, CLI, or migration change. Keep the prefix exactly uppercase:
 
 ```
 BREAKING CHANGE: <description of what broke and migration path>
