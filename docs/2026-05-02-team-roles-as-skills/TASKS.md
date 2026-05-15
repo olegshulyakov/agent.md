@@ -71,7 +71,7 @@ Ordered alphabetically by name (matches filesystem order).
 | - [ ] | `codegen-backend`  | 🔴 P1    | Code    | Backend Dev   | Production-ready backend code (Python, Node, Go, Java, Ruby, Rust, C#, PHP, Kotlin, Elixir) |
 | - [ ] | `codegen-frontend` | 🔴 P1    | Code    | Frontend Dev  | Production-ready frontend code + design system tokens + component style guide               |
 | - [ ] | `codegen-mobile`   | 🟠 P2    | Code    | Mobile Dev    | Production-ready mobile code (Swift/iOS, Kotlin/Android, React Native, Flutter)             |
-| - [ ] | `codegen-test`     | 🔴 P1    | Testing | AQA / Backend | Test suite generation (e2e, api, perf)                                                      |
+| - [x] | `codegen-test`     | 🔴 P1    | Testing | AQA / Backend / ML | Test suite generation (e2e, api, perf, AI output evals, AI tool-use evals, AI perf benchmarks) |
 
 ### `design-`
 
