@@ -1,0 +1,72 @@
+{
+  "skill_name": "writer-spec",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a technical spec for adding OAuth login to our web app. Include architecture, data model changes, rollout plan, error handling, and test strategy.",
+      "expected_output": "Routes to technical spec guidance and produces a testable technical spec with architecture, data, rollout, errors, and verification.",
+      "files": [],
+      "expectations": [
+        "Output is a technical spec or design doc",
+        "Architecture or component changes are described",
+        "Data model or persistence impact is covered",
+        "Error paths and security considerations are included",
+        "Rollout or migration plan is included",
+        "Test strategy is concrete"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Document functional requirements for a subscription billing cancellation flow. Users can cancel immediately or at period end, and admins can reverse a pending cancellation.",
+      "expected_output": "Routes to functional requirements guidance and documents user-visible behavior, business rules, edge cases, and out-of-scope items.",
+      "files": [],
+      "expectations": [
+        "Output focuses on functional behavior, not implementation",
+        "Requirements cover immediate cancellation and period-end cancellation",
+        "Admin reversal behavior is documented",
+        "Business rules and edge cases are explicit",
+        "Out-of-scope or assumptions are included"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write NFRs for an image processing service. We need throughput, latency, availability, data retention, privacy, and observability requirements.",
+      "expected_output": "Routes to non-functional requirements guidance and produces measurable NFRs across performance, reliability, privacy, and operations.",
+      "files": [],
+      "expectations": [
+        "Output is organized as non-functional requirements",
+        "Performance requirements include measurable latency or throughput targets",
+        "Availability or reliability target is specified",
+        "Data retention and privacy requirements are included",
+        "Observability requirements are included",
+        "Assumptions are marked when targets are inferred"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Define a data contract for the `invoice.paid` event. Producers send it over Kafka and consumers need stable fields, schema evolution rules, and examples.",
+      "expected_output": "Routes to data-contract guidance and defines an event contract with schema, required fields, evolution rules, and examples.",
+      "files": [],
+      "expectations": [
+        "Output defines the invoice.paid event",
+        "Payload schema includes concrete required fields",
+        "Producer and consumer expectations are described",
+        "Schema evolution or compatibility rules are included",
+        "At least one example payload is provided"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Write a UI handoff spec for a bulk user invite modal. Include states for empty input, validation errors, partial success, loading, and completion.",
+      "expected_output": "Routes to UI spec guidance and documents component states, interactions, validation, accessibility, and acceptance criteria.",
+      "files": [],
+      "expectations": [
+        "Output is a UI or design handoff spec",
+        "All requested states are covered",
+        "Validation and partial-success behavior are documented",
+        "Accessibility requirements are included",
+        "Acceptance criteria or testable requirements are present"
+      ]
+    }
+  ]
+}

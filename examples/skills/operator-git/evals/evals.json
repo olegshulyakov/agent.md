@@ -1,0 +1,97 @@
+{
+  "skill_name": "operator-git",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Give me a branch name for the docs update I just made to the install guide.",
+      "expected_output": "A single branch name, with no surrounding explanation.",
+      "files": [],
+      "expectations": [
+        "The skill classifies this as an output workflow.",
+        "The skill returns only the branch name.",
+        "The branch name follows the branch naming convention."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create a branch for this bugfix. The login form redirects to /home even when auth fails.",
+      "expected_output": "A Git branch is created or a concise blocker is reported.",
+      "files": [],
+      "expectations": [
+        "The skill classifies this as an action workflow.",
+        "The skill uses the branch naming reference.",
+        "The skill avoids extra narrative on successful branch creation."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write a commit message for the staged changes.",
+      "expected_output": "A single Conventional Commits message, with no surrounding explanation.",
+      "files": [],
+      "expectations": [
+        "The skill classifies this as an output workflow.",
+        "The skill uses the commit message reference.",
+        "The skill prefers git message when staged changes are the source material."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Commit the staged changes using our normal commit message format.",
+      "expected_output": "The staged changes are committed or a concise blocker is reported.",
+      "files": [],
+      "expectations": [
+        "The skill classifies this as an action workflow.",
+        "The skill commits staged changes only.",
+        "The skill avoids extra narrative on successful commit."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Review this branch name: feat/login fixes",
+      "expected_output": "Concise branch-name review feedback with a corrected branch name if needed.",
+      "files": [],
+      "expectations": [
+        "The skill classifies this as an output workflow.",
+        "The skill uses the branch naming reference.",
+        "The response identifies spaces or malformed structure as a problem.",
+        "The response provides a valid replacement branch name."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Start a hotfix branch for a production payment webhook signature failure.",
+      "expected_output": "A hotfix branch is created or a concise blocker is reported.",
+      "files": [],
+      "expectations": [
+        "The skill classifies this as an action workflow.",
+        "The skill inspects current branch/worktree before branch action.",
+        "The branch name reflects hotfix/payment webhook signature context.",
+        "The response avoids unnecessary explanation on success."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Improve this commit message: 'stuff'. The staged diff updates README setup instructions and fixes a typo in the API docs.",
+      "expected_output": "A Conventional Commits docs message with concise wording and no body unless needed.",
+      "files": [],
+      "expectations": [
+        "The skill classifies this as an output workflow.",
+        "The skill uses the commit message reference.",
+        "The message uses the docs type.",
+        "The summary is imperative and has no trailing period."
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Commit everything in the working tree.",
+      "expected_output": "A concise blocker or clarification because the skill should commit staged changes only and not stage unrelated files by default.",
+      "files": [],
+      "expectations": [
+        "The skill does not stage unstaged files by default.",
+        "The skill reports that committing uses staged changes only.",
+        "The skill asks at most one focused question if no staged changes exist.",
+        "The skill does not run destructive git commands."
+      ]
+    }
+  ]
+}

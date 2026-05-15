@@ -1,0 +1,965 @@
+{
+  "skill_name": "codegen-backend",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add a FastAPI route for creating invoices with Pydantic validation, SQLAlchemy persistence, and pytest coverage.",
+      "expected_output": "Routes to python, inspects project conventions, implements route/service/persistence code, validates input, and adds focused pytest coverage.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Implement an Express TypeScript endpoint for POST /users using Zod validation and Prisma, with Supertest coverage.",
+      "expected_output": "Routes to nodejs, keeps handler thin, uses Zod and Prisma conventions, maps errors consistently, and adds success plus validation tests.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Create a Go chi handler and service for cancelling an order, including transaction handling and httptest tests.",
+      "expected_output": "Routes to go, passes context through layers, uses repository/service boundaries, handles transaction behavior, and writes focused httptest or table-driven tests.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Add a Spring Boot controller and service method for updating account status with Bean Validation and JUnit coverage.",
+      "expected_output": "Routes to java, follows controller/service/repository layering, validates DTOs, uses transactional service behavior, and adds JUnit/Spring tests.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Build a Rails controller action and service object to refund a payment, including policy checks and RSpec request specs.",
+      "expected_output": "Routes to ruby, follows Rails conventions, enforces authorization, wraps multi-write behavior safely, and adds RSpec coverage.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Implement an Axum route for rotating API keys with typed errors, SQLx persistence, and cargo test coverage.",
+      "expected_output": "Routes to rust, uses typed request/response structs, maps domain errors to responses, avoids unnecessary cloning, and includes Rust tests plus verification commands.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Add an ASP.NET Core Minimal API endpoint for uploading documents with FluentValidation and EF Core persistence.",
+      "expected_output": "Routes to csharp, follows Minimal API conventions, uses DI and validation, respects cancellation tokens, and adds xUnit or local test coverage.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Create a Laravel action for approving vendor applications with FormRequest validation, policy checks, and Pest tests.",
+      "expected_output": "Routes to php, follows Laravel controllers/actions/FormRequest/policy conventions, uses Eloquent safely, and adds Pest or PHPUnit coverage.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Add a Ktor route for submitting support tickets using coroutines, repository calls, and Kotest coverage.",
+      "expected_output": "Routes to kotlin, follows Ktor routing/service boundaries, uses data classes and coroutine-safe calls, and adds Kotlin test coverage.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "Implement a Phoenix context and controller action for inviting team members with Ecto changesets and ExUnit coverage.",
+      "expected_output": "Routes to elixir, follows Phoenix context conventions, uses changesets and Ecto.Multi where needed, and adds ConnCase/DataCase tests.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "Create a Django REST endpoint for cancelling subscriptions with serializer validation and APIClient tests.",
+      "expected_output": "Routes to python, follows Django app boundaries, keeps validation in serializers, and adds API tests.",
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "Implement a Flask webhook handler for payment.failed with signature verification and idempotency tests.",
+      "expected_output": "Routes to python, verifies signatures at the boundary, handles duplicate delivery, and tests valid and invalid events.",
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "Add a Celery task that retries shipment label generation and records permanent failures.",
+      "expected_output": "Routes to python, follows existing task layout, makes retry behavior explicit, and tests transient and permanent failures.",
+      "files": []
+    },
+    {
+      "id": 14,
+      "prompt": "Build a FastAPI middleware that attaches request IDs and logs response time without changing errors.",
+      "expected_output": "Routes to python, implements FastAPI middleware, preserves error envelopes, and adds focused middleware tests.",
+      "files": []
+    },
+    {
+      "id": 15,
+      "prompt": "Add a SQLAlchemy service for transferring credits between accounts with transaction handling.",
+      "expected_output": "Routes to python, keeps transaction ownership explicit, validates account state, and tests rollback behavior.",
+      "files": []
+    },
+    {
+      "id": 16,
+      "prompt": "Implement a Django management command that backfills user timezones in batches and can be re-run.",
+      "expected_output": "Routes to python, follows Django command conventions, batches work, makes the operation idempotent, and includes tests.",
+      "files": []
+    },
+    {
+      "id": 17,
+      "prompt": "Add a typed Python repository and service for searching audit events with cursor pagination.",
+      "expected_output": "Routes to python, uses type hints and repository patterns, enforces permission filtering, and tests pagination.",
+      "files": []
+    },
+    {
+      "id": 18,
+      "prompt": "Add a Fastify route for issuing API tokens with schema validation, hashed storage, and Vitest coverage.",
+      "expected_output": "Routes to nodejs, follows Fastify schema style, stores only hashed tokens, and adds success and validation tests.",
+      "files": []
+    },
+    {
+      "id": 19,
+      "prompt": "Create a NestJS controller and provider for approving refunds using class-validator DTOs and Jest tests.",
+      "expected_output": "Routes to nodejs, follows NestJS module conventions, validates DTOs, keeps workflow logic in the provider, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 20,
+      "prompt": "Build a Node worker that consumes invoice.finalized jobs, retries email failures, and records dead-letter state.",
+      "expected_output": "Routes to nodejs, uses existing queue conventions, makes retry and dead-letter behavior explicit, and tests failure paths.",
+      "files": []
+    },
+    {
+      "id": 21,
+      "prompt": "Add Hono middleware that validates tenant headers and attaches tenant context for downstream handlers.",
+      "expected_output": "Routes to nodejs, follows Hono middleware patterns, validates boundary inputs, and tests missing and invalid headers.",
+      "files": []
+    },
+    {
+      "id": 22,
+      "prompt": "Implement a Prisma transaction for moving tasks between projects while preserving ordering.",
+      "expected_output": "Routes to nodejs, puts business logic in a service, uses a transaction, enforces membership, and adds service tests.",
+      "files": []
+    },
+    {
+      "id": 23,
+      "prompt": "Add a TypeScript route and repository for cursor-paginated audit logs with stable sorting.",
+      "expected_output": "Routes to nodejs, reuses local repository and response conventions, implements stable cursor pagination, and tests boundaries.",
+      "files": []
+    },
+    {
+      "id": 24,
+      "prompt": "Create an Express webhook endpoint for GitHub events with signature verification and idempotent processing.",
+      "expected_output": "Routes to nodejs, verifies signatures before side effects, handles duplicate deliveries, and tests valid, invalid, and duplicate events.",
+      "files": []
+    },
+    {
+      "id": 25,
+      "prompt": "Add a Gin endpoint that creates support tickets, validates JSON, and persists through a repository interface.",
+      "expected_output": "Routes to go, follows Gin binding and error conventions, keeps the handler thin, and adds handler or service tests.",
+      "files": []
+    },
+    {
+      "id": 26,
+      "prompt": "Implement a Go worker that processes refund jobs with context cancellation and retry classification.",
+      "expected_output": "Routes to go, passes context through external calls, separates transient and permanent errors, and adds table-driven tests.",
+      "files": []
+    },
+    {
+      "id": 27,
+      "prompt": "Add net/http middleware for request IDs and structured logging without changing response formats.",
+      "expected_output": "Routes to go, follows existing middleware style, preserves response behavior, and tests header behavior where practical.",
+      "files": []
+    },
+    {
+      "id": 28,
+      "prompt": "Create a sqlc-backed repository method for paginating ledger entries and expose it through a service.",
+      "expected_output": "Routes to go, uses sqlc/repository patterns, implements stable pagination, propagates context, and tests service behavior.",
+      "files": []
+    },
+    {
+      "id": 29,
+      "prompt": "Implement an Echo route for rotating webhook secrets with authorization checks and httptest coverage.",
+      "expected_output": "Routes to go, follows Echo conventions, checks authorization before side effects, avoids exposing secrets, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 30,
+      "prompt": "Add a Go service that reserves inventory across SKUs atomically and returns typed domain errors.",
+      "expected_output": "Routes to go, uses explicit transaction boundaries, models domain errors, handles partial availability, and adds table-driven tests.",
+      "files": []
+    },
+    {
+      "id": 31,
+      "prompt": "Build a Go readiness endpoint that checks database connectivity with timeout-aware context handling.",
+      "expected_output": "Routes to go, uses context timeouts, follows existing health response conventions, and adds handler tests.",
+      "files": []
+    },
+    {
+      "id": 32,
+      "prompt": "Implement a Spring Boot endpoint for creating purchase orders with idempotency keys and MockMvc tests.",
+      "expected_output": "Routes to java, keeps the controller thin, validates request DTOs, enforces idempotency in service code, and tests duplicates.",
+      "files": []
+    },
+    {
+      "id": 33,
+      "prompt": "Add a Java scheduled job that expires stale invitations in batches and records metrics.",
+      "expected_output": "Routes to java, follows scheduling conventions, batches database work, records metrics, and adds job or service tests.",
+      "files": []
+    },
+    {
+      "id": 34,
+      "prompt": "Create a Spring Security-protected endpoint for downloading invoices with the existing error envelope.",
+      "expected_output": "Routes to java, uses existing security and error conventions, checks access before streaming data, and adds authorization tests.",
+      "files": []
+    },
+    {
+      "id": 35,
+      "prompt": "Implement a JPA repository and service for cursor-paginated audit events using stable ordering.",
+      "expected_output": "Routes to java, avoids leaking entities, implements stable pagination, and tests page behavior.",
+      "files": []
+    },
+    {
+      "id": 36,
+      "prompt": "Add a Kafka listener in Spring Boot for customer.updated events with validation and dead-letter handling.",
+      "expected_output": "Routes to java, follows messaging configuration, validates event payloads, classifies retry behavior, and tests listener logic.",
+      "files": []
+    },
+    {
+      "id": 37,
+      "prompt": "Create a Java service that transfers workspace ownership and updates memberships transactionally.",
+      "expected_output": "Routes to java, puts business logic in a transactional service, checks authorization and invariants, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 38,
+      "prompt": "Add a Spring Boot exception handler for domain validation errors while preserving API error shapes.",
+      "expected_output": "Routes to java, follows ControllerAdvice conventions, maps domain errors consistently, and avoids stack trace leakage.",
+      "files": []
+    },
+    {
+      "id": 39,
+      "prompt": "Add a Rails API endpoint for inviting users with strong parameters and request specs.",
+      "expected_output": "Routes to ruby, keeps the controller thin, uses strong parameters and validation, and tests success and failure paths.",
+      "files": []
+    },
+    {
+      "id": 40,
+      "prompt": "Implement a Sidekiq job that syncs customer data with retries and idempotent upserts.",
+      "expected_output": "Routes to ruby, follows Sidekiq conventions, makes retry and idempotency explicit, and adds job specs.",
+      "files": []
+    },
+    {
+      "id": 41,
+      "prompt": "Create ActiveRecord changes for soft-deleting projects without breaking existing scopes.",
+      "expected_output": "Routes to ruby, follows migration/model conventions, preserves expected query behavior, and adds model or request tests.",
+      "files": []
+    },
+    {
+      "id": 42,
+      "prompt": "Add a Rails policy and controller update so only billing admins can download receipts.",
+      "expected_output": "Routes to ruby, uses the existing authorization library, checks permissions before access, and adds policy/request specs.",
+      "files": []
+    },
+    {
+      "id": 43,
+      "prompt": "Implement a Sinatra endpoint for submitting feedback with validation and persistence tests.",
+      "expected_output": "Routes to ruby, follows Sinatra structure, validates request data, uses existing persistence helpers, and adds route tests.",
+      "files": []
+    },
+    {
+      "id": 44,
+      "prompt": "Create a Rails service that reserves event seats using a transaction and domain-specific failures.",
+      "expected_output": "Routes to ruby, keeps workflow logic in a service/model, uses transactions, models sold-out conflicts, and tests edge cases.",
+      "files": []
+    },
+    {
+      "id": 45,
+      "prompt": "Add a Rails JSON serializer for paginated audit logs and update controller specs.",
+      "expected_output": "Routes to ruby, follows serializer conventions, implements stable pagination metadata, and adds request or serializer tests.",
+      "files": []
+    },
+    {
+      "id": 46,
+      "prompt": "Add an Actix Web endpoint for creating projects with Serde validation and SQLx transaction handling.",
+      "expected_output": "Routes to rust, follows Actix extractor patterns, validates typed inputs, uses transaction boundaries, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 47,
+      "prompt": "Create a Tokio background task that processes queued webhooks with retry classification and tracing spans.",
+      "expected_output": "Routes to rust, keeps async work non-blocking, classifies failures, uses tracing conventions, and tests retry behavior.",
+      "files": []
+    },
+    {
+      "id": 48,
+      "prompt": "Implement a Rust domain service for transferring credits using explicit error enums and repository traits.",
+      "expected_output": "Routes to rust, models domain errors explicitly, avoids unnecessary cloning, uses repository traits, and adds unit tests.",
+      "files": []
+    },
+    {
+      "id": 49,
+      "prompt": "Add Axum middleware that requires tenant context and maps missing context to the existing error response.",
+      "expected_output": "Routes to rust, follows tower/Axum middleware conventions, uses typed state or extractors, and preserves error mapping.",
+      "files": []
+    },
+    {
+      "id": 50,
+      "prompt": "Create a Diesel repository query for cursor-paginated events and expose it through a service.",
+      "expected_output": "Routes to rust, follows Diesel/repository conventions, implements stable pagination, handles database errors, and tests behavior.",
+      "files": []
+    },
+    {
+      "id": 51,
+      "prompt": "Build a Rust webhook handler that verifies HMAC signatures before deserializing and ignores duplicate deliveries.",
+      "expected_output": "Routes to rust, verifies signatures before side effects, uses typed payloads, handles idempotency, and tests invalid events.",
+      "files": []
+    },
+    {
+      "id": 52,
+      "prompt": "Add a readiness endpoint to an Axum service that checks database connectivity with timeout handling.",
+      "expected_output": "Routes to rust, uses async timeout handling, follows response conventions, avoids blocking calls, and includes handler tests.",
+      "files": []
+    },
+    {
+      "id": 53,
+      "prompt": "Create an ASP.NET Core controller for approving expense reports using MediatR and FluentAssertions tests.",
+      "expected_output": "Routes to csharp, follows controller/MediatR conventions, validates authorization and inputs, and adds focused tests.",
+      "files": []
+    },
+    {
+      "id": 54,
+      "prompt": "Implement an EF Core service that transfers funds between wallets transactionally and supports CancellationToken.",
+      "expected_output": "Routes to csharp, uses DI and EF Core transactions, passes cancellation tokens, models domain errors, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 55,
+      "prompt": "Add a .NET background worker that processes notification jobs with retries and structured logging.",
+      "expected_output": "Routes to csharp, follows hosted service conventions, classifies retry behavior, uses local logging/config, and tests worker logic.",
+      "files": []
+    },
+    {
+      "id": 56,
+      "prompt": "Build ASP.NET middleware that enforces tenant headers and returns the existing problem-details shape.",
+      "expected_output": "Routes to csharp, follows middleware conventions, validates boundary data, preserves error shape, and tests tenant failures.",
+      "files": []
+    },
+    {
+      "id": 57,
+      "prompt": "Add a Dapper repository method for cursor-paginated audit events and wire it into a query handler.",
+      "expected_output": "Routes to csharp, follows repository/query conventions, implements stable pagination, parameterizes SQL, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 58,
+      "prompt": "Create a Minimal API webhook endpoint that validates signatures and makes event processing idempotent.",
+      "expected_output": "Routes to csharp, verifies signatures before side effects, uses config/DI, handles duplicate events, and tests key cases.",
+      "files": []
+    },
+    {
+      "id": 59,
+      "prompt": "Add an ASP.NET Core endpoint for rotating client secrets without returning the raw secret after creation.",
+      "expected_output": "Routes to csharp, follows endpoint/service conventions, stores secrets safely, avoids exposing sensitive values, and tests authorization.",
+      "files": []
+    },
+    {
+      "id": 60,
+      "prompt": "Add a Symfony controller and service for creating invoices with Validator constraints and Doctrine persistence.",
+      "expected_output": "Routes to php, follows Symfony service conventions, validates DTOs, maps errors consistently, and adds PHPUnit tests.",
+      "files": []
+    },
+    {
+      "id": 61,
+      "prompt": "Implement a Laravel queued job that syncs products from an external API with retries and idempotent updates.",
+      "expected_output": "Routes to php, follows Laravel job conventions, uses config for credentials, makes retry behavior explicit, and tests failures.",
+      "files": []
+    },
+    {
+      "id": 62,
+      "prompt": "Create a Laravel API Resource and controller method for paginated audit logs with stable cursor pagination.",
+      "expected_output": "Routes to php, follows Resource/controller conventions, implements pagination metadata, and adds feature tests.",
+      "files": []
+    },
+    {
+      "id": 63,
+      "prompt": "Add a Symfony Messenger handler for account.closed events with validation and dead-letter behavior.",
+      "expected_output": "Routes to php, follows Messenger conventions, validates messages, classifies retry/dead-letter behavior, and adds handler tests.",
+      "files": []
+    },
+    {
+      "id": 64,
+      "prompt": "Implement a Laravel service that reserves inventory across warehouses using a database transaction.",
+      "expected_output": "Routes to php, keeps workflow logic in a service/action, uses transactions, returns domain failures, and tests edge cases.",
+      "files": []
+    },
+    {
+      "id": 65,
+      "prompt": "Add Laravel middleware that requires tenant context and preserves the existing JSON error format.",
+      "expected_output": "Routes to php, follows middleware conventions, validates tenant context before downstream work, and adds feature tests.",
+      "files": []
+    },
+    {
+      "id": 66,
+      "prompt": "Build a PHP webhook endpoint that verifies Stripe signatures and ignores duplicate event IDs.",
+      "expected_output": "Routes to php, verifies signatures before side effects, stores event IDs for idempotency, and tests invalid and duplicate events.",
+      "files": []
+    },
+    {
+      "id": 67,
+      "prompt": "Create a Kotlin Spring Boot controller for updating user roles with validation and MockK tests.",
+      "expected_output": "Routes to kotlin, follows Spring controller/service conventions, validates DTOs, uses DI, and adds success/forbidden tests.",
+      "files": []
+    },
+    {
+      "id": 68,
+      "prompt": "Implement a Ktor plugin that attaches request IDs and structured logs while preserving existing responses.",
+      "expected_output": "Routes to kotlin, follows Ktor plugin conventions, keeps logging/config local, preserves error behavior, and adds plugin tests.",
+      "files": []
+    },
+    {
+      "id": 69,
+      "prompt": "Add an Exposed transaction service for transferring credits between accounts with coroutine-safe boundaries.",
+      "expected_output": "Routes to kotlin, follows Exposed/service conventions, uses transaction boundaries, models domain failures, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 70,
+      "prompt": "Create a Kotlin worker that consumes shipment jobs, retries transient failures, and records permanent failures.",
+      "expected_output": "Routes to kotlin, follows worker conventions, uses coroutines appropriately, classifies retry behavior, and tests failures.",
+      "files": []
+    },
+    {
+      "id": 71,
+      "prompt": "Add a Ktor webhook endpoint that verifies HMAC signatures and makes processing idempotent.",
+      "expected_output": "Routes to kotlin, verifies signatures before side effects, uses typed payloads, handles duplicates, and adds route tests.",
+      "files": []
+    },
+    {
+      "id": 72,
+      "prompt": "Implement cursor pagination for audit events in a Kotlin Spring Boot repository and service.",
+      "expected_output": "Routes to kotlin, follows repository/service conventions, implements stable pagination, avoids entity leakage, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 73,
+      "prompt": "Add authorization checks to a Ktor endpoint for downloading receipts and keep the current error envelope.",
+      "expected_output": "Routes to kotlin, enforces authorization before data access, follows error conventions, and tests allowed and denied cases.",
+      "files": []
+    },
+    {
+      "id": 74,
+      "prompt": "Add a Phoenix JSON endpoint for creating projects with context functions and changeset validation.",
+      "expected_output": "Routes to elixir, keeps the controller thin, puts behavior in the context, uses changesets, and adds ConnCase/DataCase tests.",
+      "files": []
+    },
+    {
+      "id": 75,
+      "prompt": "Create an Oban worker that retries failed email sends and records permanent delivery failures.",
+      "expected_output": "Routes to elixir, follows Oban conventions, classifies retry/permanent failures, and adds worker tests.",
+      "files": []
+    },
+    {
+      "id": 76,
+      "prompt": "Implement an Ecto.Multi workflow for transferring workspace ownership and updating memberships atomically.",
+      "expected_output": "Routes to elixir, uses Ecto.Multi for multi-step writes, returns explicit tagged tuple failures, and tests failure cases.",
+      "files": []
+    },
+    {
+      "id": 77,
+      "prompt": "Add Phoenix plug middleware that requires tenant context and returns the existing JSON error shape.",
+      "expected_output": "Routes to elixir, follows Plug conventions, validates tenant context before controller work, preserves errors, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 78,
+      "prompt": "Create an Ecto query and context function for cursor-paginated audit events with stable sorting.",
+      "expected_output": "Routes to elixir, follows context/query conventions, implements stable pagination, and adds DataCase tests.",
+      "files": []
+    },
+    {
+      "id": 79,
+      "prompt": "Build a Phoenix webhook controller that verifies signatures before decoding and ignores duplicate event IDs.",
+      "expected_output": "Routes to elixir, verifies signatures before side effects, handles duplicates idempotently, uses config for secrets, and adds ConnCase tests.",
+      "files": []
+    },
+    {
+      "id": 80,
+      "prompt": "Add a GenServer-backed cache for feature flags with supervision, refresh handling, and ExUnit tests.",
+      "expected_output": "Routes to elixir, follows OTP supervision conventions, makes refresh/error behavior explicit, and adds GenServer tests.",
+      "files": []
+    },
+    {
+      "id": 81,
+      "prompt": "Implement a C HTTP endpoint with Mongoose that validates JSON input and writes records through the existing repository API.",
+      "expected_output": "Routes to c, follows existing build and server conventions, validates input, handles allocation and I/O errors, and adds C tests or integration coverage.",
+      "files": []
+    },
+    {
+      "id": 82,
+      "prompt": "Add a POSIX C daemon command handler that reloads feature flags without leaking file descriptors.",
+      "expected_output": "Routes to c, checks system call results, makes ownership and cleanup explicit, preserves daemon conventions, and tests reload failure paths.",
+      "files": []
+    },
+    {
+      "id": 83,
+      "prompt": "Create a C library function for parsing webhook payloads with bounded string handling and Criterion tests.",
+      "expected_output": "Routes to c, validates buffer lengths, avoids unsafe string handling, documents ownership, and covers malformed payloads.",
+      "files": []
+    },
+    {
+      "id": 84,
+      "prompt": "Add a C service loop that accepts TCP status requests and shuts down cleanly on SIGTERM.",
+      "expected_output": "Routes to c, follows POSIX socket conventions, handles errors and signals explicitly, cleans resources, and adds integration or unit tests.",
+      "files": []
+    },
+    {
+      "id": 85,
+      "prompt": "Implement a C database adapter function that uses prepared statements and maps errors to existing service codes.",
+      "expected_output": "Routes to c, uses parameterized database calls, preserves error-code conventions, cleans statements on every path, and tests database failures.",
+      "files": []
+    },
+    {
+      "id": 86,
+      "prompt": "Add a CMake-backed C module for validating API keys with constant-time comparison and Unity tests.",
+      "expected_output": "Routes to c, follows CMake layout, avoids timing-sensitive comparisons, validates inputs, and adds focused unit tests.",
+      "files": []
+    },
+    {
+      "id": 87,
+      "prompt": "Create a C worker that batches telemetry events and flushes them with retryable error handling.",
+      "expected_output": "Routes to c, makes buffer ownership and retry behavior explicit, handles partial failures, and tests flush edge cases.",
+      "files": []
+    },
+    {
+      "id": 88,
+      "prompt": "Add a native C extension entry point that validates arguments before calling the existing backend kernel.",
+      "expected_output": "Routes to c, respects ABI and ownership rules, validates boundary arguments, preserves cleanup behavior, and adds wrapper tests.",
+      "files": []
+    },
+    {
+      "id": 89,
+      "prompt": "Implement a C++ gRPC service method for creating invoices with Protobuf validation and GoogleTest coverage.",
+      "expected_output": "Routes to cpp, follows existing gRPC/service conventions, validates request data, maps domain errors, and adds GoogleTest coverage.",
+      "files": []
+    },
+    {
+      "id": 90,
+      "prompt": "Add a Boost.Beast HTTP handler that streams report downloads with RAII-managed resources.",
+      "expected_output": "Routes to cpp, follows Boost.Beast conventions, uses RAII for resources, checks authorization before streaming, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 91,
+      "prompt": "Create a Drogon controller for rotating API keys with transaction handling and Catch2 tests.",
+      "expected_output": "Routes to cpp, keeps controller thin, uses service and transaction boundaries, avoids exposing secrets, and adds focused tests.",
+      "files": []
+    },
+    {
+      "id": 92,
+      "prompt": "Implement a C++ worker that consumes queue messages using std::jthread and cooperative cancellation.",
+      "expected_output": "Routes to cpp, follows concurrency conventions, makes cancellation explicit, avoids lifetime hazards, and tests shutdown behavior.",
+      "files": []
+    },
+    {
+      "id": 93,
+      "prompt": "Add a C++ repository method using prepared statements for cursor-paginated audit events.",
+      "expected_output": "Routes to cpp, follows repository conventions, parameterizes SQL, implements stable pagination, and tests database error mapping.",
+      "files": []
+    },
+    {
+      "id": 94,
+      "prompt": "Build a Pistache endpoint that verifies webhook HMAC signatures before deserializing payloads.",
+      "expected_output": "Routes to cpp, validates signatures before side effects, handles duplicate events, preserves response conventions, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 95,
+      "prompt": "Create a C++ service class for reserving inventory with explicit error-code returns instead of exceptions.",
+      "expected_output": "Routes to cpp, preserves the project's error style, uses RAII and transactions, models domain failures, and adds unit tests.",
+      "files": []
+    },
+    {
+      "id": 96,
+      "prompt": "Add a C++ readiness endpoint that checks database and cache clients with timeout handling.",
+      "expected_output": "Routes to cpp, follows framework conventions, uses timeouts, avoids blocking shared event loops, and adds handler tests.",
+      "files": []
+    },
+    {
+      "id": 97,
+      "prompt": "Add a VB.NET Web API controller for approving expense reports with validation and MSTest coverage.",
+      "expected_output": "Routes to visual-basic, follows existing .NET layering, validates DTOs, maps errors consistently, and adds MSTest or local tests.",
+      "files": []
+    },
+    {
+      "id": 98,
+      "prompt": "Implement a VB.NET Windows service worker that processes notification jobs and shuts down cleanly.",
+      "expected_output": "Routes to visual-basic, follows Windows service conventions, makes retry and shutdown behavior explicit, and tests service logic.",
+      "files": []
+    },
+    {
+      "id": 99,
+      "prompt": "Create a VB.NET repository method for cursor-paginated audit logs using parameterized SQL.",
+      "expected_output": "Routes to visual-basic, reuses existing persistence patterns, parameterizes SQL, implements stable pagination, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 100,
+      "prompt": "Add an ASP.NET VB.NET endpoint for rotating client secrets without returning stored secret values.",
+      "expected_output": "Routes to visual-basic, follows endpoint/service conventions, stores secrets safely, preserves error shape, and tests authorization.",
+      "files": []
+    },
+    {
+      "id": 101,
+      "prompt": "Update a VB.NET legacy service to validate tenant headers before running billing exports.",
+      "expected_output": "Routes to visual-basic, preserves legacy behavior, validates boundary inputs, keeps business logic in services, and adds compatibility tests.",
+      "files": []
+    },
+    {
+      "id": 102,
+      "prompt": "Implement a VB.NET background sync that retries transient CRM failures and records permanent failures.",
+      "expected_output": "Routes to visual-basic, follows local job conventions, classifies retry behavior, uses config for credentials, and tests failure paths.",
+      "files": []
+    },
+    {
+      "id": 103,
+      "prompt": "Add a VB.NET Web API middleware/filter for request IDs while preserving existing problem-details responses.",
+      "expected_output": "Routes to visual-basic, follows ASP.NET filter or middleware conventions, preserves error responses, and adds focused tests.",
+      "files": []
+    },
+    {
+      "id": 104,
+      "prompt": "Create a VB.NET service method that transfers ownership of a workspace transactionally.",
+      "expected_output": "Routes to visual-basic, keeps workflow logic in a service, uses transaction boundaries, checks authorization, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 105,
+      "prompt": "Create an R plumber endpoint that scores churn risk with input validation and testthat coverage.",
+      "expected_output": "Routes to r, keeps plumber handlers thin, validates data frame inputs, separates computation into testable functions, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 106,
+      "prompt": "Add a Shiny server module that caches expensive cohort summaries without using hidden global state.",
+      "expected_output": "Routes to r, follows Shiny module conventions, makes caching explicit, validates inputs, and adds Shiny or function tests.",
+      "files": []
+    },
+    {
+      "id": 107,
+      "prompt": "Implement an R batch worker that reads daily claims CSV files, validates schemas, and writes normalized output.",
+      "expected_output": "Routes to r, validates table schemas and missing values, separates I/O from transformation logic, and adds testthat fixtures.",
+      "files": []
+    },
+    {
+      "id": 108,
+      "prompt": "Add an RServe function for forecasting demand with reproducible model loading and numeric tolerance tests.",
+      "expected_output": "Routes to r, keeps model loading deterministic, validates numeric inputs, avoids hidden state, and tests tolerance-sensitive outputs.",
+      "files": []
+    },
+    {
+      "id": 109,
+      "prompt": "Create an R API route that returns paginated epidemiology records with stable sorting.",
+      "expected_output": "Routes to r, follows plumber/API conventions, implements stable pagination, validates query parameters, and adds route tests.",
+      "files": []
+    },
+    {
+      "id": 110,
+      "prompt": "Implement an R service function that rejects unsupported factor levels before running model inference.",
+      "expected_output": "Routes to r, validates factor levels and data types, keeps computation testable, and adds negative test cases.",
+      "files": []
+    },
+    {
+      "id": 111,
+      "prompt": "Add an R scheduled analytics job that is idempotent when reprocessing the same reporting date.",
+      "expected_output": "Routes to r, follows batch job conventions, makes idempotency explicit, validates dates, and tests rerun behavior.",
+      "files": []
+    },
+    {
+      "id": 112,
+      "prompt": "Build an R function for exporting model metrics to JSON with explicit NA handling.",
+      "expected_output": "Routes to r, validates metric structures, handles NA values deliberately, keeps serialization explicit, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 113,
+      "prompt": "Add a Delphi Horse endpoint for creating service tickets with JSON validation and DUnitX tests.",
+      "expected_output": "Routes to delphi, follows Horse/Object Pascal conventions, validates input, manages object ownership, and adds DUnitX coverage.",
+      "files": []
+    },
+    {
+      "id": 114,
+      "prompt": "Implement a DataSnap method that transfers account ownership with transaction handling.",
+      "expected_output": "Routes to delphi, keeps business logic in service units, uses transactions, preserves exception conventions, and tests rollback behavior.",
+      "files": []
+    },
+    {
+      "id": 115,
+      "prompt": "Create a Delphi background service that retries failed email delivery and logs permanent failures.",
+      "expected_output": "Routes to delphi, follows service conventions, makes retry behavior explicit, cleans resources, and adds tests or harness coverage.",
+      "files": []
+    },
+    {
+      "id": 116,
+      "prompt": "Add a Delphi repository method for cursor-paginated audit events using parameterized queries.",
+      "expected_output": "Routes to delphi, follows dataset/query conventions, parameterizes SQL, implements stable pagination, and tests error handling.",
+      "files": []
+    },
+    {
+      "id": 117,
+      "prompt": "Build a RAD Server resource that verifies webhook signatures before processing payloads.",
+      "expected_output": "Routes to delphi, verifies signatures before side effects, handles duplicates, preserves response conventions, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 118,
+      "prompt": "Update a Lazarus service unit to validate tenant context before exporting invoices.",
+      "expected_output": "Routes to delphi, preserves legacy structure, validates boundary inputs, avoids broad rewrites, and tests compatibility behavior.",
+      "files": []
+    },
+    {
+      "id": 119,
+      "prompt": "Create a Delphi API key rotation service that never returns the stored secret after creation.",
+      "expected_output": "Routes to delphi, follows service/unit conventions, stores secrets safely, handles ownership and transactions, and tests authorization.",
+      "files": []
+    },
+    {
+      "id": 120,
+      "prompt": "Add a Delphi health check endpoint that verifies database connectivity with timeout handling.",
+      "expected_output": "Routes to delphi, follows server conventions, uses timeout-aware database checks, preserves error format, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 121,
+      "prompt": "Create a Fortran compute service function for risk scores with dimension validation and pFUnit tests.",
+      "expected_output": "Routes to fortran, separates numerical kernel from I/O, validates dimensions, preserves precision choices, and adds tolerance-based tests.",
+      "files": []
+    },
+    {
+      "id": 122,
+      "prompt": "Add an ISO_C_BINDING wrapper around a Fortran pricing model for use by a Python backend.",
+      "expected_output": "Routes to fortran, makes ABI boundaries explicit, documents ownership and types, validates inputs, and adds wrapper-level tests.",
+      "files": []
+    },
+    {
+      "id": 123,
+      "prompt": "Implement a Fortran batch job that reads simulation inputs, rejects invalid units, and writes normalized output.",
+      "expected_output": "Routes to fortran, validates units and file inputs, keeps computation separate from I/O, and adds fixture tests.",
+      "files": []
+    },
+    {
+      "id": 124,
+      "prompt": "Add an fpm module for calculating claim reserves with reproducible floating-point tolerances.",
+      "expected_output": "Routes to fortran, follows fpm/module conventions, preserves numeric precision, and adds tolerance-sensitive tests.",
+      "files": []
+    },
+    {
+      "id": 125,
+      "prompt": "Create a Fortran service kernel that handles missing values before running matrix factorization.",
+      "expected_output": "Routes to fortran, validates missing values and matrix shapes, keeps kernel logic isolated, and tests edge cases.",
+      "files": []
+    },
+    {
+      "id": 126,
+      "prompt": "Expose a Fortran forecasting routine to a C service with explicit status codes instead of process aborts.",
+      "expected_output": "Routes to fortran, uses ISO_C_BINDING safely, returns explicit errors, avoids aborting on invalid input, and tests failures.",
+      "files": []
+    },
+    {
+      "id": 127,
+      "prompt": "Add a Fortran parser for fixed-width telemetry files with validation for malformed records.",
+      "expected_output": "Routes to fortran, validates file structure, separates parsing from computation, and adds malformed fixture tests.",
+      "files": []
+    },
+    {
+      "id": 128,
+      "prompt": "Implement a Fortran numerical endpoint wrapper that enforces convergence limits and reports non-convergence cleanly.",
+      "expected_output": "Routes to fortran, validates convergence parameters, returns clean failure status, preserves numeric assumptions, and tests non-convergence.",
+      "files": []
+    },
+    {
+      "id": 129,
+      "prompt": "Add a Mojolicious route for creating invoices with DBI placeholders and Test::Mojo coverage.",
+      "expected_output": "Routes to perl, follows Mojolicious conventions, validates input, uses parameterized SQL, and adds route tests.",
+      "files": []
+    },
+    {
+      "id": 130,
+      "prompt": "Implement a Dancer2 endpoint that verifies webhook signatures and ignores duplicate events.",
+      "expected_output": "Routes to perl, verifies signatures before side effects, handles idempotency, uses config for secrets, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 131,
+      "prompt": "Create a Perl worker module that retries failed SFTP imports and records permanent failures.",
+      "expected_output": "Routes to perl, uses strict and warnings, follows module conventions, classifies retry behavior, and adds Test::More coverage.",
+      "files": []
+    },
+    {
+      "id": 132,
+      "prompt": "Add a Catalyst controller action for cursor-paginated audit logs.",
+      "expected_output": "Routes to perl, follows Catalyst conventions, implements stable pagination, validates query parameters, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 133,
+      "prompt": "Update a Perl DBI repository function to transfer credits in a transaction with rollback on failure.",
+      "expected_output": "Routes to perl, uses DBI transaction patterns, parameterizes SQL, models failures, and tests rollback behavior.",
+      "files": []
+    },
+    {
+      "id": 134,
+      "prompt": "Add a PSGI middleware component that requires tenant headers and preserves existing JSON errors.",
+      "expected_output": "Routes to perl, follows PSGI middleware conventions, validates tenant headers, preserves error shape, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 135,
+      "prompt": "Create a Perl service for rotating API keys without logging or returning stored secret values.",
+      "expected_output": "Routes to perl, follows module conventions, stores secrets safely, avoids sensitive logs, and adds authorization tests.",
+      "files": []
+    },
+    {
+      "id": 136,
+      "prompt": "Implement a Perl maintenance script that backfills account status in batches and can be re-run safely.",
+      "expected_output": "Routes to perl, preserves script conventions, batches work, makes idempotency explicit, and adds fixture or module tests.",
+      "files": []
+    },
+    {
+      "id": 137,
+      "prompt": "Add a Vapor route for creating support tickets with Content validation and XCTest coverage.",
+      "expected_output": "Routes to swift, follows Vapor route/service conventions, validates request content, maps errors consistently, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 138,
+      "prompt": "Implement a SwiftNIO service that processes webhook events with idempotency and async error handling.",
+      "expected_output": "Routes to swift, follows SwiftNIO conventions, handles duplicate events, uses async patterns consistently, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 139,
+      "prompt": "Create a Vapor Fluent transaction for transferring credits between accounts.",
+      "expected_output": "Routes to swift, keeps route handlers thin, uses Fluent transaction boundaries, models domain failures, and adds XCTest coverage.",
+      "files": []
+    },
+    {
+      "id": 140,
+      "prompt": "Add Hummingbird middleware that enforces tenant context and preserves current error responses.",
+      "expected_output": "Routes to swift, follows Hummingbird middleware conventions, validates tenant context, preserves error behavior, and tests failures.",
+      "files": []
+    },
+    {
+      "id": 141,
+      "prompt": "Implement a server-side Swift worker that retries transient notification failures and supports graceful shutdown.",
+      "expected_output": "Routes to swift, follows worker conventions, makes retry and shutdown behavior explicit, and adds async tests.",
+      "files": []
+    },
+    {
+      "id": 142,
+      "prompt": "Add a Vapor endpoint for rotating client secrets without returning stored secret values.",
+      "expected_output": "Routes to swift, follows endpoint/service conventions, stores secrets safely, checks authorization, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 143,
+      "prompt": "Create a Swift repository method for cursor-paginated audit events using SQLKit.",
+      "expected_output": "Routes to swift, follows repository conventions, implements stable pagination, parameterizes queries, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 144,
+      "prompt": "Build a Vapor webhook route that verifies HMAC signatures before decoding request bodies.",
+      "expected_output": "Routes to swift, verifies signatures before side effects, uses typed payloads, handles duplicates, and adds route tests.",
+      "files": []
+    },
+    {
+      "id": 145,
+      "prompt": "Add an Ada Web Server endpoint for submitting support tickets with strong input validation.",
+      "expected_output": "Routes to ada, follows package spec/body conventions, uses strong typing and checks, maps errors cleanly, and adds AUnit tests.",
+      "files": []
+    },
+    {
+      "id": 146,
+      "prompt": "Implement an Ada package for rotating API keys with explicit preconditions and no secret leakage.",
+      "expected_output": "Routes to ada, preserves package boundaries, uses contracts or explicit checks, avoids exposing secrets, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 147,
+      "prompt": "Create an Ada task that processes queued telemetry messages with protected-object coordination.",
+      "expected_output": "Routes to ada, follows tasking/protected object conventions, keeps concurrency behavior explicit, and tests coordination behavior.",
+      "files": []
+    },
+    {
+      "id": 148,
+      "prompt": "Add an Alire-backed Ada service module for cursor-paginated audit records.",
+      "expected_output": "Routes to ada, follows Alire/GNAT project conventions, implements stable pagination, uses explicit types, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 149,
+      "prompt": "Implement an Ada webhook verifier that checks signatures before parsing payload data.",
+      "expected_output": "Routes to ada, validates signatures before side effects, uses explicit status results, and tests invalid signatures.",
+      "files": []
+    },
+    {
+      "id": 150,
+      "prompt": "Create a SPARK-friendly Ada function for validating transaction limits with range constraints.",
+      "expected_output": "Routes to ada, preserves proof-friendly structure, uses range constraints and preconditions, and adds boundary tests.",
+      "files": []
+    },
+    {
+      "id": 151,
+      "prompt": "Add an Ada background service that retries transient export failures and records permanent failures.",
+      "expected_output": "Routes to ada, follows service conventions, classifies retry behavior, handles errors explicitly, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 152,
+      "prompt": "Implement an Ada readiness check that verifies database connectivity with timeout handling.",
+      "expected_output": "Routes to ada, follows existing service conventions, handles timeouts explicitly, maps failures cleanly, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 153,
+      "prompt": "Create a MATLAB Production Server function that scores fraud risk with input table validation.",
+      "expected_output": "Routes to matlab, separates computation from service wrapper, validates table schema, preserves numeric assumptions, and adds MATLAB tests.",
+      "files": []
+    },
+    {
+      "id": 154,
+      "prompt": "Add a MATLAB batch worker that processes daily sensor files and rejects invalid units.",
+      "expected_output": "Routes to matlab, validates file inputs and units, keeps I/O separate from computation, and adds fixture-based tests.",
+      "files": []
+    },
+    {
+      "id": 155,
+      "prompt": "Implement a MATLAB function for demand forecasting with deterministic model loading and tolerance tests.",
+      "expected_output": "Routes to matlab, keeps model loading reproducible, validates numeric ranges, and adds tolerance-sensitive tests.",
+      "files": []
+    },
+    {
+      "id": 156,
+      "prompt": "Add a MATLAB API wrapper that returns explicit error structs for invalid matrix dimensions.",
+      "expected_output": "Routes to matlab, validates dimensions, avoids hidden workspace state, returns explicit errors, and tests invalid shapes.",
+      "files": []
+    },
+    {
+      "id": 157,
+      "prompt": "Create a MATLAB service function for exporting model metrics to JSON with explicit NaN handling.",
+      "expected_output": "Routes to matlab, handles NaN and missing values deliberately, keeps serialization explicit, and adds tests.",
+      "files": []
+    },
+    {
+      "id": 158,
+      "prompt": "Implement a MATLAB toolbox function that normalizes claims data before a backend job stores it.",
+      "expected_output": "Routes to matlab, validates table schemas and missing values, separates transformation logic, and adds unit tests.",
+      "files": []
+    },
+    {
+      "id": 159,
+      "prompt": "Add a MATLAB worker entry point that is idempotent when reprocessing the same reporting date.",
+      "expected_output": "Routes to matlab, follows batch conventions, validates dates, makes idempotency explicit, and tests rerun behavior.",
+      "files": []
+    },
+    {
+      "id": 160,
+      "prompt": "Build a MATLAB function called from a Java backend that documents type conversion and output ownership assumptions.",
+      "expected_output": "Routes to matlab, keeps runtime boundary conversions explicit, validates inputs, preserves deterministic outputs, and adds wrapper tests.",
+      "files": []
+    }
+  ]
+}

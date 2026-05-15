@@ -1,0 +1,125 @@
+{
+  "skill_name": "creator-rule",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a CLI-agent rule for our Node service: use pnpm, run `pnpm lint` and `pnpm test` before finalizing, never edit `src/generated/**`, and update OpenAPI docs when changing `src/routes/**`.",
+      "expected_output": "A playbook-compatible `.agents/rules/*.md` rule with front matter, precise globs, direct imperatives, and no generic filler.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Improve this AGENTS.md rule: 'Make the code good and test it.' It should be suitable for a Python CLI project using ruff, pyright, pytest, and src-layout packaging.",
+      "expected_output": "A rewritten, concrete AGENTS.md-ready instruction section or modular rule with exact commands, packaging paths, and clear verification behavior.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Write a Claude Code path-scoped rule for React components under `apps/web/src/components/**`. It should cover accessibility, Testing Library locator choices, and avoiding manual timeouts in Playwright tests.",
+      "expected_output": "A Claude-compatible `.claude/rules/*.md` rule with path front matter, scoped React guidance, accessibility requirements, and stable test locator guidance.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Create a `.agents/rules/security.md` rule for a SaaS backend. Agents must never read `.env`, must not print secrets, must ask before running production migrations, and must redact tokens in logs or final responses.",
+      "expected_output": "A high or critical priority security rule with clear secret-handling, production-safety, and redaction instructions.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Draft a Cursor rule for files under `packages/mobile/**`. The project is React Native, uses Expo, NativeWind, Jest, and Detox. Prefer existing shared components from `packages/ui`.",
+      "expected_output": "A Cursor-compatible, path-scoped rule that includes React Native tooling, test expectations, and shared component reuse.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Write repository custom instructions for GitHub Copilot for a Go service. Include `make fmt`, `make test`, generated protobuf handling, and the rule that public API changes require docs updates.",
+      "expected_output": "A concise `.github/copilot-instructions.md` style instruction set with concrete make commands, protobuf workflow, and API documentation requirements.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Turn this into a modular rule: 'Don't touch migrations unless the user asks.' Add nuance for reviewing migrations, creating migrations, and rollback notes.",
+      "expected_output": "A focused database-migrations rule that distinguishes reading/reviewing from editing/creating and requires rollback notes for changes.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Create an always-on AGENTS.md section for a Rust workspace. Use `cargo fmt`, `cargo clippy --all-targets --all-features`, `cargo test`, and keep public API changes reflected in crate docs.",
+      "expected_output": "An AGENTS.md-ready section with exact Rust commands, workspace scope, and documentation requirements.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Improve this rule without making it longer than necessary: 'Use tests.' The repo is a Rails app using RSpec, FactoryBot, and system specs with Capybara.",
+      "expected_output": "A concise, concrete testing rule for Rails that names RSpec, FactoryBot, relevant spec locations, and when to add system specs.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "Write a path-scoped rule for Terraform under `infra/**`: run fmt and validate, never apply changes, and call out state or provider changes before finalizing.",
+      "expected_output": "A Terraform-specific rule with `infra/**` scope, safe command boundaries, no apply behavior, and state/provider change reporting.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "Create a monorepo rule for package boundaries: apps may import from packages, packages must not import from apps, and shared utilities belong in `packages/shared`.",
+      "expected_output": "A modular architecture rule with clear import-boundary imperatives and applicable monorepo globs.",
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "Write a rule for generated client code: do not edit `clients/generated/**`; update `openapi.yaml` and run `npm run generate:clients` instead.",
+      "expected_output": "A focused generated-code rule with precise paths, source-of-truth file, generator command, and direct prohibition on manual edits.",
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "We need a rule for code review agents: findings first, severity labels, file/line references, no praise sandwich, and include test gaps when no issues are found.",
+      "expected_output": "A code-review rule that defines review structure, severity behavior, location references, and no-issue/test-gap handling.",
+      "files": []
+    },
+    {
+      "id": 14,
+      "prompt": "Create a rule for docs-only changes. Agents should not run the full test suite for Markdown-only edits, but should check links and update the docs index when new pages are added.",
+      "expected_output": "A docs workflow rule that scopes Markdown/docs files, avoids unnecessary full tests, and requires link/index checks.",
+      "files": []
+    },
+    {
+      "id": 15,
+      "prompt": "Rewrite this vague rule into a CLI-agent instruction file: 'Use our style.' Context: TypeScript strict mode, ESLint, Prettier, named exports, and no default exports from shared libraries.",
+      "expected_output": "A concrete TypeScript style rule with strict mode, lint/format expectations, named exports, and shared-library default-export constraints.",
+      "files": []
+    },
+    {
+      "id": 16,
+      "prompt": "Create a rule for package managers: this repo uses `pnpm-lock.yaml`; agents must not create `package-lock.json` or `yarn.lock`, and must use `pnpm install` for dependency changes.",
+      "expected_output": "A package-manager rule that names the lockfile source of truth, forbids competing lockfiles, and gives the correct install command.",
+      "files": []
+    },
+    {
+      "id": 17,
+      "prompt": "Write a rule for AI agents working on a Django app: use existing service-layer functions, keep views thin, add migrations for model changes, and run targeted pytest paths.",
+      "expected_output": "A Django rule with architecture guidance, migration behavior, and concrete targeted pytest verification.",
+      "files": []
+    },
+    {
+      "id": 18,
+      "prompt": "Create a rule for frontend visual changes: use existing design tokens, avoid one-off colors, verify responsive layout, and include a screenshot note in the final response.",
+      "expected_output": "A frontend UI rule that covers design-token reuse, responsive verification, and final screenshot/visual QA reporting.",
+      "files": []
+    },
+    {
+      "id": 19,
+      "prompt": "The existing instruction says agents should always run `npm test`, but the user asks for a new rule saying never run tests. Produce the right response.",
+      "expected_output": "A response that detects the conflict, explains it clearly, and asks one concise clarification or proposes updating the existing rule deliberately.",
+      "files": []
+    },
+    {
+      "id": 20,
+      "prompt": "Create a local-only personal rule for an agent: use my local staging URL `http://localhost:5173`, never commit it, and keep it out of shared project instructions.",
+      "expected_output": "A local-scope instruction that keeps personal environment details out of shared files and avoids committing machine-specific configuration.",
+      "files": []
+    }
+  ]
+}

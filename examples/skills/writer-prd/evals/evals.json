@@ -1,0 +1,76 @@
+{
+  "skill_name": "writer-prd",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a PRD for workspace-level audit logs in our B2B SaaS admin console. Enterprise admins need to see who changed settings, exports must be available for compliance, and the goal is to reduce support tickets about unexplained changes.",
+      "expected_output": "A structured PRD with problem, goals, target users, scope, functional requirements, NFR summary, assumptions, open questions, and clearly marked inferred details.",
+      "files": [],
+      "expectations": [
+        "Output uses the PRD template with a level-1 PRD title",
+        "Problem statement explains the admin/compliance pain",
+        "Target users include enterprise admins or compliance users",
+        "Functional requirements cover viewing, filtering, and exporting audit logs",
+        "Success metrics or goals mention support-ticket reduction or audit/compliance outcomes",
+        "Assumptions or inferred details are marked with [assumed]",
+        "Out-of-scope items are included or explicitly omitted with rationale"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Turn this rough idea into a PRD: mobile push notifications for marketplace sellers when a buyer asks a question. We care about faster seller response time. Keep it lean because this is for sprint planning.",
+      "expected_output": "A lean PRD calibrated to sparse input, with concise goals, personas, requirements, metrics, and open questions.",
+      "files": [],
+      "expectations": [
+        "Output is concise and calibrated for sprint planning",
+        "Problem statement focuses on seller response time",
+        "Personas include marketplace sellers and buyers or buyer impact",
+        "Requirements cover notification trigger, delivery preferences, and deep-link behavior",
+        "Metrics include seller response time or related engagement metric",
+        "Open questions capture missing platform, opt-out, or notification policy details"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Improve this PRD draft without adding implementation details: 'Feature: saved filters. Users can save filters. It should be good.' The product is an analytics dashboard used by customer success managers.",
+      "expected_output": "A rewritten PRD that expands the vague draft into testable product requirements while avoiding technical implementation details.",
+      "files": [],
+      "expectations": [
+        "Output reframes the vague draft into a complete PRD",
+        "Requirements are product behavior, not implementation details",
+        "Target persona is customer success manager or equivalent",
+        "Scope covers creating, applying, updating, and deleting saved filters",
+        "Acceptance-relevant requirements are specific and testable",
+        "Inferred details are marked with [assumed]"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Write a PRD for deprecating our legacy CSV import flow and replacing it with a guided import wizard. Include rollout risks and what is explicitly out of scope.",
+      "expected_output": "A PRD for a migration-style product change with scope, non-goals, rollout risks, requirements, success criteria, and open questions.",
+      "files": [],
+      "expectations": [
+        "Scope distinguishes replacement wizard work from legacy deprecation work",
+        "Out-of-scope section is present and concrete",
+        "Functional requirements cover upload, mapping, validation, error handling, and completion",
+        "Risks or dependencies mention migration, user education, or data compatibility",
+        "Success criteria include import completion or error-rate metrics",
+        "Open questions identify unresolved rollout or compatibility details"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Create a product brief/PRD for adding OKR-linked dashboards for executives. The initiative must tie to the company objective 'Improve net revenue retention by 5 points'.",
+      "expected_output": "A PRD or product brief that ties goals and requirements to the stated company OKR and executive dashboard use case.",
+      "files": [],
+      "expectations": [
+        "Output includes the stated company objective",
+        "Goals connect dashboard usage to net revenue retention",
+        "Target users include executives or leadership stakeholders",
+        "Requirements cover OKR-linked metrics, dashboard views, and drill-down or reporting behavior",
+        "Success metrics include NRR or leading indicators",
+        "Assumptions and dependencies are separated from requirements"
+      ]
+    }
+  ]
+}

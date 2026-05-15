@@ -1,0 +1,85 @@
+{
+  "skill_name": "writer-user-story",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a user story for password reset via email for a web app, then break it into developer tasks. The tech stack is Node.js with Express and PostgreSQL.",
+      "expected_output": "A user story in As a / I want / So that format with acceptance criteria in Given/When/Then format, followed by a table of developer tasks with effort estimates and file hints.",
+      "files": [],
+      "expectations": [
+        "Story uses 'As a / I want / So that' format",
+        "Acceptance criteria use 'Given / When / Then' format",
+        "At least one AC covers the error scenario (unregistered email or expired link)",
+        "Developer tasks are in a table with at least 4 rows",
+        "Each task row includes an effort estimate (XS/S/M/L or similar)",
+        "At least one task row includes a file path or module hint",
+        "Story includes a story points estimate"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Create user stories for a shopping cart feature in a React + Python FastAPI e-commerce app. Users should be able to add items, update quantities, remove items, and proceed to checkout.",
+      "expected_output": "Multiple user stories (one per action or grouped logically) with acceptance criteria and developer task breakdowns.",
+      "files": [],
+      "expectations": [
+        "Output contains at least 2 separate user stories",
+        "Each story has its own acceptance criteria section",
+        "Stories cover at least add-to-cart and checkout or remove-from-cart scenarios",
+        "Developer tasks reference relevant frontend and backend files or modules",
+        "Each story has a story points estimate"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Write a Jira story for admins inviting teammates to a workspace. Include acceptance criteria and implementation tasks for a Rails app with Hotwire.",
+      "expected_output": "A Jira-ready user story with Given/When/Then acceptance criteria and Rails/Hotwire developer tasks.",
+      "files": [],
+      "expectations": [
+        "Story uses As a / I want / so that format",
+        "Acceptance criteria cover successful invite and invalid email or duplicate invite",
+        "Developer tasks include Rails model/controller/mailer or equivalent modules",
+        "Developer tasks include Hotwire/UI work",
+        "Story points and priority are included"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Break the feature 'bulk export invoices to CSV' into user stories and developer tasks. The system is a Laravel app.",
+      "expected_output": "One or more user stories for bulk invoice export with acceptance criteria, definition of done, and Laravel file/module hints.",
+      "files": [],
+      "expectations": [
+        "Output contains at least one user story focused on user value",
+        "Acceptance criteria include export success and empty/error states",
+        "Developer tasks reference Laravel controllers, jobs, policies, or tests",
+        "Tasks include effort estimates",
+        "Definition of Done is included"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Create acceptance criteria and tasks for enabling SSO enforcement for enterprise workspaces. You can infer reasonable details, but mark assumptions.",
+      "expected_output": "A user story or stories with explicit assumptions, SSO enforcement acceptance criteria, and concrete developer tasks.",
+      "files": [],
+      "expectations": [
+        "Assumptions are marked clearly",
+        "Acceptance criteria cover enforcement, exceptions, and user messaging",
+        "Developer tasks include backend authorization/configuration work",
+        "Developer tasks include UI/admin settings work",
+        "Security or rollout considerations are included"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "We are planning a sprint. Turn 'improve search relevance' into a story with tasks, but keep it small enough for one sprint.",
+      "expected_output": "A scoped sprint-sized story with acceptance criteria and tasks that avoid turning the request into an unbounded search overhaul.",
+      "files": [],
+      "expectations": [
+        "Scope is constrained to a sprint-sized increment",
+        "Story identifies a concrete user value",
+        "Acceptance criteria are measurable",
+        "Tasks are concrete and sequenced",
+        "Output avoids broad epic-level decomposition"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "skill_name": "creator-skill",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Create a new skill for writing incident postmortems. It should trigger on postmortem, incident review, RCA, and retrospective requests. Include a concise SKILL.md and any references you think are needed.",
+      "expected_output": "A new skill folder design with concise metadata, a focused SKILL.md body, and references only where they reduce main-file size.",
+      "files": [],
+      "expectations": [
+        "Metadata/frontmatter is kept under 100 tokens",
+        "Instruction body is kept under 5000 tokens",
+        "Trigger cues are in the description, not scattered only in the body",
+        "References are added only for meaningful detail",
+        "No placeholder directories are created"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "This existing skill has a 7000-token SKILL.md with sections for AWS, GCP, Azure, Kubernetes, and Terraform. Refactor it without changing what it can do.",
+      "expected_output": "A router-style refactor plan or patch that keeps the main SKILL.md concise and moves provider-specific guidance into references.",
+      "files": [],
+      "expectations": [
+        "Identifies the main body length violation",
+        "Keeps the skill as a router rather than flattening all guidance",
+        "Moves provider-specific details into separate references",
+        "Preserves existing capability and trigger intent",
+        "Main SKILL.md remains under the instruction budget"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Generate eval cases for a router skill that writes docs: README, API docs, changelog, release notes, and runbooks. Include confusing near-misses.",
+      "expected_output": "An eval set with route coverage, realistic prompts, expected outputs, and near-miss cases that test routing boundaries.",
+      "files": [],
+      "expectations": [
+        "Includes multiple eval prompts per route or explains coverage tradeoff",
+        "Includes near-miss prompts that could route incorrectly",
+        "Each eval has expected_output and files fields",
+        "Expectations are objectively gradeable",
+        "Eval file belongs inside the skill folder"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Optimize this skill description for trigger accuracy. The skill generates database schemas and SQL queries. Make sure the resulting metadata stays within the new budget.",
+      "expected_output": "A concise optimized description and a trigger-eval approach that respects the metadata length budget.",
+      "files": [],
+      "expectations": [
+        "Description stays under 100 tokens",
+        "Description includes core trigger intent",
+        "Does not include a long keyword inventory",
+        "Suggests should-trigger and should-not-trigger evals",
+        "Avoids model/runtime overrides unless requested"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Package this completed skill and explain what should be validated first. The skill has scripts, references, and evals.",
+      "expected_output": "A packaging workflow that validates the skill, preserves canonical SKILL.md structure, and uses the packaging script when available.",
+      "files": [],
+      "expectations": [
+        "Runs or recommends quick validation before packaging",
+        "Uses scripts/package_skill.py when available",
+        "Preserves the original skill name",
+        "Does not package stale iteration output unnecessarily",
+        "Reports the resulting artifact path or blocker"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,145 @@
+{
+  "skill_name": "design-api",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Design a REST API for a blog platform. It needs endpoints for creating, reading, updating, and deleting blog posts. Posts have a title, body, author, tags, and published status. Include authentication.",
+      "expected_output": "A complete OpenAPI 3.1 YAML specification with CRUD paths for posts, concrete schemas, auth, cursor pagination, idempotency where useful, and standard error responses.",
+      "files": [],
+      "expectations": [
+        "Output starts with or contains openapi: \"3.1.0\"",
+        "CRUD paths for posts are defined",
+        "Post, create request, and update request schemas include concrete fields",
+        "List endpoint uses cursor-style pagination or explicitly justifies another pagination style",
+        "Authentication security scheme is defined",
+        "Shared ErrorResponse schema is referenced by error responses"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Design an API for a task management app. Users can create projects, add tasks to projects, assign tasks to team members, and update task status. Use OpenAPI.",
+      "expected_output": "OpenAPI YAML with project and task resources, assignment and status operations, concrete schemas, enums, path parameters, and errors.",
+      "files": [],
+      "expectations": [
+        "Output is OpenAPI YAML",
+        "Project and Task schemas are defined",
+        "Task assignment operation is defined",
+        "Task status is represented as an enum",
+        "All path parameters include schema definitions",
+        "Operations include success and error responses"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Create an AsyncAPI contract for order lifecycle events over Kafka. The service publishes order.created, order.paid, and order.cancelled events. Consumers need customer id, line items, totals, and timestamps.",
+      "expected_output": "AsyncAPI 2.6 YAML with Kafka server, order lifecycle channels/messages, concrete payload schemas, event envelope, and reliability notes.",
+      "files": [],
+      "expectations": [
+        "Output starts with or contains asyncapi: \"2.6.0\"",
+        "Kafka server is defined",
+        "Channels or messages cover created, paid, and cancelled order events",
+        "Payload schemas include customer id, line items, totals, and timestamps",
+        "Event metadata includes event id and occurred timestamp",
+        "No OpenAPI paths section is used"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Define a GraphQL API for a commerce catalog. Clients need to query products by category, search products, view variants, and create product reviews.",
+      "expected_output": "GraphQL SDL with Query, Mutation, product/category/variant/review types, inputs, pagination, and concise operation notes.",
+      "files": [],
+      "expectations": [
+        "Output contains GraphQL SDL rather than OpenAPI YAML",
+        "Query type supports product category browsing or search",
+        "Mutation type supports creating product reviews",
+        "Product, Category, Variant, and Review types are defined",
+        "Pagination types or connection pattern are included",
+        "Operation notes mention auth or resolver considerations"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "What should the API look like for uploading documents, checking processing status, and downloading extracted text? Assume REST unless you strongly disagree.",
+      "expected_output": "OpenAPI 3.1 YAML for document upload/status/download with multipart upload, status enum, response schemas, errors, and stated REST assumption.",
+      "files": [],
+      "expectations": [
+        "Output chooses OpenAPI",
+        "REST assumption is stated once",
+        "Upload endpoint supports multipart or binary content",
+        "Processing status schema includes an enum",
+        "Download or extracted text retrieval endpoint is defined",
+        "Error responses use a shared schema"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Design a WebSocket event API for live shipment tracking. Clients subscribe to location updates, delay alerts, and delivery confirmation events.",
+      "expected_output": "AsyncAPI 2.6 YAML for WebSocket channels/messages with shipment event payloads, concrete schemas, and subscription direction.",
+      "files": [],
+      "expectations": [
+        "Output is AsyncAPI",
+        "WebSocket protocol is represented",
+        "Location update, delay alert, and delivery confirmation messages are defined",
+        "Shipment payload schemas include concrete location and status fields",
+        "Publish/subscribe direction is clear",
+        "No REST CRUD paths are used"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Write the Swagger spec for a billing API with customers, invoices, invoice payment, refunds, and webhook registration. Use API keys.",
+      "expected_output": "OpenAPI 3.1 YAML with billing resources, API key auth, payment/refund operations, webhook registration, schemas, and errors.",
+      "files": [],
+      "expectations": [
+        "Output is OpenAPI YAML",
+        "API key security scheme is defined",
+        "Customer and Invoice schemas are defined",
+        "Payment and refund operations are included",
+        "Webhook registration path or schema is included",
+        "Money fields avoid floating point ambiguity or define decimal handling"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Design an AsyncAPI spec for user account events: user.registered, user.email_verified, user.deleted. Include compatibility guidance for consumers.",
+      "expected_output": "AsyncAPI 2.6 YAML with account event messages, concrete user payload schemas, envelope metadata, and compatibility notes.",
+      "files": [],
+      "expectations": [
+        "Output is AsyncAPI YAML",
+        "All three user event types are represented",
+        "User payload schemas include concrete fields",
+        "Event envelope metadata is present",
+        "Compatibility or versioning guidance is included",
+        "No empty payload schemas are emitted"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Create a GraphQL contract for team collaboration: organizations have teams, teams have members, members can be invited, removed, and assigned roles.",
+      "expected_output": "GraphQL SDL with organization/team/member types, role enum, invite/remove/assign mutations, inputs, errors, and auth notes.",
+      "files": [],
+      "expectations": [
+        "Output contains GraphQL SDL",
+        "Organization, Team, and Member types are defined",
+        "Role enum is defined",
+        "Mutations cover invite, removal, and role assignment",
+        "Mutation payloads include user errors or equivalent error shape",
+        "Auth boundaries are noted"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Design a public API contract for a notification service. It needs REST endpoints for templates and subscriptions, plus events when notifications are delivered or bounced.",
+      "expected_output": "A mixed contract with OpenAPI for REST resources and AsyncAPI for delivery/bounce events, clearly separated and concrete.",
+      "files": [],
+      "expectations": [
+        "Output includes both OpenAPI and AsyncAPI sections",
+        "REST resources cover templates and subscriptions",
+        "Async events cover delivered and bounced notifications",
+        "Schemas are concrete and domain-specific",
+        "The two contract styles are clearly separated",
+        "Shared identifiers are consistent across REST and event payloads"
+      ]
+    }
+  ]
+}

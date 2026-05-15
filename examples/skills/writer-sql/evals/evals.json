@@ -1,0 +1,117 @@
+{
+  "skill_name": "writer-sql",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Write a PostgreSQL query to find the top 10 customers by total order value in the last 90 days, including their email, number of orders, and total spent. Exclude customers who have been deleted (soft delete). Use a CTE.",
+      "expected_output": "A well-formatted PostgreSQL query using CTEs, proper aggregation, soft-delete filtering, and a LIMIT clause, with comments explaining the approach.",
+      "files": [],
+      "expectations": [
+        "Query uses a WITH clause (CTE)",
+        "Query filters deleted_at IS NULL for soft-delete support",
+        "Query uses a date filter for the 90-day window using NOW() or CURRENT_TIMESTAMP",
+        "Query aggregates with COUNT for order count and SUM for total value",
+        "Query uses GROUP BY and ORDER BY with LIMIT 10",
+        "Query includes a comment explaining the index(es) it benefits from",
+        "SQL keywords are in UPPERCASE",
+        "No SELECT * is used"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "I need a MySQL upsert query. When a user logs in, I want to insert a login_events record or, if a record for that user and date already exists, increment the login_count column.",
+      "expected_output": "A MySQL INSERT ... ON DUPLICATE KEY UPDATE query for the described upsert behavior.",
+      "files": [],
+      "expectations": [
+        "Query uses INSERT INTO ... ON DUPLICATE KEY UPDATE syntax",
+        "The UPDATE clause increments login_count using VALUES() or direct expression",
+        "Query uses parameterized placeholders (? or :named)",
+        "Output explains what UNIQUE constraint must exist for the upsert to work",
+        "SQL keywords are in UPPERCASE"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Design a PostgreSQL schema for a multi-tenant SaaS application with users, organizations, and roles. Users belong to organizations and have roles within them. Support soft deletes.",
+      "expected_output": "PostgreSQL DDL with CREATE TABLE statements for organizations, users, roles, and a junction table, using UUIDs, TIMESTAMPTZ, proper FKs with ON DELETE behavior, and indexes.",
+      "files": [],
+      "expectations": [
+        "Output contains SQL CREATE TABLE statements",
+        "Tables use UUID primary keys with DEFAULT uuid_generate_v4() or gen_random_uuid()",
+        "All tables include created_at and updated_at TIMESTAMPTZ columns",
+        "At least one table includes deleted_at for soft delete support",
+        "A junction table exists for the many-to-many user-organization-role relationship",
+        "Foreign key constraints include explicit ON DELETE behavior",
+        "Indexes are created on all foreign key columns",
+        "Constraint names follow a consistent naming convention"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Design a database schema for an e-commerce platform: products, categories (hierarchical), orders, order items, and customers. Use PostgreSQL.",
+      "expected_output": "PostgreSQL DDL covering all 5 entities with proper relationships, a self-referential FK for hierarchical categories, numeric types for money, and relevant indexes.",
+      "files": [],
+      "expectations": [
+        "Output contains CREATE TABLE statements for all 5 entities",
+        "categories table has a self-referential parent_id foreign key for hierarchy",
+        "Price/amount columns use NUMERIC type (not FLOAT or REAL)",
+        "orders and order_items tables are properly related with a FK",
+        "An index exists on order_items.order_id",
+        "Entity-relationship overview or comment section explains relationships"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Optimize this slow PostgreSQL query that joins orders, customers, and payments, filters by paid_at, and sorts by created_at. Explain indexes and rewrite if useful.",
+      "expected_output": "A query-optimization response with rewritten SQL where useful, index recommendations, and explanation of tradeoffs.",
+      "files": [],
+      "expectations": [
+        "Routes to query-writing/common guidance rather than schema design",
+        "Mentions EXPLAIN or execution-plan validation",
+        "Recommends indexes aligned with joins, filters, or sort order",
+        "Avoids SELECT * in rewritten query",
+        "Explains tradeoffs or assumptions"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Write a SQLite query to calculate a 7-day rolling average of daily active users from an events table.",
+      "expected_output": "SQLite-compatible SQL using date grouping and a window function or clear alternative for rolling average.",
+      "files": [],
+      "expectations": [
+        "Detects SQLite dialect",
+        "Uses SQLite-compatible date functions",
+        "Groups events by day",
+        "Calculates a 7-day rolling average",
+        "Uses readable aliases and no dialect-incompatible syntax"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Design a normalized schema for a library system with books, authors, patrons, loans, reservations, and late fees. Use MySQL.",
+      "expected_output": "MySQL DDL for a normalized library schema with relationships, constraints, indexes, and money/date types appropriate for MySQL.",
+      "files": [],
+      "expectations": [
+        "Routes to schema design guidance",
+        "Output contains MySQL-compatible CREATE TABLE statements",
+        "Many-to-many book/author relationship is normalized",
+        "Loans and reservations reference patrons and book copies or books",
+        "Late fees use a decimal money type",
+        "Indexes exist on foreign keys"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "How do I query customers who bought product A but never bought product B? Show a portable SQL version.",
+      "expected_output": "A portable SQL query using EXISTS/NOT EXISTS or equivalent set logic with explanation.",
+      "files": [],
+      "expectations": [
+        "Routes to common query guidance",
+        "Uses NOT EXISTS or equivalent anti-join logic",
+        "Avoids dialect-specific syntax unless noted",
+        "Explains assumptions about orders/order_items/products tables",
+        "Uses clear table aliases"
+      ]
+    }
+  ]
+}

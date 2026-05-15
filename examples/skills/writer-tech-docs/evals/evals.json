@@ -1,0 +1,185 @@
+{
+  "skill_name": "writer-tech-docs",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Document this Express route:\n```typescript\nrouter.get('/users/:id', authMiddleware, async (req, res) => {\n  const user = await userService.findById(req.params.id);\n  if (!user) return res.status(404).json({ error: 'User not found' });\n  res.json({ id: user.id, email: user.email, name: user.name, role: user.role, createdAt: user.createdAt });\n});\n```",
+      "variant": "api-docs",
+      "expected_output": "API reference documentation for GET /users/:id including path parameter table, authentication required note, response body schema, error responses, and a curl example.",
+      "files": [],
+      "expectations": [
+        "Detects api-docs variant from 'document this route' keyword",
+        "Documents GET /users/:id as the endpoint",
+        "Path parameter 'id' is documented with type and description",
+        "Authentication requirement is noted",
+        "Response body is documented with all fields (id, email, name, role, createdAt) and types",
+        "404 error response is documented",
+        "401 error response is documented (due to authMiddleware)",
+        "Includes a curl example"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Write API documentation for our payments API. We have: POST /payments (creates a payment with amount, currency, source), GET /payments/:id (get payment status), POST /payments/:id/refund (refund a payment). Auth is via API key in x-api-key header.",
+      "variant": "api-docs",
+      "expected_output": "Structured API reference with Authentication section (API key) and documentation for all three endpoints.",
+      "files": [],
+      "expectations": [
+        "Detects api-docs variant from 'API documentation' keyword",
+        "Authentication section documents x-api-key header",
+        "POST /payments documents amount, currency, source request fields",
+        "GET /payments/:id documents the payment status response",
+        "POST /payments/:id/refund is documented with appropriate request/response",
+        "Error responses are documented for each endpoint",
+        "At least one curl example is provided per endpoint"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Generate a changelog for v1.2.0. Commits: 'feat: add CSV export', 'fix: resolve null pointer on login', 'chore: update deps', 'docs: fix typo in readme'. Follow Keep a Changelog format.",
+      "variant": "changelog",
+      "expected_output": "A Keep a Changelog formatted markdown document.",
+      "files": [],
+      "expectations": [
+        "Detects changelog variant from 'changelog' and 'Keep a Changelog' keywords",
+        "Uses the standard Keep a Changelog header and structure",
+        "Groups 'add CSV export' under '### Added'",
+        "Groups 'resolve null pointer on login' under '### Fixed'",
+        "Omits or minimizes 'chore' and 'docs' if they aren't user/developer facing",
+        "Includes the version number and date"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Write a changelog entry for a major release (v3.0.0). We removed the old /v1 API endpoints and changed the default authentication method to JWT. Also fixed a memory leak.",
+      "variant": "changelog",
+      "expected_output": "Changelog entry highlighting breaking changes.",
+      "files": [],
+      "expectations": [
+        "Detects changelog variant from 'changelog' keyword",
+        "Prominently displays a 'Breaking Changes' warning",
+        "Groups the API removal under '### Removed'",
+        "Groups the authentication change under '### Changed'",
+        "Groups the memory leak under '### Fixed'",
+        "Advises developers to read a migration guide"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Write a README for an open source CLI tool called 'dbsnap' that takes a PostgreSQL database snapshot and uploads it to S3. It's written in Go. Usage: dbsnap --db-url=<url> --bucket=<s3-bucket> [--compress]",
+      "variant": "readme",
+      "expected_output": "A professional README.md with project overview, installation, quick start, CLI flags, and contributing section.",
+      "files": [],
+      "expectations": [
+        "Detects readme variant from 'README' keyword",
+        "README has a level-1 heading with the project name 'dbsnap'",
+        "First paragraph or quote line describes what the tool does in one sentence",
+        "Installation section includes 'go install' or binary download instructions",
+        "Quick start shows a working command-line example with the flags mentioned",
+        "CLI flags (--db-url, --bucket, --compress) are documented in a table or list",
+        "License and Contributing sections are present for open source",
+        "No unexpanded placeholder text like '[YOUR_VALUE]' remains in the output"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Write a README for a React component library called 'ui-kit' published to npm. It provides Button, Modal, and Table components. TypeScript support included.",
+      "variant": "readme",
+      "expected_output": "A library-focused README with npm install instructions, a quick code example, component API table, and TypeScript note.",
+      "files": [],
+      "expectations": [
+        "Detects readme variant from 'README' keyword",
+        "README has a level-1 heading with 'ui-kit' or similar name",
+        "Installation shows 'npm install' command",
+        "A code example is shown in the first screenful (within first 30 lines of output)",
+        "At least Button, Modal, and Table components are mentioned",
+        "TypeScript support is noted",
+        "README is targeted at developers consuming the library (not contributors only)"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Write user-facing release notes for v2.1.0 of our consumer mobile app. The technical changelog says: 'Reduced API latency by 40% via connection pooling', 'Fixed NPE in OrderService when order contains no items', and 'Added dark mode toggle'.",
+      "variant": "release-notes",
+      "expected_output": "User-friendly release notes suitable for an App Store.",
+      "files": [],
+      "expectations": [
+        "Detects release-notes variant from 'release notes' keyword",
+        "Translates 'Added dark mode toggle' into a compelling feature headline",
+        "Translates the latency reduction into user benefit ('App loads much faster now')",
+        "Translates the NPE fix into user language ('Fixed a crash when submitting an empty cart')",
+        "Uses a friendly tone, possibly with emojis, suitable for a consumer app"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Draft release notes for our enterprise SaaS dashboard update. It includes a breaking change where old API keys (v1) will stop working next month.",
+      "variant": "release-notes",
+      "expected_output": "Professional release notes emphasizing action required.",
+      "files": [],
+      "expectations": [
+        "Detects release-notes variant from 'release notes' keyword",
+        "Adopts a professional, formal tone suitable for enterprise users",
+        "Prominently features a 'Breaking Changes' or 'Action Required' section",
+        "Provides clear instructions on how users can migrate to the new API keys",
+        "Includes standard sections for new features and improvements"
+      ]
+    },
+    {
+      "id": 9,
+      "prompt": "Create an operational runbook for how to rotate the database password in our production PostgreSQL RDS instance without causing downtime.",
+      "variant": "runbook-routine",
+      "expected_output": "A step-by-step operational runbook.",
+      "files": [],
+      "expectations": [
+        "Detects runbook-routine variant from 'runbook' and operational language",
+        "Lists prerequisites (e.g., AWS CLI access, Secret Manager access)",
+        "Details the steps clearly (e.g., generate new password, update Secret Manager, restart app instances rolling)",
+        "Includes a verification step to confirm the new password works",
+        "Provides a rollback plan if the new password causes connection failures"
+      ]
+    },
+    {
+      "id": 10,
+      "prompt": "Document the procedure for restoring a single dropped table from a nightly pg_dump backup into a running database.",
+      "variant": "runbook-routine",
+      "expected_output": "A runbook for restoring a specific database table.",
+      "files": [],
+      "expectations": [
+        "Detects runbook-routine variant from 'procedure' and 'restoring' keywords",
+        "Provides the exact pg_restore commands with necessary flags (e.g., -t table_name)",
+        "Includes warnings about data consistency or foreign key constraints",
+        "Suggests restoring to a temporary database or schema first as a safety measure",
+        "Includes a verification step to check row counts"
+      ]
+    },
+    {
+      "id": 11,
+      "prompt": "Write an on-call runbook for the alert `HighLatencyP95` which triggers when the auth-service p95 response time exceeds 2 seconds. It's usually caused by the Redis cache being evicted or network issues.",
+      "variant": "runbook-oncall",
+      "expected_output": "An actionable on-call response runbook.",
+      "files": [],
+      "expectations": [
+        "Detects runbook-oncall variant from 'on-call runbook' and 'alert' keywords",
+        "Prioritizes immediate assessment and mitigation steps over deep context",
+        "Provides specific commands or dashboard links to check Redis hit rates and network latency",
+        "Lists quick mitigation options (e.g., scaling up Redis, scaling up the auth-service)",
+        "Includes escalation criteria (e.g., 'Escalate to Platform team if network latency is across all zones')"
+      ]
+    },
+    {
+      "id": 12,
+      "prompt": "What should the on-call runbook look like for an OutOfMemory (OOMKilled) alert on our Java background worker pods?",
+      "variant": "runbook-oncall",
+      "expected_output": "On-call runbook for diagnosing and mitigating Java OOM issues.",
+      "files": [],
+      "expectations": [
+        "Detects runbook-oncall variant from 'on-call runbook' and 'alert' keywords",
+        "Provides `kubectl` commands to check pod status and previous logs",
+        "Suggests checking JVM heap settings vs container memory limits",
+        "Provides a quick mitigation (e.g., restarting the pod or increasing the limit temporarily via scaling)",
+        "Advises capturing a heap dump for post-incident analysis if possible"
+      ]
+    }
+  ]
+}

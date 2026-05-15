@@ -1,0 +1,101 @@
+{
+  "skill_name": "codegen-test",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Add Playwright E2E tests for a login flow with a locked-account error state.",
+      "expected_output": "Routes to e2e, generates Playwright tests using stable selectors, covers success and locked-account failure, and includes run command.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Create Cypress smoke coverage for checkout: cart review, payment submit, and order confirmation.",
+      "expected_output": "Routes to e2e, generates Cypress tests for the checkout happy path with deterministic assertions and avoids brittle waits.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Write Supertest coverage for POST /api/invoices including validation and unauthorized cases.",
+      "expected_output": "Routes to api, generates Supertest tests for success, validation failure, and auth failure with realistic payloads.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Generate pytest API tests for a FastAPI users endpoint with duplicate-email handling.",
+      "expected_output": "Routes to api, uses pytest/client fixture style, covers create success and duplicate conflict behavior.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Build a Postman/Newman collection for our public status API and include CI-friendly environment variables.",
+      "expected_output": "Routes to api, produces a Postman/Newman collection structure with variableized base URL and response assertions.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Create a k6 load test for GET /search with p95 under 700ms and less than 1% failures.",
+      "expected_output": "Routes to perf, generates a k6 script with BASE_URL config, ramping scenario, checks, and requested thresholds.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Write a Locust test that models 80% browsing and 20% checkout traffic.",
+      "expected_output": "Routes to perf, generates Locust user tasks with weighted behavior, configurable host, and response validation.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Add tests for the password reset feature. It needs browser coverage for request, email-link landing, and invalid token.",
+      "expected_output": "Routes to e2e because browser journey is explicit, covers happy path and invalid token, and discusses test data setup.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Generate regression tests for the orders API from this OpenAPI fragment.",
+      "expected_output": "Routes to api, uses the OpenAPI contract as the source for realistic request and response assertions.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "Make sure the reports page can handle Monday morning traffic without p95 going over 1.2s.",
+      "expected_output": "Routes to perf, identifies a load/performance scenario, creates configurable script and percentile threshold.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "Create evals for our support chatbot so we can catch prompt regressions in refund-policy answers.",
+      "expected_output": "Routes to ai-output, creates output-quality eval cases with deterministic and rubric assertions, and includes a runner/report structure.",
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "Add RAG answer quality tests that verify citations point to the retrieved source chunks and unsupported claims fail.",
+      "expected_output": "Routes to ai-output, separates retrieval and answer-grounding assertions, and tests missing-context behavior.",
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "Build tool-use evals for an agent that should search files, patch one file, run tests, and stop.",
+      "expected_output": "Routes to ai-tool-use, defines fixture workspace, expected tool trace assertions, final-state checks, and max-call limits.",
+      "files": []
+    },
+    {
+      "id": 14,
+      "prompt": "Test that our agent recovers when the first tool call returns an empty result instead of pretending it found the answer.",
+      "expected_output": "Routes to ai-tool-use, creates mocked failure/empty tool responses and assertions for recovery behavior.",
+      "files": []
+    },
+    {
+      "id": 15,
+      "prompt": "Benchmark our AI code review assistant for p95 latency, token usage, and cost per passing review.",
+      "expected_output": "Routes to ai-perf, creates a benchmark harness that records latency, tokens, model/tool calls, cost, and quality pass/fail together.",
+      "files": []
+    },
+    {
+      "id": 16,
+      "prompt": "Compare two model versions for a background research agent and report throughput, retry rate, and quality-per-dollar.",
+      "expected_output": "Routes to ai-perf, generates multi-run benchmark cases with baseline comparison and quality-adjusted cost metrics.",
+      "files": []
+    }
+  ]
+}
