@@ -1,16 +1,8 @@
 ---
 name: codegen-test
 description: >
-  Generate production-ready automated test suites for applications and services. Use this
-  skill whenever the user asks to create, add, scaffold, or improve E2E tests, API tests,
-  integration tests, smoke tests, regression tests, performance tests, load tests, AI evals,
-  LLM output evals, tool-use evals, RAG evals, prompt regression tests, agent benchmarks,
-  cost/latency benchmarks, k6, Playwright, Cypress, Selenium, Supertest, Postman/Newman,
-  Locust, JMeter, test fixtures, page objects, test data, or CI-ready test scripts. Produces
-  source test files plus focused setup notes. For security testing, prompt-injection audits,
-  jailbreak tests, data exfiltration checks, or policy review use audit-security. For test
-  strategy documents use strategy-test; for framework installation from scratch use
-  setup-test-framework; for flaky-test diagnosis use audit-test-flaky.
+  Generate production-ready automated tests and evals. Use for E2E, API, integration,
+  performance, load, AI output, tool-use, RAG, prompt regression, and CI-ready test suites.
 author: Oleg Shulyakov
 license: MIT
 version: 1.0.0

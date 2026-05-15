@@ -1,14 +1,8 @@
 ---
 name: writer-tech-docs
 description: >
-  Produces technical documentation: README, API docs, runbooks (standard + on-call), changelogs,
-  and release notes. Detects the variant from keywords, file references, or user mention.
-  Trigger on any request about "README", "API documentation", "document these endpoints",
-  "runbook", "operational procedure", "on-call runbook", "alert response", "changelog",
-  "Keep a Changelog", "release notes", "what's new", "version announcement", "endpoint docs",
-  "API reference", "deploy procedure", "rotate secrets procedure", "how-to guide for operations",
-  "incident response playbook", "SRE runbook". Distinct from design-api (contract-first spec)
-  and writer-postmortem (incident postmortem).
+  Write technical docs. Use for READMEs, API docs, endpoint references, routine or on-call
+  runbooks, operational procedures, changelogs, and release notes.
 author: Oleg Shulyakov
 license: MIT
 version: 1.0.0

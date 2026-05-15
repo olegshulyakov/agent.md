@@ -1,12 +1,8 @@
 ---
 name: writer-user-story
 description: >
-  Produces user stories with acceptance criteria, then decomposes each story into concrete developer tasks
-  with file hints and effort estimates. Use this skill whenever the user wants to write a user story,
-  create acceptance criteria, break a feature into tasks, decompose a story into dev work, create a ticket,
-  write Jira/Linear/GitHub stories, create implementation tasks, or asks "how would we build X as stories?"
-  Also trigger when the user mentions sprint planning at the story level, story pointing, or task breakdown.
-  Distinct from writer-epic (which groups stories) and planner-sprint (which plans capacity).
+  Write user stories with acceptance criteria and developer tasks. Use for story writing,
+  Jira/Linear/GitHub tickets, task breakdowns, story points, and story-level sprint planning.
 author: Oleg Shulyakov
 license: MIT
 version: 1.0.0

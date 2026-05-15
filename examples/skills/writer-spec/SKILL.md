@@ -1,19 +1,8 @@
 ---
 name: writer-spec
 description: >
-  Use this skill whenever the user wants to write a spec, document system behavior, define requirements, or design a contract.
-  Triggers include:
-    - "write a spec",
-    - "write a tech spec",
-    - "write a design doc",
-    - "write a TDD",
-    - "functional requirements",
-    - "non-functional requirements",
-    - "NFR document",
-    - "data contract",
-    - "UI spec",
-    - "handoff doc",
-  "system requirements", "design specification", "what should the system do", "document this feature".
+  Write specs and requirements documents. Use for tech specs, design docs, TDDs, functional
+  or non-functional requirements, data contracts, UI specs, handoff docs, and system behavior.
 author: Oleg Shulyakov
 license: MIT
 version: 1.2.0

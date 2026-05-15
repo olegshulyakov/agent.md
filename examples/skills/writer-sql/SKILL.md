@@ -1,10 +1,8 @@
 ---
 name: writer-sql
 description: >
-  Router skill that covers all SQL tasks. Routes schema-design requests to `references/design.md`
-  and DML/query-writing requests to `references/common.md`. Triggers: "design a database", "write SQL",
-  "optimize this query", "how do I query Y", "generate SQL", "what tables do I need",
-  "design the data model", "normalize this schema".
+  Design database schemas and write or optimize SQL queries. Routes schema work, query writing,
+  dialect guidance, normalization, indexing, and troubleshooting to the right reference.
 author: Oleg Shulyakov
 license: MIT
 version: 1.1.0

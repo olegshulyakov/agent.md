@@ -1,10 +1,8 @@
 ---
 name: operator-git
 description: >
-  Use this skill whenever the user asks to name or create a Git branch, suggests a branch name for review,
-  mentions Git workflow tasks (starting a feature, fixing a bug, making a hotfix, preparing a release),
-  asks to write, generate, improve, or create a commit message, asks to commit staged changes,
-  or pastes a diff needing a commit.
+  Handle Git branch naming, branch actions, commit-message drafting, and committing staged changes.
+  Use for Git workflow tasks, branch review, commit requests, and diffs needing commit messages.
 author: Oleg Shulyakov
 license: MIT
 version: 1.1.0
