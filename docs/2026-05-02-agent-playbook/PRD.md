@@ -42,6 +42,7 @@ Currently, LLM agents lack a standardized, tool-agnostic way to maintain context
    1.1 The system shall define a standard `.agents/` folder schema (rules, skills, commands, agents, memory) with the following concrete layout: - `rules/` — e.g., `code-style.md`, `testing.md`, `security.md` - `skills/<name>/SKILL.md` — e.g., `on-new-file/SKILL.md`, `on-test-fail/SKILL.md` - `commands/` — e.g., `review.md`, `scaffold.md` - `agents/` — e.g., `architect.md`, `security-auditor.md` - `memory/MEMORY.md`
    1.2 The system shall specify the structure and purpose of the `AGENTS.md` file at the project root as the primary entry point.
    1.3 The system shall provide schemas for rules, skills, commands, subagents, and memory.
+   1.4 Skill schemas shall specify concise length budgets: metadata no more than 100 tokens, instructions no more than 5000 tokens.
 2. **Runtime Expectations**
    2.1 The system shall list requirements for runtimes to be considered compliant (e.g., auto-loading context, enforcing permissions, triggering skills).
 

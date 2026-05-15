@@ -91,6 +91,8 @@ Skills are the agent's reflexes — they trigger automatically based on events o
 - `skills/on-test-fail/SKILL.md` → triggers when CI fails
 - `skills/on-commit/SKILL.md` → triggers before/after a commit
 
+Keep skill metadata under 100 tokens and skill instructions under 5000 tokens so runtimes can load them predictably.
+
 ### `.agents/commands/` — Slash Commands
 
 Explicit, user-invoked operations. Registered by the runtime and exposed via its invocation interface.

@@ -111,6 +111,7 @@ Currently, LLM agents lack a standardized way to maintain context, rules, and me
 **Acceptance criteria:**
 
 - [ ] Skills execute defined actions (e.g., scaffolding test files).
+- [ ] Skill schemas document a metadata budget of no more than 100 tokens and an instruction-body budget of no more than 5000 tokens.
 
 ---
 

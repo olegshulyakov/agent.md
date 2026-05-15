@@ -177,6 +177,8 @@ Whenever a new `.ts` file is created in `src/`.
 #### Rules
 
 - Skills must define a `trigger` — either an `event` or a `pattern` (or both).
+- Skill metadata must stay concise: the complete frontmatter block should be no more than 100 tokens.
+- Skill instructions must stay focused: the Markdown body after frontmatter should be no more than 5000 tokens.
 - Skills should be idempotent — running them twice should not cause harm.
 - Skills may reference other files (rules, docs) in their workflow steps.
 - A skill that has no clear trigger should be a `command` instead.
