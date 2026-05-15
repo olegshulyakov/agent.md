@@ -25,12 +25,12 @@ Build a skill library that:
 | Team leads            | Consistent PR templates, postmortems, code review checklists            |
 | Product owners / BAs  | Structured PRDs, epics, stories with acceptance criteria                |
 | DBAs                  | Schema design, migrations, query optimization per dialect               |
-| AQA engineers         | E2E, API, and performance test generation per framework                 |
+| AQA engineers         | E2E, API, performance, and AI eval test generation per framework        |
 | DevOps / SRE          | CI/CD pipeline YAML, IaC, SLOs, runbooks                                |
 | Architects            | ADRs, C4 diagrams, system design docs                                   |
 | Scrum Masters         | Sprint plans, retro templates, velocity reports                         |
 | Security engineers    | Threat models, security audits, CVE triage reports                      |
-| Data / ML engineers   | ETL pipelines, dbt models, eval harnesses                               |
+| Data / ML engineers   | ETL pipelines, dbt models, AI output and performance eval harnesses     |
 
 ## Roles Covered
 
@@ -41,7 +41,7 @@ System Analyst, Product Owner, Product Manager, DBA, AQA, Team Lead, Scrum Maste
 ### In Scope
 
 - 66 skills across 14 prefix groups (see SPEC.md for full list)
-- Multi-variant router skills for frontend frameworks, backend languages, mobile platforms, and SQL dialects
+- Multi-variant router skills for frontend frameworks, backend languages, mobile platforms, SQL dialects, and test/eval categories
 - Each skill built and tested via `skill-creator`
 - Each skill packaged as a `.skill` file for distribution
 
@@ -57,6 +57,7 @@ System Analyst, Product Owner, Product Manager, DBA, AQA, Team Lead, Scrum Maste
 - No two skills have ambiguous trigger overlap (verified by description optimization)
 - Multi-variant router skills correctly identify and route to the right sub-reference without user specifying it
 - Each skill passes its eval suite with >80% assertion pass rate
+- AI eval skills measure output quality alongside operational metrics such as latency, token usage, and cost
 
 ## Non-Goals
 
@@ -70,6 +71,7 @@ System Analyst, Product Owner, Product Manager, DBA, AQA, Team Lead, Scrum Maste
 - Skills must follow the prefix-first naming convention (see SPEC.md)
 - Every skill must have at least 2 test cases in its `evals/evals.json`
 - Multi-variant router skills must detect the target variant from context, never ask unless ambiguous
+- AI safety, prompt-injection, jailbreak, and data-exfiltration testing belong to `audit-security`; `codegen-test` covers functional AI evals, tool-use evals, and AI performance benchmarks
 
 ## Build Priority
 

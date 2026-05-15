@@ -320,7 +320,7 @@ codegen-mobile/
 
 | Skill                  | Roles   | Output Artifact                                                  |
 | ---------------------- | ------- | ---------------------------------------------------------------- |
-| `codegen-test`         | AQA     | Test suite (E2E, API, Performance) with page objects and scripts |
+| `codegen-test`         | AQA     | Test suite (E2E, API, Performance, AI evals) with fixtures, scripts, and benchmark harnesses |
 | `strategy-test`        | AQA, QA | Test strategy: scope, types, coverage targets, tooling decisions |
 | `setup-test-framework` | AQA     | Test framework setup: config, folder structure, CI integration   |
 | `audit-test-flaky`     | AQA     | Flaky test report: root cause analysis, fix recommendations      |
@@ -330,11 +330,26 @@ codegen-mobile/
 ```text
 codegen-test/
 ├── SKILL.md
+├── scripts/
+│   ├── validate_evals.py      # Validate eval route coverage and JSON shape
+│   ├── scaffold_ai_eval.py    # Create starter AI output/tool-use/perf eval folders
+│   └── summarize_ai_perf.py   # Summarize AI benchmark results.jsonl files
 └── references/
     ├── e2e.md    # Playwright, Cypress, Selenium patterns
     ├── api.md    # Supertest, Jest-extended, Postman/Newman
-    └── perf.md   # k6, JMeter, Locust scripts
+    ├── perf.md   # k6, JMeter, Locust scripts
+    ├── ai-output.md   # LLM output quality, RAG, structured output, prompt regression evals
+    ├── ai-tool-use.md # Agent tool-call trace, argument, sequencing, and recovery evals
+    └── ai-perf.md     # AI latency, token, cost, throughput, and quality-per-dollar benchmarks
 ```
+
+**Trigger disambiguation:**
+
+- `ai-output.md` → LLM answer quality, structured output validity, RAG grounding, citation checks, prompt regression suites
+- `ai-tool-use.md` → agent tool selection, argument correctness, call sequencing, recovery from tool errors, stop conditions
+- `ai-perf.md` → latency, first-token time, token usage, cost per successful task, retry rate, throughput, quality-per-dollar
+- `audit-security` → AI safety, prompt injection, jailbreak, data exfiltration, malicious tool-use, or policy-boundary testing
+- `perf.md` → non-AI application load, stress, soak, spike, and throughput scripts
 
 ---
 
