@@ -261,30 +261,52 @@ writer-sql-analytics/
 
 ```text
 codegen-frontend/
-├── SKILL.md          # Detects framework from imports, package.json, or file extensions
+├── SKILL.md                    # Detects language/runtime first, then framework and capability refs
 └── references/
-    ├── react.md      # Hooks, RSC, Tailwind, React Query
-    ├── vue.md        # Composition API, Pinia, Vue Router
-    ├── angular.md    # Services, RxJS, NgModules, signals
-    ├── svelte.md     # Stores, reactive declarations, SvelteKit
-    ├── nextjs.md     # App router, server actions, metadata API
-    ├── nuxt.md       # Auto-imports, composables, Nitro
-    ├── remix.md      # Loaders, actions, nested routes
-    ├── astro.md      # Islands, content collections, SSG/SSR
-    ├── solidjs.md    # Signals, createStore, SolidStart
-    └── css.md        # Design system: tokens, component styles, spacing scale, typography
+    ├── javascript.md           # Language-level JS frontend guidance
+    ├── typescript.md           # Types, strictness, generics, module boundaries
+    ├── css.md                  # Design system: tokens, layout, responsive styling
+    ├── css-tailwind.md         # Utility-first styling, tokens, variants, responsive states
+    ├── css-bootstrap.md        # Bootstrap components, grid, utilities, theming
+    ├── react.md                # Hooks, component composition, React Query
+    ├── react-nextjs.md         # App Router, server actions, metadata API, RSC
+    ├── react-remix.md          # Loaders, actions, nested routes
+    ├── vue.md                  # Composition API, Pinia, Vue Router
+    ├── vue-nuxt.md             # Auto-imports, composables, Nitro, SSR
+    ├── angular.md              # Services, RxJS, NgModules, signals
+    ├── svelte.md               # Stores, reactive declarations, actions
+    ├── svelte-sveltekit.md
+    ├── astro.md                # Islands, content collections, SSG/SSR
+    ├── solidjs.md              # Signals, createStore, SolidStart
+    ├── accessibility.md        # WCAG, keyboard UX, focus, semantics, screen readers
+    ├── internationalization.md # Locale routing, ICU messages, formatting, RTL
+    ├── forms.md                # Validation, errors, dirty state, complex inputs
+    ├── state.md                # Client/server state, caching, stores, optimistic UX
+    ├── performance.md          # Bundle size, rendering, Core Web Vitals
+    ├── pwa.md                  # Service workers, manifest, installability, offline UX
+    └── visualization.md        # Charts, dashboards, data density, interaction
 ```
 
 #### Multi-variant: `codegen-backend`
 
 ```text
 codegen-backend/
-├── SKILL.md          # Detects language from file extension, imports, or asks once
+├── SKILL.md          # Detects language first, then optionally one framework
 └── references/
-    ├── python.md     # FastAPI/Django, type hints, Poetry, async patterns
-    ├── nodejs.md     # Express/Fastify, ESM, async/await, Zod
-    ├── go.md         # stdlib patterns, goroutines, modules, error wrapping
-    ├── java.md       # Spring Boot, Maven/Gradle, records, streams
+    ├── python.md     # Language-level Python backend guidance
+    ├── python-fastapi.md
+    ├── python-django.md
+    ├── nodejs.md     # Language-level Node.js/TypeScript backend guidance
+    ├── nodejs-express.md
+    ├── nodejs-fastify.md
+    ├── nodejs-nestjs.md
+    ├── go.md         # Language-level Go backend guidance
+    ├── go-gin.md
+    ├── go-chi.md
+    ├── go-echo.md
+    ├── java.md       # Language-level Java backend guidance
+    ├── java-spring-boot.md
+    ├── java-quarkus.md
     ├── ruby.md       # Rails conventions, ActiveRecord, gems, RSpec
     ├── rust.md       # Cargo, ownership, Axum, error handling with anyhow
     ├── csharp.md     # .NET minimal APIs, EF Core, LINQ, async/await
@@ -489,7 +511,7 @@ The `SKILL.md` must:
 1. Detect the target variant from context (file extensions, imports, `package.json`, explicit mention)
 2. Load the correct `references/<variant>.md`
 3. Only ask the user to specify if detection is genuinely ambiguous
-4. Never load multiple reference files simultaneously
+4. Avoid loading multiple references unless the skill declares bounded secondary references, such as `codegen-backend` loading one language reference plus at most one framework reference, or `codegen-frontend` loading language/runtime, framework, styling, and capability references required by the task
 
 ```markdown
 ## Variant Detection
