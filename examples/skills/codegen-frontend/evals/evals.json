@@ -1,0 +1,101 @@
+{
+  "skill_name": "codegen-frontend",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Build a React TypeScript settings page with editable profile fields, Zod validation, and React Query mutation states.",
+      "expected_output": "Routes to typescript, javascript-react, forms, and state; inspects project conventions; implements typed components, validation, query/mutation states, accessibility, and focused tests when available.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Add a Next.js App Router dashboard route with server-rendered summary cards and a client-side filter panel.",
+      "expected_output": "Routes to typescript or javascript plus javascript-react-nextjs, css, and state; preserves server/client boundaries, metadata/layout conventions, responsive styling, and build verification.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Create a Remix checkout form using loaders, actions, pending UI, and accessible validation errors.",
+      "expected_output": "Routes to javascript-react-remix and forms; keeps reads in loaders and mutations in actions, validates on the server, preserves progressive enhancement, and handles pending/error states.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Implement a Vue 3 Pinia-backed notification center with unread filtering and keyboard-accessible controls.",
+      "expected_output": "Routes to javascript-vue, state, and accessibility; follows SFC conventions, uses Pinia appropriately, and implements semantic keyboard-friendly controls.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Add a Nuxt locale switcher with translated routes, ICU plural messages, and RTL-safe layout.",
+      "expected_output": "Routes to javascript-vue-nuxt, internationalization, and css; uses Nuxt i18n conventions, locale-aware messages, logical CSS, and SSR-safe behavior.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Build an Angular reactive form for inviting team members with async email validation and disabled submit behavior.",
+      "expected_output": "Routes to javascript-angular and forms; uses reactive forms, services or validators consistent with the project, accessible errors, pending state, and Angular tests when available.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "prompt": "Create a SvelteKit account security route with a form action for rotating recovery codes.",
+      "expected_output": "Routes to javascript-svelte-sveltekit and forms; keeps secrets server-side, uses actions/load conventions, handles failure and success states, and avoids SSR browser API issues.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "prompt": "Improve a Tailwind React table so long labels do not overlap on mobile and all icon buttons have accessible names.",
+      "expected_output": "Routes to javascript-react, css-tailwind, and accessibility; uses existing variants/utilities, stable responsive constraints, focus states, and accessible labels.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "prompt": "Add an Astro product page with a small interactive pricing calculator island and optimized images.",
+      "expected_output": "Routes to javascript-astro, the detected island framework if present, css, and performance; keeps most content static, hydrates only the calculator, and uses image optimization.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "prompt": "Build a SolidJS activity timeline with filters encoded in the URL and optimistic mark-as-read behavior.",
+      "expected_output": "Routes to javascript-solidjs and state; uses signals/stores idiomatically, URL state for filters, reversible optimistic updates, and accessible timeline semantics.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "prompt": "Turn this existing Bootstrap form into a two-column responsive layout without changing the app's theme.",
+      "expected_output": "Routes to css-bootstrap and forms; uses Bootstrap grid/utilities and validation feedback conventions instead of introducing another styling system.",
+      "files": []
+    },
+    {
+      "id": 12,
+      "prompt": "Add a PWA offline state and update-available prompt to the existing Vite app.",
+      "expected_output": "Routes to javascript or typescript plus pwa; follows existing service worker integration, explicit caching/update states, and verifies offline behavior when possible.",
+      "files": []
+    },
+    {
+      "id": 13,
+      "prompt": "Optimize the homepage by lazy-loading below-the-fold charts and reducing hydration cost.",
+      "expected_output": "Routes to performance and visualization when charts are present; inspects build/framework conventions, adds route or component-level lazy loading, and verifies with build or diagnostics.",
+      "files": []
+    },
+    {
+      "id": 14,
+      "prompt": "Create a dashboard chart showing monthly revenue and churn with accessible labels and empty/error states.",
+      "expected_output": "Routes to visualization, accessibility, state, and the detected framework; uses the existing chart library, correct chart types, visible units, and meaningful loading/empty/error states.",
+      "files": []
+    },
+    {
+      "id": 15,
+      "prompt": "Refactor this MUI settings dialog to use the app's theme variants while preserving focus trap behavior and keyboard navigation.",
+      "expected_output": "Routes to css-component-libraries and accessibility; reuses the existing theme/component APIs, keeps overrides narrow, and preserves dialog focus management and keyboard behavior.",
+      "files": []
+    },
+    {
+      "id": 16,
+      "prompt": "Create a static pricing comparison page in plain HTML and CSS with responsive tables, product metadata, and no JavaScript framework.",
+      "expected_output": "Routes to html and css; uses semantic document structure, accessible responsive tables, useful metadata, and avoids adding a JavaScript framework.",
+      "files": []
+    }
+  ]
+}
