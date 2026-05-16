@@ -265,19 +265,21 @@ codegen-frontend/
 └── references/
     ├── javascript.md           # Language-level JS frontend guidance
     ├── typescript.md           # Types, strictness, generics, module boundaries
+    ├── html.md                 # Semantic markup, templates, metadata, progressive enhancement
     ├── css.md                  # Design system: tokens, layout, responsive styling
     ├── css-tailwind.md         # Utility-first styling, tokens, variants, responsive states
     ├── css-bootstrap.md        # Bootstrap components, grid, utilities, theming
-    ├── react.md                # Hooks, component composition, React Query
-    ├── react-nextjs.md         # App Router, server actions, metadata API, RSC
-    ├── react-remix.md          # Loaders, actions, nested routes
-    ├── vue.md                  # Composition API, Pinia, Vue Router
-    ├── vue-nuxt.md             # Auto-imports, composables, Nitro, SSR
-    ├── angular.md              # Services, RxJS, NgModules, signals
-    ├── svelte.md               # Stores, reactive declarations, actions
-    ├── svelte-sveltekit.md
-    ├── astro.md                # Islands, content collections, SSG/SSR
-    ├── solidjs.md              # Signals, createStore, SolidStart
+    ├── css-component-libraries.md # MUI, Chakra, Mantine, Ant Design, Radix, shadcn/ui
+    ├── javascript-react.md     # Hooks, component composition, React Query
+    ├── javascript-react-nextjs.md  # App Router, server actions, metadata API, RSC
+    ├── javascript-react-remix.md   # Loaders, actions, nested routes
+    ├── javascript-vue.md       # Composition API, Pinia, Vue Router
+    ├── javascript-vue-nuxt.md  # Auto-imports, composables, Nitro, SSR
+    ├── javascript-angular.md   # Services, RxJS, NgModules, signals
+    ├── javascript-svelte.md    # Stores, reactive declarations, actions
+    ├── javascript-svelte-sveltekit.md
+    ├── javascript-astro.md     # Islands, content collections, SSG/SSR
+    ├── javascript-solidjs.md   # Signals, createStore, SolidStart
     ├── accessibility.md        # WCAG, keyboard UX, focus, semantics, screen readers
     ├── internationalization.md # Locale routing, ICU messages, formatting, RTL
     ├── forms.md                # Validation, errors, dirty state, complex inputs
