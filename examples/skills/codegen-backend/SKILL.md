@@ -11,7 +11,7 @@ version: 1.0.0
 
 # codegen-backend
 
-Router skill for implementing backend code. Detect the target language and framework from the user's request and repository context, then read exactly one language reference before editing or drafting code.
+Router skill for implementing backend code. Detect the target language and framework from the user's request and repository context, then read exactly one language reference before editing or drafting code. If one framework is clearly identified, also read the matching flat framework reference from `references/`.
 
 ## Variant Detection
 
@@ -24,7 +24,7 @@ Check signals in this order:
 5. Specialized auth, GraphQL, real-time, database-only SQL, and test-only requests should use `patterns-auth`, `patterns-graphql`, `patterns-realtime`, `writer-sql`, or `codegen-test` when those are the primary artifact.
 6. If still ambiguous, ask one short clarifying question naming the likely languages.
 
-## Routing Table
+## Language Routing Table
 
 | Signal | Reference |
 | --- | --- |
@@ -48,6 +48,38 @@ Check signals in this order:
 | Swift server code, Vapor, Hummingbird, SwiftNIO, Package.swift, `.swift` | `references/swift.md` |
 | Ada services, GNAT, Alire, SPARK, AWS Ada Web Server, `.adb`, `.ads` | `references/ada.md` |
 | MATLAB production server code, batch workers, toolboxes, `.m`, `.mlx`, `startup.m` | `references/matlab.md` |
+
+## Framework References
+
+After reading the language reference, read at most one framework reference when the signal is explicit or unambiguous from repository dependencies and file layout. Keep framework files flat in `references/`.
+
+| Signal | Framework reference |
+| --- | --- |
+| FastAPI, Starlette route dependencies | `references/python-fastapi.md` |
+| Django, Django REST Framework, `manage.py` | `references/python-django.md` |
+| Flask, Flask blueprints | `references/python-flask.md` |
+| Express, Express Router | `references/nodejs-express.md` |
+| Fastify, Fastify plugins | `references/nodejs-fastify.md` |
+| NestJS, modules, providers, decorators | `references/nodejs-nestjs.md` |
+| Hono | `references/nodejs-hono.md` |
+| Nitro, h3 server handlers | `references/nodejs-nitro.md` |
+| Gin | `references/go-gin.md` |
+| Chi | `references/go-chi.md` |
+| Echo | `references/go-echo.md` |
+| Fiber | `references/go-fiber.md` |
+| Spring Boot | `references/java-spring-boot.md` |
+| Quarkus | `references/java-quarkus.md` |
+| Micronaut | `references/java-micronaut.md` |
+| Ktor | `references/kotlin-ktor.md` |
+| Rails | `references/ruby-rails.md` |
+| Sinatra | `references/ruby-sinatra.md` |
+| Laravel | `references/php-laravel.md` |
+| Symfony | `references/php-symfony.md` |
+| Axum | `references/rust-axum.md` |
+| Actix Web | `references/rust-actix-web.md` |
+| Rocket | `references/rust-rocket.md` |
+| ASP.NET Core, Minimal APIs, controllers | `references/csharp-aspnet-core.md` |
+| Phoenix | `references/elixir-phoenix.md` |
 
 ## Working Rules
 

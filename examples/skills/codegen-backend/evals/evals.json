@@ -960,6 +960,78 @@
       "prompt": "Build a MATLAB function called from a Java backend that documents type conversion and output ownership assumptions.",
       "expected_output": "Routes to matlab, keeps runtime boundary conversions explicit, validates inputs, preserves deterministic outputs, and adds wrapper tests.",
       "files": []
+    },
+    {
+      "id": 161,
+      "prompt": "In a FastAPI project with pyproject.toml, add an APIRouter endpoint for creating invoices with Pydantic request/response models and SQLAlchemy session dependencies.",
+      "expected_output": "Routes to python, reads references/python.md plus references/python-fastapi.md, keeps APIRouter handlers thin, reuses dependency helpers, validates with Pydantic, and adds focused FastAPI tests.",
+      "files": []
+    },
+    {
+      "id": 162,
+      "prompt": "In a Django REST Framework app with manage.py, add an endpoint for cancelling subscriptions using serializer validation and APIClient tests.",
+      "expected_output": "Routes to python, reads references/python.md plus references/python-django.md, follows Django app boundaries, keeps validation in serializers, and adds APIClient or pytest-django coverage.",
+      "files": []
+    },
+    {
+      "id": 163,
+      "prompt": "In a NestJS TypeScript service, create a refunds module with controller, DTO validation, provider logic, and Jest tests.",
+      "expected_output": "Routes to nodejs, reads references/nodejs.md plus references/nodejs-nestjs.md, respects module/provider boundaries, uses DTO validation, keeps controllers thin, and adds Nest testing-module coverage.",
+      "files": []
+    },
+    {
+      "id": 164,
+      "prompt": "Add a Hono middleware for Cloudflare Workers that validates tenant headers and attaches typed tenant context.",
+      "expected_output": "Routes to nodejs, reads references/nodejs.md plus references/nodejs-hono.md, preserves edge/runtime assumptions, uses typed context or bindings, validates boundary inputs, and tests missing and invalid headers.",
+      "files": []
+    },
+    {
+      "id": 165,
+      "prompt": "Add a Koa route for creating support tickets with validation and service tests.",
+      "expected_output": "Routes to nodejs and reads references/nodejs.md only; does not try to load removed references/nodejs-koa.md, and relies on repository conventions for Koa-specific middleware and error handling.",
+      "files": []
+    },
+    {
+      "id": 166,
+      "prompt": "In a Quarkus service, add a REST resource for creating purchase orders with Bean Validation, CDI service logic, and @QuarkusTest coverage.",
+      "expected_output": "Routes to java, reads references/java.md plus references/java-quarkus.md, follows Quarkus REST/CDI conventions, preserves imperative or reactive stack choices, and adds Quarkus tests.",
+      "files": []
+    },
+    {
+      "id": 167,
+      "prompt": "In a Micronaut Java API, add a controller and singleton service for rotating client secrets with validation and @MicronautTest coverage.",
+      "expected_output": "Routes to java, reads references/java.md plus references/java-micronaut.md, follows Micronaut controller/service/config conventions, uses constructor injection, and adds Micronaut tests.",
+      "files": []
+    },
+    {
+      "id": 168,
+      "prompt": "In a Go Fiber API, add an endpoint for rotating webhook secrets with authorization checks and repository persistence.",
+      "expected_output": "Routes to go, reads references/go.md plus references/go-fiber.md, follows Fiber route and context conventions, avoids retaining *fiber.Ctx beyond the request, checks authorization, and adds handler or service tests.",
+      "files": []
+    },
+    {
+      "id": 169,
+      "prompt": "In a Symfony app, create an invoice controller and service using Validator constraints, Doctrine transactions, and WebTestCase coverage.",
+      "expected_output": "Routes to php, reads references/php.md plus references/php-symfony.md, follows Symfony controller/service/Doctrine conventions, maps validation errors consistently, and adds PHPUnit or Pest coverage.",
+      "files": []
+    },
+    {
+      "id": 170,
+      "prompt": "In a Rust Rocket service, add a guarded endpoint for rotating API keys using managed state and local client tests.",
+      "expected_output": "Routes to rust, reads references/rust.md plus references/rust-rocket.md, follows Rocket route/guard/state conventions, avoids blocking async handlers, and adds Rocket local client or integration tests.",
+      "files": []
+    },
+    {
+      "id": 171,
+      "prompt": "In an ASP.NET Core Minimal API project, add an endpoint group for approving expenses with endpoint filters, ProblemDetails errors, EF Core persistence, and xUnit tests.",
+      "expected_output": "Routes to csharp, reads references/csharp.md plus references/csharp-aspnet-core.md, follows Minimal API conventions, uses DI and cancellation tokens, preserves ProblemDetails behavior, and adds focused .NET tests.",
+      "files": []
+    },
+    {
+      "id": 172,
+      "prompt": "In a Phoenix API, add a JSON endpoint for inviting team members with context functions, changesets, and ConnCase/DataCase tests.",
+      "expected_output": "Routes to elixir, reads references/elixir.md plus references/elixir-phoenix.md, follows Phoenix context boundaries, keeps controllers thin, uses changesets, and adds ExUnit coverage.",
+      "files": []
     }
   ]
 }
