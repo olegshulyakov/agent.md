@@ -36,7 +36,7 @@ Check signals in this order:
 ## Working Rules
 
 - Inspect the repository before writing tests. Reuse its test runner, fixtures, factories, naming conventions, package scripts, and CI patterns.
-- Use bundled scripts when they fit: `scripts/validate_evals.py` validates this skill's eval suite, `scripts/scaffold_ai_eval.py` creates starter AI eval folders, and `scripts/summarize_ai_perf.py` summarizes AI benchmark `results.jsonl` files.
+- Use bundled scripts when they fit: `scripts/validate_evals.py` validates this skill's eval suite, `scripts/run_eval.py` runs trigger/routing evals, `scripts/run_loop.py` runs eval/improvement loops, `scripts/aggregate_benchmark.py` summarizes iteration results, `scripts/scaffold_ai_eval.py` creates starter AI eval folders, and `scripts/summarize_ai_perf.py` summarizes AI benchmark `results.jsonl` files.
 - Generate runnable test code, not only prose. If context is insufficient to edit files safely, provide complete file contents and state the assumptions.
 - Prefer stable selectors, public API contracts, and deterministic fixtures. Avoid sleeps, hidden network dependencies, shared mutable test data, and order-dependent tests.
 - Cover the highest-value happy path plus meaningful negative or edge cases. Do not create broad low-signal tests that only assert that something exists.
