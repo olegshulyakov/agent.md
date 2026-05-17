@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Prepare dist directory
+        shell: bash
+        run: mkdir -p dist
+
+      - name: Generate release notes
+        uses: orhun/git-cliff-action@v4
+        with:
+          config: cliff.toml
+          args: --latest --strip header
+        env:
+          OUTPUT: dist/RELEASE_NOTES.md
+          GITHUB_REPO: ${{ github.repository }}
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Build library archive
+        shell: bash
+        run: |
+          (cd library && zip -r ../dist/agent-md-library.zip . -x "*.DS_Store")
+
+      - name: Prepare release assets
+        shell: bash
+        run: cp pages/PLAYBOOK.md dist/PLAYBOOK.md
+
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG_NAME: ${{ github.ref_name }}
+        shell: bash
+        run: |
+          gh release create "$TAG_NAME" \
+            dist/agent-md-library.zip \
+            dist/PLAYBOOK.md \
+            --title "$TAG_NAME" \
+            --notes-file dist/RELEASE_NOTES.md
