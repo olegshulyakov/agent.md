@@ -12,10 +12,14 @@ Produce a complete, structured **Product Requirements Document (PRD)** for the d
 
 ## What makes a great PRD
 
+**A PRD defines product intent without prescribing implementation.**
+
 A PRD bridges business intent and engineering execution. It must be specific enough to guide decisions but not prescribe implementation.
 The goal is to answer: _Why are we building this? For whom? What does success look like? What is and isn't in scope?_
 
 ## Information gathering
+
+**Extract known context first and ask only when a missing answer changes the document.**
 
 Before writing, extract from the user's prompt (or ask once if genuinely missing):
 
@@ -29,71 +33,13 @@ If the user provides a rough description, work with what's there. Make educated 
 
 ## Output format
 
-Always produce a Markdown file. Use this structure exactly:
+**Load the detailed Markdown structure only when writing the PRD.**
 
-```md
-# PRD: [Product / Feature Name]
-
-## Status
-
-[Draft | In Review | Approved] — [Date]
-**Author:** [if known, else omit]
-**Stakeholders:** [list if mentioned, else omit]
-
-## Problem Statement
-
-[1–3 paragraphs. What pain exists? Who feels it? What's the cost of inaction?]
-
-## Goals [optional]
-
-- ...
-
-## Target Users / Personas
-
-[For each persona: role, context, key jobs-to-be-done, frustrations]
-
-## Scope
-
-### In Scope
-
-- [Concrete capability or deliverable]
-
-### Out of Scope [optional]
-
-- [Explicit exclusions to prevent scope creep]
-
-## Functional Requirements
-
-[Numbered list of WHAT the system must do. Use "The system shall..." or "Users can..." phrasing. Group by user journey or capability area.]
-
-1. **[Capability Area]**
-   1.1 ...
-   1.2 ...
-
-## Non-Functional Requirements (summary)
-
-[Performance, availability, security, compliance highlights. If deep NFRs are needed, recommend writer-spec-nfr.]
-
-## User Journeys / Key Flows [optional]
-
-[1–3 critical flows described as numbered steps. Diagrams optional but welcome.]
-
-## Assumptions & Dependencies [optional]
-
-| Item | Type                    | Detail |
-| ---- | ----------------------- | ------ |
-| ...  | Assumption / Dependency | ...    |
-
-## Open Questions [optional]
-
-- [ ] [Question that must be resolved before implementation]
-
-## Appendix [optional]
-
-[Glossary, related docs, links — only if needed]
-```
+Always produce a Markdown file. Before drafting, read `references/output-format.md` for the required structure.
 
 ## Writing guidance
+
+**Keep requirements outcome-focused, testable, and scoped.**
 
 - **Goals first, solutions second.** Resist the urge to specify UI or technical implementation in the requirements.
 - **Keep scope simple.** Prefer the smallest coherent product slice that can prove the goal before expanding into adjacent workflows.
@@ -105,25 +51,12 @@ Always produce a Markdown file. Use this structure exactly:
 
 ## Multi-section depth calibration
 
+**Scale the document to the amount of source context.**
+
 Scale depth to what the user provides:
 
 - **Terse prompt** (one sentence): Write a lean PRD with 2–3 goals, 1–2 personas, and 5–10 requirements. Mark most things `[assumed]`.
 - **Detailed prompt**: Fill out all sections thoroughly, infer less.
 - **Existing draft**: Improve, restructure, and fill gaps rather than rewriting from scratch.
 
-## Example
-
-**Input:** "We want to add dark mode to our web app for enterprise users who use the tool all day."
-
-**Output excerpt:**
-
-```markdown
-## Problem Statement
-
-Enterprise users often work 8+ hours daily in the application. Prolonged exposure to bright interfaces causes eye strain, especially in low-light environments. Competitor tools already offer dark mode, which has become a baseline expectation for power users...
-
-## Goals
-
-- Reduce eye strain complaints
-- Increase power-user retention
-```
+When examples would help calibrate tone, specificity, or section depth, read `references/examples.md`.
