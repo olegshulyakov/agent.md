@@ -21,7 +21,7 @@ project-root/
 ├── .agents/
 │   ├── rules/                 # Modular instruction files
 │   │   └── <rule-name>.md
-│   ├── skills/                # Auto-invoking workflows (trigger → action)
+│   ├── skills/                # Context-invoked workflows
 │   │   └── <skill-name>/
 │   │       └── SKILL.md
 │   ├── commands/              # Custom slash commands
@@ -83,15 +83,15 @@ priority: high
 ---
 ```
 
-### `.agents/skills/` — Auto-Invoking Workflows
+### `.agents/skills/` — Context-Invoked Workflows
 
-Skills are the agent's reflexes — they trigger automatically based on events or file patterns, without the user asking.
+Skills are reusable procedures the agent can load when the current task matches their metadata, or when the user invokes them directly.
 
-- `skills/on-new-file/SKILL.md` → triggers when a file is created
-- `skills/on-test-fail/SKILL.md` → triggers when CI fails
-- `skills/on-commit/SKILL.md` → triggers before/after a commit
+- `skills/on-new-file/SKILL.md` → use when creating source files that need matching tests
+- `skills/on-test-fail/SKILL.md` → use when diagnosing failing tests or CI
+- `skills/on-commit/SKILL.md` → use when preparing a commit
 
-Keep skill metadata under 100 tokens and skill instructions under 5000 tokens so runtimes can load them predictably.
+Use `description` and `when_to_use` to explain when a skill applies. Use `paths` to scope a skill to matching files, and `disable-model-invocation: true` for workflows that should only run when explicitly invoked.
 
 ### `.agents/commands/` — Slash Commands
 
@@ -161,7 +161,7 @@ A compliant runtime **MUST**:
 1. Always load `AGENTS.md` at session start.
 2. Enforce permissions defined in `AGENTS.md` before any file operation.
 3. Auto-inject all files marked `Auto-load: yes` in `AGENTS.md`.
-4. Trigger skills whose `trigger.event` or `trigger.pattern` matches the current context.
+4. Load skills whose `description`, `when_to_use`, or `paths` match the current context.
 5. Register commands from `commands/` and expose them via the invocation interface.
 6. Respect subagent boundaries — a subagent must not exceed the parent agent's permissions.
 

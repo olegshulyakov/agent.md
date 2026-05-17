@@ -30,7 +30,7 @@ project-root/
 └── .agents/
     ├── rules/                 # Modular instruction files
     │   └── <rule-name>.md
-    ├── skills/                # Auto-invoking workflows (trigger → action)
+    ├── skills/                # Context-invoked workflows
     │   └── <skill-name>/
     │       └── SKILL.md
     ├── commands/              # Custom slash commands
@@ -132,9 +132,9 @@ priority: high
 
 ---
 
-### `skills/` — Auto-Invoking Workflows
+### `skills/` — Context-Invoked Workflows
 
-Skills are pre-defined workflows that trigger automatically based on context signals — a file being created, a test failing, a commit being made. They are the agent's "reflexes."
+Skills are pre-defined workflows that the agent can load when the current task matches their metadata, or when the user invokes them directly. They are the agent's reusable procedures.
 
 #### Naming Convention
 
@@ -148,18 +148,17 @@ Examples: `skills/on-new-file/SKILL.md`, `skills/on-test-fail/SKILL.md`, `skills
 
 ```markdown
 ---
-name: On New File
-trigger:
-  event: file_created
-  pattern: "src/**/*.ts"
+name: on-new-file
 description: Auto-generates a matching test file when a new TypeScript file is created
+when_to_use: Use when creating or updating TypeScript source files that may need matching tests.
+paths: ["src/**/*.ts"]
 ---
 
 # Skill: On New File
 
-## Trigger
+## When to Use
 
-Whenever a new `.ts` file is created in `src/`.
+Use when a new `.ts` file is created in `src/`.
 
 ## Workflow
 
@@ -174,14 +173,40 @@ Whenever a new `.ts` file is created in `src/`.
 - Notifies: Yes
 ```
 
+#### Metadata
+
+Required:
+
+- `description` — One concise sentence describing what the skill does and when it applies.
+
+Optional:
+
+- `name` — Stable skill name. If present, use lowercase letters, numbers, and hyphens only.
+- `when_to_use` — Additional invocation guidance, trigger phrases, or example requests.
+- `paths` — Glob or list of globs that scope when the skill should be considered.
+- `argument-hint` — Autocomplete hint for expected arguments.
+- `arguments` — Positional argument names used for substitution in the skill body.
+- `disable-model-invocation` — Set to `true` when the skill should only run by explicit user invocation.
+- `user-invocable` — Set to `false` when the skill is background context and should not appear as a user command.
+- `allowed-tools` — Tools the runtime may pre-approve while the skill is active.
+- `model` — Model override for the current turn.
+- `effort` — Reasoning effort override for the current turn.
+- `context` — Execution context, such as `fork` for subagent execution.
+- `agent` — Subagent type to use when `context: fork` is set.
+- `hooks` — Skill-scoped lifecycle hooks.
+- `shell` — Shell used for dynamic command injection.
+
 #### Rules
 
-- Skills must define a `trigger` — either an `event` or a `pattern` (or both).
+- Skills should define a concise `description`; add `when_to_use` for trigger phrases, examples, or extra selection guidance.
+- Use `paths` to limit automatic loading to relevant file globs when a skill only applies to part of the tree.
+- Use `disable-model-invocation: true` for workflows with side effects or workflows that should only run when explicitly invoked.
+- Skill names, when provided, must be lowercase letters, numbers, and hyphens.
 - Skill metadata must stay concise: the complete frontmatter block should be no more than 100 tokens.
 - Skill instructions must stay focused: the Markdown body after frontmatter should be no more than 5000 tokens.
 - Skills should be idempotent — running them twice should not cause harm.
 - Skills may reference other files (rules, docs) in their workflow steps.
-- A skill that has no clear trigger should be a `command` instead.
+- A skill that should only run on explicit user request should set `disable-model-invocation: true`.
 
 ---
 
@@ -202,14 +227,10 @@ Examples: `commands/review.md`, `commands/scaffold.md`, `commands/deploy-check.m
 ````markdown
 ---
 name: review
-alias: ["/review", "/cr"]
 description: Performs a structured code review on staged or specified files
-args:
-  - name: target
-    type: string
-    required: false
-    default: "staged"
-    description: File path, glob, or 'staged' for git-staged files
+argument-hint: "[target]"
+arguments: [target]
+disable-model-invocation: true
 ---
 
 # Command: /review
@@ -245,8 +266,9 @@ args:
 #### Rules
 
 - Command names must be lowercase and hyphenated.
-- `alias` lists all valid invocation strings.
-- `args` defines accepted parameters — the runtime uses this for autocomplete and validation.
+- Use `argument-hint` to show expected arguments during autocomplete.
+- Use `arguments` to name positional arguments for substitution in the command body.
+- Use `disable-model-invocation: true` for commands that should only run when explicitly invoked.
 - Commands should produce deterministic, structured output.
 
 ---
@@ -414,7 +436,7 @@ A compliant runtime MUST:
 1. **Always load** `AGENTS.md` at session start.
 2. **Enforce permissions** defined in `AGENTS.md` before any file operation.
 3. **Auto-inject** all files marked `Auto-load: yes` in `AGENTS.md`.
-4. **Trigger skills** whose `trigger.event` or `trigger.pattern` matches the current context.
+4. **Load skills** whose `description`, `when_to_use`, or `paths` match the current context.
 5. **Register commands** from `commands/` and expose them via the invocation interface.
 6. **Respect subagent boundaries** — a subagent must not exceed the parent agent's permissions.
 
