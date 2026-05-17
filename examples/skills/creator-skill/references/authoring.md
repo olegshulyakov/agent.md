@@ -16,14 +16,14 @@ Ask about edge cases, input formats, output formats, success criteria, dependenc
 
 Required frontmatter fields are `name` and `description`. Keep the complete frontmatter under 100 tokens. The description is the primary trigger signal, so include the core task and strongest trigger contexts, but avoid long keyword inventories.
 
-Keep the Markdown body under 5000 tokens. The body should explain workflow, routing decisions, critical rules, and output format. Move deep detail into `references/` and point to it clearly.
+Keep the Markdown body under 500 lines. The body should explain workflow, routing decisions, critical rules, and output format. Move deep detail into `references/` and point to it clearly.
 
 ## Length Budgets
 
 Follow these budgets for every `SKILL.md`:
 
 - Metadata/frontmatter: no more than 100 tokens.
-- Instructions/body: no more than 5000 tokens.
+- Main instruction body: no more than 500 lines.
 
 If a skill exceeds either budget, shorten trigger metadata first, then move detailed procedures, examples, platform notes, and variant-specific guidance into `references/`. Router skills are the preferred shape for broad domains: keep the main file focused on routing and shared rules, then load only the relevant reference.
 

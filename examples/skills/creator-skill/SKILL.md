@@ -3,7 +3,7 @@ name: creator-skill
 description: Create, edit, evaluate, package, and optimize skills. Use for skill authoring, iterative improvement, eval runs, benchmarks, trigger tuning, and skill packaging.
 author: Anthropic
 license: Apache-2.0
-version: 1.1.1
+version: 1.1.2
 ---
 
 # creator-skill
@@ -14,13 +14,13 @@ Create new skills, improve existing skills, evaluate outputs, optimize trigger d
 
 **Read only the reference that matches the user's current task.**
 
-| User intent                                                                           | Read                                     |
-| ------------------------------------------------------------------------------------- | ---------------------------------------- |
-| Create a new skill or revise skill instructions                                       | `references/authoring.md`                |
-| Build eval cases, run iterations, benchmark outputs, or collect human feedback        | `references/evaluation.md`               |
-| Optimize a skill description for trigger accuracy                                     | `references/description-optimization.md` |
-| Adapt the workflow for agents without subagents, Claude Code, generic CLIs, or Cowork | `references/agent-compatibility.md`      |
-| Validate eval, grading, benchmark, or feedback JSON structures                        | `references/schemas.md`                  |
+| User intent | Read |
+| --- | --- |
+| Create a new skill or revise skill instructions | `references/authoring.md` |
+| Build eval cases, run iterations, benchmark outputs, or collect human feedback | `references/evaluation.md` |
+| Optimize a skill description for trigger accuracy | `references/description-optimization.md` |
+| Adapt the workflow for agents without subagents, Claude Code, generic CLIs, or Cowork | `references/agent-compatibility.md` |
+| Validate eval, grading, benchmark, or feedback JSON structures | `references/schemas.md` |
 
 If the request spans multiple phases, read the references in workflow order: authoring, evaluation, description optimization, then agent compatibility only when platform details matter.
 
@@ -28,7 +28,7 @@ If the request spans multiple phases, read the references in workflow order: aut
 
 **Clarify, write, test, show, iterate, and package — in that order.**
 
-1. Clarify what the skill should do, when it should trigger, what output it should produce, and whether objective evals are useful.
+1. Clarify what the skill should do, which user phrases or contexts should trigger it, what output it should produce, and whether objective evals are useful.
 2. Write or revise `SKILL.md` with concise metadata, focused instructions, and references for details that would bloat the main file.
 3. For objectively testable skills, create realistic eval prompts and run skill-enabled outputs against a meaningful baseline.
 4. Show outputs and benchmark results to the user before making another revision.
@@ -40,9 +40,9 @@ If the request spans multiple phases, read the references in workflow order: aut
 **One skill, one workflow, one clear trigger — no more.**
 
 - Open each `##` section with a single bold sentence that states the section's core principle.
-- Keep metadata under 100 tokens and the main instruction body under 5000 tokens.
-- Use KISS when deciding scope: one skill should teach one durable workflow, with extra references only when they reduce the main instruction burden.
-- Put trigger cues in the frontmatter `description`; put routing, exclusions, examples, and detailed procedures in the body or references.
+- Keep metadata under 100 tokens and the main instruction body under 500 lines; use references for anything that would push past that.
+- Write descriptions that are slightly "pushy" — explicitly name the user phrases and contexts that should trigger the skill, not just what it does. Claude tends to undertrigger, so err toward specificity.
+- Put all "when to use" information in the frontmatter `description`; put routing, exclusions, examples, and detailed procedures in the body or references.
 - Do not create placeholder directories. Add `scripts/`, `references/`, `assets/`, or `evals/` only when the skill actually uses them.
 - Prefer deterministic scripts for repetitive validation, grading, packaging, and report generation.
 - Use STAR for examples and eval prompts so reviewers can see the situation, task, expected action, and result criteria.
