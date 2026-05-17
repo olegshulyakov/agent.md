@@ -14,6 +14,8 @@ Router skill that dispatches to the correct technical documentation variant.
 
 ## Variant Detection
 
+**Classify the documentation task before loading any variant reference.**
+
 Check in this order:
 
 1. **Explicit user mention**: "write a README", "API docs for this endpoint", "on-call runbook for alert X", "changelog entry", "release notes for version Y"
@@ -29,6 +31,8 @@ Check in this order:
 
 ## Variants
 
+**Each variant has one audience and one expected documentation shape.**
+
 | Variant           | Output                                                | When to use                                 |
 | ----------------- | ----------------------------------------------------- | ------------------------------------------- |
 | `readme`          | Full README.md: install, usage, API, contributing     | Project/repo documentation, library docs    |
@@ -39,6 +43,8 @@ Check in this order:
 | `release-notes`   | User-facing release notes                             | Product updates, version announcements      |
 
 ## Loading References
+
+**Load only the reference for the detected variant.**
 
 After detecting the variant, load the corresponding reference:
 
@@ -52,6 +58,8 @@ After detecting the variant, load the corresponding reference:
 Never load multiple reference files simultaneously. If the user switches context to a different variant, unload and reload.
 
 ## Common Principles Across All Variants
+
+**Write durable docs that point to source-of-truth material instead of copying it.**
 
 - **Know your audience**: internal devs, external partners, end users, or on-call engineers
 - **Link rather than repeat**: reference existing docs rather than duplicating them
