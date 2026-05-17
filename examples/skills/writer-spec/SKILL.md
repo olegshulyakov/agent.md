@@ -14,6 +14,8 @@ A **router** skill to generate specific document types. Identify user intent, se
 
 ## Routing Table
 
+**Choose the most specific spec reference for the requested document type.**
+
 | Request Type                                       | Reference                      |
 | :------------------------------------------------- | :----------------------------- |
 | Tech spec, design doc, TDD, end-to-end spec        | `references/technical.md`      |
@@ -23,6 +25,8 @@ A **router** skill to generate specific document types. Identify user intent, se
 | UI/UX spec, design handoff, component states       | `references/design-ui.md`      |
 
 ## Writing Rules (All Specs)
+
+**Every spec should produce behavior that can be reviewed and tested.**
 
 - **Be specific & testable**: Requirements must translate directly to test cases (e.g., "Token expires after 15m").
 - **Keep it simple**: Choose the smallest complete specification shape that resolves the user's decision or handoff need.
