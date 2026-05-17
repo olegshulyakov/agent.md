@@ -17,11 +17,11 @@ This playbook gives agents — and the humans working alongside them — a consi
 
 - **`AGENTS.md`** — Primary instruction file and manifest. Every runtime loads this first.
 - **`docs/`** — Task-scoped documentation with standardized layout (PRD, SPEC, ARCHITECTURE, TASKS).
-- **`examples/rules/`** — Modular, composable instruction files.
-- **`examples/skills/`** — Auto-invoking workflows triggered by events or file patterns.
-- **`examples/commands/`** — Explicit slash commands.
-- **`examples/agents/`** — Subagent personas invoked by `@mention`.
-- **`examples/memory/`** — Persistent, append-only memory across sessions.
+- **`library/rules/`** — Modular, composable instruction files.
+- **`library/skills/`** — Auto-invoking workflows triggered by events or file patterns.
+- **`library/commands/`** — Explicit slash commands.
+- **`library/agents/`** — Subagent personas invoked by `@mention`.
+- **`library/memory/`** — Persistent, append-only memory across sessions.
 
 ## Core Principles
 
@@ -36,7 +36,7 @@ This playbook gives agents — and the humans working alongside them — a consi
 ```text
 agent.md/              # ← this repository
 ├── docs/              # Task-scoped documentation
-├── examples/          # Working reference implementation
+├── library/           # Maintained agent asset library
 ├── pages/             # GitHub Pages source
 │   ├── _config.yml    # GitHub Pages configuration
 │   ├── index.md       # GitHub Pages entry point
@@ -71,15 +71,15 @@ Add `skills/`, `commands/`, `agents/`, and `docs/` as the project matures.
 
 ## Usage
 
-### Reference implementation
+### Library
 
-This repository serves as its own reference implementation. Browse the [`examples/`](./examples) folder to see real playbook-conformant files:
+This repository maintains its primary reusable agent assets in [`library/`](./library):
 
-- **Rules** — `examples/rules/token-efficiency.md`
-- **Skills** — `examples/skills/on-new-example/SKILL.md`
-- **Commands** — `examples/commands/validate.md`
-- **Agents** — `examples/agents/spec-reviewer.md`
-- **Memory** — `examples/memory/MEMORY.md`
+- **Rules** — `library/rules/token-efficiency.md`
+- **Skills** — `library/skills/on-new-example/SKILL.md`
+- **Commands** — `library/commands/validate.md`
+- **Agents** — `library/agents/spec-reviewer.md`
+- **Memory** — `library/memory/MEMORY.md`
 
 ### Real project layout
 
@@ -121,7 +121,7 @@ project-root/
 
 ## Development
 
-This repo uses itself to govern its own development — the `examples/` folder is a working playbook applied to the playbook itself.
+This repo uses itself to govern its own development — the `library/` folder is the maintained set of playbook-conformant assets used for that work.
 
 ```bash
 # No build step required. All content is plain Markdown.
@@ -142,7 +142,7 @@ Before writing code, create a task folder: `mkdir docs/$(date +%Y-%m-%d)-my-feat
 - **[Docs site](https://olegshulyakov.github.io/agent.md)** — GitHub Pages documentation
 - **[PLAYBOOK.md](./pages/PLAYBOOK.md)** — Full playbook specification
 - **[Agent PDLC](./pages/AGENT_PDLC.md)** — Lifecycle diagram for working with an agent
-- **[Examples](./examples)** — Working playbook-conformant files
+- **[Library](./library)** — Maintained playbook-conformant assets
 
 ## License
 

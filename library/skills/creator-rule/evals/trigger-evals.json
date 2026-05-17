@@ -1,0 +1,67 @@
+[
+  {
+    "query": "Write a `.agents/rules/testing.md` file for our Python project using pytest and ruff.",
+    "should_trigger": true
+  },
+  {
+    "query": "Create a CLI-agent rule that tells agents never to edit generated protobuf files.",
+    "should_trigger": true
+  },
+  {
+    "query": "Improve this AGENTS.md instruction: 'test stuff before done.'",
+    "should_trigger": true
+  },
+  {
+    "query": "Draft a Claude Code rule for files under `services/billing/**`.",
+    "should_trigger": true
+  },
+  {
+    "query": "Make a Cursor rule for React components in `apps/web/src/components/**`.",
+    "should_trigger": true
+  },
+  {
+    "query": "Write GitHub Copilot custom instructions for a Go monorepo.",
+    "should_trigger": true
+  },
+  {
+    "query": "Turn our security policy into concise agent instructions for handling secrets.",
+    "should_trigger": true
+  },
+  {
+    "query": "Create a path-scoped rule for Terraform under `infra/**`.",
+    "should_trigger": true
+  },
+  {
+    "query": "Review this pull request for bugs and regressions.",
+    "should_trigger": false
+  },
+  {
+    "query": "Write a technical spec for OAuth login.",
+    "should_trigger": false
+  },
+  {
+    "query": "Create a user story with acceptance criteria for password reset.",
+    "should_trigger": false
+  },
+  {
+    "query": "Generate SQL to find inactive customers.",
+    "should_trigger": false
+  },
+  {
+    "query": "Explain what AGENTS.md is and how it loads in Codex.",
+    "should_trigger": false
+  },
+  {
+    "query": "Summarize the coding standards in this README.",
+    "should_trigger": false
+  },
+  {
+    "query": "Fix the failing TypeScript tests.",
+    "should_trigger": false
+  },
+  {
+    "query": "Write release notes for version 1.4.0.",
+    "should_trigger": false
+  }
+]
+

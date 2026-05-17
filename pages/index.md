@@ -188,7 +188,7 @@ A compliant runtime **SHOULD**:
 
 - **[PLAYBOOK.md](./PLAYBOOK.md)**
 - **[Agent PDLC](./AGENT_PDLC.md)**
-- **[examples](https://github.com/olegshulyakov/agent.md/tree/main/examples)**
+- **[library](https://github.com/olegshulyakov/agent.md/tree/main/library)**
 
 ---
 

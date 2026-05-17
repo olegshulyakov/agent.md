@@ -1,21 +1,21 @@
-# Example Skills
+# Skill Library
 
-This directory contains example agent skills: portable instruction folders that teach an AI coding agent when and how to handle a specific kind of task.
+This directory contains maintained agent skills: portable instruction folders that teach an AI coding agent when and how to handle a specific kind of task.
 
 A complete skill is a directory with a required `SKILL.md` file and optional bundled resources such as `references/`, `scripts/`, `assets/`, and `evals/`.
 
 ## What's Here
 
-This directory contains complete example skills you can copy, adapt, or use as references. `creator-skill` is the best starting point when you want guided help creating, improving, packaging, or evaluating a skill.
+This directory contains complete maintained skills you can copy, adapt, or use as references. `creator-skill` is the best starting point when you want guided help creating, improving, packaging, or evaluating a skill.
 
 ## Setup
 
-There is no global install step for this examples directory. Use a skill by copying or referencing its folder from the agent/runtime you are using.
+There is no global install step for this library directory. Use a skill by copying or referencing its folder from the agent/runtime you are using.
 
 For a local workflow, keep the full folder intact:
 
 ```bash
-examples/skills/my-skill/
+library/skills/my-skill/
 ├── SKILL.md
 ├── references/
 ├── scripts/
@@ -28,13 +28,13 @@ The key rule is that `SKILL.md` and any referenced resources must stay together.
 Useful local checks require Python 3:
 
 ```bash
-python3 examples/skills/creator-skill/scripts/quick_validate.py examples/skills/writer-sql
+python3 library/skills/creator-skill/scripts/quick_validate.py library/skills/writer-sql
 ```
 
 Packaging and eval tooling should be run from the `creator-skill` directory so its Python module imports resolve cleanly:
 
 ```bash
-cd examples/skills/creator-skill
+cd library/skills/creator-skill
 python3 -m scripts.package_skill ../writer-sql /tmp/skills-dist
 ```
 
@@ -65,8 +65,8 @@ Open `creator-skill/SKILL.md` and follow its workflow, or ask an agent that has 
 Create a folder and `SKILL.md`:
 
 ```bash
-mkdir -p examples/skills/my-skill
-touch examples/skills/my-skill/SKILL.md
+mkdir -p library/skills/my-skill
+touch library/skills/my-skill/SKILL.md
 ```
 
 Use this shape:
@@ -159,7 +159,7 @@ Trigger evals test whether the skill description routes correctly. Create a trig
 Then run:
 
 ```bash
-cd examples/skills/creator-skill
+cd library/skills/creator-skill
 python3 -m scripts.run_eval \
   --eval-set /path/to/trigger-evals.json \
   --skill-path ../my-skill \
@@ -185,7 +185,7 @@ Do not pass model overrides through these eval scripts. The point is to test the
 After the user approves a trigger eval set, run the optimization loop:
 
 ```bash
-cd examples/skills/creator-skill
+cd library/skills/creator-skill
 python3 -m scripts.run_loop \
   --eval-set /path/to/trigger-evals.json \
   --skill-path ../my-skill \
@@ -206,7 +206,7 @@ For output-quality evals, compare runs with the skill against a baseline. The `c
 4. Aggregate results:
 
 ```bash
-cd examples/skills/creator-skill
+cd library/skills/creator-skill
 python3 -m scripts.aggregate_benchmark /path/to/workspace/iteration-1 --skill-name my-skill
 ```
 
@@ -238,7 +238,7 @@ For larger revisions, snapshot the old skill and compare old-vs-new outputs. Tha
 From `creator-skill`:
 
 ```bash
-cd examples/skills/creator-skill
+cd library/skills/creator-skill
 python3 -m scripts.package_skill ../my-skill /tmp/skills-dist
 ```
 
@@ -275,12 +275,12 @@ If a skill triggers too often, narrow the description. Add negative trigger eval
 If packaging fails, run:
 
 ```bash
-python3 examples/skills/creator-skill/scripts/quick_validate.py examples/skills/my-skill
+python3 library/skills/creator-skill/scripts/quick_validate.py library/skills/my-skill
 ```
 
 If `python` is not found, use `python3`.
 
-If module commands fail with `No module named scripts`, run them from `examples/skills/creator-skill` with `python3 -m ...`.
+If module commands fail with `No module named scripts`, run them from `library/skills/creator-skill` with `python3 -m ...`.
 
 If an agent CLI hangs, provide an explicit `--agent-command` that uses its non-interactive mode. Avoid commands that open a TUI or wait for confirmation.
 

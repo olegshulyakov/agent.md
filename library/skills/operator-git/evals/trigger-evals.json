@@ -1,0 +1,66 @@
+[
+  {
+    "query": "Give me a branch name for the docs update I just made to the install guide.",
+    "should_trigger": true
+  },
+  {
+    "query": "Create a branch for this bugfix. The login form redirects to /home even when auth fails.",
+    "should_trigger": true
+  },
+  {
+    "query": "Review this branch name: Feature/Login Redirect Fix",
+    "should_trigger": true
+  },
+  {
+    "query": "Write a commit message for the staged changes.",
+    "should_trigger": true
+  },
+  {
+    "query": "Commit the staged changes using our normal commit message format.",
+    "should_trigger": true
+  },
+  {
+    "query": "I pasted a git diff below. Give me a conventional commit message for it.",
+    "should_trigger": true
+  },
+  {
+    "query": "Start a hotfix branch for the production payment timeout.",
+    "should_trigger": true
+  },
+  {
+    "query": "Improve this commit message: stuff",
+    "should_trigger": true
+  },
+  {
+    "query": "Explain what a Git branch is to someone who has never used version control.",
+    "should_trigger": false
+  },
+  {
+    "query": "How do I undo the last commit but keep the files in my working tree?",
+    "should_trigger": false
+  },
+  {
+    "query": "Run git status and tell me what files changed.",
+    "should_trigger": false
+  },
+  {
+    "query": "Write release notes from these commits.",
+    "should_trigger": false
+  },
+  {
+    "query": "Review this pull request for bugs and security issues.",
+    "should_trigger": false
+  },
+  {
+    "query": "Create a README section that explains our branching strategy.",
+    "should_trigger": false
+  },
+  {
+    "query": "Squash these commits conceptually and explain the final change set.",
+    "should_trigger": false
+  },
+  {
+    "query": "What does this commit hash point to?",
+    "should_trigger": false
+  }
+]
