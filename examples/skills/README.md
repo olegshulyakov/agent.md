@@ -44,6 +44,16 @@ Packaged `.skill` files exclude root-level `evals/` because evals are developmen
 
 You can write a skill manually or use `creator-skill` as a guided workflow. Either way, start with one narrow job. Good skills are specific enough to change the agent’s behavior, but not so narrow that they only work for one prompt.
 
+## Quality Principles
+
+Use common engineering frameworks as practical lenses, not required ceremony:
+
+- **KISS**: keep each skill focused on one job, route to the smallest useful reference set, and remove instructions that do not change behavior.
+- **STAR**: write examples and eval prompts with enough situation, task, action, and result context for another agent or reviewer to judge quality.
+- **SOLID**: apply to code-generation skills and code examples where structure matters. Favor clear responsibilities, small interfaces, and existing project abstractions over new layers.
+
+Do not name every principle in every skill. Use the plain instruction when it is clearer than the acronym.
+
 ### Option 1: Use `creator-skill`
 
 Use `creator-skill` when you want help drafting the skill, tightening its trigger description, building evals, packaging it, or iterating based on benchmark results. It includes the helper scripts and references used throughout this README.

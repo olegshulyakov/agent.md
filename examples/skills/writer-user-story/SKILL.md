@@ -18,6 +18,8 @@ Stories capture user intent and define done. Tasks translate that intent into wo
 
 Follow the **3 C's** framework: **Card** (the written story), **Conversation** (the ongoing dialogue that refines scope and details — stories are conversation starters, not specs), **Confirmation** (acceptance criteria that define done).
 
+Use **STAR** as a lightweight quality check when context is available: the situation explains the user's current problem, the task defines the goal, the action appears in the behavior or developer work, and the result is captured in the "so that" clause and acceptance criteria.
+
 ## Information gathering
 
 Extract from the user's input:
@@ -69,6 +71,7 @@ Use this exact structure. Repeat for each story.
 
 - One user value per story — resist the urge to bundle two different user goals
 - The "so that" is the most important part — it defines the WHY and prevents gold-plating
+- Keep stories simple. Split whenever the card needs multiple personas, unrelated outcomes, or more than one sprint-sized goal.
 - Validate each story against **INVEST**:
   - **I**ndependent (self-contained, orderable),
   - **N**egotiable (details emerge through conversation),

@@ -25,7 +25,9 @@ A **router** skill to generate specific document types. Identify user intent, se
 ## Writing Rules (All Specs)
 
 - **Be specific & testable**: Requirements must translate directly to test cases (e.g., "Token expires after 15m").
+- **Keep it simple**: Choose the smallest complete specification shape that resolves the user's decision or handoff need.
 - **Behavioral, not implementational**: Describe what it does, not how it's built.
+- **Use STAR for scenarios**: When examples, use cases, or incident-style context are needed, include situation, task, action, and expected result.
 - **Mandatory Error Paths**: Requirements lacking error conditions are incomplete.
 - **Document Omissions**: Explicitly state what is out of scope.
 - **Mark Inferences**: Flag assumed details with `[assumed]`.

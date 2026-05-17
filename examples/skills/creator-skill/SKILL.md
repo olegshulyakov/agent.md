@@ -36,9 +36,12 @@ If the request spans multiple phases, read the references in workflow order: aut
 ## Skill Authoring Rules
 
 - Keep metadata under 100 tokens and the main instruction body under 5000 tokens.
+- Use KISS when deciding scope: one skill should teach one durable workflow, with extra references only when they reduce the main instruction burden.
 - Put trigger cues in the frontmatter `description`; put routing, exclusions, examples, and detailed procedures in the body or references.
 - Do not create placeholder directories. Add `scripts/`, `references/`, `assets/`, or `evals/` only when the skill actually uses them.
 - Prefer deterministic scripts for repetitive validation, grading, packaging, and report generation.
+- Use STAR for examples and eval prompts so reviewers can see the situation, task, expected action, and result criteria.
+- Use SOLID for code-generation skills and bundled helper scripts: keep responsibilities clear, interfaces small, and dependencies explicit without adding unnecessary layers.
 - Keep skills portable across agents unless the user asks for one specific runtime. Isolate platform-specific behavior in a compatibility section or reference.
 
 ## Bundled Resources
