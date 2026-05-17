@@ -72,8 +72,10 @@ Read capability references when the work touches that concern:
 ## Working Rules
 
 - Inspect the repository before writing code. Reuse its component boundaries, routing conventions, data-fetching layer, styling system, design tokens, test setup, lint rules, and accessibility patterns.
+- Keep the implementation as simple as the workflow allows. Do not introduce new component layers, state stores, providers, or utility abstractions unless they remove real duplication or match established project patterns.
 - Build the actual user-facing workflow, not a decorative placeholder. Prefer complete states: loading, empty, error, success, disabled, optimistic, validation, and permission states when they apply.
 - Keep components cohesive. Put reusable primitives near the existing design system, route-specific composition near routes/pages, and side effects in the project's established data or state layer.
+- Apply SOLID as frontend design guidance, not vocabulary theater: components should have clear responsibilities, props should stay small and explicit, and dependencies should flow through the project's existing hooks, context, loaders, or services.
 - Preserve existing visual language. Do not add a new UI kit, styling library, icon set, state manager, chart library, or form library unless the request or repository already points there.
 - Treat accessibility as implementation work, not a final checklist. Use semantic elements, labels, keyboard navigation, visible focus, reduced-motion behavior, useful alt text, and status announcements where needed.
 - Keep responsive behavior explicit with stable layout constraints. Avoid text overlap, layout shift, viewport-scaled typography, and controls whose size changes when labels or icons appear.

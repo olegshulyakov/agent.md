@@ -96,6 +96,8 @@ Always produce a Markdown file. Use this structure exactly:
 ## Writing guidance
 
 - **Goals first, solutions second.** Resist the urge to specify UI or technical implementation in the requirements.
+- **Keep scope simple.** Prefer the smallest coherent product slice that can prove the goal before expanding into adjacent workflows.
+- **Use STAR for evidence and examples.** Frame user problems with situation, task, action, and result when describing journeys, research notes, or success examples.
 - **Make requirements testable.** "The page loads in under 2 seconds" is better than "the page should be fast."
 - **Scope the out-of-scope.** Explicitly naming non-goals is as valuable as naming goals — it prevents future debate.
 - **Mark inferences.** If you infer a persona, metric, or assumption, add `[assumed]` inline so the user can verify.

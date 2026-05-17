@@ -84,7 +84,9 @@ After reading the language reference, read at most one framework reference when 
 ## Working Rules
 
 - Inspect the repository before writing code. Reuse its architecture, naming, dependency injection, error handling, validation, logging, tests, factories, and migration conventions.
+- Keep the change as simple as the request allows. Prefer the smallest complete route, service, persistence, and test updates over speculative framework work or unused extension points.
 - Prefer small, cohesive changes across route/controller, service/domain logic, persistence, validation, and tests. Do not hide business rules in transport handlers when the existing project has a service layer.
+- Apply SOLID pragmatically: keep handlers thin, give services and domain objects clear responsibilities, keep interfaces narrow, and depend on abstractions only when the project already uses them or the boundary improves testing or integration safety.
 - Treat public API behavior as a contract. Preserve backward compatibility unless the user explicitly asks for a breaking change, and update docs or generated specs when the repo already keeps them in sync.
 - Validate input at the boundary, enforce authorization before side effects, and keep secrets in existing configuration mechanisms or environment variables.
 - Use transactions around multi-write operations. Make idempotency, retries, and concurrency behavior explicit for jobs, webhooks, payments, and external integrations.
